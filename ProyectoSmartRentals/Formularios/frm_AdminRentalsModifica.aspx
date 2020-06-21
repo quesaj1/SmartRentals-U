@@ -1,0 +1,72 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_AdminRentalsModifica.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_AdminRentalsModifica" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
+         <h1 style="text-align: center">Modificar Administrador</h1>
+
+                <asp:HiddenField ID="hdldAdmin" runat="server" />
+
+        <div class="form-row" style="margin-top:5%; margin-bottom:5%">
+            <div class="form-group col-md-6">
+                <!-- Nombre -->
+                <label for="txtCedula">Cedula</label>
+                <asp:TextBox ID="txtCedula" type="text" CssClass="form-control" placeholder="Cédula" runat="server" MaxLength="25"></asp:TextBox>
+            </div>
+              <div class="form-group col-md-6">
+                <!-- Correo -->
+                <label for="txtNombre">Nombre</label>
+                <asp:TextBox ID="txtNombre" type="text" CssClass="form-control" placeholder="Nombre" runat="server" MaxLength="50"></asp:TextBox>
+            </div>
+              <div class="form-group col-md-6">
+                <!-- Correo -->
+                <label for="txtSegundoNombre">Segundo Nombre</label>
+                <asp:TextBox ID="txtSegundoNombre" type="text" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
+            </div>
+              <div class="form-group col-md-6">
+                <!-- Correo -->
+                <label for="txtPrimerApellido">Primer Apellido</label>
+                <asp:TextBox ID="txtPrimerApellido" type="text" CssClass="form-control" placeholder="Primer Apellido" runat="server" MaxLength="50"></asp:TextBox>
+            </div>
+              <div class="form-group col-md-6">
+                <!-- Correo -->
+                <label for="txtSegundoApellido">Segundo Apellido</label>
+                <asp:TextBox ID="txtSegundoApellido" type="text" CssClass="form-control" placeholder="Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
+            </div>
+              <div class="form-group col-md-6">
+                <!-- Correo -->
+                <label for="txtFechaNacimiento">Fecha Nacimiento</label>
+                <asp:TextBox ID="txtFechaNacimiento" type="text" CssClass="form-control" placeholder="Fecha Nacimiento" runat="server" MaxLength="50"></asp:TextBox>
+            </div>
+              <div class="form-group col-md-6">
+                <!-- Correo -->
+                <label for="txtTelefonoCasa">Telefono Casa</label>
+                <asp:TextBox ID="txtTelefonoCasa" type="text" CssClass="form-control" placeholder="Telefono Casa" runat="server" MaxLength="50"></asp:TextBox>
+            </div>
+              <div class="form-group col-md-6">
+                <!-- Correo -->
+                <label for="txtTelefonoCelular">Telefono Celular</label>
+                <asp:TextBox ID="txtTelefonoCelular" type="text" CssClass="form-control" placeholder="Telefono Celular" runat="server" MaxLength="50"></asp:TextBox>
+            </div>
+              <div class="form-group col-md-6">
+                <!-- Correo -->
+                <label for="txtEmail">Email</label>
+                <asp:TextBox ID="txtEmail" type="text" CssClass="form-control" placeholder="Email" runat="server" MaxLength="50"></asp:TextBox>
+            </div>
+
+            
+    </div>
+        
+        <div class="form-group" style="text-align:center">
+            <!-- Submit Button -->
+            <asp:Button ID="btnModificar" runat="server" CssClass="btn btn-primary" Text="Modificar" OnClick="btnAgregar_Click" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnAtras" CssClass="btn btn-danger" runat="server" Text="Atras" OnClick="btnAtras_Click" PostBackUrl="~/Formularios/frm_AdminRentalsLista.aspx" />
+            <br />
+            <br />
+            <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
+        </div>
+        </div>
+
+</asp:Content>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1d58c6cac7224cdba64d4340df2f24d6" Name="Diagram1">
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Admin_Rentals" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Alquiler" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Canton" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Cliente" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Distrito" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Provincia" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.sysdiagram" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Alquiler_C_Canton" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Alquiler_C_Distrito" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Alquiler_C_Provincia" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Canton_C_Provincia" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Distrito_C_Canton" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
