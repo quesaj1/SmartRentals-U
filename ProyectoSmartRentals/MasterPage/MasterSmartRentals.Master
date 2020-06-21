@@ -101,7 +101,7 @@
 					<li><a href="#">Inicio</a></li>
 					<li><a href="../Formularios/frm_AdminRentalsLista.aspx">Admin Rentals</a></li>
 					<li><a href="#">Proveedores</a></li>
-					<li><a href="#">Alquileres</a></li>
+					<li><a href="../Formularios/frm_AlquileresLista.aspx">Alquileres</a></li>
 					<li><a href="#">Contratos</a></li>
 					<li><a href="../Formularios/frm_ReporteAdminRentals.aspx">Reportes</a></li>
 				</ul>
