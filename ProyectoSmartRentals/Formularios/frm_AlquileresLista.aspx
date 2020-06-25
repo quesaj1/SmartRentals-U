@@ -50,13 +50,13 @@
                      <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:BoundField DataField="alq_id_Propiedad" HeaderText="Id de Propiedad" />
-                    <asp:BoundField DataField="alq_UbicacionExacta" HeaderText="Ubicacion" />
+                    <asp:BoundField DataField="alq_UbicacionExacta" HeaderText="Ubicacion Exacta" />
                     <asp:BoundField DataField="alq_TipoPropiedad" HeaderText="Tipo de Propiedad" />
                     <asp:BoundField DataField="alq_Detalles" HeaderText="Detalles" />
                     <asp:BoundField DataField="Id_Distrito" HeaderText="Distrito" />
                     <asp:BoundField DataField="Id_Canton" HeaderText="Canton" />
                     <asp:BoundField DataField="Id_Provincia" HeaderText="Provincia" />
-                    <asp:TemplateField HeaderText="Imagen">
+                    <asp:TemplateField HeaderText="Galería">
                         <ItemTemplate>
                             <asp:Image DataField="alq_ImagenURL" runat="server" CssClass="rounded" ID="ImagenURL" ImageUrl='<%# Eval("alq_ImagenURL") %>' Width="150px" Height="140px" />
                         </ItemTemplate>

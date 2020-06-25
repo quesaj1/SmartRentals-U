@@ -96,7 +96,7 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void btnAtras_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Formularios/frm_AlquileresLista.aspx");
         }
 
         void CargaDatosAlquileres()
@@ -176,6 +176,14 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
+        protected void ShowPopup(object sender, EventArgs e)
+        {
+            string title = "Modificar registro";
+            string body = "Esta seguro de modificar este registro?.  Por favor confirme";
 
+            
+
+            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
+        }
     }
 }

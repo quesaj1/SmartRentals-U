@@ -174,8 +174,24 @@
     <Content Include="Formularios\frm_ClienteElimina.aspx" />
     <Content Include="Formularios\frm_ClienteLista.aspx" />
     <Content Include="Formularios\frm_ClienteModifica.aspx" />
+    <Content Include="Formularios\frm_DudaClienteAgrega.aspx" />
+    <Content Include="Formularios\frm_DudaClienteElimina.aspx" />
+    <Content Include="Formularios\frm_DudaClienteLista.aspx" />
+    <Content Include="Formularios\frm_InicioAdminRentals.aspx" />
+    <Content Include="Formularios\frm_InicioClientes.aspx" />
+    <Content Include="Formularios\frm_InicioProveedores.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\img_AdminRental.png" />
+    <Content Include="Imagenes\img_Alquileres.png" />
+    <Content Include="Imagenes\img_Clientes.jpg" />
+    <Content Include="Imagenes\img_Contratos.png" />
+    <Content Include="Imagenes\img_Desocupar.png" />
+    <Content Include="Imagenes\img_Dudas.png" />
+    <Content Include="Imagenes\img_Proveedores.png" />
+    <Content Include="Imagenes\img_Reportes.png" />
+    <Content Include="Imagenes\img_smartRentals.png" />
+    <Content Include="Imagenes\img_Tiquetes.png" />
     <Content Include="images\about.jpg" />
     <Content Include="images\agent_1.jpg" />
     <Content Include="images\blog.jpg" />
@@ -454,28 +470,24 @@
     </Compile>
     <Compile Include="Formularios\frm_AlquilerAgrega.aspx.cs">
       <DependentUpon>frm_AlquilerAgrega.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_AlquilerAgrega.aspx.designer.cs">
       <DependentUpon>frm_AlquilerAgrega.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_AlquilerElimina.aspx.cs">
       <DependentUpon>frm_AlquilerElimina.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_AlquilerElimina.aspx.designer.cs">
       <DependentUpon>frm_AlquilerElimina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_AlquileresLista.aspx.cs">
       <DependentUpon>frm_AlquileresLista.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_AlquileresLista.aspx.designer.cs">
       <DependentUpon>frm_AlquileresLista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_AlquileresModifica.aspx.cs">
       <DependentUpon>frm_AlquileresModifica.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_AlquileresModifica.aspx.designer.cs">
       <DependentUpon>frm_AlquileresModifica.aspx</DependentUpon>
@@ -507,6 +519,48 @@
     </Compile>
     <Compile Include="Formularios\frm_ClienteModifica.aspx.designer.cs">
       <DependentUpon>frm_ClienteModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteAgrega.aspx.cs">
+      <DependentUpon>frm_DudaClienteAgrega.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteAgrega.aspx.designer.cs">
+      <DependentUpon>frm_DudaClienteAgrega.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteElimina.aspx.cs">
+      <DependentUpon>frm_DudaClienteElimina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteElimina.aspx.designer.cs">
+      <DependentUpon>frm_DudaClienteElimina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteLista.aspx.cs">
+      <DependentUpon>frm_DudaClienteLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteLista.aspx.designer.cs">
+      <DependentUpon>frm_DudaClienteLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioAdminRentals.aspx.cs">
+      <DependentUpon>frm_InicioAdminRentals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioAdminRentals.aspx.designer.cs">
+      <DependentUpon>frm_InicioAdminRentals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioClientes.aspx.cs">
+      <DependentUpon>frm_InicioClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioClientes.aspx.designer.cs">
+      <DependentUpon>frm_InicioClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioProveedores.aspx.cs">
+      <DependentUpon>frm_InicioProveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioProveedores.aspx.designer.cs">
+      <DependentUpon>frm_InicioProveedores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_ReporteAdminRentals.aspx.cs">
       <DependentUpon>frm_ReporteAdminRentals.aspx</DependentUpon>
@@ -627,7 +681,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Imagenes\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
