@@ -17,6 +17,7 @@ namespace ProyectoSmartRentals.Interfaces
          int Id_Distrito,
          int Id_Canton,
          int Id_Provincia,
+         Nullable<bool> alq_Activo,
          string alq_ImagenURL
          );
 
@@ -29,16 +30,31 @@ namespace ProyectoSmartRentals.Interfaces
          int Id_Distrito,
          int Id_Canton,
          int Id_Provincia,
+         Nullable<bool> alq_Activo,
          string alq_ImagenURL
             );
 
-        bool EliminaAlquiler(int alq_id_Propiedad);
+        //bool EliminaAlquiler(int alq_id_Propiedad);
 
         List<sp_RetornaAlquiler_Result>
-                RetornaAlquiler(int alq_id_Propiedad, string alq_tipo_Propiedad);
+                RetornaAlquiler(
+                int alq_id_Propiedad, 
+                string alq_tipo_Propiedad, 
+                int provincia, 
+                bool alq_Activo);
 
         sp_RetornaAlquilerID_Result RetornaAlquilerID
                     (int alq_id_Propiedad);
 
+
+
+      List<sp_RetornaAlquilerDataGrid_Result> RetornarAlquilerDataGrid(
+      bool alq_activo);
+
     }
+
+  
+ 
+   
+
 }

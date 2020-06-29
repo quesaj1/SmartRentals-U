@@ -6,34 +6,34 @@
 
   
 
-    <div style="margin-top: 12%; text-align: center;">
-        <h2>Lista de Alquileres</h2>
+    <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
 
-        <div class="form-row" style="margin: 5%;">
+        <h2 style="text-align:center">Lista de Alquileres</h2>
 
-            <div class="form-group col-md-4" >
+        <div class="form-row" style="margin-top:5%; margin-bottom:5%">
+
+            <div class="form-group col-sm-3" >
 
                 <!-- Id-->
-                <label for="txt_Id">Id de Propiedad</label>
-                 <asp:DropDownList ID="DropDownListId" DataTextField="alq_id_Propiedad" CssClass="form-control"  runat="server" AutoPostBack="True" OnSelectedIndexChanged="IdSeleccion"></asp:DropDownList> 
-            </div> 
+                <label for="txt_Id">Buscar:</label><br />
+               <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaAlquileres')"  runat="server" Height="31px" Width="195px"></asp:TextBox>    
+            </div> &nbsp&nbsp&nbsp&nbsp&nbsp
             
-            <div class="form-group col-md-4">
-                <!-- Propiedad-->
-                <label for="txtTipoPropiedad">Tipo de Propiedad</label>
-            
-
-                <asp:TextBox ID="txtipoPropiedad" type="text" CssClass="form-control" placeholder="Tipo de Propiedad" runat="server" MaxLength="50" ></asp:TextBox>             
+           <div class="form-group col-sm-3" >
+                <!-- Estado -->
+                <label for="txtEstado">Estado</label>
+                  <br/>
+                
+                  <asp:DropDownList ID="DropDownList1" class="custom-select" Font-Size="Small"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                      <asp:ListItem Value="Activo">Activo</asp:ListItem>
+                       <asp:ListItem Value="Activo">Desactivo</asp:ListItem>
+                      </asp:DropDownList> 
             </div>
 
            
-        </div>
+        </div><br>
 
-        <div>
-            <asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar Información" />
-
-            <br />
-            <br />
+        <div style="text-align:center">
 
             <strong>
                 <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_AlquilerAgrega.aspx">Agregar Nuevo Alquiler</asp:HyperLink>
@@ -46,16 +46,16 @@
     <div style="margin-left: 10%">
         <p>
 
-            <asp:GridView ID="grdListaAlquileres" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal">
+            <asp:GridView ID="grdListaAlquileres" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None"  BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnSelectedIndexChanged="grdListaAlquileres_SelectedIndexChanged">
                      <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:BoundField DataField="alq_id_Propiedad" HeaderText="Id de Propiedad" />
                     <asp:BoundField DataField="alq_UbicacionExacta" HeaderText="Ubicacion Exacta" />
                     <asp:BoundField DataField="alq_TipoPropiedad" HeaderText="Tipo de Propiedad" />
                     <asp:BoundField DataField="alq_Detalles" HeaderText="Detalles" />
-                    <asp:BoundField DataField="Id_Distrito" HeaderText="Distrito" />
-                    <asp:BoundField DataField="Id_Canton" HeaderText="Canton" />
-                    <asp:BoundField DataField="Id_Provincia" HeaderText="Provincia" />
+                    <asp:BoundField DataField="Distrito" HeaderText="Distrito" />
+                    <asp:BoundField DataField="Canton" HeaderText="Canton" />
+                    <asp:BoundField DataField="Provincia" HeaderText="Provincia" />
                     <asp:TemplateField HeaderText="Galería">
                         <ItemTemplate>
                             <asp:Image DataField="alq_ImagenURL" runat="server" CssClass="rounded" ID="ImagenURL" ImageUrl='<%# Eval("alq_ImagenURL") %>' Width="150px" Height="140px" />
@@ -83,7 +83,7 @@
             &nbsp
         </p>
     </div>
-
+    <script src="../Scripts/Search.js"></script>
 </asp:Content>
 
 

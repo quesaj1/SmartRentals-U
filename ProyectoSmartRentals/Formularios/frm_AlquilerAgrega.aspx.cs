@@ -79,7 +79,7 @@ namespace ProyectoSmartRentals.Formularios
                             Id_Distrito,
                             Id_Canton,
                             Id_Provincia,
-                            alq_ImagenURL);
+                            alq_ImagenURL, true);
 
 
                         if (AlquilerInsertar)

@@ -58,10 +58,6 @@ namespace ProyectoSmartRentals.Formularios
                     string filePath = Server.MapPath(@"~/Propiedades/" + URL);
                     fupImage.SaveAs(filePath);
 
-
-
-
-
                     try
                     {
 
@@ -73,7 +69,7 @@ namespace ProyectoSmartRentals.Formularios
                         if (oAlquileres.ModificaAlquiler(id_Alquiler, this.txtUbicacionExacta.Text,
                          alq_TipoPropiedad, this.txtDetalles.Text, Convert.ToInt16(this.DropDownListDistrito.Text),
                           Convert.ToInt16(this.DropDownListCanton.Text),
-                          Convert.ToInt16(this.DropDownListProvincia.Text), alq_ImagenURL)
+                          Convert.ToInt16(this.DropDownListProvincia.Text), alq_ImagenURL, true)
                             )
                         {
                             this.lblResultado.Text = "Registro Modificado";
@@ -118,9 +114,7 @@ namespace ProyectoSmartRentals.Formularios
 
 
                 {
-                    
-
-
+                    this.txtID.Text = resultadoSp.alq_id_Propiedad.ToString();
                     this.txtUbicacionExacta.Text = resultadoSp.alq_UbicacionExacta;
                     this.txtTipoPropiedad.Value = resultadoSp.alq_TipoPropiedad;
                     this.txtDetalles.Text = resultadoSp.alq_Detalles;
@@ -176,14 +170,11 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
-        protected void ShowPopup(object sender, EventArgs e)
-        {
-            string title = "Modificar registro";
-            string body = "Esta seguro de modificar este registro?.  Por favor confirme";
-
-            
-
-            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
-        }
+        //protected void ShowPopup(object sender, EventArgs e)
+        //{
+        //    string title = "Modificar registro";
+        //    string body = "Esta seguro de modificar este registro?.  Por favor confirme";
+        //    ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
+        //}
     }
 }

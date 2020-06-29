@@ -66,11 +66,16 @@
         <div class="form-row" style="margin-top: 5%; margin-bottom: 5%">
             <div class="form-group col-md-6">
 
+                <label for="txtID">Id de Alquiler</label><br>
+                <asp:TextBox ID="txtID" runat="server"  ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
+           </div>
+
+                <div class="form-group col-md-6">
                 <!-- Ubicacion -->
                 <label for="txtUbicacionExacta">Ubicacion Exacta</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUbic" runat="server" ControlToValidate="txtUbicacionExacta" ErrorMessage="*Debe ingresar una ubicación*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
 
-                <asp:TextBox ID="txtUbicacionExacta" type="text" CssClass="form-control" placeholder="Ingrese una ubicación" runat="server" MaxLength="30"></asp:TextBox>
+                <asp:TextBox ID="txtUbicacionExacta" type="text" CssClass="form-control" placeholder="Ingrese una ubicación" runat="server" MaxLength="50"></asp:TextBox>
                 <br>
             </div>
             <div class="form-group col-md-6">
@@ -125,13 +130,16 @@
                 <asp:FileUpload ID="fupImage" CssClass="form-control" runat="server" />
                 <br>
             </div>
-        </div>
+       
+         </div>
+      
+
 
         <div class="form-group" style="text-align: center">
             <!-- Submit Button -->
 
 
-             <asp:Button ID="btnShowPopup" runat="server" CssClass="boton_personalizado" Font-Size="Medium" Height="49px" Width="111px" Text="Modificar" OnClick="ShowPopup" />
+             <asp:Button ID="btnShowPopup" runat="server" CssClass="boton_personalizado" Font-Size="Medium" Height="49px" Width="111px" Text="Modificar" OnClick="btnAgregar_Click" />
 
            
             &nbsp;&nbsp;&nbsp;

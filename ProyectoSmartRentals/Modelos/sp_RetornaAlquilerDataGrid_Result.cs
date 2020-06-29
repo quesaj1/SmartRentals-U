@@ -11,15 +11,15 @@ namespace ProyectoSmartRentals.Modelos
 {
     using System;
     
-    public partial class sp_RetornaContrato_Result
+    public partial class sp_RetornaAlquilerDataGrid_Result
     {
-        public int id_ctr_contrato { get; set; }
-        public int fk_cli_cliente { get; set; }
-        public string ctr_numeroContrato { get; set; }
-        public System.DateTime ctr_fechainicio { get; set; }
-        public Nullable<System.DateTime> ctr_fechafinalizacion { get; set; }
-        public decimal ctr_monto { get; set; }
-        public Nullable<bool> ctr_activo { get; set; }
-        public string ctr_file { get; set; }
+        public int alq_id_Propiedad { get; set; }
+        public string alq_UbicacionExacta { get; set; }
+        public string alq_TipoPropiedad { get; set; }
+        public string alq_Detalles { get; set; }
+        public string Provincia { get; set; }
+        public string Canton { get; set; }
+        public string Distrito { get; set; }
+        public string alq_ImagenURL { get; set; }
     }
 }

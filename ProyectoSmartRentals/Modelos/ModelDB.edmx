@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SmartRentalsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SmartRentalsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="C_Admin_Rentals">
           <Key>
             <PropertyRef Name="adr_id_admin" />
@@ -31,7 +31,8 @@
           <Property Name="Id_Distrito" Type="int" Nullable="false" />
           <Property Name="Id_Canton" Type="int" Nullable="false" />
           <Property Name="Id_Provincia" Type="int" Nullable="false" />
-          <Property Name="alq_ImagenURL" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="alq_ImagenURL" Type="varchar" MaxLength="255" />
+          <Property Name="alq_Activo" Type="bit" />
         </EntityType>
         <EntityType Name="C_Canton">
           <Key>
@@ -77,21 +78,6 @@
           <Property Name="Id_Distrito" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" />
           <Property Name="Id_Canton" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="C_DudaCliente">
-          <Key>
-            <PropertyRef Name="ddc_id_Duda" />
-          </Key>
-          <Property Name="ddc_id_Duda" Type="int" Nullable="false" />
-          <Property Name="ddc_Nombre" Type="varchar" MaxLength="50" />
-          <Property Name="ddc_PrimerApellido" Type="varchar" MaxLength="50" />
-          <Property Name="ddc_SegundoApellido" Type="varchar" MaxLength="50" />
-          <Property Name="ddc_Telefono" Type="varchar" MaxLength="50" />
-          <Property Name="ddc_Email" Type="varchar" MaxLength="100" />
-          <Property Name="ddc_Comentario" Type="text" />
-          <Property Name="ddc_FechaHoraApertura" Type="datetime" />
-          <Property Name="cli_Cliente" Type="int" />
-          <Property Name="adr_id_admin" Type="int" />
         </EntityType>
         <EntityType Name="C_Proveedor">
           <Key>
@@ -213,30 +199,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_C_DudaCliente_C_Admin_Rentals">
-          <End Role="C_Admin_Rentals" Type="Self.C_Admin_Rentals" Multiplicity="0..1" />
-          <End Role="C_DudaCliente" Type="Self.C_DudaCliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Admin_Rentals">
-              <PropertyRef Name="adr_id_admin" />
-            </Principal>
-            <Dependent Role="C_DudaCliente">
-              <PropertyRef Name="adr_id_admin" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_C_DudaCliente_C_Cliente">
-          <End Role="C_Cliente" Type="Self.C_Cliente" Multiplicity="0..1" />
-          <End Role="C_DudaCliente" Type="Self.C_DudaCliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Cliente">
-              <PropertyRef Name="cli_Cliente" />
-            </Principal>
-            <Dependent Role="C_DudaCliente">
-              <PropertyRef Name="cli_Cliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_C_Proveedor_C_Canton">
           <End Role="C_Canton" Type="Self.C_Canton" Multiplicity="1" />
           <End Role="C_Proveedor" Type="Self.C_Proveedor" Multiplicity="*" />
@@ -293,9 +255,6 @@
         <Function Name="sp_EliminarAdminRental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id" Type="int" Mode="In" />
         </Function>
-        <Function Name="sp_EliminarAlquiler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="v_id" Type="int" Mode="In" />
-        </Function>
         <Function Name="sp_EliminarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="c_idCliente" Type="int" Mode="In" />
         </Function>
@@ -329,6 +288,7 @@
           <Parameter Name="v_Canton" Type="int" Mode="In" />
           <Parameter Name="v_Provincia" Type="int" Mode="In" />
           <Parameter Name="v_ImagenURL" Type="varchar" Mode="In" />
+          <Parameter Name="v_Activo" Type="bit" Mode="In" />
         </Function>
         <Function Name="sp_InsertarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cli_Cedula" Type="varchar" Mode="In" />
@@ -365,6 +325,17 @@
           <Parameter Name="v_Canton" Type="int" Mode="In" />
           <Parameter Name="v_Provincia" Type="int" Mode="In" />
           <Parameter Name="prv_OtrasSenas" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ModificaAlquiler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_id_Propiedad" Type="int" Mode="In" />
+          <Parameter Name="v_UbicacionExacta" Type="varchar" Mode="In" />
+          <Parameter Name="v_TipoPropiedad" Type="varchar" Mode="In" />
+          <Parameter Name="v_Detalles" Type="varchar" Mode="In" />
+          <Parameter Name="v_Distrito" Type="int" Mode="In" />
+          <Parameter Name="v_Canton" Type="int" Mode="In" />
+          <Parameter Name="v_Provincia" Type="int" Mode="In" />
+          <Parameter Name="v_ImagenURL" Type="varchar" Mode="In" />
+          <Parameter Name="v_Activo" Type="bit" Mode="In" />
         </Function>
         <Function Name="sp_ModificarAdminRental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id_admin" Type="int" Mode="In" />
@@ -446,6 +417,11 @@
         <Function Name="sp_RetornaAlquiler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_alq_id_Propiedad" Type="int" Mode="In" />
           <Parameter Name="v_alq_tipo_Propiedad" Type="varchar" Mode="In" />
+          <Parameter Name="v_Provincia" Type="int" Mode="In" />
+          <Parameter Name="v_Activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaAlquilerDataGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_alq_activo" Type="bit" Mode="In" />
         </Function>
         <Function Name="sp_RetornaAlquilerID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_Propiedad" Type="int" Mode="In" />
@@ -492,7 +468,6 @@
           <EntitySet Name="C_Cliente" EntityType="Self.C_Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="C_Contratos" EntityType="Self.C_Contratos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="C_Distrito" EntityType="Self.C_Distrito" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="C_DudaCliente" EntityType="Self.C_DudaCliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="C_Proveedor" EntityType="Self.C_Proveedor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="C_Provincia" EntityType="Self.C_Provincia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -524,14 +499,6 @@
             <End Role="C_Canton" EntitySet="C_Canton" />
             <End Role="C_Distrito" EntitySet="C_Distrito" />
           </AssociationSet>
-          <AssociationSet Name="FK_C_DudaCliente_C_Admin_Rentals" Association="Self.FK_C_DudaCliente_C_Admin_Rentals">
-            <End Role="C_Admin_Rentals" EntitySet="C_Admin_Rentals" />
-            <End Role="C_DudaCliente" EntitySet="C_DudaCliente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_C_DudaCliente_C_Cliente" Association="Self.FK_C_DudaCliente_C_Cliente">
-            <End Role="C_Cliente" EntitySet="C_Cliente" />
-            <End Role="C_DudaCliente" EntitySet="C_DudaCliente" />
-          </AssociationSet>
           <AssociationSet Name="FK_C_Proveedor_C_Canton" Association="Self.FK_C_Proveedor_C_Canton">
             <End Role="C_Canton" EntitySet="C_Canton" />
             <End Role="C_Proveedor" EntitySet="C_Proveedor" />
@@ -545,7 +512,8 @@
             <End Role="C_Proveedor" EntitySet="C_Proveedor" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SmartRentalsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -563,7 +531,6 @@
           <Property Name="adr_TelefonoCasa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="adr_TelefonoCelular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="adr_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="C_DudaCliente" Relationship="SmartRentalsModel.FK_C_DudaCliente_C_Admin_Rentals" FromRole="C_Admin_Rentals" ToRole="C_DudaCliente" />
         </EntityType>
         <EntityType Name="C_Alquiler">
           <Key>
@@ -576,11 +543,12 @@
           <Property Name="Id_Distrito" Type="Int32" Nullable="false" />
           <Property Name="Id_Canton" Type="Int32" Nullable="false" />
           <Property Name="Id_Provincia" Type="Int32" Nullable="false" />
-          <Property Name="alq_ImagenURL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="alq_ImagenURL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="alq_Activo" Type="Boolean" />
           <NavigationProperty Name="C_Canton" Relationship="Self.FK_C_Alquiler_C_Canton" FromRole="C_Alquiler" ToRole="C_Canton" />
           <NavigationProperty Name="C_Distrito" Relationship="Self.FK_C_Alquiler_C_Distrito" FromRole="C_Alquiler" ToRole="C_Distrito" />
           <NavigationProperty Name="C_Provincia" Relationship="Self.FK_C_Alquiler_C_Provincia" FromRole="C_Alquiler" ToRole="C_Provincia" />
-          <NavigationProperty Name="C_Contratos" Relationship="SmartRentalsModel.FK_C_Contratos_C_Alquiler" FromRole="C_Alquiler" ToRole="C_Contratos" />
+          <NavigationProperty Name="C_Contratos" Relationship="Self.FK_C_Contratos_C_Alquiler" FromRole="C_Alquiler" ToRole="C_Contratos" />
         </EntityType>
         <EntityType Name="C_Canton">
           <Key>
@@ -592,7 +560,7 @@
           <NavigationProperty Name="C_Alquiler" Relationship="Self.FK_C_Alquiler_C_Canton" FromRole="C_Canton" ToRole="C_Alquiler" />
           <NavigationProperty Name="C_Provincia" Relationship="Self.FK_C_Canton_C_Provincia" FromRole="C_Canton" ToRole="C_Provincia" />
           <NavigationProperty Name="C_Distrito" Relationship="Self.FK_C_Distrito_C_Canton" FromRole="C_Canton" ToRole="C_Distrito" />
-          <NavigationProperty Name="C_Proveedor" Relationship="SmartRentalsModel.FK_C_Proveedor_C_Canton" FromRole="C_Canton" ToRole="C_Proveedor" />
+          <NavigationProperty Name="C_Proveedor" Relationship="Self.FK_C_Proveedor_C_Canton" FromRole="C_Canton" ToRole="C_Proveedor" />
         </EntityType>
         <EntityType Name="C_Cliente">
           <Key>
@@ -608,8 +576,23 @@
           <Property Name="cli_TelefonoCasa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cli_TelefonoCelular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cli_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="C_Contratos" Relationship="SmartRentalsModel.FK_C_Contratos_C_Cliente" FromRole="C_Cliente" ToRole="C_Contratos" />
-          <NavigationProperty Name="C_DudaCliente" Relationship="SmartRentalsModel.FK_C_DudaCliente_C_Cliente" FromRole="C_Cliente" ToRole="C_DudaCliente" />
+          <NavigationProperty Name="C_Contratos" Relationship="Self.FK_C_Contratos_C_Cliente" FromRole="C_Cliente" ToRole="C_Contratos" />
+        </EntityType>
+        <EntityType Name="C_Contratos">
+          <Key>
+            <PropertyRef Name="id_ctr_contrato" />
+          </Key>
+          <Property Name="id_ctr_contrato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_cli_cliente" Type="Int32" Nullable="false" />
+          <Property Name="ctr_numeroContrato" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ctr_fechainicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ctr_fechafinalizacion" Type="DateTime" Precision="0" />
+          <Property Name="ctr_monto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ctr_activo" Type="Boolean" />
+          <Property Name="ctr_file" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="fk_alq_id_propiedad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="C_Alquiler" Relationship="Self.FK_C_Contratos_C_Alquiler" FromRole="C_Contratos" ToRole="C_Alquiler" />
+          <NavigationProperty Name="C_Cliente" Relationship="Self.FK_C_Contratos_C_Cliente" FromRole="C_Contratos" ToRole="C_Cliente" />
         </EntityType>
         <EntityType Name="C_Distrito">
           <Key>
@@ -620,7 +603,29 @@
           <Property Name="Id_Canton" Type="Int32" Nullable="false" />
           <NavigationProperty Name="C_Alquiler" Relationship="Self.FK_C_Alquiler_C_Distrito" FromRole="C_Distrito" ToRole="C_Alquiler" />
           <NavigationProperty Name="C_Canton" Relationship="Self.FK_C_Distrito_C_Canton" FromRole="C_Distrito" ToRole="C_Canton" />
-          <NavigationProperty Name="C_Proveedor" Relationship="SmartRentalsModel.FK_C_Proveedor_C_Distrito" FromRole="C_Distrito" ToRole="C_Proveedor" />
+          <NavigationProperty Name="C_Proveedor" Relationship="Self.FK_C_Proveedor_C_Distrito" FromRole="C_Distrito" ToRole="C_Proveedor" />
+        </EntityType>
+        <EntityType Name="C_Proveedor">
+          <Key>
+            <PropertyRef Name="prv_IDProveedor" />
+          </Key>
+          <Property Name="prv_IDProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="prv_NombreVariable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prv_NombreRepresentante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prv_PrimerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prv_SegundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prv_CedulaRepresentante" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="prv_CedulaJuridica" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="prv_Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="prv_Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="prv_TipoProveedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Distrito" Type="Int32" Nullable="false" />
+          <Property Name="Id_Canton" Type="Int32" Nullable="false" />
+          <Property Name="Id_Provincia" Type="Int32" Nullable="false" />
+          <Property Name="prv_OtrasSenas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="C_Canton" Relationship="Self.FK_C_Proveedor_C_Canton" FromRole="C_Proveedor" ToRole="C_Canton" />
+          <NavigationProperty Name="C_Distrito" Relationship="Self.FK_C_Proveedor_C_Distrito" FromRole="C_Proveedor" ToRole="C_Distrito" />
+          <NavigationProperty Name="C_Provincia" Relationship="Self.FK_C_Proveedor_C_Provincia" FromRole="C_Proveedor" ToRole="C_Provincia" />
         </EntityType>
         <EntityType Name="C_Provincia">
           <Key>
@@ -630,7 +635,7 @@
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="C_Alquiler" Relationship="Self.FK_C_Alquiler_C_Provincia" FromRole="C_Provincia" ToRole="C_Alquiler" />
           <NavigationProperty Name="C_Canton" Relationship="Self.FK_C_Canton_C_Provincia" FromRole="C_Provincia" ToRole="C_Canton" />
-          <NavigationProperty Name="C_Proveedor" Relationship="SmartRentalsModel.FK_C_Proveedor_C_Provincia" FromRole="C_Provincia" ToRole="C_Proveedor" />
+          <NavigationProperty Name="C_Proveedor" Relationship="Self.FK_C_Proveedor_C_Provincia" FromRole="C_Provincia" ToRole="C_Proveedor" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -678,6 +683,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_C_Contratos_C_Alquiler">
+          <End Role="C_Alquiler" Type="Self.C_Alquiler" Multiplicity="1" />
+          <End Role="C_Contratos" Type="Self.C_Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_Alquiler">
+              <PropertyRef Name="alq_id_Propiedad" />
+            </Principal>
+            <Dependent Role="C_Contratos">
+              <PropertyRef Name="fk_alq_id_propiedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_C_Canton_C_Provincia">
           <End Role="C_Provincia" Type="Self.C_Provincia" Multiplicity="1" />
           <End Role="C_Canton" Type="Self.C_Canton" Multiplicity="*" />
@@ -702,12 +719,62 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_C_Proveedor_C_Canton">
+          <End Role="C_Canton" Type="Self.C_Canton" Multiplicity="1" />
+          <End Role="C_Proveedor" Type="Self.C_Proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_Canton">
+              <PropertyRef Name="Id_Canton" />
+            </Principal>
+            <Dependent Role="C_Proveedor">
+              <PropertyRef Name="Id_Canton" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_C_Contratos_C_Cliente">
+          <End Role="C_Cliente" Type="Self.C_Cliente" Multiplicity="1" />
+          <End Role="C_Contratos" Type="Self.C_Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_Cliente">
+              <PropertyRef Name="cli_Cliente" />
+            </Principal>
+            <Dependent Role="C_Contratos">
+              <PropertyRef Name="fk_cli_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_C_Proveedor_C_Distrito">
+          <End Role="C_Distrito" Type="Self.C_Distrito" Multiplicity="1" />
+          <End Role="C_Proveedor" Type="Self.C_Proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_Distrito">
+              <PropertyRef Name="Id_Distrito" />
+            </Principal>
+            <Dependent Role="C_Proveedor">
+              <PropertyRef Name="Id_Distrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_C_Proveedor_C_Provincia">
+          <End Role="C_Provincia" Type="Self.C_Provincia" Multiplicity="1" />
+          <End Role="C_Proveedor" Type="Self.C_Proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_Provincia">
+              <PropertyRef Name="Id_Provincia" />
+            </Principal>
+            <Dependent Role="C_Proveedor">
+              <PropertyRef Name="Id_Provincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SmartRentalsEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C_Admin_Rentals" EntityType="Self.C_Admin_Rentals" />
           <EntitySet Name="C_Alquiler" EntityType="Self.C_Alquiler" />
           <EntitySet Name="C_Canton" EntityType="Self.C_Canton" />
           <EntitySet Name="C_Cliente" EntityType="Self.C_Cliente" />
+          <EntitySet Name="C_Contratos" EntityType="Self.C_Contratos" />
           <EntitySet Name="C_Distrito" EntityType="Self.C_Distrito" />
+          <EntitySet Name="C_Proveedor" EntityType="Self.C_Proveedor" />
           <EntitySet Name="C_Provincia" EntityType="Self.C_Provincia" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK_C_Alquiler_C_Canton" Association="Self.FK_C_Alquiler_C_Canton">
@@ -722,6 +789,10 @@
             <End Role="C_Provincia" EntitySet="C_Provincia" />
             <End Role="C_Alquiler" EntitySet="C_Alquiler" />
           </AssociationSet>
+          <AssociationSet Name="FK_C_Contratos_C_Alquiler" Association="Self.FK_C_Contratos_C_Alquiler">
+            <End Role="C_Alquiler" EntitySet="C_Alquiler" />
+            <End Role="C_Contratos" EntitySet="C_Contratos" />
+          </AssociationSet>
           <AssociationSet Name="FK_C_Canton_C_Provincia" Association="Self.FK_C_Canton_C_Provincia">
             <End Role="C_Provincia" EntitySet="C_Provincia" />
             <End Role="C_Canton" EntitySet="C_Canton" />
@@ -729,6 +800,22 @@
           <AssociationSet Name="FK_C_Distrito_C_Canton" Association="Self.FK_C_Distrito_C_Canton">
             <End Role="C_Canton" EntitySet="C_Canton" />
             <End Role="C_Distrito" EntitySet="C_Distrito" />
+          </AssociationSet>
+          <AssociationSet Name="FK_C_Proveedor_C_Canton" Association="Self.FK_C_Proveedor_C_Canton">
+            <End Role="C_Canton" EntitySet="C_Canton" />
+            <End Role="C_Proveedor" EntitySet="C_Proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_C_Contratos_C_Cliente" Association="Self.FK_C_Contratos_C_Cliente">
+            <End Role="C_Cliente" EntitySet="C_Cliente" />
+            <End Role="C_Contratos" EntitySet="C_Contratos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_C_Proveedor_C_Distrito" Association="Self.FK_C_Proveedor_C_Distrito">
+            <End Role="C_Distrito" EntitySet="C_Distrito" />
+            <End Role="C_Proveedor" EntitySet="C_Proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_C_Proveedor_C_Provincia" Association="Self.FK_C_Proveedor_C_Provincia">
+            <End Role="C_Provincia" EntitySet="C_Provincia" />
+            <End Role="C_Proveedor" EntitySet="C_Proveedor" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -747,13 +834,13 @@
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_EliminarAdminRental">
-          <Parameter Name="v_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_EliminarAlquiler">
-          <Parameter Name="v_id" Mode="In" Type="Int32" />
+            <Parameter Name="v_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_EliminarCliente">
-          <Parameter Name="c_idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="c_idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_EliminarProveedor">
+            <Parameter Name="v_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SmartRentalsModel.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -782,6 +869,7 @@
             <Parameter Name="v_Canton" Mode="In" Type="Int32" />
             <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
             <Parameter Name="v_ImagenURL" Mode="In" Type="String" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_InsertarCliente">
             <Parameter Name="cli_Cedula" Mode="In" Type="String" />
@@ -793,6 +881,42 @@
             <Parameter Name="cli_TelefonoCasa" Mode="In" Type="String" />
             <Parameter Name="cli_TelefonoCelular" Mode="In" Type="String" />
             <Parameter Name="cli_Email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertarContrato">
+            <Parameter Name="v_fk_cli_cliente" Mode="In" Type="Int32" />
+            <Parameter Name="v_ctr_numero" Mode="In" Type="String" />
+            <Parameter Name="v_ctr_fechainicio" Mode="In" Type="DateTime" />
+            <Parameter Name="v_ctr_fechafinalizacion" Mode="In" Type="DateTime" />
+            <Parameter Name="v_ctr_monto" Mode="In" Type="Decimal" />
+            <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
+            <Parameter Name="v_ctr_file" Mode="In" Type="String" />
+            <Parameter Name="v_fk_alq_id_propiedad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertarProveedor">
+            <Parameter Name="prv_NombreVariable" Mode="In" Type="String" />
+            <Parameter Name="prv_NombreRepresentante" Mode="In" Type="String" />
+            <Parameter Name="prv_PrimerApellido" Mode="In" Type="String" />
+            <Parameter Name="prv_SegundoApellido" Mode="In" Type="String" />
+            <Parameter Name="prv_CedulaRepresentante" Mode="In" Type="String" />
+            <Parameter Name="prv_CedulaJuridica" Mode="In" Type="String" />
+            <Parameter Name="prv_Telefono" Mode="In" Type="String" />
+            <Parameter Name="prv_Email" Mode="In" Type="String" />
+            <Parameter Name="prv_TipoProveedor" Mode="In" Type="String" />
+            <Parameter Name="v_Distrito" Mode="In" Type="Int32" />
+            <Parameter Name="v_Canton" Mode="In" Type="Int32" />
+            <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
+            <Parameter Name="prv_OtrasSenas" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificaAlquiler">
+            <Parameter Name="v_id_Propiedad" Mode="In" Type="Int32" />
+            <Parameter Name="v_UbicacionExacta" Mode="In" Type="String" />
+            <Parameter Name="v_TipoPropiedad" Mode="In" Type="String" />
+            <Parameter Name="v_Detalles" Mode="In" Type="String" />
+            <Parameter Name="v_Distrito" Mode="In" Type="Int32" />
+            <Parameter Name="v_Canton" Mode="In" Type="Int32" />
+            <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
+            <Parameter Name="v_ImagenURL" Mode="In" Type="String" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_ModificarAdminRental">
             <Parameter Name="v_id_admin" Mode="In" Type="Int32" />
@@ -828,102 +952,6 @@
             <Parameter Name="cli_TelefonoCelular" Mode="In" Type="String" />
             <Parameter Name="cli_Email" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaAdminRental" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRental_Result)">
-            <Parameter Name="v_cedula" Mode="In" Type="String" />
-            <Parameter Name="v_nombre" Mode="In" Type="String" />
-            <Parameter Name="v_segundonombre" Mode="In" Type="String" />
-            <Parameter Name="v_apellido" Mode="In" Type="String" />
-            <Parameter Name="v_segundoapellido" Mode="In" Type="String" />
-            <Parameter Name="v_email" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaAdminRentalID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRentalID_Result)">
-          <Parameter Name="id_admin" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaAlquiler" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquiler_Result)">
-            <Parameter Name="v_alq_id_Propiedad" Mode="In" Type="Int32" />
-            <Parameter Name="v_alq_tipo_Propiedad" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaAlquilerID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquilerID_Result)">
-          <Parameter Name="id_Propiedad" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaCliente" ReturnType="Collection(SmartRentalsModel.sp_RetornaCliente_Result)">
-            <Parameter Name="cli_Cedula" Mode="In" Type="String" />
-            <Parameter Name="cli_Nombre" Mode="In" Type="String" />
-            <Parameter Name="cli_SegundoNombre" Mode="In" Type="String" />
-            <Parameter Name="cli_PrimerApellido" Mode="In" Type="String" />
-            <Parameter Name="cli_SegundoApellido" Mode="In" Type="String" />
-            <Parameter Name="cli_TelefonoCasa" Mode="In" Type="String" />
-            <Parameter Name="cli_TelefonoCelular" Mode="In" Type="String" />
-            <Parameter Name="cli_Email" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaClienteID" ReturnType="Collection(SmartRentalsModel.sp_RetornaClienteID_Result)">
-          <Parameter Name="id_IDCliente" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="C_Contratos" EntityType="SmartRentalsModel.C_Contratos" />
-          <EntitySet Name="C_DudaCliente" EntityType="SmartRentalsModel.C_DudaCliente" />
-          <EntitySet Name="C_Proveedor" EntityType="SmartRentalsModel.C_Proveedor" />
-          <AssociationSet Name="FK_C_DudaCliente_C_Admin_Rentals" Association="SmartRentalsModel.FK_C_DudaCliente_C_Admin_Rentals">
-            <End Role="C_Admin_Rentals" EntitySet="C_Admin_Rentals" />
-            <End Role="C_DudaCliente" EntitySet="C_DudaCliente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_C_Contratos_C_Alquiler" Association="SmartRentalsModel.FK_C_Contratos_C_Alquiler">
-            <End Role="C_Alquiler" EntitySet="C_Alquiler" />
-            <End Role="C_Contratos" EntitySet="C_Contratos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_C_Proveedor_C_Canton" Association="SmartRentalsModel.FK_C_Proveedor_C_Canton">
-            <End Role="C_Canton" EntitySet="C_Canton" />
-            <End Role="C_Proveedor" EntitySet="C_Proveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK_C_Contratos_C_Cliente" Association="SmartRentalsModel.FK_C_Contratos_C_Cliente">
-            <End Role="C_Cliente" EntitySet="C_Cliente" />
-            <End Role="C_Contratos" EntitySet="C_Contratos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_C_DudaCliente_C_Cliente" Association="SmartRentalsModel.FK_C_DudaCliente_C_Cliente">
-            <End Role="C_Cliente" EntitySet="C_Cliente" />
-            <End Role="C_DudaCliente" EntitySet="C_DudaCliente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_C_Proveedor_C_Distrito" Association="SmartRentalsModel.FK_C_Proveedor_C_Distrito">
-            <End Role="C_Distrito" EntitySet="C_Distrito" />
-            <End Role="C_Proveedor" EntitySet="C_Proveedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK_C_Proveedor_C_Provincia" Association="SmartRentalsModel.FK_C_Proveedor_C_Provincia">
-            <End Role="C_Provincia" EntitySet="C_Provincia" />
-            <End Role="C_Proveedor" EntitySet="C_Proveedor" />
-          </AssociationSet>
-          <FunctionImport Name="sp_EliminarProveedor">
-            <Parameter Name="v_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_InsertarContrato">
-            <Parameter Name="v_fk_cli_cliente" Mode="In" Type="Int32" />
-            <Parameter Name="v_ctr_numero" Mode="In" Type="String" />
-            <Parameter Name="v_ctr_fechainicio" Mode="In" Type="DateTime" />
-            <Parameter Name="v_ctr_fechafinalizacion" Mode="In" Type="DateTime" />
-            <Parameter Name="v_ctr_monto" Mode="In" Type="Decimal" />
-            <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
-            <Parameter Name="v_ctr_file" Mode="In" Type="String" />
-            <Parameter Name="v_fk_alq_id_propiedad" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_InsertarProveedor">
-            <Parameter Name="prv_NombreVariable" Mode="In" Type="String" />
-            <Parameter Name="prv_NombreRepresentante" Mode="In" Type="String" />
-            <Parameter Name="prv_PrimerApellido" Mode="In" Type="String" />
-            <Parameter Name="prv_SegundoApellido" Mode="In" Type="String" />
-            <Parameter Name="prv_CedulaRepresentante" Mode="In" Type="String" />
-            <Parameter Name="prv_CedulaJuridica" Mode="In" Type="String" />
-            <Parameter Name="prv_Telefono" Mode="In" Type="String" />
-            <Parameter Name="prv_Email" Mode="In" Type="String" />
-            <Parameter Name="prv_TipoProveedor" Mode="In" Type="String" />
-            <Parameter Name="v_Distrito" Mode="In" Type="Int32" />
-            <Parameter Name="v_Canton" Mode="In" Type="Int32" />
-            <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
-            <Parameter Name="prv_OtrasSenas" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="sp_ModificarContrato">
             <Parameter Name="v_id_ctr_contrato" Mode="In" Type="Int32" />
             <Parameter Name="v_fk_cli_cliente" Mode="In" Type="Int32" />
@@ -951,6 +979,47 @@
             <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
             <Parameter Name="prv_OtrasSenas" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAdminRental" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRental_Result)">
+            <Parameter Name="v_cedula" Mode="In" Type="String" />
+            <Parameter Name="v_nombre" Mode="In" Type="String" />
+            <Parameter Name="v_segundonombre" Mode="In" Type="String" />
+            <Parameter Name="v_apellido" Mode="In" Type="String" />
+            <Parameter Name="v_segundoapellido" Mode="In" Type="String" />
+            <Parameter Name="v_email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAdminRentalID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRentalID_Result)">
+            <Parameter Name="id_admin" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAlquiler" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquiler_Result)">
+            <Parameter Name="v_alq_id_Propiedad" Mode="In" Type="Int32" />
+            <Parameter Name="v_alq_tipo_Propiedad" Mode="In" Type="String" />
+            <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAlquilerDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquilerDataGrid_Result)">
+            <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAlquilerID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquilerID_Result)">
+            <Parameter Name="id_Propiedad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaCliente" ReturnType="Collection(SmartRentalsModel.sp_RetornaCliente_Result)">
+            <Parameter Name="cli_Cedula" Mode="In" Type="String" />
+            <Parameter Name="cli_Nombre" Mode="In" Type="String" />
+            <Parameter Name="cli_SegundoNombre" Mode="In" Type="String" />
+            <Parameter Name="cli_PrimerApellido" Mode="In" Type="String" />
+            <Parameter Name="cli_SegundoApellido" Mode="In" Type="String" />
+            <Parameter Name="cli_TelefonoCasa" Mode="In" Type="String" />
+            <Parameter Name="cli_TelefonoCelular" Mode="In" Type="String" />
+            <Parameter Name="cli_Email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaClienteID" ReturnType="Collection(SmartRentalsModel.sp_RetornaClienteID_Result)">
+            <Parameter Name="id_IDCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="sp_RetornaContrato" ReturnType="Collection(SmartRentalsModel.sp_RetornaContrato_Result)">
             <Parameter Name="v_id_ctr_contrato" Mode="In" Type="Int32" />
             <Parameter Name="v_fk_cli_cliente" Mode="In" Type="Int32" />
@@ -972,6 +1041,7 @@
             <Parameter Name="prv_CedulaJuridica" Mode="In" Type="String" />
             <Parameter Name="prv_Email" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1016,7 +1086,18 @@
           <Property Type="Int32" Name="Id_Distrito" Nullable="false" />
           <Property Type="Int32" Name="Id_Canton" Nullable="false" />
           <Property Type="Int32" Name="Id_Provincia" Nullable="false" />
-          <Property Type="String" Name="alq_ImagenURL" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="alq_ImagenURL" Nullable="true" MaxLength="255" />
+          <Property Type="Boolean" Name="alq_Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaAlquilerDataGrid_Result">
+          <Property Type="Int32" Name="alq_id_Propiedad" Nullable="false" />
+          <Property Type="String" Name="alq_UbicacionExacta" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="alq_TipoPropiedad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="alq_Detalles" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Provincia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Canton" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="alq_ImagenURL" Nullable="true" MaxLength="255" />
         </ComplexType>
         <ComplexType Name="sp_RetornaAlquilerID_Result">
           <Property Type="Int32" Name="alq_id_Propiedad" Nullable="false" />
@@ -1026,7 +1107,8 @@
           <Property Type="Int32" Name="Id_Distrito" Nullable="false" />
           <Property Type="Int32" Name="Id_Canton" Nullable="false" />
           <Property Type="Int32" Name="Id_Provincia" Nullable="false" />
-          <Property Type="String" Name="alq_ImagenURL" Nullable="false" MaxLength="250" />
+          <Property Type="Boolean" Name="alq_Activo" Nullable="true" />
+          <Property Type="String" Name="alq_ImagenURL" Nullable="true" MaxLength="255" />
         </ComplexType>
         <ComplexType Name="sp_RetornaCliente_Result">
           <Property Type="Int32" Name="cli_Cliente" Nullable="false" />
@@ -1052,145 +1134,6 @@
           <Property Type="String" Name="cli_TelefonoCelular" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="cli_Email" Nullable="true" MaxLength="50" />
         </ComplexType>
-        <EntityType Name="C_Contratos">
-          <Key>
-            <PropertyRef Name="id_ctr_contrato" />
-          </Key>
-          <Property Name="id_ctr_contrato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fk_cli_cliente" Type="Int32" Nullable="false" />
-          <Property Name="ctr_numeroContrato" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ctr_fechainicio" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ctr_fechafinalizacion" Type="DateTime" Precision="0" />
-          <Property Name="ctr_monto" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="ctr_activo" Type="Boolean" />
-          <Property Name="ctr_file" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="fk_alq_id_propiedad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="C_Alquiler" Relationship="SmartRentalsModel.FK_C_Contratos_C_Alquiler" FromRole="C_Contratos" ToRole="C_Alquiler" />
-          <NavigationProperty Name="C_Cliente" Relationship="SmartRentalsModel.FK_C_Contratos_C_Cliente" FromRole="C_Contratos" ToRole="C_Cliente" />
-        </EntityType>
-        <EntityType Name="C_DudaCliente">
-          <Key>
-            <PropertyRef Name="ddc_id_Duda" />
-          </Key>
-          <Property Name="ddc_id_Duda" Type="Int32" Nullable="false" />
-          <Property Name="ddc_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ddc_PrimerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ddc_SegundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ddc_Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ddc_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ddc_Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ddc_FechaHoraApertura" Type="DateTime" Precision="3" />
-          <Property Name="cli_Cliente" Type="Int32" />
-          <Property Name="adr_id_admin" Type="Int32" />
-          <NavigationProperty Name="C_Admin_Rentals" Relationship="SmartRentalsModel.FK_C_DudaCliente_C_Admin_Rentals" FromRole="C_DudaCliente" ToRole="C_Admin_Rentals" />
-          <NavigationProperty Name="C_Cliente" Relationship="SmartRentalsModel.FK_C_DudaCliente_C_Cliente" FromRole="C_DudaCliente" ToRole="C_Cliente" />
-        </EntityType>
-        <EntityType Name="C_Proveedor">
-          <Key>
-            <PropertyRef Name="prv_IDProveedor" />
-          </Key>
-          <Property Name="prv_IDProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="prv_NombreVariable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="prv_NombreRepresentante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="prv_PrimerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="prv_SegundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="prv_CedulaRepresentante" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="prv_CedulaJuridica" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="prv_Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="prv_Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="prv_TipoProveedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Id_Distrito" Type="Int32" Nullable="false" />
-          <Property Name="Id_Canton" Type="Int32" Nullable="false" />
-          <Property Name="Id_Provincia" Type="Int32" Nullable="false" />
-          <Property Name="prv_OtrasSenas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="C_Canton" Relationship="SmartRentalsModel.FK_C_Proveedor_C_Canton" FromRole="C_Proveedor" ToRole="C_Canton" />
-          <NavigationProperty Name="C_Distrito" Relationship="SmartRentalsModel.FK_C_Proveedor_C_Distrito" FromRole="C_Proveedor" ToRole="C_Distrito" />
-          <NavigationProperty Name="C_Provincia" Relationship="SmartRentalsModel.FK_C_Proveedor_C_Provincia" FromRole="C_Proveedor" ToRole="C_Provincia" />
-        </EntityType>
-        <Association Name="FK_C_DudaCliente_C_Admin_Rentals">
-          <End Type="SmartRentalsModel.C_Admin_Rentals" Role="C_Admin_Rentals" Multiplicity="0..1" />
-          <End Type="SmartRentalsModel.C_DudaCliente" Role="C_DudaCliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Admin_Rentals">
-              <PropertyRef Name="adr_id_admin" />
-            </Principal>
-            <Dependent Role="C_DudaCliente">
-              <PropertyRef Name="adr_id_admin" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_C_Contratos_C_Alquiler">
-          <End Type="SmartRentalsModel.C_Alquiler" Role="C_Alquiler" Multiplicity="1" />
-          <End Type="SmartRentalsModel.C_Contratos" Role="C_Contratos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Alquiler">
-              <PropertyRef Name="alq_id_Propiedad" />
-            </Principal>
-            <Dependent Role="C_Contratos">
-              <PropertyRef Name="fk_alq_id_propiedad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_C_Proveedor_C_Canton">
-          <End Type="SmartRentalsModel.C_Canton" Role="C_Canton" Multiplicity="1" />
-          <End Type="SmartRentalsModel.C_Proveedor" Role="C_Proveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Canton">
-              <PropertyRef Name="Id_Canton" />
-            </Principal>
-            <Dependent Role="C_Proveedor">
-              <PropertyRef Name="Id_Canton" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_C_Contratos_C_Cliente">
-          <End Type="SmartRentalsModel.C_Cliente" Role="C_Cliente" Multiplicity="1" />
-          <End Type="SmartRentalsModel.C_Contratos" Role="C_Contratos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Cliente">
-              <PropertyRef Name="cli_Cliente" />
-            </Principal>
-            <Dependent Role="C_Contratos">
-              <PropertyRef Name="fk_cli_cliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_C_DudaCliente_C_Cliente">
-          <End Type="SmartRentalsModel.C_Cliente" Role="C_Cliente" Multiplicity="0..1" />
-          <End Type="SmartRentalsModel.C_DudaCliente" Role="C_DudaCliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Cliente">
-              <PropertyRef Name="cli_Cliente" />
-            </Principal>
-            <Dependent Role="C_DudaCliente">
-              <PropertyRef Name="cli_Cliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_C_Proveedor_C_Distrito">
-          <End Type="SmartRentalsModel.C_Distrito" Role="C_Distrito" Multiplicity="1" />
-          <End Type="SmartRentalsModel.C_Proveedor" Role="C_Proveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Distrito">
-              <PropertyRef Name="Id_Distrito" />
-            </Principal>
-            <Dependent Role="C_Proveedor">
-              <PropertyRef Name="Id_Distrito" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_C_Proveedor_C_Provincia">
-          <End Type="SmartRentalsModel.C_Provincia" Role="C_Provincia" Multiplicity="1" />
-          <End Type="SmartRentalsModel.C_Proveedor" Role="C_Proveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Provincia">
-              <PropertyRef Name="Id_Provincia" />
-            </Principal>
-            <Dependent Role="C_Proveedor">
-              <PropertyRef Name="Id_Provincia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="sp_RetornaContrato_Result">
           <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
           <Property Type="Int32" Name="fk_cli_cliente" Nullable="false" />
@@ -1285,6 +1228,7 @@
                 <ScalarProperty Name="Id_Canton" ColumnName="Id_Canton" />
                 <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
                 <ScalarProperty Name="alq_ImagenURL" ColumnName="alq_ImagenURL" />
+                <ScalarProperty Name="alq_Activo" ColumnName="alq_Activo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1313,12 +1257,47 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="C_Contratos">
+            <EntityTypeMapping TypeName="SmartRentalsModel.C_Contratos">
+              <MappingFragment StoreEntitySet="C_Contratos">
+                <ScalarProperty Name="id_ctr_contrato" ColumnName="id_ctr_contrato" />
+                <ScalarProperty Name="fk_cli_cliente" ColumnName="fk_cli_cliente" />
+                <ScalarProperty Name="ctr_numeroContrato" ColumnName="ctr_numeroContrato" />
+                <ScalarProperty Name="ctr_fechainicio" ColumnName="ctr_fechainicio" />
+                <ScalarProperty Name="ctr_fechafinalizacion" ColumnName="ctr_fechafinalizacion" />
+                <ScalarProperty Name="ctr_monto" ColumnName="ctr_monto" />
+                <ScalarProperty Name="ctr_activo" ColumnName="ctr_activo" />
+                <ScalarProperty Name="ctr_file" ColumnName="ctr_file" />
+                <ScalarProperty Name="fk_alq_id_propiedad" ColumnName="fk_alq_id_propiedad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="C_Distrito">
             <EntityTypeMapping TypeName="SmartRentalsModel.C_Distrito">
               <MappingFragment StoreEntitySet="C_Distrito">
                 <ScalarProperty Name="Id_Distrito" ColumnName="Id_Distrito" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id_Canton" ColumnName="Id_Canton" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_Proveedor">
+            <EntityTypeMapping TypeName="SmartRentalsModel.C_Proveedor">
+              <MappingFragment StoreEntitySet="C_Proveedor">
+                <ScalarProperty Name="prv_IDProveedor" ColumnName="prv_IDProveedor" />
+                <ScalarProperty Name="prv_NombreVariable" ColumnName="prv_NombreVariable" />
+                <ScalarProperty Name="prv_NombreRepresentante" ColumnName="prv_NombreRepresentante" />
+                <ScalarProperty Name="prv_PrimerApellido" ColumnName="prv_PrimerApellido" />
+                <ScalarProperty Name="prv_SegundoApellido" ColumnName="prv_SegundoApellido" />
+                <ScalarProperty Name="prv_CedulaRepresentante" ColumnName="prv_CedulaRepresentante" />
+                <ScalarProperty Name="prv_CedulaJuridica" ColumnName="prv_CedulaJuridica" />
+                <ScalarProperty Name="prv_Telefono" ColumnName="prv_Telefono" />
+                <ScalarProperty Name="prv_Email" ColumnName="prv_Email" />
+                <ScalarProperty Name="prv_TipoProveedor" ColumnName="prv_TipoProveedor" />
+                <ScalarProperty Name="Id_Distrito" ColumnName="Id_Distrito" />
+                <ScalarProperty Name="Id_Canton" ColumnName="Id_Canton" />
+                <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
+                <ScalarProperty Name="prv_OtrasSenas" ColumnName="prv_OtrasSenas" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1345,8 +1324,8 @@
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="SmartRentalsModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="SmartRentalsModel.Store.sp_dropdiagram" />
           <FunctionImportMapping FunctionImportName="sp_EliminarAdminRental" FunctionName="SmartRentalsModel.Store.sp_EliminarAdminRental" />
-          <FunctionImportMapping FunctionImportName="sp_EliminarAlquiler" FunctionName="SmartRentalsModel.Store.sp_EliminarAlquiler" />
           <FunctionImportMapping FunctionImportName="sp_EliminarCliente" FunctionName="SmartRentalsModel.Store.sp_EliminarCliente" />
+          <FunctionImportMapping FunctionImportName="sp_EliminarProveedor" FunctionName="SmartRentalsModel.Store.sp_EliminarProveedor" />
           <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="SmartRentalsModel.Store.sp_helpdiagramdefinition">
             <ResultMapping>
               <ComplexTypeMapping TypeName="SmartRentalsModel.sp_helpdiagramdefinition_Result">
@@ -1369,9 +1348,14 @@
           <FunctionImportMapping FunctionImportName="sp_InsertarAdminRental" FunctionName="SmartRentalsModel.Store.sp_InsertarAdminRental" />
           <FunctionImportMapping FunctionImportName="sp_InsertarAlquiler" FunctionName="SmartRentalsModel.Store.sp_InsertarAlquiler" />
           <FunctionImportMapping FunctionImportName="sp_InsertarCliente" FunctionName="SmartRentalsModel.Store.sp_InsertarCliente" />
+          <FunctionImportMapping FunctionImportName="sp_InsertarContrato" FunctionName="SmartRentalsModel.Store.sp_InsertarContrato" />
+          <FunctionImportMapping FunctionImportName="sp_InsertarProveedor" FunctionName="SmartRentalsModel.Store.sp_InsertarProveedor" />
+          <FunctionImportMapping FunctionImportName="sp_ModificaAlquiler" FunctionName="SmartRentalsModel.Store.sp_ModificaAlquiler" />
           <FunctionImportMapping FunctionImportName="sp_ModificarAdminRental" FunctionName="SmartRentalsModel.Store.sp_ModificarAdminRental" />
           <FunctionImportMapping FunctionImportName="sp_ModificarAlquiler" FunctionName="SmartRentalsModel.Store.sp_ModificarAlquiler" />
           <FunctionImportMapping FunctionImportName="sp_ModificarCliente" FunctionName="SmartRentalsModel.Store.sp_ModificarCliente" />
+          <FunctionImportMapping FunctionImportName="sp_ModificarContrato" FunctionName="SmartRentalsModel.Store.sp_ModificarContrato" />
+          <FunctionImportMapping FunctionImportName="sp_ModificarProveedor" FunctionName="SmartRentalsModel.Store.sp_ModificarProveedor" />
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SmartRentalsModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_RetornaAdminRental" FunctionName="SmartRentalsModel.Store.sp_RetornaAdminRental">
             <ResultMapping>
@@ -1416,6 +1400,21 @@
                 <ScalarProperty Name="Id_Canton" ColumnName="Id_Canton" />
                 <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
                 <ScalarProperty Name="alq_ImagenURL" ColumnName="alq_ImagenURL" />
+                <ScalarProperty Name="alq_Activo" ColumnName="alq_Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaAlquilerDataGrid" FunctionName="SmartRentalsModel.Store.sp_RetornaAlquilerDataGrid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaAlquilerDataGrid_Result">
+                <ScalarProperty Name="alq_id_Propiedad" ColumnName="alq_id_Propiedad" />
+                <ScalarProperty Name="alq_UbicacionExacta" ColumnName="alq_UbicacionExacta" />
+                <ScalarProperty Name="alq_TipoPropiedad" ColumnName="alq_TipoPropiedad" />
+                <ScalarProperty Name="alq_Detalles" ColumnName="alq_Detalles" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Canton" ColumnName="Canton" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+                <ScalarProperty Name="alq_ImagenURL" ColumnName="alq_ImagenURL" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1429,6 +1428,7 @@
                 <ScalarProperty Name="Id_Distrito" ColumnName="Id_Distrito" />
                 <ScalarProperty Name="Id_Canton" ColumnName="Id_Canton" />
                 <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
+                <ScalarProperty Name="alq_Activo" ColumnName="alq_Activo" />
                 <ScalarProperty Name="alq_ImagenURL" ColumnName="alq_ImagenURL" />
               </ComplexTypeMapping>
             </ResultMapping>
@@ -1465,63 +1465,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SmartRentalsModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="C_Contratos">
-            <EntityTypeMapping TypeName="SmartRentalsModel.C_Contratos">
-              <MappingFragment StoreEntitySet="C_Contratos">
-                <ScalarProperty Name="fk_alq_id_propiedad" ColumnName="fk_alq_id_propiedad" />
-                <ScalarProperty Name="ctr_file" ColumnName="ctr_file" />
-                <ScalarProperty Name="ctr_activo" ColumnName="ctr_activo" />
-                <ScalarProperty Name="ctr_monto" ColumnName="ctr_monto" />
-                <ScalarProperty Name="ctr_fechafinalizacion" ColumnName="ctr_fechafinalizacion" />
-                <ScalarProperty Name="ctr_fechainicio" ColumnName="ctr_fechainicio" />
-                <ScalarProperty Name="ctr_numeroContrato" ColumnName="ctr_numeroContrato" />
-                <ScalarProperty Name="fk_cli_cliente" ColumnName="fk_cli_cliente" />
-                <ScalarProperty Name="id_ctr_contrato" ColumnName="id_ctr_contrato" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="C_DudaCliente">
-            <EntityTypeMapping TypeName="SmartRentalsModel.C_DudaCliente">
-              <MappingFragment StoreEntitySet="C_DudaCliente">
-                <ScalarProperty Name="adr_id_admin" ColumnName="adr_id_admin" />
-                <ScalarProperty Name="cli_Cliente" ColumnName="cli_Cliente" />
-                <ScalarProperty Name="ddc_FechaHoraApertura" ColumnName="ddc_FechaHoraApertura" />
-                <ScalarProperty Name="ddc_Comentario" ColumnName="ddc_Comentario" />
-                <ScalarProperty Name="ddc_Email" ColumnName="ddc_Email" />
-                <ScalarProperty Name="ddc_Telefono" ColumnName="ddc_Telefono" />
-                <ScalarProperty Name="ddc_SegundoApellido" ColumnName="ddc_SegundoApellido" />
-                <ScalarProperty Name="ddc_PrimerApellido" ColumnName="ddc_PrimerApellido" />
-                <ScalarProperty Name="ddc_Nombre" ColumnName="ddc_Nombre" />
-                <ScalarProperty Name="ddc_id_Duda" ColumnName="ddc_id_Duda" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="C_Proveedor">
-            <EntityTypeMapping TypeName="SmartRentalsModel.C_Proveedor">
-              <MappingFragment StoreEntitySet="C_Proveedor">
-                <ScalarProperty Name="prv_OtrasSenas" ColumnName="prv_OtrasSenas" />
-                <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
-                <ScalarProperty Name="Id_Canton" ColumnName="Id_Canton" />
-                <ScalarProperty Name="Id_Distrito" ColumnName="Id_Distrito" />
-                <ScalarProperty Name="prv_TipoProveedor" ColumnName="prv_TipoProveedor" />
-                <ScalarProperty Name="prv_Email" ColumnName="prv_Email" />
-                <ScalarProperty Name="prv_Telefono" ColumnName="prv_Telefono" />
-                <ScalarProperty Name="prv_CedulaJuridica" ColumnName="prv_CedulaJuridica" />
-                <ScalarProperty Name="prv_CedulaRepresentante" ColumnName="prv_CedulaRepresentante" />
-                <ScalarProperty Name="prv_SegundoApellido" ColumnName="prv_SegundoApellido" />
-                <ScalarProperty Name="prv_PrimerApellido" ColumnName="prv_PrimerApellido" />
-                <ScalarProperty Name="prv_NombreRepresentante" ColumnName="prv_NombreRepresentante" />
-                <ScalarProperty Name="prv_NombreVariable" ColumnName="prv_NombreVariable" />
-                <ScalarProperty Name="prv_IDProveedor" ColumnName="prv_IDProveedor" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_EliminarProveedor" FunctionName="SmartRentalsModel.Store.sp_EliminarProveedor" />
-          <FunctionImportMapping FunctionImportName="sp_InsertarContrato" FunctionName="SmartRentalsModel.Store.sp_InsertarContrato" />
-          <FunctionImportMapping FunctionImportName="sp_InsertarProveedor" FunctionName="SmartRentalsModel.Store.sp_InsertarProveedor" />
-          <FunctionImportMapping FunctionImportName="sp_ModificarContrato" FunctionName="SmartRentalsModel.Store.sp_ModificarContrato" />
-          <FunctionImportMapping FunctionImportName="sp_ModificarProveedor" FunctionName="SmartRentalsModel.Store.sp_ModificarProveedor" />
           <FunctionImportMapping FunctionImportName="sp_RetornaContrato" FunctionName="SmartRentalsModel.Store.sp_RetornaContrato">
             <ResultMapping>
               <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaContrato_Result">
@@ -1603,6 +1546,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SmartRentalsModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1620,7 +1564,7 @@
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="true" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

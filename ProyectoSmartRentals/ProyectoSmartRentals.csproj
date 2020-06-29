@@ -178,6 +178,10 @@
     <Content Include="Formularios\frm_ContratoElimina.aspx" />
     <Content Include="Formularios\frm_contratoLista.aspx" />
     <Content Include="Formularios\frm_ContratoModifica.aspx" />
+    <Content Include="Formularios\frm_DudaClienteAgrega.aspx" />
+    <Content Include="Formularios\frm_InicioAdminRentals.aspx" />
+    <Content Include="Formularios\frm_InicioClientes.aspx" />
+    <Content Include="Formularios\frm_InicioProveedores.aspx" />
     <Content Include="Formularios\frm_ProveedorAgregar.aspx" />
     <Content Include="Formularios\frm_ProveedorLista.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
@@ -296,13 +300,6 @@
     <Content Include="plugins\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="plugins\font-awesome-4.7.0\scss\_variables.scss" />
     <Content Include="MasterPage\Site1.Master" />
-    <EntityDeploy Include="Modelos\ModelDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Modelos\ModelDB.edmx.diagram">
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-    </Content>
     <Content Include="plugins\colorbox\colorbox.css" />
     <Content Include="plugins\colorbox\images\border.png" />
     <Content Include="plugins\colorbox\images\controls.png" />
@@ -334,7 +331,6 @@
     <Content Include="plugins\scrollmagic\ScrollMagic.min.js" />
     <Content Include="Propiedades\img_apartamento.jpg" />
     <Content Include="Propiedades\img_Casa.jpg" />
-    <Content Include="Propiedades\img_Casa2.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -343,7 +339,16 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Modelos\ModelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Modelos\ModelDB.edmx.diagram">
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Propiedades\img_Casa2.jpg" />
+    <Content Include="Propiedades\img_Casa3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -461,28 +466,24 @@
     </Compile>
     <Compile Include="Formularios\frm_AlquilerAgrega.aspx.cs">
       <DependentUpon>frm_AlquilerAgrega.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_AlquilerAgrega.aspx.designer.cs">
       <DependentUpon>frm_AlquilerAgrega.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_AlquilerElimina.aspx.cs">
       <DependentUpon>frm_AlquilerElimina.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_AlquilerElimina.aspx.designer.cs">
       <DependentUpon>frm_AlquilerElimina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_AlquileresLista.aspx.cs">
       <DependentUpon>frm_AlquileresLista.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_AlquileresLista.aspx.designer.cs">
       <DependentUpon>frm_AlquileresLista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_AlquileresModifica.aspx.cs">
       <DependentUpon>frm_AlquileresModifica.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_AlquileresModifica.aspx.designer.cs">
       <DependentUpon>frm_AlquileresModifica.aspx</DependentUpon>
@@ -542,6 +543,30 @@
     </Compile>
     <Compile Include="Formularios\frm_ContratoModifica.aspx.designer.cs">
       <DependentUpon>frm_ContratoModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteAgrega.aspx.cs">
+      <DependentUpon>frm_DudaClienteAgrega.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteAgrega.aspx.designer.cs">
+      <DependentUpon>frm_DudaClienteAgrega.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioAdminRentals.aspx.cs">
+      <DependentUpon>frm_InicioAdminRentals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioAdminRentals.aspx.designer.cs">
+      <DependentUpon>frm_InicioAdminRentals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioClientes.aspx.cs">
+      <DependentUpon>frm_InicioClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioClientes.aspx.designer.cs">
+      <DependentUpon>frm_InicioClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioProveedores.aspx.cs">
+      <DependentUpon>frm_InicioProveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioProveedores.aspx.designer.cs">
+      <DependentUpon>frm_InicioProveedores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_ProveedorAgregar.aspx.cs">
       <DependentUpon>frm_ProveedorAgregar.aspx</DependentUpon>
@@ -609,9 +634,6 @@
     <Compile Include="Modelos\C_Distrito.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelos\C_DudaCliente.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelos\C_Proveedor.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -643,6 +665,9 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\sp_RetornaAdminRental_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaAlquilerDataGrid_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\sp_RetornaAlquilerID_Result.cs">

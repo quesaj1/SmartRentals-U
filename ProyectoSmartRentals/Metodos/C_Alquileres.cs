@@ -14,31 +14,34 @@ namespace ProyectoSmartRentals.Metodos
 
 
         SmartRentalsEntities1 modeloDB = new SmartRentalsEntities1();
-        public bool EliminaAlquiler(int alq_id_Propiedad)
-        {
+        //public bool EliminaAlquiler(int alq_id_Propiedad)
+        //{
 
-            try
-            {
-                int registrosAfectados = 0;
-                registrosAfectados =
-                    this.modeloDB.sp_EliminarAlquiler(
-                        alq_id_Propiedad
-                        );
-
-
-                if (registrosAfectados > 0)
-                    return true;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return false;
+        //    try
+        //    {
+        //        int registrosAfectados = 0;
+        //        registrosAfectados =
+        //            this.modeloDB.sp_EliminarAlquiler(
+        //                alq_id_Propiedad
+        //                );
 
 
-        }
+        //        if (registrosAfectados > 0)
+        //            return true;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //    return false;
 
-        public bool InsertaAlquiler(string alq_UbicacionExacta, string alq_TipoPropiedad, string alq_Detalles, int Id_Distrito, int Id_Canton, int Id_Provincia, string alq_ImagenURL)
+
+        //}
+
+        public bool InsertaAlquiler(string alq_UbicacionExacta, string alq_TipoPropiedad, 
+            string alq_Detalles, int Id_Distrito, int Id_Canton, 
+            int Id_Provincia, string alq_ImagenURL, 
+            Nullable<bool> alq_Activo)
         {
             try
             {
@@ -47,7 +50,7 @@ namespace ProyectoSmartRentals.Metodos
                 registrosAfectados =
                     this.modeloDB.sp_InsertarAlquiler(
                         alq_UbicacionExacta, alq_TipoPropiedad, alq_Detalles, Id_Distrito,
-                        Id_Canton,Id_Provincia,alq_ImagenURL
+                        Id_Canton,Id_Provincia,alq_ImagenURL, alq_Activo
                         
                         );
 
@@ -63,15 +66,28 @@ namespace ProyectoSmartRentals.Metodos
 
         }
 
-        public bool ModificaAlquiler(int alq_id_Propiedad, string alq_UbicacionExacta, string alq_TipoPropiedad, string alq_Detalles, int Id_Distrito, int Id_Canton, int Id_Provincia, string alq_ImagenURL)
+        public bool InsertaAlquiler(string alq_UbicacionExacta, string alq_TipoPropiedad, string alq_Detalles, int Id_Distrito, int Id_Canton, int Id_Provincia, bool? alq_Activo, string alq_ImagenURL)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ModificaAlquiler(int alq_id_Propiedad, 
+            string alq_UbicacionExacta, 
+            string alq_TipoPropiedad, 
+            string alq_Detalles, 
+            int Id_Distrito, 
+            int Id_Canton, 
+            int Id_Provincia, 
+            string alq_ImagenURL,
+            bool alq_Activo)
         {
             try
             {
 
                 int registrosAfectados = 0;
                 registrosAfectados =
-                    this.modeloDB.sp_ModificarAlquiler(alq_id_Propiedad, alq_UbicacionExacta, alq_TipoPropiedad, alq_Detalles,
-                    Id_Distrito,Id_Canton, Id_Provincia,alq_ImagenURL);
+                    this.modeloDB.sp_ModificaAlquiler(alq_id_Propiedad, alq_UbicacionExacta, alq_TipoPropiedad, alq_Detalles,
+                    Id_Distrito,Id_Canton, Id_Provincia,alq_ImagenURL, alq_Activo);
 
               
                 
@@ -87,18 +103,16 @@ namespace ProyectoSmartRentals.Metodos
 
         }
 
-        public List<sp_RetornaAlquiler_Result> RetornaAlquiler(int alq_id_Propiedad ,string alq_tipo_Propiedad)
+        public bool ModificaAlquiler(int alq_id_Propiedad, string alq_UbicacionExacta, string alq_TipoPropiedad, string alq_Detalles, int Id_Distrito, int Id_Canton, int Id_Provincia, bool? alq_Activo, string alq_ImagenURL)
         {
+            throw new NotImplementedException();
+        }
 
-            List<sp_RetornaAlquiler_Result> resultado =
-                
-                new List<sp_RetornaAlquiler_Result>();
-            
-                resultado = this.modeloDB.sp_RetornaAlquiler(alq_id_Propiedad, alq_tipo_Propiedad).ToList();
-
+        public List<sp_RetornaAlquiler_Result> RetornaAlquiler(int alq_id_Propiedad ,string alq_tipo_Propiedad, int provincia, bool alq_Activo )
+        {
+            List<sp_RetornaAlquiler_Result> resultado =new List<sp_RetornaAlquiler_Result>();
+            resultado = this.modeloDB.sp_RetornaAlquiler(alq_id_Propiedad, alq_tipo_Propiedad, provincia, alq_Activo).ToList();
             return resultado;
-
-
         }
 
 
@@ -111,6 +125,13 @@ namespace ProyectoSmartRentals.Metodos
 
             return resultado;
 
+        }
+
+        public List<sp_RetornaAlquilerDataGrid_Result> RetornarAlquilerDataGrid(bool alq_activo)
+        {
+            List<sp_RetornaAlquilerDataGrid_Result> resultado = new List<sp_RetornaAlquilerDataGrid_Result>();
+            resultado = this.modeloDB.sp_RetornaAlquilerDataGrid(alq_activo).ToList();
+            return resultado;
         }
     }
 

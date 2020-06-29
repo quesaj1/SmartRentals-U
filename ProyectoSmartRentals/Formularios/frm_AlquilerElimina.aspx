@@ -66,37 +66,42 @@
         <asp:HiddenField ID="hdldAlquiler" runat="server" />
 
 
+
         <div class="form-row" style="margin-top: 5%; margin-bottom: 5%">
             <div class="form-group col-md-6">
 
+                <label for="txtID">Id de Alquiler</label><br>
+                <asp:TextBox ID="txtID" runat="server"  ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
+           </div>
+            <div class="form-group col-md-6">
                 <!-- Ubicacion -->
-                <label for="txtUbicacionExacta">Ubicacion Exacta</label>
-                <asp:TextBox ID="txtUbicacionExacta" type="text" CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="30"></asp:TextBox>
+                <label for="txtUbicacionExacta">Ubicacion Exacta</label><br />
+                <asp:TextBox ID="txtUbicacionExacta" type="text" CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!-- Tipo Propiedad -->
-                <label for="txtTipoPropiedad">Tipo de Propiedad</label>
+                <label for="txtTipoPropiedad">Tipo de Propiedad</label><br />
                 <asp:TextBox ID="txtTipoPropiedad" type="text" CssClass="form-control" ReadOnly="true" placeholder="Tipo Propiedad" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!-- Detalles-->
-                <label for="txtDetalles">Detalles</label>
+                <label for="txtDetalles">Detalles</label><br />
                 <asp:TextBox ID="txtDetalles" type="text" CssClass="form-control" ReadOnly="true" placeholder="Detalles" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!-- Provincia -->
-                <label for="txtProvincia">Provincia</label>
+                <label for="txtProvincia">Provincia</label><br/>
                 <asp:TextBox ID="txtProvincia" type="text" CssClass="form-control" ReadOnly="true" placeholder="Provincia" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!--  Canton -->
-                <label for="txtCanton">Canton</label>
+                <label for="txtCanton">Canton</label><br />
                 <asp:TextBox ID="txtCanton" type="text" CssClass="form-control" ReadOnly="true" placeholder="Canton" runat="server" MaxLength="50"></asp:TextBox>
 
             </div>
             <div class="form-group col-md-6">
                 <!-- Distrito -->
-                <label for="txtDistrito">Distrito</label>
+                <label for="txtDistrito">Distrito</label><br />
                 <asp:TextBox ID="txtDistrito" type="text" CssClass="form-control" ReadOnly="true" placeholder="Distrito" runat="server" MaxLength="50"></asp:TextBox>
 
             </div>
@@ -106,7 +111,7 @@
                 <asp:TextBox ID="txtImagen" type="text" CssClass="form-control" ReadOnly="true" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
-        </div>
+       
     </div>
 
     <div class="form-group" style="text-align: center">
