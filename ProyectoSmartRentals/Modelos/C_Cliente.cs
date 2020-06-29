@@ -14,6 +14,12 @@ namespace ProyectoSmartRentals.Modelos
     
     public partial class C_Cliente
     {
+        public C_Cliente()
+        {
+            this.C_Contratos = new HashSet<C_Contratos>();
+            this.C_DudaCliente = new HashSet<C_DudaCliente>();
+        }
+    
         public int cli_Cliente { get; set; }
         public string cli_Cedula { get; set; }
         public string cli_Nombre { get; set; }
@@ -24,5 +30,8 @@ namespace ProyectoSmartRentals.Modelos
         public string cli_TelefonoCasa { get; set; }
         public string cli_TelefonoCelular { get; set; }
         public string cli_Email { get; set; }
+    
+        public virtual ICollection<C_Contratos> C_Contratos { get; set; }
+        public virtual ICollection<C_DudaCliente> C_DudaCliente { get; set; }
     }
 }

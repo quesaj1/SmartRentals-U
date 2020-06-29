@@ -18,6 +18,7 @@ namespace ProyectoSmartRentals.Modelos
         {
             this.C_Alquiler = new HashSet<C_Alquiler>();
             this.C_Canton = new HashSet<C_Canton>();
+            this.C_Proveedor = new HashSet<C_Proveedor>();
         }
     
         public int Id_Provincia { get; set; }
@@ -25,5 +26,6 @@ namespace ProyectoSmartRentals.Modelos
     
         public virtual ICollection<C_Alquiler> C_Alquiler { get; set; }
         public virtual ICollection<C_Canton> C_Canton { get; set; }
+        public virtual ICollection<C_Proveedor> C_Proveedor { get; set; }
     }
 }

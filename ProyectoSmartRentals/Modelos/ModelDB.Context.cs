@@ -35,6 +35,9 @@ namespace ProyectoSmartRentals.Modelos
         public DbSet<C_Distrito> C_Distrito { get; set; }
         public DbSet<C_Provincia> C_Provincia { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
+        public DbSet<C_Contratos> C_Contratos { get; set; }
+        public DbSet<C_DudaCliente> C_DudaCliente { get; set; }
+        public DbSet<C_Proveedor> C_Proveedor { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -512,6 +515,280 @@ namespace ProyectoSmartRentals.Modelos
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int sp_EliminarProveedor(Nullable<int> v_id)
+        {
+            var v_idParameter = v_id.HasValue ?
+                new ObjectParameter("v_id", v_id) :
+                new ObjectParameter("v_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EliminarProveedor", v_idParameter);
+        }
+    
+        public virtual int sp_InsertarContrato(Nullable<int> v_fk_cli_cliente, string v_ctr_numero, Nullable<System.DateTime> v_ctr_fechainicio, Nullable<System.DateTime> v_ctr_fechafinalizacion, Nullable<decimal> v_ctr_monto, Nullable<bool> v_ctr_activo, string v_ctr_file, Nullable<int> v_fk_alq_id_propiedad)
+        {
+            var v_fk_cli_clienteParameter = v_fk_cli_cliente.HasValue ?
+                new ObjectParameter("v_fk_cli_cliente", v_fk_cli_cliente) :
+                new ObjectParameter("v_fk_cli_cliente", typeof(int));
+    
+            var v_ctr_numeroParameter = v_ctr_numero != null ?
+                new ObjectParameter("v_ctr_numero", v_ctr_numero) :
+                new ObjectParameter("v_ctr_numero", typeof(string));
+    
+            var v_ctr_fechainicioParameter = v_ctr_fechainicio.HasValue ?
+                new ObjectParameter("v_ctr_fechainicio", v_ctr_fechainicio) :
+                new ObjectParameter("v_ctr_fechainicio", typeof(System.DateTime));
+    
+            var v_ctr_fechafinalizacionParameter = v_ctr_fechafinalizacion.HasValue ?
+                new ObjectParameter("v_ctr_fechafinalizacion", v_ctr_fechafinalizacion) :
+                new ObjectParameter("v_ctr_fechafinalizacion", typeof(System.DateTime));
+    
+            var v_ctr_montoParameter = v_ctr_monto.HasValue ?
+                new ObjectParameter("v_ctr_monto", v_ctr_monto) :
+                new ObjectParameter("v_ctr_monto", typeof(decimal));
+    
+            var v_ctr_activoParameter = v_ctr_activo.HasValue ?
+                new ObjectParameter("v_ctr_activo", v_ctr_activo) :
+                new ObjectParameter("v_ctr_activo", typeof(bool));
+    
+            var v_ctr_fileParameter = v_ctr_file != null ?
+                new ObjectParameter("v_ctr_file", v_ctr_file) :
+                new ObjectParameter("v_ctr_file", typeof(string));
+    
+            var v_fk_alq_id_propiedadParameter = v_fk_alq_id_propiedad.HasValue ?
+                new ObjectParameter("v_fk_alq_id_propiedad", v_fk_alq_id_propiedad) :
+                new ObjectParameter("v_fk_alq_id_propiedad", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarContrato", v_fk_cli_clienteParameter, v_ctr_numeroParameter, v_ctr_fechainicioParameter, v_ctr_fechafinalizacionParameter, v_ctr_montoParameter, v_ctr_activoParameter, v_ctr_fileParameter, v_fk_alq_id_propiedadParameter);
+        }
+    
+        public virtual int sp_InsertarProveedor(string prv_NombreVariable, string prv_NombreRepresentante, string prv_PrimerApellido, string prv_SegundoApellido, string prv_CedulaRepresentante, string prv_CedulaJuridica, string prv_Telefono, string prv_Email, string prv_TipoProveedor, Nullable<int> v_Distrito, Nullable<int> v_Canton, Nullable<int> v_Provincia, string prv_OtrasSenas)
+        {
+            var prv_NombreVariableParameter = prv_NombreVariable != null ?
+                new ObjectParameter("prv_NombreVariable", prv_NombreVariable) :
+                new ObjectParameter("prv_NombreVariable", typeof(string));
+    
+            var prv_NombreRepresentanteParameter = prv_NombreRepresentante != null ?
+                new ObjectParameter("prv_NombreRepresentante", prv_NombreRepresentante) :
+                new ObjectParameter("prv_NombreRepresentante", typeof(string));
+    
+            var prv_PrimerApellidoParameter = prv_PrimerApellido != null ?
+                new ObjectParameter("prv_PrimerApellido", prv_PrimerApellido) :
+                new ObjectParameter("prv_PrimerApellido", typeof(string));
+    
+            var prv_SegundoApellidoParameter = prv_SegundoApellido != null ?
+                new ObjectParameter("prv_SegundoApellido", prv_SegundoApellido) :
+                new ObjectParameter("prv_SegundoApellido", typeof(string));
+    
+            var prv_CedulaRepresentanteParameter = prv_CedulaRepresentante != null ?
+                new ObjectParameter("prv_CedulaRepresentante", prv_CedulaRepresentante) :
+                new ObjectParameter("prv_CedulaRepresentante", typeof(string));
+    
+            var prv_CedulaJuridicaParameter = prv_CedulaJuridica != null ?
+                new ObjectParameter("prv_CedulaJuridica", prv_CedulaJuridica) :
+                new ObjectParameter("prv_CedulaJuridica", typeof(string));
+    
+            var prv_TelefonoParameter = prv_Telefono != null ?
+                new ObjectParameter("prv_Telefono", prv_Telefono) :
+                new ObjectParameter("prv_Telefono", typeof(string));
+    
+            var prv_EmailParameter = prv_Email != null ?
+                new ObjectParameter("prv_Email", prv_Email) :
+                new ObjectParameter("prv_Email", typeof(string));
+    
+            var prv_TipoProveedorParameter = prv_TipoProveedor != null ?
+                new ObjectParameter("prv_TipoProveedor", prv_TipoProveedor) :
+                new ObjectParameter("prv_TipoProveedor", typeof(string));
+    
+            var v_DistritoParameter = v_Distrito.HasValue ?
+                new ObjectParameter("v_Distrito", v_Distrito) :
+                new ObjectParameter("v_Distrito", typeof(int));
+    
+            var v_CantonParameter = v_Canton.HasValue ?
+                new ObjectParameter("v_Canton", v_Canton) :
+                new ObjectParameter("v_Canton", typeof(int));
+    
+            var v_ProvinciaParameter = v_Provincia.HasValue ?
+                new ObjectParameter("v_Provincia", v_Provincia) :
+                new ObjectParameter("v_Provincia", typeof(int));
+    
+            var prv_OtrasSenasParameter = prv_OtrasSenas != null ?
+                new ObjectParameter("prv_OtrasSenas", prv_OtrasSenas) :
+                new ObjectParameter("prv_OtrasSenas", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarProveedor", prv_NombreVariableParameter, prv_NombreRepresentanteParameter, prv_PrimerApellidoParameter, prv_SegundoApellidoParameter, prv_CedulaRepresentanteParameter, prv_CedulaJuridicaParameter, prv_TelefonoParameter, prv_EmailParameter, prv_TipoProveedorParameter, v_DistritoParameter, v_CantonParameter, v_ProvinciaParameter, prv_OtrasSenasParameter);
+        }
+    
+        public virtual int sp_ModificarContrato(Nullable<int> v_id_ctr_contrato, Nullable<int> v_fk_cli_cliente, string v_ctr_numero, Nullable<System.DateTime> v_ctr_fechainicio, Nullable<System.DateTime> v_ctr_fechafinalizacion, Nullable<decimal> v_ctr_monto, Nullable<bool> v_ctr_activo, string v_ctr_file, Nullable<int> v_fk_alq_id_propiedad)
+        {
+            var v_id_ctr_contratoParameter = v_id_ctr_contrato.HasValue ?
+                new ObjectParameter("v_id_ctr_contrato", v_id_ctr_contrato) :
+                new ObjectParameter("v_id_ctr_contrato", typeof(int));
+    
+            var v_fk_cli_clienteParameter = v_fk_cli_cliente.HasValue ?
+                new ObjectParameter("v_fk_cli_cliente", v_fk_cli_cliente) :
+                new ObjectParameter("v_fk_cli_cliente", typeof(int));
+    
+            var v_ctr_numeroParameter = v_ctr_numero != null ?
+                new ObjectParameter("v_ctr_numero", v_ctr_numero) :
+                new ObjectParameter("v_ctr_numero", typeof(string));
+    
+            var v_ctr_fechainicioParameter = v_ctr_fechainicio.HasValue ?
+                new ObjectParameter("v_ctr_fechainicio", v_ctr_fechainicio) :
+                new ObjectParameter("v_ctr_fechainicio", typeof(System.DateTime));
+    
+            var v_ctr_fechafinalizacionParameter = v_ctr_fechafinalizacion.HasValue ?
+                new ObjectParameter("v_ctr_fechafinalizacion", v_ctr_fechafinalizacion) :
+                new ObjectParameter("v_ctr_fechafinalizacion", typeof(System.DateTime));
+    
+            var v_ctr_montoParameter = v_ctr_monto.HasValue ?
+                new ObjectParameter("v_ctr_monto", v_ctr_monto) :
+                new ObjectParameter("v_ctr_monto", typeof(decimal));
+    
+            var v_ctr_activoParameter = v_ctr_activo.HasValue ?
+                new ObjectParameter("v_ctr_activo", v_ctr_activo) :
+                new ObjectParameter("v_ctr_activo", typeof(bool));
+    
+            var v_ctr_fileParameter = v_ctr_file != null ?
+                new ObjectParameter("v_ctr_file", v_ctr_file) :
+                new ObjectParameter("v_ctr_file", typeof(string));
+    
+            var v_fk_alq_id_propiedadParameter = v_fk_alq_id_propiedad.HasValue ?
+                new ObjectParameter("v_fk_alq_id_propiedad", v_fk_alq_id_propiedad) :
+                new ObjectParameter("v_fk_alq_id_propiedad", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarContrato", v_id_ctr_contratoParameter, v_fk_cli_clienteParameter, v_ctr_numeroParameter, v_ctr_fechainicioParameter, v_ctr_fechafinalizacionParameter, v_ctr_montoParameter, v_ctr_activoParameter, v_ctr_fileParameter, v_fk_alq_id_propiedadParameter);
+        }
+    
+        public virtual int sp_ModificarProveedor(Nullable<int> prv_IDProveedor, string prv_NombreVariable, string prv_NombreRepresentante, string prv_PrimerApellido, string prv_SegundoApellido, string prv_CedulaRepresentante, string prv_CedulaJuridica, string prv_Telefono, string prv_Email, string prv_TipoProveedor, Nullable<int> v_Distrito, Nullable<int> v_Canton, Nullable<int> v_Provincia, string prv_OtrasSenas)
+        {
+            var prv_IDProveedorParameter = prv_IDProveedor.HasValue ?
+                new ObjectParameter("prv_IDProveedor", prv_IDProveedor) :
+                new ObjectParameter("prv_IDProveedor", typeof(int));
+    
+            var prv_NombreVariableParameter = prv_NombreVariable != null ?
+                new ObjectParameter("prv_NombreVariable", prv_NombreVariable) :
+                new ObjectParameter("prv_NombreVariable", typeof(string));
+    
+            var prv_NombreRepresentanteParameter = prv_NombreRepresentante != null ?
+                new ObjectParameter("prv_NombreRepresentante", prv_NombreRepresentante) :
+                new ObjectParameter("prv_NombreRepresentante", typeof(string));
+    
+            var prv_PrimerApellidoParameter = prv_PrimerApellido != null ?
+                new ObjectParameter("prv_PrimerApellido", prv_PrimerApellido) :
+                new ObjectParameter("prv_PrimerApellido", typeof(string));
+    
+            var prv_SegundoApellidoParameter = prv_SegundoApellido != null ?
+                new ObjectParameter("prv_SegundoApellido", prv_SegundoApellido) :
+                new ObjectParameter("prv_SegundoApellido", typeof(string));
+    
+            var prv_CedulaRepresentanteParameter = prv_CedulaRepresentante != null ?
+                new ObjectParameter("prv_CedulaRepresentante", prv_CedulaRepresentante) :
+                new ObjectParameter("prv_CedulaRepresentante", typeof(string));
+    
+            var prv_CedulaJuridicaParameter = prv_CedulaJuridica != null ?
+                new ObjectParameter("prv_CedulaJuridica", prv_CedulaJuridica) :
+                new ObjectParameter("prv_CedulaJuridica", typeof(string));
+    
+            var prv_TelefonoParameter = prv_Telefono != null ?
+                new ObjectParameter("prv_Telefono", prv_Telefono) :
+                new ObjectParameter("prv_Telefono", typeof(string));
+    
+            var prv_EmailParameter = prv_Email != null ?
+                new ObjectParameter("prv_Email", prv_Email) :
+                new ObjectParameter("prv_Email", typeof(string));
+    
+            var prv_TipoProveedorParameter = prv_TipoProveedor != null ?
+                new ObjectParameter("prv_TipoProveedor", prv_TipoProveedor) :
+                new ObjectParameter("prv_TipoProveedor", typeof(string));
+    
+            var v_DistritoParameter = v_Distrito.HasValue ?
+                new ObjectParameter("v_Distrito", v_Distrito) :
+                new ObjectParameter("v_Distrito", typeof(int));
+    
+            var v_CantonParameter = v_Canton.HasValue ?
+                new ObjectParameter("v_Canton", v_Canton) :
+                new ObjectParameter("v_Canton", typeof(int));
+    
+            var v_ProvinciaParameter = v_Provincia.HasValue ?
+                new ObjectParameter("v_Provincia", v_Provincia) :
+                new ObjectParameter("v_Provincia", typeof(int));
+    
+            var prv_OtrasSenasParameter = prv_OtrasSenas != null ?
+                new ObjectParameter("prv_OtrasSenas", prv_OtrasSenas) :
+                new ObjectParameter("prv_OtrasSenas", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarProveedor", prv_IDProveedorParameter, prv_NombreVariableParameter, prv_NombreRepresentanteParameter, prv_PrimerApellidoParameter, prv_SegundoApellidoParameter, prv_CedulaRepresentanteParameter, prv_CedulaJuridicaParameter, prv_TelefonoParameter, prv_EmailParameter, prv_TipoProveedorParameter, v_DistritoParameter, v_CantonParameter, v_ProvinciaParameter, prv_OtrasSenasParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaContrato_Result> sp_RetornaContrato(Nullable<int> v_id_ctr_contrato, Nullable<int> v_fk_cli_cliente, string v_ctr_numero, Nullable<bool> v_ctr_activo)
+        {
+            var v_id_ctr_contratoParameter = v_id_ctr_contrato.HasValue ?
+                new ObjectParameter("v_id_ctr_contrato", v_id_ctr_contrato) :
+                new ObjectParameter("v_id_ctr_contrato", typeof(int));
+    
+            var v_fk_cli_clienteParameter = v_fk_cli_cliente.HasValue ?
+                new ObjectParameter("v_fk_cli_cliente", v_fk_cli_cliente) :
+                new ObjectParameter("v_fk_cli_cliente", typeof(int));
+    
+            var v_ctr_numeroParameter = v_ctr_numero != null ?
+                new ObjectParameter("v_ctr_numero", v_ctr_numero) :
+                new ObjectParameter("v_ctr_numero", typeof(string));
+    
+            var v_ctr_activoParameter = v_ctr_activo.HasValue ?
+                new ObjectParameter("v_ctr_activo", v_ctr_activo) :
+                new ObjectParameter("v_ctr_activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaContrato_Result>("sp_RetornaContrato", v_id_ctr_contratoParameter, v_fk_cli_clienteParameter, v_ctr_numeroParameter, v_ctr_activoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaContratoDataGrid_Result> sp_RetornaContratoDataGrid(Nullable<bool> v_ctr_activo)
+        {
+            var v_ctr_activoParameter = v_ctr_activo.HasValue ?
+                new ObjectParameter("v_ctr_activo", v_ctr_activo) :
+                new ObjectParameter("v_ctr_activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaContratoDataGrid_Result>("sp_RetornaContratoDataGrid", v_ctr_activoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaContratoID_Result> sp_RetornaContratoID(Nullable<int> v_id_contrato)
+        {
+            var v_id_contratoParameter = v_id_contrato.HasValue ?
+                new ObjectParameter("v_id_contrato", v_id_contrato) :
+                new ObjectParameter("v_id_contrato", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaContratoID_Result>("sp_RetornaContratoID", v_id_contratoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaProveedorID_Result> sp_RetornaProveedorID(Nullable<int> prv_IDProveedor)
+        {
+            var prv_IDProveedorParameter = prv_IDProveedor.HasValue ?
+                new ObjectParameter("prv_IDProveedor", prv_IDProveedor) :
+                new ObjectParameter("prv_IDProveedor", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaProveedorID_Result>("sp_RetornaProveedorID", prv_IDProveedorParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornarProveedor_Result> sp_RetornarProveedor(string prv_NombreRepresentante, string prv_CedulaRepresentante, string prv_CedulaJuridica, string prv_Email)
+        {
+            var prv_NombreRepresentanteParameter = prv_NombreRepresentante != null ?
+                new ObjectParameter("prv_NombreRepresentante", prv_NombreRepresentante) :
+                new ObjectParameter("prv_NombreRepresentante", typeof(string));
+    
+            var prv_CedulaRepresentanteParameter = prv_CedulaRepresentante != null ?
+                new ObjectParameter("prv_CedulaRepresentante", prv_CedulaRepresentante) :
+                new ObjectParameter("prv_CedulaRepresentante", typeof(string));
+    
+            var prv_CedulaJuridicaParameter = prv_CedulaJuridica != null ?
+                new ObjectParameter("prv_CedulaJuridica", prv_CedulaJuridica) :
+                new ObjectParameter("prv_CedulaJuridica", typeof(string));
+    
+            var prv_EmailParameter = prv_Email != null ?
+                new ObjectParameter("prv_Email", prv_Email) :
+                new ObjectParameter("prv_Email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornarProveedor_Result>("sp_RetornarProveedor", prv_NombreRepresentanteParameter, prv_CedulaRepresentanteParameter, prv_CedulaJuridicaParameter, prv_EmailParameter);
         }
     }
 }

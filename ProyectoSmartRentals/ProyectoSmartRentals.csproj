@@ -174,6 +174,10 @@
     <Content Include="Formularios\frm_ClienteElimina.aspx" />
     <Content Include="Formularios\frm_ClienteLista.aspx" />
     <Content Include="Formularios\frm_ClienteModifica.aspx" />
+    <Content Include="Formularios\frm_ContratoAgregar.aspx" />
+    <Content Include="Formularios\frm_ContratoElimina.aspx" />
+    <Content Include="Formularios\frm_contratoLista.aspx" />
+    <Content Include="Formularios\frm_ContratoModifica.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\about.jpg" />
@@ -345,6 +349,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Search.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -508,6 +513,34 @@
     <Compile Include="Formularios\frm_ClienteModifica.aspx.designer.cs">
       <DependentUpon>frm_ClienteModifica.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_ContratoAgregar.aspx.cs">
+      <DependentUpon>frm_ContratoAgregar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ContratoAgregar.aspx.designer.cs">
+      <DependentUpon>frm_ContratoAgregar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ContratoElimina.aspx.cs">
+      <DependentUpon>frm_ContratoElimina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ContratoElimina.aspx.designer.cs">
+      <DependentUpon>frm_ContratoElimina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_contratoLista.aspx.cs">
+      <DependentUpon>frm_contratoLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_contratoLista.aspx.designer.cs">
+      <DependentUpon>frm_contratoLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ContratoModifica.aspx.cs">
+      <DependentUpon>frm_ContratoModifica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ContratoModifica.aspx.designer.cs">
+      <DependentUpon>frm_ContratoModifica.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_ReporteAdminRentals.aspx.cs">
       <DependentUpon>frm_ReporteAdminRentals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -519,6 +552,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ICliente.cs" />
+    <Compile Include="Interfaces\IContrato.cs" />
     <Compile Include="Interfaces\I_AdminRentals.cs" />
     <Compile Include="Interfaces\I_Alquileres.cs" />
     <Compile Include="MasterPage\MasterSmartRentals.Master.cs">
@@ -538,6 +572,7 @@
     <Compile Include="Metodos\C_AdminRentals.cs" />
     <Compile Include="Metodos\C_Alquileres.cs" />
     <Compile Include="Metodos\C_Clientes.cs" />
+    <Compile Include="Metodos\C_Contrato.cs" />
     <Compile Include="Modelos\C_Admin_Rentals.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -550,7 +585,16 @@
     <Compile Include="Modelos\C_Cliente.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\C_Contratos.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\C_Distrito.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\C_DudaCliente.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\C_Proveedor.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\C_Provincia.cs">
@@ -593,6 +637,21 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\sp_RetornaCliente_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaContratoDataGrid_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaContratoID_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaContrato_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaProveedorID_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornarProveedor_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\sysdiagram.cs">

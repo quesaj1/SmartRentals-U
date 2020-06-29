@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ProyectoSmartRentals.Modelos;
+
+namespace ProyectoSmartRentals.Interfaces
+{
+   public interface IContrato
+    {
+
+        //Este metodo Se declara las variables conforme al Store Procedure de la Base datos para realizar el insert
+
+        #region Metodo Insertar Contrato
+        bool InsertaContrato(
+        
+             int fk_cli_cliente,
+             string ctr_numeroContrato,
+             System.DateTime ctr_fechainicio,
+             Nullable<System.DateTime> ctr_fechafinalizacion,
+             decimal ctr_monto,
+             Nullable<bool> ctr_activo,
+             string ctr_file,
+             int fk_alq_id_propiedad);
+        #endregion
+
+        #region Metodo Modificar Contrato
+        bool ModificarCliente(
+             int id_ctr_contrato,
+             int fk_cli_cliente,
+             string ctr_numeroContrato,
+             System.DateTime ctr_fechainicio,
+             Nullable<System.DateTime> ctr_fechafinalizacion,
+             decimal ctr_monto,
+             Nullable<bool> ctr_activo,
+             string ctr_file,
+             int fk_alq_id_propiedad);
+        #endregion
+
+        //#region Metodo Eliminar Cliente
+        //bool EliminalCliente(int cli_Cliente);
+        //#endregion
+
+
+        #region Metodo  Retornar Contrato
+        List<sp_RetornaContrato_Result> RetornarContrato(
+             int id_ctr_contrato,
+             int fk_cli_cliente,
+             string ctr_numeroContrato,
+             bool ctr_activo);
+        #endregion
+
+        #region Metodo  Retornar ID Contrato
+        sp_RetornaContratoID_Result RetornaContratoID(int id_contrato);
+        #endregion
+
+
+        #region Metodo  Retornar Contrato
+        List<sp_RetornaContratoDataGrid_Result> RetornarContratoDataGrid(
+             bool ctr_activo);
+        #endregion
+
+
+    }
+}

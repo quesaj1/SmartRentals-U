@@ -12,25 +12,25 @@ namespace ProyectoSmartRentals.Modelos
     using System;
     using System.Collections.Generic;
     
-    public partial class C_Alquiler
+    public partial class C_Proveedor
     {
-        public C_Alquiler()
-        {
-            this.C_Contratos = new HashSet<C_Contratos>();
-        }
-    
-        public int alq_id_Propiedad { get; set; }
-        public string alq_UbicacionExacta { get; set; }
-        public string alq_TipoPropiedad { get; set; }
-        public string alq_Detalles { get; set; }
+        public int prv_IDProveedor { get; set; }
+        public string prv_NombreVariable { get; set; }
+        public string prv_NombreRepresentante { get; set; }
+        public string prv_PrimerApellido { get; set; }
+        public string prv_SegundoApellido { get; set; }
+        public string prv_CedulaRepresentante { get; set; }
+        public string prv_CedulaJuridica { get; set; }
+        public string prv_Telefono { get; set; }
+        public string prv_Email { get; set; }
+        public string prv_TipoProveedor { get; set; }
         public int Id_Distrito { get; set; }
         public int Id_Canton { get; set; }
         public int Id_Provincia { get; set; }
-        public string alq_ImagenURL { get; set; }
+        public string prv_OtrasSenas { get; set; }
     
         public virtual C_Canton C_Canton { get; set; }
         public virtual C_Distrito C_Distrito { get; set; }
         public virtual C_Provincia C_Provincia { get; set; }
-        public virtual ICollection<C_Contratos> C_Contratos { get; set; }
     }
 }

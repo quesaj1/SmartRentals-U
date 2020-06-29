@@ -14,6 +14,11 @@ namespace ProyectoSmartRentals.Modelos
     
     public partial class C_Admin_Rentals
     {
+        public C_Admin_Rentals()
+        {
+            this.C_DudaCliente = new HashSet<C_DudaCliente>();
+        }
+    
         public int adr_id_admin { get; set; }
         public string adr_Cedula { get; set; }
         public string adr_Nombre { get; set; }
@@ -24,5 +29,7 @@ namespace ProyectoSmartRentals.Modelos
         public string adr_TelefonoCasa { get; set; }
         public string adr_TelefonoCelular { get; set; }
         public string adr_Email { get; set; }
+    
+        public virtual ICollection<C_DudaCliente> C_DudaCliente { get; set; }
     }
 }

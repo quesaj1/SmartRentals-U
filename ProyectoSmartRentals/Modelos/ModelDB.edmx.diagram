@@ -17,6 +17,16 @@
         <AssociationConnector Association="SmartRentalsModel.FK_C_Alquiler_C_Provincia" ManuallyRouted="false" />
         <AssociationConnector Association="SmartRentalsModel.FK_C_Canton_C_Provincia" ManuallyRouted="false" />
         <AssociationConnector Association="SmartRentalsModel.FK_C_Distrito_C_Canton" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Contratos" Width="1.5" PointX="9.75" PointY="5.75" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_DudaCliente" Width="1.5" PointX="9" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Proveedor" Width="1.5" PointX="10.5" PointY="10.125" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_DudaCliente_C_Admin_Rentals" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Contratos_C_Alquiler" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Proveedor_C_Canton" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Contratos_C_Cliente" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_DudaCliente_C_Cliente" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Proveedor_C_Distrito" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Proveedor_C_Provincia" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
