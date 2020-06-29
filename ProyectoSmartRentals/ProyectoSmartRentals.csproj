@@ -178,6 +178,12 @@
     <Content Include="Formularios\frm_ContratoElimina.aspx" />
     <Content Include="Formularios\frm_contratoLista.aspx" />
     <Content Include="Formularios\frm_ContratoModifica.aspx" />
+    <Content Include="Formularios\frm_DudaClienteAgrega.aspx" />
+    <Content Include="Formularios\frm_DudaClienteElimina.aspx" />
+    <Content Include="Formularios\frm_DudaClienteLista.aspx" />
+    <Content Include="Formularios\frm_InicioAdminRentals.aspx" />
+    <Content Include="Formularios\frm_InicioClientes.aspx" />
+    <Content Include="Formularios\frm_InicioProveedores.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\about.jpg" />
@@ -540,6 +546,42 @@
     </Compile>
     <Compile Include="Formularios\frm_ContratoModifica.aspx.designer.cs">
       <DependentUpon>frm_ContratoModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteAgrega.aspx.cs">
+      <DependentUpon>frm_DudaClienteAgrega.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteAgrega.aspx.designer.cs">
+      <DependentUpon>frm_DudaClienteAgrega.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteElimina.aspx.cs">
+      <DependentUpon>frm_DudaClienteElimina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteElimina.aspx.designer.cs">
+      <DependentUpon>frm_DudaClienteElimina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteLista.aspx.cs">
+      <DependentUpon>frm_DudaClienteLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_DudaClienteLista.aspx.designer.cs">
+      <DependentUpon>frm_DudaClienteLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioAdminRentals.aspx.cs">
+      <DependentUpon>frm_InicioAdminRentals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioAdminRentals.aspx.designer.cs">
+      <DependentUpon>frm_InicioAdminRentals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioClientes.aspx.cs">
+      <DependentUpon>frm_InicioClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioClientes.aspx.designer.cs">
+      <DependentUpon>frm_InicioClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioProveedores.aspx.cs">
+      <DependentUpon>frm_InicioProveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_InicioProveedores.aspx.designer.cs">
+      <DependentUpon>frm_InicioProveedores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_ReporteAdminRentals.aspx.cs">
       <DependentUpon>frm_ReporteAdminRentals.aspx</DependentUpon>
