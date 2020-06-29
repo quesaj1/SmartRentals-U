@@ -24,6 +24,15 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.HiddenField hdldAlquiler;
 
         /// <summary>
+        /// RequiredFieldValidatorUbic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorUbic;
+
+        /// <summary>
         /// txtUbicacionExacta control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace ProyectoSmartRentals.Formularios
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUbicacionExacta;
+
+        /// <summary>
+        /// RequiredFieldValidatorTipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorTipo;
 
         /// <summary>
         /// txtTipoPropiedad control.
@@ -42,6 +60,15 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.HtmlControls.HtmlSelect txtTipoPropiedad;
 
         /// <summary>
+        /// RequiredFieldValidatorDet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDet;
+
+        /// <summary>
         /// txtDetalles control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace ProyectoSmartRentals.Formularios
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDetalles;
+
+        /// <summary>
+        /// RequiredFieldValidatorProv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorProv;
 
         /// <summary>
         /// DropDownListProvincia control.
@@ -60,6 +96,15 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.DropDownList DropDownListProvincia;
 
         /// <summary>
+        /// RequiredFieldValidatorCant control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCant;
+
+        /// <summary>
         /// DropDownListCanton control.
         /// </summary>
         /// <remarks>
@@ -67,6 +112,15 @@ namespace ProyectoSmartRentals.Formularios
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListCanton;
+
+        /// <summary>
+        /// RequiredFieldValidatorDist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDist;
 
         /// <summary>
         /// DropDownListDistrito control.
@@ -78,6 +132,15 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.DropDownList DropDownListDistrito;
 
         /// <summary>
+        /// RequiredFieldValidatorImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorImg;
+
+        /// <summary>
         /// fupImage control.
         /// </summary>
         /// <remarks>
@@ -87,13 +150,13 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.FileUpload fupImage;
 
         /// <summary>
-        /// btnModificar control.
+        /// btnShowPopup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
+        protected global::System.Web.UI.WebControls.Button btnShowPopup;
 
         /// <summary>
         /// btnAtras control.

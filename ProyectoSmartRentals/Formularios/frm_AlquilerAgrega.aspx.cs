@@ -17,6 +17,7 @@ namespace ProyectoSmartRentals.Formularios
         {
             if (!IsPostBack)
             {
+               
                 IniciarLlenadoDropDown();
             }
         }

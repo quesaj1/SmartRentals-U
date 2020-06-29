@@ -18,6 +18,17 @@
 <link rel="stylesheet" type="text/css" href="../styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="../styles/responsive.css">
  
+<!-- Bootstrap del modal -->
+      <script type="text/javascript" src="../Scripts/jquery-3.4.1.min.js"></script>
+     <%-- <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>--%>
+     <script type="text/javascript" src="../styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <%--<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>--%>
+    <%--  <link rel="stylesheet" href="../styles/bootstrap-4.1.2/bootstrap.min.css"
+     media="screen" />--%>
+
+<!-- Bootstrap del modal-->
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
         
     </asp:ContentPlaceHolder>
@@ -57,7 +68,14 @@
 						<li><a href="https://twitter.com/Smart_RentalsCR"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 						<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
 					</ul>
-				</div>
+				</div>&nbsp&nbsp&nbsp&nbsp
+
+					<div>
+                    <p>
+                        <asp:Label ID="DateDisplay" runat="server"></asp:Label>
+                    </p>
+               </div>&nbsp
+
 				<div class="log_reg d-flex flex-row align-items-center justify-content-start">
 					<ul class="d-flex flex-row align-items-start justify-content-start">
 						<li><a href="#">Iniciar sesión</a></li>

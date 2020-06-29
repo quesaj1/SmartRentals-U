@@ -11,106 +11,88 @@ namespace ProyectoSmartRentals.Formularios
 {
 
 
-    public partial class frm_AlquilerElimina
+    public partial class frm_InicioAdminRentals
     {
 
         /// <summary>
-        /// hdldAlquiler control.
+        /// LinkButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdldAlquiler;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
 
         /// <summary>
-        /// txtUbicacionExacta control.
+        /// LinkButtonProve control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUbicacionExacta;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonProve;
 
         /// <summary>
-        /// txtTipoPropiedad control.
+        /// LinkButtonAlq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipoPropiedad;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonAlq;
 
         /// <summary>
-        /// txtDetalles control.
+        /// LinkButtonCont control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDetalles;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonCont;
 
         /// <summary>
-        /// txtProvincia control.
+        /// LinkButtontTiq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProvincia;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtontTiq;
 
         /// <summary>
-        /// txtCanton control.
+        /// LinkButtonRep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCanton;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonRep;
 
         /// <summary>
-        /// txtDistrito control.
+        /// LinkButtonAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDistrito;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonAdmin;
 
         /// <summary>
-        /// txtImagen control.
+        /// LinkButtonDuda control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtImagen;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonDuda;
 
         /// <summary>
-        /// btnShowPopup control.
+        /// LinkButtonDesoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnShowPopup;
-
-        /// <summary>
-        /// btnAtras control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAtras;
-
-        /// <summary>
-        /// lblResultado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResultado;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonDesoc;
     }
 }

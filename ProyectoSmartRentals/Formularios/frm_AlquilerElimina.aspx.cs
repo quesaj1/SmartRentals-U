@@ -54,14 +54,17 @@ namespace ProyectoSmartRentals.Formularios
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
-        {
+        {   
+            
             EliminarAlquiler();
         }
 
         protected void btnAtras_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Formularios/frm_AlquileresLista.aspx");
         }
+
+     
 
         void EliminarAlquiler()
         {
@@ -83,6 +86,12 @@ namespace ProyectoSmartRentals.Formularios
             }
         }
 
-
+        protected void ShowPopup(object sender, EventArgs e)
+        {
+            
+            string title = "Eliminar registro";
+            string body =  "Esta seguro de eliminar este registro?";
+            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
+        }
     }
 }
