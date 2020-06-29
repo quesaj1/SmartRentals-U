@@ -178,6 +178,8 @@
     <Content Include="Formularios\frm_ContratoElimina.aspx" />
     <Content Include="Formularios\frm_contratoLista.aspx" />
     <Content Include="Formularios\frm_ContratoModifica.aspx" />
+    <Content Include="Formularios\frm_ProveedorAgregar.aspx" />
+    <Content Include="Formularios\frm_ProveedorLista.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\about.jpg" />
@@ -541,6 +543,20 @@
     <Compile Include="Formularios\frm_ContratoModifica.aspx.designer.cs">
       <DependentUpon>frm_ContratoModifica.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_ProveedorAgregar.aspx.cs">
+      <DependentUpon>frm_ProveedorAgregar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ProveedorAgregar.aspx.designer.cs">
+      <DependentUpon>frm_ProveedorAgregar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ProveedorLista.aspx.cs">
+      <DependentUpon>frm_ProveedorLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ProveedorLista.aspx.designer.cs">
+      <DependentUpon>frm_ProveedorLista.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_ReporteAdminRentals.aspx.cs">
       <DependentUpon>frm_ReporteAdminRentals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -555,6 +571,7 @@
     <Compile Include="Interfaces\IContrato.cs" />
     <Compile Include="Interfaces\I_AdminRentals.cs" />
     <Compile Include="Interfaces\I_Alquileres.cs" />
+    <Compile Include="Interfaces\I_Proveedor.cs" />
     <Compile Include="MasterPage\MasterSmartRentals.Master.cs">
       <DependentUpon>MasterSmartRentals.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -573,6 +590,7 @@
     <Compile Include="Metodos\C_Alquileres.cs" />
     <Compile Include="Metodos\C_Clientes.cs" />
     <Compile Include="Metodos\C_Contrato.cs" />
+    <Compile Include="Metodos\C_Proveedor.cs" />
     <Compile Include="Modelos\C_Admin_Rentals.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -666,6 +684,7 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
@@ -678,6 +697,7 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -745,7 +765,7 @@
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>

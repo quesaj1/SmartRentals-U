@@ -11,7 +11,7 @@
         <div  style="text-align: center;">
              
                 <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_ContratoAgrega.aspx" >Agregar Nuevo Contrato</asp:HyperLink>
+                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_ContratoAgregar.aspx" >Agregar Nuevo Contrato</asp:HyperLink>
                 </strong>
 
            
