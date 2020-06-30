@@ -105,6 +105,13 @@ namespace ProyectoSmartRentals.Metodos
             return resultado;
         }
 
+        public List<sp_BuscaContratoDataGrid_Result> BuscaContratoDataGrid(string ctr_contrato)
+        {
+            List<sp_BuscaContratoDataGrid_Result> resultado = new List<sp_BuscaContratoDataGrid_Result>();
+            resultado = this.modeloDB.sp_BuscaContratoDataGrid(ctr_contrato).ToList();
+            return resultado;
+        }
+
 
 
         #endregion

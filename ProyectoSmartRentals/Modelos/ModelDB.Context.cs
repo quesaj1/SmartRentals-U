@@ -842,5 +842,14 @@ namespace ProyectoSmartRentals.Modelos
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<sp_BuscaContratoDataGrid_Result> sp_BuscaContratoDataGrid(string v_ctr_numeroContrato)
+        {
+            var v_ctr_numeroContratoParameter = v_ctr_numeroContrato != null ?
+                new ObjectParameter("v_ctr_numeroContrato", v_ctr_numeroContrato) :
+                new ObjectParameter("v_ctr_numeroContrato", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_BuscaContratoDataGrid_Result>("sp_BuscaContratoDataGrid", v_ctr_numeroContratoParameter);
+        }
     }
 }
