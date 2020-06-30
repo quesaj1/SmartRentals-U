@@ -179,12 +179,14 @@
     <Content Include="Formularios\frm_contratoLista.aspx" />
     <Content Include="Formularios\frm_ContratoModifica.aspx" />
     <Content Include="Formularios\frm_DudaClienteAgrega.aspx" />
+    <Content Include="Formularios\frm_EnvioModContrato.aspx" />
     <Content Include="Formularios\frm_InicioAdminRentals.aspx" />
     <Content Include="Formularios\frm_InicioClientes.aspx" />
     <Content Include="Formularios\frm_InicioProveedores.aspx" />
     <Content Include="Formularios\frm_ProveedorAgregar.aspx" />
     <Content Include="Formularios\frm_ProveedorLista.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
+    <Content Include="Formularios\frm_SolicitudModContrato.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\about.jpg" />
     <Content Include="images\agent_1.jpg" />
@@ -550,6 +552,13 @@
     <Compile Include="Formularios\frm_DudaClienteAgrega.aspx.designer.cs">
       <DependentUpon>frm_DudaClienteAgrega.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_EnvioModContrato.aspx.cs">
+      <DependentUpon>frm_EnvioModContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_EnvioModContrato.aspx.designer.cs">
+      <DependentUpon>frm_EnvioModContrato.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_InicioAdminRentals.aspx.cs">
       <DependentUpon>frm_InicioAdminRentals.aspx</DependentUpon>
     </Compile>
@@ -588,6 +597,13 @@
     </Compile>
     <Compile Include="Formularios\frm_ReporteAdminRentals.aspx.designer.cs">
       <DependentUpon>frm_ReporteAdminRentals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_SolicitudModContrato.aspx.cs">
+      <DependentUpon>frm_SolicitudModContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_SolicitudModContrato.aspx.designer.cs">
+      <DependentUpon>frm_SolicitudModContrato.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
