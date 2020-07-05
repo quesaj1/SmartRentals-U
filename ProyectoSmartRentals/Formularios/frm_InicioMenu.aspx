@@ -3,10 +3,22 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
  <style>
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Quattrocento');
+
+
+/*ESTILOS DE TITULO ANIMADO*/
+
+
+.ml12 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+/*ESTILOS DE IMAGENES Y HOVER*/
+
      .snip1361 {
   font-family: 'Quattrocento', Arial, sans-serif;
   position: relative;
@@ -141,7 +153,7 @@
 
     <div style="margin-top: 10%; margin-bottom:5%;margin-left: 5%; margin-right: 5%" >
 
-        <h1 style="text-align: center";  >Smart Rentals</h1><br/><br/><br/><br/>
+        <h1 style="text-align: center" class="ml12";  >Smart Rentals</h1><br/><br/><br/><br/>
 
         <div>
 
@@ -299,12 +311,40 @@
     </div>
  </div>
 
+    <%-- SCRIPTS DE ANIMACION --%>
+
     <script>
         $(".hover").mouseleave(
             function () {
                 $(this).removeClass("hover");
             }
         );
+    </script>
+
+
+    <script type="text/javascript">
+        var textWrapper = document.querySelector('.ml12');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({ loop: true })
+            .add({
+                targets: '.ml12 .letter',
+                translateX: [40, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                easing: "easeOutExpo",
+                duration: 1500,
+                delay: (el, i) => 500 + 30 * i
+            }).add({
+                targets: '.ml12 .letter',
+                translateX: [0, -30],
+                opacity: [1, 0],
+                easing: "easeInExpo",
+                duration: 1300,
+                delay: (el, i) => 100 + 30 * i
+            });
+
+
     </script>
 
 </asp:Content>
