@@ -180,9 +180,7 @@
     <Content Include="Formularios\frm_ContratoModifica.aspx" />
     <Content Include="Formularios\frm_DudaClienteAgrega.aspx" />
     <Content Include="Formularios\frm_EnvioModContrato.aspx" />
-    <Content Include="Formularios\frm_InicioAdminRentals.aspx" />
-    <Content Include="Formularios\frm_InicioClientes.aspx" />
-    <Content Include="Formularios\frm_InicioProveedores.aspx" />
+    <Content Include="Formularios\frm_InicioMenu.aspx" />
     <Content Include="Formularios\frm_ProveedorAgregar.aspx" />
     <Content Include="Formularios\frm_ProveedorLista.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
@@ -559,23 +557,12 @@
     <Compile Include="Formularios\frm_EnvioModContrato.aspx.designer.cs">
       <DependentUpon>frm_EnvioModContrato.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frm_InicioAdminRentals.aspx.cs">
-      <DependentUpon>frm_InicioAdminRentals.aspx</DependentUpon>
+    <Compile Include="Formularios\frm_InicioMenu.aspx.cs">
+      <DependentUpon>frm_InicioMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Formularios\frm_InicioAdminRentals.aspx.designer.cs">
-      <DependentUpon>frm_InicioAdminRentals.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_InicioClientes.aspx.cs">
-      <DependentUpon>frm_InicioClientes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_InicioClientes.aspx.designer.cs">
-      <DependentUpon>frm_InicioClientes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_InicioProveedores.aspx.cs">
-      <DependentUpon>frm_InicioProveedores.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_InicioProveedores.aspx.designer.cs">
-      <DependentUpon>frm_InicioProveedores.aspx</DependentUpon>
+    <Compile Include="Formularios\frm_InicioMenu.aspx.designer.cs">
+      <DependentUpon>frm_InicioMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_ProveedorAgregar.aspx.cs">
       <DependentUpon>frm_ProveedorAgregar.aspx</DependentUpon>
