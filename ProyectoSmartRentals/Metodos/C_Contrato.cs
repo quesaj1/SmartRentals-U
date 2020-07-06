@@ -123,11 +123,5 @@ namespace ProyectoSmartRentals.Metodos
             return resultado;
         }
 
-        public List<sp_RetornaContratoDataGridMod_Result> RetornarContratoDataGridMod(bool ctr_activo)
-        {
-            List<sp_RetornaContratoDataGridMod_Result> resultado = new List<sp_RetornaContratoDataGridMod_Result>();
-            resultado = this.modeloDB.sp_RetornaContratoDataGridMod(ctr_activo).ToList();
-            return resultado;
-        }
     }
 }

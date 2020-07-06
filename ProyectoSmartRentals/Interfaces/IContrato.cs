@@ -73,8 +73,7 @@ namespace ProyectoSmartRentals.Interfaces
 
          List<sp_BuscaContratoDataGrid_Result> BuscaContratoDataGrid(string ctr_contrato);
 
-        List<sp_RetornaContratoDataGridMod_Result> RetornarContratoDataGridMod(
-            bool ctr_activo);
+        
 
     }
 }
