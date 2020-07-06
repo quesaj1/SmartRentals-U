@@ -563,6 +563,9 @@
           <Parameter Name="v_ctr_activo" Type="bit" Mode="In" />
           <Parameter Name="v_fk_adr_id_admin" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_RetornaContratoDataGridMod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_ctr_activo" Type="bit" Mode="In" />
+        </Function>
         <Function Name="sp_RetornaContratoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id_contrato" Type="int" Mode="In" />
         </Function>
@@ -1186,7 +1189,7 @@
             <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaContratoDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaContratoDataGrid_Result)">
-          <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
+            <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
             <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaContratoID" ReturnType="Collection(SmartRentalsModel.sp_RetornaContratoID_Result)">
@@ -1259,10 +1262,10 @@
             <Parameter Name="ctr_cliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaProveedorDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorDataGrid_Result)">
-            <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
+          <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaTiqueteID" ReturnType="Collection(SmartRentalsModel.sp_RetornaTiqueteID_Result)">
-            <Parameter Name="v_tqt_id" Mode="In" Type="Int32" />
+          <Parameter Name="v_tqt_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaTiquetesDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaTiquetesDataGrid_Result)">
             <Parameter Name="v_tqr_activo" Mode="In" Type="Boolean" />
@@ -1272,7 +1275,10 @@
             <Parameter Name="v_tqt_estado" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaUsuarioUserID" ReturnType="Collection(SmartRentalsModel.sp_RetornaUsuarioUserID_Result)">
-            <Parameter Name="v_usuario" Mode="In" Type="String" />
+          <Parameter Name="v_usuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaContratoDataGridMod" ReturnType="Collection(SmartRentalsModel.sp_RetornaContratoDataGridMod_Result)">
+            <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -1548,6 +1554,17 @@
           <Property Type="String" Name="enc_password" Nullable="false" MaxLength="200" />
           <Property Type="Boolean" Name="activo" Nullable="false" />
           <Property Type="Int32" Name="tipo" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaContratoDataGridMod_Result">
+          <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
+          <Property Type="String" Name="ctr_numeroContrato" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="102" />
+          <Property Type="DateTime" Name="ctr_fechainicio" Nullable="false" />
+          <Property Type="DateTime" Name="ctr_fechafinalizacion" Nullable="true" />
+          <Property Type="Decimal" Name="ctr_monto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="ctr_file" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="alq_ubicacionExacta" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="ctr_fechapago" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2011,6 +2028,21 @@
                 <ScalarProperty Name="enc_password" ColumnName="enc_password" />
                 <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaContratoDataGridMod" FunctionName="SmartRentalsModel.Store.sp_RetornaContratoDataGridMod">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaContratoDataGridMod_Result">
+                <ScalarProperty Name="id_ctr_contrato" ColumnName="id_ctr_contrato" />
+                <ScalarProperty Name="ctr_numeroContrato" ColumnName="ctr_numeroContrato" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ctr_fechainicio" ColumnName="ctr_fechainicio" />
+                <ScalarProperty Name="ctr_fechafinalizacion" ColumnName="ctr_fechafinalizacion" />
+                <ScalarProperty Name="ctr_monto" ColumnName="ctr_monto" />
+                <ScalarProperty Name="ctr_file" ColumnName="ctr_file" />
+                <ScalarProperty Name="alq_ubicacionExacta" ColumnName="alq_ubicacionExacta" />
+                <ScalarProperty Name="ctr_fechapago" ColumnName="ctr_fechapago" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

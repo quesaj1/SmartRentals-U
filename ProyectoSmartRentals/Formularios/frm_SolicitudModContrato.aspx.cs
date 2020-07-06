@@ -26,18 +26,7 @@ namespace ProyectoSmartRentals.Formularios
 
             }
 
-            public void cargardatosGrid()
-            {
-                C_Contrato oContratos = new C_Contrato();
-                ///Asignarle la fuente de datos al grid
-
-
-                this.grdListaContratos.DataSource =
-                    oContratos.RetornarContratoDataGrid(true,7);
-                ///indicar al grid que se muestre
-                this.grdListaContratos.DataBind();
-
-            }
+           
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
@@ -56,7 +45,6 @@ namespace ProyectoSmartRentals.Formularios
                     oContratos.BuscaContratoDataGrid(ctr_contrato);
                     ///indicar al grid que se muestre
                     this.grdListaContratos.DataBind();
-                    cargardatosGrid();
                 }
                 catch (Exception)
                 {

@@ -698,6 +698,9 @@
     <Compile Include="Modelos\sp_RetornaCliente_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\sp_RetornaContratoDataGridMod_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\sp_RetornaContratoDataGrid_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -806,9 +809,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53058</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:25389/</IISUrl>
+          <IISUrl>https://localhost:44382/</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>https://localhost:25389/</IISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44382/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
