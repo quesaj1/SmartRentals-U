@@ -37,11 +37,11 @@ namespace ProyectoSmartRentals.Formularios
       
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string texto = this.DropDownList1.SelectedItem.ToString();
             C_Alquileres oAlquileres = new C_Alquileres();
             ///Asignarle la fuente de datos al grid
 
-            if (this.DropDownList1.DataTextField.Equals("Activos"))
+            if (texto.Equals("Activos"))
             {
                 this.grdListaAlquileres.DataSource =
                     oAlquileres.RetornarAlquilerDataGrid(true);
@@ -55,6 +55,12 @@ namespace ProyectoSmartRentals.Formularios
                 ///indicar al grid que se muestre
                 this.grdListaAlquileres.DataBind();
             }
+
+
+
+
+
+
 
         }
 

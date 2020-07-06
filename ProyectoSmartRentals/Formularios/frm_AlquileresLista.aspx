@@ -24,10 +24,11 @@
                 <label for="txtEstado">Estado</label>
                   <br/>
                 
-                  <asp:DropDownList ID="DropDownList1" class="custom-select" Font-Size="Small"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                      <asp:ListItem Value="Activo">Activo</asp:ListItem>
-                       <asp:ListItem Value="Activo">Desactivo</asp:ListItem>
-                      </asp:DropDownList> 
+                  <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                      <asp:ListItem Value="0">Activos</asp:ListItem>
+                       <asp:ListItem Value="1">Desactivados</asp:ListItem>
+                    
+                      </asp:DropDownList>
             </div>
 
            
