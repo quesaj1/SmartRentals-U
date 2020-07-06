@@ -74,7 +74,8 @@ namespace ProyectoSmartRentals.Formularios
                     DateTime now = DateTime.Now;
                     string  nota = this.txtNota.Value;
                     decimal monto = Convert.ToDecimal(this.txtPrecio.Text);
-                    if (oTiquetes.ModificaTiqueteProveedor(id_tiquete,nota,now,monto, this.DropDownEstado.Text))
+                    string _estado = this.DropDownEstado.SelectedItem.ToString();
+                    if (oTiquetes.ModificaTiqueteProveedor(id_tiquete,nota,now,monto, _estado))
                     {
                         this.lblResultado.Text = "Registro Modificado";
                     }
