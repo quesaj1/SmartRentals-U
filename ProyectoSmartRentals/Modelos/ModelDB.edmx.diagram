@@ -24,6 +24,11 @@
         <AssociationConnector Association="SmartRentalsModel.FK_C_Contratos_C_Cliente" ManuallyRouted="false" />
         <AssociationConnector Association="SmartRentalsModel.FK_C_Proveedor_C_Distrito" ManuallyRouted="false" />
         <AssociationConnector Association="SmartRentalsModel.FK_C_Proveedor_C_Provincia" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Tiquete" Width="1.5" PointX="15" PointY="6.125" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Usuario" Width="1.5" PointX="3.375" PointY="3.75" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_Contratos_C_AdminRentals" />
+        <AssociationConnector Association="SmartRentalsModel.FK_Tiquete_1_C_Contratos" />
+        <AssociationConnector Association="SmartRentalsModel.FK_Tiquete_1_C_Proveedor" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

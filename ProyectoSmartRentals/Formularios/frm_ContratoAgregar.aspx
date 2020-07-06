@@ -60,6 +60,12 @@
                 <label for="txtContrato">Contrato</label>
                 <asp:FileUpload ID="contrato" CssClass="form-control" runat="server" />
             </div>  
+
+             <div class="form-group col-md-6">
+                <!-- Monto mensual -->
+                <label for="txtFechaPago"></label>
+                <asp:TextBox ID="txtFechaPago" type="text" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
+            </div>
              
 
             
@@ -75,6 +81,7 @@
             <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
         </div>
         </div>
+    <br /><br />
    
 <%--    <script>
         $('#<%=DropDownListCliente.cli_cliente%>').chosen();

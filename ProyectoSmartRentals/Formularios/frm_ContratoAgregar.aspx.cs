@@ -67,12 +67,13 @@ namespace ProyectoSmartRentals.Formularios
                 int Id_propiedades = Convert.ToInt16(this.DropDownPropiedad.Text.ToString());
                 DateTime now = DateTime.Now;
 
+                //Hay que tomar la fecha con el datepicker
 
 
                 C_Contrato oContrato = new C_Contrato();
                 bool ContratoInsertar =
                     oContrato.InsertaContrato(Id_Ciente, contrato, now,
-                    now, monto, true, "aún nada", Id_propiedades);
+                    now, monto, true, "aún nada", Id_propiedades,7, now);
 
 
                 if (ContratoInsertar)

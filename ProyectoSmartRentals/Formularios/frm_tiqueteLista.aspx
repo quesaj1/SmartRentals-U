@@ -1,17 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_contratoLista.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_contratoLista" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_tiqueteLista.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_tiqueteLista" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-         <div id="divForm" style="margin-top:12%;">
-            <h2 style="text-align: center">Lista de contratos</h2>
+      <div id="divForm" style="margin-top:12%;">
+            <h2 style="text-align: center">Lista de tiquetes</h2>
 
   
  
         <div  style="text-align: center;">
              
                 <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" Visible="false" NavigateUrl="frm_ContratoAgrega.aspx" >Agregar Nuevo Contrato</asp:HyperLink>
+                <asp:HyperLink ID="hplAgregar" runat="server" Visible="false" NavigateUrl="frm_ContratoAgrega.aspx" >Agregar Nuevo Tiquete</asp:HyperLink>
                 </strong>
 
            
@@ -24,7 +23,7 @@
               <div class="form-group col-sm-3">
                 <!-- Ubicacion -->
                 <label for="txtUbicacionExacta">Buscar: </label>
-                   <asp:TextBox ID="txtSearch"  CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaContratos')"  runat="server" Height="31px" Width="195px"></asp:TextBox>
+                   <asp:TextBox ID="txtSearch"  CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaTiquetes')"  runat="server" Height="31px" Width="195px"></asp:TextBox>
             </div>
               <div class="form-group col-sm-3">
                 <!-- Tipo Propiedad -->
@@ -33,9 +32,10 @@
                 
 
                   <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                      <asp:ListItem Value="0">Activos</asp:ListItem>
-                       <asp:ListItem Value="1">Desactivados</asp:ListItem>
-                    
+                      <asp:ListItem Value="0">Todos</asp:ListItem>
+                       <asp:ListItem Value="1">Pendiente</asp:ListItem>
+                       <asp:ListItem Value="2">En progreso</asp:ListItem>
+                       <asp:ListItem Value="3">Completado</asp:ListItem>
                       </asp:DropDownList>
                  
             </div>
@@ -49,19 +49,20 @@
       <div style= "margin-left: 10%">
         <p>
                 
-                <asp:GridView ID="grdListaContratos" CssClass="table" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnSelectedIndexChanged="grdListaAdminRentals_SelectedIndexChanged">
+                <asp:GridView ID="grdListaTiquetes" CssClass="table" runat="server"  AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal">
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
-                         <asp:BoundField DataField="id_ctr_contrato" HeaderText="ID" Visible="False" />
+                         <asp:BoundField DataField="tqt_id" HeaderText="N° Tiquete"/>
                         <asp:BoundField DataField="ctr_numeroContrato" HeaderText="Contrato" />
-                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="ctr_fechainicio" HeaderText="Fecha de inicio" />
-                        <asp:BoundField DataField="ctr_fechafinalizacion" HeaderText="Fecha de finalización" />
-                        <asp:BoundField DataField="ctr_monto" HeaderText="Valor mensual" />
-                        <asp:BoundField DataField="ctr_file" HeaderText="Contrato" />
-                        <asp:BoundField DataField="alq_ubicacionExacta" HeaderText="Ubicación" />
-                        <asp:HyperLinkField DataNavigateUrlFields="id_ctr_contrato" DataNavigateUrlFormatString="frm_ContratoModifica?id_ctr_contrato={0}" Text="Modificar" />
-                        <asp:HyperLinkField DataNavigateUrlFields="id_ctr_contrato" DataNavigateUrlFormatString="frm_ContratoElimina?id_ctr_contrato={0}" Text="Eliminar" />
+                        <asp:BoundField DataField="tqt_tipo_problema" HeaderText="Tipo Problema" />
+                        <asp:BoundField DataField="tqt_titulo" HeaderText="Titulo" />
+                        <asp:BoundField DataField="tqt_fecha_inicio" HeaderText="Fecha de inicio" />
+                        <asp:BoundField DataField="tqt_fecha_finalizacion" HeaderText="Fecha de finalización" />
+                        <asp:BoundField DataField="prv_nombrevariable" HeaderText="Proveedor" />
+                 <%--       <asp:BoundField DataField="tqt_precio_reparacion" HeaderText="Costo" />--%>
+                        <asp:BoundField DataField="tqt_estado" HeaderText="Estado" />
+                        <asp:HyperLinkField DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteModifica?tqt_id={0}" Text="Modificar" />
+                      
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
@@ -80,6 +81,7 @@
 
             </div>
              </div>
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     <br />
 
     <script src="../Scripts/Search.js"></script>

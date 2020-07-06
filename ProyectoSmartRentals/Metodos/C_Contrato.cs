@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using ProyectoSmartRentals.Modelos;
 using ProyectoSmartRentals.Interfaces;
+using System.Data.Objects;
 
 namespace ProyectoSmartRentals.Metodos
 {
@@ -33,13 +34,14 @@ namespace ProyectoSmartRentals.Metodos
         #region Metodo Insertar Contrato
         public bool InsertaContrato(int fk_cli_cliente, string ctr_numeroContrato,
              System.DateTime ctr_fechainicio, Nullable<System.DateTime> ctr_fechafinalizacion,
-             decimal ctr_monto, Nullable<bool> ctr_activo,string ctr_file, int fk_alq_id_propiedad)
+             decimal ctr_monto, Nullable<bool> ctr_activo,string ctr_file, int fk_alq_id_propiedad, int fk_id_admin_rentals,
+             Nullable<System.DateTime> v_fechaPago)
         {
             try
             {
                 int registroAfectados = 0;
                 registroAfectados = this.modeloDB.sp_InsertarContrato(fk_cli_cliente, ctr_numeroContrato,
-                    ctr_fechainicio, ctr_fechafinalizacion, ctr_monto, ctr_activo, ctr_file, fk_alq_id_propiedad);
+                    ctr_fechainicio, ctr_fechafinalizacion, ctr_monto, ctr_activo, ctr_file, fk_alq_id_propiedad, fk_id_admin_rentals, v_fechaPago);
                 if (registroAfectados > 0)
                     return true;
             }
@@ -55,13 +57,15 @@ namespace ProyectoSmartRentals.Metodos
         #region Metodo Modificar Contrato
         public bool ModificarCliente(int id_ctr_contrato, int fk_cli_cliente, string ctr_numeroContrato,
              System.DateTime ctr_fechainicio, Nullable<System.DateTime> ctr_fechafinalizacion,
-             decimal ctr_monto, Nullable<bool> ctr_activo, string ctr_file, int fk_alq_id_propiedad)
+             decimal ctr_monto, Nullable<bool> ctr_activo, string ctr_file, int fk_alq_id_propiedad, int fk_id_admin_rentals,
+             Nullable<System.DateTime> v_fechaPago)
         {
             try
             {
                 int registroAfectados = 0;
                 registroAfectados = this.modeloDB.sp_ModificarContrato(id_ctr_contrato, fk_cli_cliente, ctr_numeroContrato,
-                    ctr_fechainicio, ctr_fechafinalizacion, ctr_monto, ctr_activo, ctr_file, fk_alq_id_propiedad);
+                    ctr_fechainicio, ctr_fechafinalizacion, ctr_monto, ctr_activo, ctr_file, fk_alq_id_propiedad, fk_id_admin_rentals
+                    , v_fechaPago);
 
                 if (registroAfectados > 0)
                     return true;
@@ -79,10 +83,10 @@ namespace ProyectoSmartRentals.Metodos
 
 
         #region Metodo Retonar Contrato
-        public List<sp_RetornaContrato_Result> RetornarContrato(int id_ctr_contrato,int fk_cli_cliente, string ctr_numeroContrato, bool activo)
+        public List<sp_RetornaContrato_Result> RetornarContrato(int id_ctr_contrato,int fk_cli_cliente, string ctr_numeroContrato, bool activo, int fk_id_admin_rentals)
         {
             List<sp_RetornaContrato_Result> resultado = new List<sp_RetornaContrato_Result>();
-            resultado = this.modeloDB.sp_RetornaContrato(id_ctr_contrato, fk_cli_cliente, ctr_numeroContrato, activo).ToList();
+            resultado = this.modeloDB.sp_RetornaContrato(id_ctr_contrato, fk_cli_cliente, ctr_numeroContrato, activo, fk_id_admin_rentals).ToList();
             return resultado;
         }
         #endregion
@@ -97,12 +101,19 @@ namespace ProyectoSmartRentals.Metodos
 
             return resultado;
         }
+        #endregion
 
-        public List<sp_RetornaContratoDataGrid_Result> RetornarContratoDataGrid(bool ctr_activo)
+        public List<sp_RetornaContratoDataGrid_Result> RetornarContratoDataGrid(bool ctr_activo, int fk_id_admin_rentals)
         {
             List<sp_RetornaContratoDataGrid_Result> resultado = new List<sp_RetornaContratoDataGrid_Result>();
-            resultado = this.modeloDB.sp_RetornaContratoDataGrid(ctr_activo).ToList();
+            resultado = this.modeloDB.sp_RetornaContratoDataGrid(ctr_activo, fk_id_admin_rentals).ToList();
             return resultado;
+        }
+
+        public int? retornaCantidadContrato(bool? ctr_activo, int? ctr_cliente)
+        {
+
+            return 0;
         }
 
         public List<sp_BuscaContratoDataGrid_Result> BuscaContratoDataGrid(string ctr_contrato)
@@ -111,9 +122,5 @@ namespace ProyectoSmartRentals.Metodos
             resultado = this.modeloDB.sp_BuscaContratoDataGrid(ctr_contrato).ToList();
             return resultado;
         }
-
-
-
-        #endregion
     }
 }

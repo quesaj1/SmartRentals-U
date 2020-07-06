@@ -178,13 +178,14 @@
     <Content Include="Formularios\frm_ContratoElimina.aspx" />
     <Content Include="Formularios\frm_contratoLista.aspx" />
     <Content Include="Formularios\frm_ContratoModifica.aspx" />
+    <Content Include="Formularios\frm_crearTiquete.aspx" />
     <Content Include="Formularios\frm_DudaClienteAgrega.aspx" />
     <Content Include="Formularios\frm_EnvioModContrato.aspx" />
     <Content Include="Formularios\frm_InicioMenu.aspx" />
-    <Content Include="Formularios\frm_ProveedorAgregar.aspx" />
-    <Content Include="Formularios\frm_ProveedorLista.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
     <Content Include="Formularios\frm_SolicitudModContrato.aspx" />
+    <Content Include="Formularios\frm_tiqueteLista.aspx" />
+    <Content Include="Formularios\frm_TiqueteModifica.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\about.jpg" />
     <Content Include="images\agent_1.jpg" />
@@ -518,31 +519,34 @@
     </Compile>
     <Compile Include="Formularios\frm_ContratoAgregar.aspx.cs">
       <DependentUpon>frm_ContratoAgregar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_ContratoAgregar.aspx.designer.cs">
       <DependentUpon>frm_ContratoAgregar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_ContratoElimina.aspx.cs">
       <DependentUpon>frm_ContratoElimina.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_ContratoElimina.aspx.designer.cs">
       <DependentUpon>frm_ContratoElimina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_contratoLista.aspx.cs">
       <DependentUpon>frm_contratoLista.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_contratoLista.aspx.designer.cs">
       <DependentUpon>frm_contratoLista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_ContratoModifica.aspx.cs">
       <DependentUpon>frm_ContratoModifica.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_ContratoModifica.aspx.designer.cs">
       <DependentUpon>frm_ContratoModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_crearTiquete.aspx.cs">
+      <DependentUpon>frm_crearTiquete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_crearTiquete.aspx.designer.cs">
+      <DependentUpon>frm_crearTiquete.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_DudaClienteAgrega.aspx.cs">
       <DependentUpon>frm_DudaClienteAgrega.aspx</DependentUpon>
@@ -564,20 +568,6 @@
     <Compile Include="Formularios\frm_InicioMenu.aspx.designer.cs">
       <DependentUpon>frm_InicioMenu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frm_ProveedorAgregar.aspx.cs">
-      <DependentUpon>frm_ProveedorAgregar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Formularios\frm_ProveedorAgregar.aspx.designer.cs">
-      <DependentUpon>frm_ProveedorAgregar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_ProveedorLista.aspx.cs">
-      <DependentUpon>frm_ProveedorLista.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Formularios\frm_ProveedorLista.aspx.designer.cs">
-      <DependentUpon>frm_ProveedorLista.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\frm_ReporteAdminRentals.aspx.cs">
       <DependentUpon>frm_ReporteAdminRentals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -592,14 +582,28 @@
     <Compile Include="Formularios\frm_SolicitudModContrato.aspx.designer.cs">
       <DependentUpon>frm_SolicitudModContrato.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_tiqueteLista.aspx.cs">
+      <DependentUpon>frm_tiqueteLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_tiqueteLista.aspx.designer.cs">
+      <DependentUpon>frm_tiqueteLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_TiqueteModifica.aspx.cs">
+      <DependentUpon>frm_TiqueteModifica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_TiqueteModifica.aspx.designer.cs">
+      <DependentUpon>frm_TiqueteModifica.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ICliente.cs" />
     <Compile Include="Interfaces\IContrato.cs" />
+    <Compile Include="Interfaces\ITiquetes.cs" />
     <Compile Include="Interfaces\I_AdminRentals.cs" />
     <Compile Include="Interfaces\I_Alquileres.cs" />
-    <Compile Include="Interfaces\I_Proveedor.cs" />
     <Compile Include="MasterPage\MasterSmartRentals.Master.cs">
       <DependentUpon>MasterSmartRentals.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -618,7 +622,7 @@
     <Compile Include="Metodos\C_Alquileres.cs" />
     <Compile Include="Metodos\C_Clientes.cs" />
     <Compile Include="Metodos\C_Contrato.cs" />
-    <Compile Include="Metodos\C_Proveedor.cs" />
+    <Compile Include="Metodos\C_Tiquetes.cs" />
     <Compile Include="Modelos\C_Admin_Rentals.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -641,6 +645,12 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\C_Provincia.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\C_Tiquete.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\C_Usuario.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\ModelDB.Context.cs">
@@ -697,10 +707,22 @@
     <Compile Include="Modelos\sp_RetornaContrato_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\sp_RetornaProveedorDataGrid_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\sp_RetornaProveedorID_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\sp_RetornarProveedor_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaTiqueteID_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaTiquetesDataGrid_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaUsuarioUserID_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\sysdiagram.cs">
@@ -784,7 +806,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53058</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44382/</IISUrl>
+          <IISUrl>https://localhost:25389/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:25389/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

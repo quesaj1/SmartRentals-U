@@ -11,16 +11,11 @@ namespace ProyectoSmartRentals.Modelos
 {
     using System;
     
-    public partial class sp_RetornaAlquilerID_Result
+    public partial class sp_RetornaUsuarioUserID_Result
     {
-        public int alq_id_Propiedad { get; set; }
-        public string alq_UbicacionExacta { get; set; }
-        public string alq_TipoPropiedad { get; set; }
-        public string alq_Detalles { get; set; }
-        public int Id_Distrito { get; set; }
-        public int Id_Canton { get; set; }
-        public int Id_Provincia { get; set; }
-        public Nullable<bool> alq_Activo { get; set; }
-        public string alq_ImagenURL { get; set; }
+        public string usuario { get; set; }
+        public string enc_password { get; set; }
+        public bool activo { get; set; }
+        public int tipo { get; set; }
     }
 }

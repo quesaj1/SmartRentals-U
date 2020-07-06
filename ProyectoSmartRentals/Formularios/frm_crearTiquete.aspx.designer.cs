@@ -7,72 +7,74 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoSmartRentals.Formularios {
-    
-    
-    public partial class frm_ProveedorLista {
-        
+namespace ProyectoSmartRentals.Formularios
+{
+
+
+    public partial class frm_crearTiquete
+    {
+
         /// <summary>
-        /// Control txtNombreRepresentante.
+        /// Control DropDownContratos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreRepresentante;
-        
+        protected global::System.Web.UI.WebControls.DropDownList DropDownContratos;
+
         /// <summary>
-        /// Control txtCedulaRepresentante.
+        /// Control DropDownTipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCedulaRepresentante;
-        
+        protected global::System.Web.UI.WebControls.DropDownList DropDownTipo;
+
         /// <summary>
-        /// Control txtCedulaJuridica.
+        /// Control txtTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCedulaJuridica;
-        
+        protected global::System.Web.UI.WebControls.TextBox txtTitulo;
+
         /// <summary>
-        /// Control txtEmail.
+        /// Control txaMessage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txaMessage;
+
         /// <summary>
-        /// Control btnFiltrar.
+        /// Control btnAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFiltrar;
-        
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
+
         /// <summary>
-        /// Control hplAgregar.
+        /// Control btnAtras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplAgregar;
-        
+        protected global::System.Web.UI.WebControls.Button btnAtras;
+
         /// <summary>
-        /// Control grdProveedor.
+        /// Control lblResultado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdProveedor;
+        protected global::System.Web.UI.WebControls.Label lblResultado;
     }
 }

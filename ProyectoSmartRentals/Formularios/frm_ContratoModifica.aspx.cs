@@ -42,7 +42,7 @@ namespace ProyectoSmartRentals.Formularios
                     DateTime now = DateTime.Now;
                     if (oContratos.ModificarCliente(id_contrato, Convert.ToInt16(this.DropDownListCliente.Text), this.txtContratoNumero.Text,
                        now, now, Convert.ToDecimal(this.txtMonto.Text),true,"aun nada",
-                       Convert.ToInt16(this.DropDownPropiedad.Text))
+                       Convert.ToInt16(this.DropDownPropiedad.Text),1, now)
                         )
                     {
                         this.lblResultado.Text = "Registro Modificado";

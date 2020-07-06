@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,9 @@ namespace ProyectoSmartRentals.Interfaces
              decimal ctr_monto,
              Nullable<bool> ctr_activo,
              string ctr_file,
-             int fk_alq_id_propiedad);
+             int fk_alq_id_propiedad,
+             int fk_id_admin_rentals,
+             Nullable<System.DateTime> v_fechaPago);
         #endregion
 
         #region Metodo Modificar Contrato
@@ -35,7 +38,9 @@ namespace ProyectoSmartRentals.Interfaces
              decimal ctr_monto,
              Nullable<bool> ctr_activo,
              string ctr_file,
-             int fk_alq_id_propiedad);
+             int fk_alq_id_propiedad,
+             int fk_id_admin_rentals,
+             Nullable<System.DateTime> v_fechaPago);
         #endregion
 
         //#region Metodo Eliminar Cliente
@@ -48,7 +53,8 @@ namespace ProyectoSmartRentals.Interfaces
              int id_ctr_contrato,
              int fk_cli_cliente,
              string ctr_numeroContrato,
-             bool ctr_activo);
+             bool ctr_activo,
+             int fk_id_admin_rentals);
         #endregion
 
         #region Metodo  Retornar ID Contrato
@@ -58,8 +64,15 @@ namespace ProyectoSmartRentals.Interfaces
 
         #region Metodo  Retornar Contrato
         List<sp_RetornaContratoDataGrid_Result> RetornarContratoDataGrid(
-             bool ctr_activo);
+             bool ctr_activo, int fk_id_admin_rentals);
         #endregion
+
+
+        Nullable<int> retornaCantidadContrato(Nullable<bool> ctr_activo, Nullable<int> ctr_cliente);
+
+
+         List<sp_BuscaContratoDataGrid_Result> BuscaContratoDataGrid(string ctr_contrato);
+
 
 
     }

@@ -33,7 +33,7 @@ namespace ProyectoSmartRentals.Formularios
 
 
                 this.grdListaContratos.DataSource =
-                    oContratos.RetornarContratoDataGrid(true);
+                    oContratos.RetornarContratoDataGrid(true,7);
                 ///indicar al grid que se muestre
                 this.grdListaContratos.DataBind();
 
@@ -43,10 +43,10 @@ namespace ProyectoSmartRentals.Formularios
         {
             if (this.IsValid)
             {
-                string ctr_contrato = "";
+               
 
                 ///obtener del hiddenField el valor de la llave primaria
-                  ctr_contrato = this.txtContrato.Text;
+                 string ctr_contrato = this.txtContrato.Text;
 
                 try
                 {

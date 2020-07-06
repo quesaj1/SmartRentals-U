@@ -11,19 +11,20 @@ namespace ProyectoSmartRentals.Modelos
 {
     using System;
     
-    public partial class sp_RetornarProveedor_Result
+    public partial class sp_RetornaProveedorDataGrid_Result
     {
         public int prv_IDProveedor { get; set; }
         public string prv_NombreVariable { get; set; }
         public string prv_NombreRepresentante { get; set; }
         public string prv_PrimerApellido { get; set; }
-        public string prv_SegundoApellido { get; set; }
         public string prv_CedulaRepresentante { get; set; }
         public string prv_CedulaJuridica { get; set; }
         public string prv_Telefono { get; set; }
         public string prv_Email { get; set; }
         public string prv_TipoProveedor { get; set; }
-        public int Id_Provincia { get; set; }
+        public string Provincia { get; set; }
+        public string Canton { get; set; }
+        public string Distrito { get; set; }
         public string prv_OtrasSenas { get; set; }
     }
 }

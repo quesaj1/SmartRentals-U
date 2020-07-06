@@ -10,14 +10,16 @@ namespace ProyectoSmartRentals.Formularios
 {
     public partial class frm_contratoLista : System.Web.UI.Page
     {
+        //acá hay que tomar el admin rental de la variable de sesión
+        int _fk_admin_rental = 7;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
+            if (!IsPostBack)
+            {
 
                 cargardatosGrid();
 
-            //}
+            }
         }
 
         protected void grdListaAdminRentals_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace ProyectoSmartRentals.Formularios
           
           
             this.grdListaContratos.DataSource =
-                oContratos.RetornarContratoDataGrid(true);
+                oContratos.RetornarContratoDataGrid(true, _fk_admin_rental);
             ///indicar al grid que se muestre
             this.grdListaContratos.DataBind();
           
@@ -40,26 +42,24 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-         
+            string texto = this.DropDownList1.SelectedItem.ToString();
+            C_Contrato oContratos = new C_Contrato();
+            ///Asignarle la fuente de datos al grid
 
-                C_Contrato oContratos = new C_Contrato();
-                ///Asignarle la fuente de datos al grid
-
-                if (this.DropDownList1.DataTextField.Equals("Activos"))
-                {
-                    this.grdListaContratos.DataSource =
-                        oContratos.RetornarContratoDataGrid(true);
-                    ///indicar al grid que se muestre
-                    this.grdListaContratos.DataBind();
-                }
-                else
-                {
-                    this.grdListaContratos.DataSource =
-                  oContratos.RetornarContratoDataGrid(false);
-                    ///indicar al grid que se muestre
-                    this.grdListaContratos.DataBind();
-                }
-            
+            if (texto.Equals("Activos"))
+            {
+                this.grdListaContratos.DataSource =
+                    oContratos.RetornarContratoDataGrid(true, _fk_admin_rental);
+                ///indicar al grid que se muestre
+                this.grdListaContratos.DataBind();
+            }
+            else
+            {
+                this.grdListaContratos.DataSource =
+              oContratos.RetornarContratoDataGrid(false, _fk_admin_rental);
+                ///indicar al grid que se muestre
+                this.grdListaContratos.DataBind();
+            }
         }
     }
 }
