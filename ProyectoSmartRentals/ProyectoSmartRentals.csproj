@@ -183,6 +183,7 @@
     <Content Include="Formularios\frm_EnvioModContrato.aspx" />
     <Content Include="Formularios\frm_InicioMenu.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
+    <Content Include="Formularios\frm_ReporteGastos.aspx" />
     <Content Include="Formularios\frm_SolicitudModContrato.aspx" />
     <Content Include="Formularios\frm_tiqueteLista.aspx" />
     <Content Include="Formularios\frm_TiqueteModifica.aspx" />
@@ -574,6 +575,13 @@
     </Compile>
     <Compile Include="Formularios\frm_ReporteAdminRentals.aspx.designer.cs">
       <DependentUpon>frm_ReporteAdminRentals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ReporteGastos.aspx.cs">
+      <DependentUpon>frm_ReporteGastos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ReporteGastos.aspx.designer.cs">
+      <DependentUpon>frm_ReporteGastos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_SolicitudModContrato.aspx.cs">
       <DependentUpon>frm_SolicitudModContrato.aspx</DependentUpon>

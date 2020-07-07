@@ -9,18 +9,7 @@
 
 
     <style type="text/css">
-        .boton_personalizado {
-            font-weight: 600;
-            font-size: 20px;
-            color: #ffffff;
-            background-color: #2ECC71;
-        }
-
-            .boton_personalizado:hover {
-                color: #1883ba;
-                background-color: #ffffff;
-            }
-
+      
 
         input.error {
             border: 1px dotted red;
@@ -134,10 +123,10 @@
         <div class="form-group" style="text-align: center">
             <!-- Submit Button -->
 
-            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado" Text="Agregar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click" />
+            <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-primary" Text="Agregar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;
 
-            <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_AlquileresLista.aspx" />
+            <asp:Button ID="btnAtras" CssClass="btn btn-danger" runat="server" CausesValidation="false" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_AlquileresLista.aspx" />
 
             <br />
             <br />
