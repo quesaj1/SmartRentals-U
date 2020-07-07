@@ -60,31 +60,31 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.TextBox txtDetalles;
 
         /// <summary>
-        /// txtProvincia control.
+        /// DropDownListProvincia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProvincia;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListProvincia;
 
         /// <summary>
-        /// txtCanton control.
+        /// DropDownListCanton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCanton;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCanton;
 
         /// <summary>
-        /// txtDistrito control.
+        /// DropDownListDistrito control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDistrito;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListDistrito;
 
         /// <summary>
         /// txtImagen control.

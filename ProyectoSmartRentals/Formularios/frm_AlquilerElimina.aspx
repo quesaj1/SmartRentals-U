@@ -91,18 +91,21 @@
             <div class="form-group col-md-6">
                 <!-- Provincia -->
                 <label for="txtProvincia">Provincia</label><br/>
-                <asp:TextBox ID="txtProvincia" type="text" CssClass="form-control" ReadOnly="true" placeholder="Provincia" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:DropDownList ID="DropDownListProvincia" DataTextField="Provincia" ReadOnly="true" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+                <%--<asp:TextBox ID="txtProvincia" type="text" CssClass="form-control" ReadOnly="true" placeholder="Provincia" runat="server" MaxLength="50"></asp:TextBox>--%>
             </div>
             <div class="form-group col-md-6">
                 <!--  Canton -->
                 <label for="txtCanton">Canton</label><br />
-                <asp:TextBox ID="txtCanton" type="text" CssClass="form-control" ReadOnly="true" placeholder="Canton" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:DropDownList ID="DropDownListCanton" DataTextField="Canton" ReadOnly="true" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+                <%--<asp:TextBox ID="txtCanton" type="text" CssClass="form-control" ReadOnly="true" placeholder="Canton" runat="server" MaxLength="50"></asp:TextBox>--%>
 
             </div>
             <div class="form-group col-md-6">
                 <!-- Distrito -->
                 <label for="txtDistrito">Distrito</label><br />
-                <asp:TextBox ID="txtDistrito" type="text" CssClass="form-control" ReadOnly="true" placeholder="Distrito" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:DropDownList ID="DropDownListDistrito" DataTextField="Distrito" ReadOnly="true" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+                <%--<asp:TextBox ID="txtDistrito" type="text" CssClass="form-control" ReadOnly="true" placeholder="Distrito" runat="server" MaxLength="50"></asp:TextBox>--%>
 
             </div>
             <div class="form-group col-md-6">

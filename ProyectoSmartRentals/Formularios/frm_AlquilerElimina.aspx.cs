@@ -2,6 +2,8 @@
 using ProyectoSmartRentals.Modelos;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,18 +18,18 @@ namespace ProyectoSmartRentals.Formularios
 
             this.hdldAlquiler.Value = this.Request.QueryString["alq_id_Propiedad"];
             CargaDatosAlquileres();
+           
 
         }
-
 
         void CargaDatosAlquileres()
         {
             ///obtener el valor del parámetro que fue asignado al hidden
             ///en el page_Load
             string llavePrimaria = this.hdldAlquiler.Value;
-           
+
             if (!string.IsNullOrEmpty(llavePrimaria))
-            
+
             {
                 int id_Alquiler = Convert.ToInt16(llavePrimaria);
                 C_Alquileres oAlquileres = new C_Alquileres();
@@ -36,6 +38,19 @@ namespace ProyectoSmartRentals.Formularios
                 ///del procedimiento almacenado
                 ///
                 sp_RetornaAlquilerID_Result resultadoSp = oAlquileres.RetornaAlquilerID(id_Alquiler);
+               
+                DropDownListProvincia.DataSource = Consultar("select p.Nombre as Provincia from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia WHERE a.alq_id_Propiedad =" + id_Alquiler);
+                DropDownListProvincia.DataBind();
+              
+
+                DropDownListCanton.DataSource = Consultar("select c.Nombre as Canton from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia INNER JOIN C_Canton c ON a.Id_Canton = c.Id_Canton WHERE a.alq_id_Propiedad = " + id_Alquiler);
+                DropDownListCanton.DataBind();
+                
+                
+                DropDownListDistrito.DataSource = Consultar("select d.Nombre as Distrito from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia INNER JOIN C_Canton c ON a.Id_Canton = c.Id_Canton INNER JOIN C_Distrito d ON a.Id_Distrito = d.Id_Distrito WHERE a.alq_id_Propiedad =" + id_Alquiler);
+                DropDownListDistrito.DataBind();
+               
+                
 
                 ///validar que el procedimiento retorne un valor
                 if (resultadoSp != null)
@@ -44,9 +59,6 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtUbicacionExacta.Text = resultadoSp.alq_UbicacionExacta;
                     this.txtTipoPropiedad.Text = resultadoSp.alq_TipoPropiedad;
                     this.txtDetalles.Text = resultadoSp.alq_Detalles;
-                    this.txtDistrito.Text = resultadoSp.Id_Distrito.ToString();
-                    this.txtCanton.Text = resultadoSp.Id_Canton.ToString();
-                    this.txtProvincia.Text = resultadoSp.Id_Provincia.ToString();
                     this.txtImagen.Text = resultadoSp.alq_ImagenURL;
                     
                 }
@@ -71,9 +83,9 @@ namespace ProyectoSmartRentals.Formularios
 
                     if (oAlquileres.ModificaAlquiler(id_contrato,
                         txtUbicacionExacta.Text, txtTipoPropiedad.Text,
-                        txtDetalles.Text, Convert.ToInt16(txtDistrito.Text),
-                        Convert.ToInt16(txtCanton.Text),
-                        Convert.ToInt16(txtProvincia.Text), txtImagen.Text, false))
+                        txtDetalles.Text, Convert.ToInt16(DropDownListDistrito.Text),
+                        Convert.ToInt16(DropDownListCanton.Text),
+                        Convert.ToInt16(DropDownListProvincia.Text), txtImagen.Text, false))
 
                         this.lblResultado.Text = "Registro eliminado";
 
@@ -93,46 +105,38 @@ namespace ProyectoSmartRentals.Formularios
             Response.Redirect("~/Formularios/frm_AlquileresLista.aspx");
         }
 
-
-
-        public void EliminarAlquiler()
-        {
-            if (this.IsValid)
-            {
-
-                int id_contrato = 0;
-
-                id_contrato = Convert.ToInt16(this.hdldAlquiler.Value);
-
-                try
-                {
-                    C_Alquileres oAlquileres = new C_Alquileres();
-
-              
-                    if (oAlquileres.ModificaAlquiler(id_contrato,
-                        txtUbicacionExacta.Text,txtTipoPropiedad.Text,
-                        txtDetalles.Text,Convert.ToInt16(txtDistrito.Text),
-                        Convert.ToInt16(txtCanton.Text),
-                        Convert.ToInt16(txtDistrito.Text),txtImagen.Text,false ))
-
-                        this.lblResultado.Text = "Registro eliminado";
-                    else
-                        this.lblResultado.Text = "No fue posible eliminar";
-                }
-                catch (Exception error)
-                {
-                    this.lblResultado.Text = "Ocurrió un error:" + error.Message;
-                }
-
-            }
-        }
-
         protected void ShowPopup(object sender, EventArgs e)
         {
-            
-            string title = "Eliminar registro";
-            string body =  "Esta seguro de eliminar este registro?";
+         
+           string title = "Eliminar registro";
+           string body =  
+                        "Esta seguro de eliminar este alquiler?"+ "<br/>"+ "<br/>"+
+                        "No. Alquiler :" +"&nbsp" +txtID.Text + "<br/>"+
+                        "--------------------------------------------------------" + "<br/>" +
+                        "Propiedad :" +"&nbsp;&nbsp " +txtTipoPropiedad.Text +"<br/>" +
+                        "--------------------------------------------------------" + "<br/>" +
+                        "Provincia :" + " &nbsp;&nbsp;&nbsp;&nbsp" + DropDownListProvincia.Text+ "<br/>" +
+                        "--------------------------------------------------------" + "<br/>" +
+                        "Cantón :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + DropDownListCanton.Text + "<br/>" +
+                        "--------------------------------------------------------" + "<br/>" +
+                        "Distrito :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + DropDownListDistrito.Text + "<br/>";
+
             ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
+        }
+
+
+        public DataSet Consultar(string strSQL)
+        {
+            string strconn = "data source=smartrentals.c97xkwmyluew.us-east-2.rds.amazonaws.com;initial catalog=SmartRentals;persist security info=True;user id=admin;password=SmartRentals20";
+            SqlConnection con = new SqlConnection(strconn);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            con.Close();
+            return ds;
+
         }
     }
 
