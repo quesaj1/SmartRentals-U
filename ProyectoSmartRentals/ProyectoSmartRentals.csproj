@@ -578,7 +578,6 @@
     </Compile>
     <Compile Include="Formularios\frm_ReporteGastos.aspx.cs">
       <DependentUpon>frm_ReporteGastos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_ReporteGastos.aspx.designer.cs">
       <DependentUpon>frm_ReporteGastos.aspx</DependentUpon>
@@ -700,6 +699,9 @@
     <Compile Include="Modelos\sp_RetornaAlquiler_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\sp_RetornaClienteDataGrid_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\sp_RetornaClienteID_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -716,6 +718,12 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\sp_RetornaContrato_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaGastosCalend_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaGastosCat_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\sp_RetornaProveedorDataGrid_Result.cs">
@@ -801,6 +809,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\R_AdminRental.rdlc" />
+    <EmbeddedResource Include="Reportes\R_Gastos.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

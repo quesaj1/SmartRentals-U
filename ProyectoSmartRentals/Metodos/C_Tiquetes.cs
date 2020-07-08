@@ -81,6 +81,7 @@ namespace ProyectoSmartRentals.Metodos
             return false;
         }
 
+
         #endregion
 
         #region Método para obtener la información para el datadrig
@@ -107,5 +108,19 @@ namespace ProyectoSmartRentals.Metodos
 
         #endregion
 
+
+        public List<sp_RetornaGastosCalend_Result>RetornarGastosCalend(DateTime fecha_Inicio, DateTime fecha_Final)
+        {
+            List<sp_RetornaGastosCalend_Result>resultado = new List<sp_RetornaGastosCalend_Result>();
+            resultado = this.modeloDB.sp_RetornaGastosCalend(fecha_Inicio, fecha_Final).ToList();
+            return resultado;
+        }
+
+        public List<sp_RetornaGastosCat_Result> RetornarGastosCat(string tqt_tipo_problema)
+        {
+            List<sp_RetornaGastosCat_Result> resultado = new List<sp_RetornaGastosCat_Result>();
+            resultado = this.modeloDB.sp_RetornaGastosCat(tqt_tipo_problema).ToList();
+            return resultado;
+        }
     }
 }

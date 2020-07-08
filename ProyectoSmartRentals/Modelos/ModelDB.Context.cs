@@ -226,7 +226,7 @@ namespace ProyectoSmartRentals.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarAlquiler", v_UbicacionExactaParameter, v_TipoPropiedadParameter, v_DetallesParameter, v_DistritoParameter, v_CantonParameter, v_ProvinciaParameter, v_ImagenURLParameter, v_ActivoParameter);
         }
     
-        public virtual int sp_InsertarCliente(string cli_Cedula, string cli_Nombre, string cli_SegundoNombre, string cli_PrimerApellido, string cli_SegundoApellido, Nullable<System.DateTime> cli_FechaNacimiento, string cli_TelefonoCasa, string cli_TelefonoCelular, string cli_Email)
+        public virtual int sp_InsertarCliente(string cli_Cedula, string cli_Nombre, string cli_SegundoNombre, string cli_PrimerApellido, string cli_SegundoApellido, Nullable<System.DateTime> cli_FechaNacimiento, string cli_TelefonoCasa, string cli_TelefonoCelular, string cli_Email, Nullable<bool> v_Activo)
         {
             var cli_CedulaParameter = cli_Cedula != null ?
                 new ObjectParameter("cli_Cedula", cli_Cedula) :
@@ -264,7 +264,11 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("cli_Email", cli_Email) :
                 new ObjectParameter("cli_Email", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarCliente", cli_CedulaParameter, cli_NombreParameter, cli_SegundoNombreParameter, cli_PrimerApellidoParameter, cli_SegundoApellidoParameter, cli_FechaNacimientoParameter, cli_TelefonoCasaParameter, cli_TelefonoCelularParameter, cli_EmailParameter);
+            var v_ActivoParameter = v_Activo.HasValue ?
+                new ObjectParameter("v_Activo", v_Activo) :
+                new ObjectParameter("v_Activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarCliente", cli_CedulaParameter, cli_NombreParameter, cli_SegundoNombreParameter, cli_PrimerApellidoParameter, cli_SegundoApellidoParameter, cli_FechaNacimientoParameter, cli_TelefonoCasaParameter, cli_TelefonoCelularParameter, cli_EmailParameter, v_ActivoParameter);
         }
     
         public virtual int sp_InsertarContrato(Nullable<int> v_fk_cli_cliente, string v_ctr_numero, Nullable<System.DateTime> v_ctr_fechainicio, Nullable<System.DateTime> v_ctr_fechafinalizacion, Nullable<decimal> v_ctr_monto, Nullable<bool> v_ctr_activo, string v_ctr_file, Nullable<int> v_fk_alq_id_propiedad, Nullable<int> v_fk_adr_id_admin, Nullable<System.DateTime> v_fechaPago)
@@ -496,7 +500,7 @@ namespace ProyectoSmartRentals.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarAlquiler", v_id_PropiedadParameter, v_UbicacionExactaParameter, v_TipoPropiedadParameter, v_DetallesParameter, v_DistritoParameter, v_CantonParameter, v_ProvinciaParameter, v_ImagenURLParameter);
         }
     
-        public virtual int sp_ModificarCliente(Nullable<int> id_cli_Cliente, string cli_Cedula, string cli_Nombre, string cli_SegundoNombre, string cli_PrimerApellido, string cli_SegundoApellido, Nullable<System.DateTime> cli_fechanacimiento, string cli_TelefonoCasa, string cli_TelefonoCelular, string cli_Email)
+        public virtual int sp_ModificarCliente(Nullable<int> id_cli_Cliente, string cli_Cedula, string cli_Nombre, string cli_SegundoNombre, string cli_PrimerApellido, string cli_SegundoApellido, Nullable<System.DateTime> cli_fechanacimiento, string cli_TelefonoCasa, string cli_TelefonoCelular, string cli_Email, Nullable<bool> v_Activo)
         {
             var id_cli_ClienteParameter = id_cli_Cliente.HasValue ?
                 new ObjectParameter("id_cli_Cliente", id_cli_Cliente) :
@@ -538,7 +542,11 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("cli_Email", cli_Email) :
                 new ObjectParameter("cli_Email", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarCliente", id_cli_ClienteParameter, cli_CedulaParameter, cli_NombreParameter, cli_SegundoNombreParameter, cli_PrimerApellidoParameter, cli_SegundoApellidoParameter, cli_fechanacimientoParameter, cli_TelefonoCasaParameter, cli_TelefonoCelularParameter, cli_EmailParameter);
+            var v_ActivoParameter = v_Activo.HasValue ?
+                new ObjectParameter("v_Activo", v_Activo) :
+                new ObjectParameter("v_Activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarCliente", id_cli_ClienteParameter, cli_CedulaParameter, cli_NombreParameter, cli_SegundoNombreParameter, cli_PrimerApellidoParameter, cli_SegundoApellidoParameter, cli_fechanacimientoParameter, cli_TelefonoCasaParameter, cli_TelefonoCelularParameter, cli_EmailParameter, v_ActivoParameter);
         }
     
         public virtual int sp_ModificarContrato(Nullable<int> v_id_ctr_contrato, Nullable<int> v_fk_cli_cliente, string v_ctr_numero, Nullable<System.DateTime> v_ctr_fechainicio, Nullable<System.DateTime> v_ctr_fechafinalizacion, Nullable<decimal> v_ctr_monto, Nullable<bool> v_ctr_activo, string v_ctr_file, Nullable<int> v_fk_alq_id_propiedad, Nullable<int> v_fk_adr_id_admin, Nullable<System.DateTime> v_fechaPago)
@@ -749,7 +757,7 @@ namespace ProyectoSmartRentals.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaAlquilerID_Result>("sp_RetornaAlquilerID", id_PropiedadParameter);
         }
     
-        public virtual ObjectResult<sp_RetornaCliente_Result> sp_RetornaCliente(string cli_Cedula, string cli_Nombre, string cli_SegundoNombre, string cli_PrimerApellido, string cli_SegundoApellido, string cli_TelefonoCasa, string cli_TelefonoCelular, string cli_Email)
+        public virtual ObjectResult<sp_RetornaCliente_Result> sp_RetornaCliente(string cli_Cedula, string cli_Nombre, string cli_SegundoNombre, string cli_PrimerApellido, string cli_SegundoApellido, string cli_TelefonoCasa, string cli_TelefonoCelular, string cli_Email, Nullable<bool> v_Activo)
         {
             var cli_CedulaParameter = cli_Cedula != null ?
                 new ObjectParameter("cli_Cedula", cli_Cedula) :
@@ -783,7 +791,11 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("cli_Email", cli_Email) :
                 new ObjectParameter("cli_Email", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaCliente_Result>("sp_RetornaCliente", cli_CedulaParameter, cli_NombreParameter, cli_SegundoNombreParameter, cli_PrimerApellidoParameter, cli_SegundoApellidoParameter, cli_TelefonoCasaParameter, cli_TelefonoCelularParameter, cli_EmailParameter);
+            var v_ActivoParameter = v_Activo.HasValue ?
+                new ObjectParameter("v_Activo", v_Activo) :
+                new ObjectParameter("v_Activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaCliente_Result>("sp_RetornaCliente", cli_CedulaParameter, cli_NombreParameter, cli_SegundoNombreParameter, cli_PrimerApellidoParameter, cli_SegundoApellidoParameter, cli_TelefonoCasaParameter, cli_TelefonoCelularParameter, cli_EmailParameter, v_ActivoParameter);
         }
     
         public virtual ObjectResult<sp_RetornaClienteID_Result> sp_RetornaClienteID(Nullable<int> id_IDCliente)
@@ -1089,6 +1101,94 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("v_ctr_activo", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaContratoDataGridMod_Result>("sp_RetornaContratoDataGridMod", v_ctr_activoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaGastosCalend_Result> sp_RetornaGastosCalend(Nullable<System.DateTime> v_inicio, Nullable<System.DateTime> v_final)
+        {
+            var v_inicioParameter = v_inicio.HasValue ?
+                new ObjectParameter("v_inicio", v_inicio) :
+                new ObjectParameter("v_inicio", typeof(System.DateTime));
+    
+            var v_finalParameter = v_final.HasValue ?
+                new ObjectParameter("v_final", v_final) :
+                new ObjectParameter("v_final", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaGastosCalend_Result>("sp_RetornaGastosCalend", v_inicioParameter, v_finalParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaGastosCat_Result> sp_RetornaGastosCat(string v_cat)
+        {
+            var v_catParameter = v_cat != null ?
+                new ObjectParameter("v_cat", v_cat) :
+                new ObjectParameter("v_cat", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaGastosCat_Result>("sp_RetornaGastosCat", v_catParameter);
+        }
+    
+        public virtual int sp_ModificarProveedor_Elimina(Nullable<int> prv_IDProveedor, string prv_NombreVariable, string prv_NombreRepresentante, string prv_PrimerApellido, string prv_SegundoApellido, string prv_CedulaRepresentante, string prv_CedulaJuridica, string prv_Telefono, string prv_Email, string prv_TipoProveedor, Nullable<int> v_Provincia, string prv_OtrasSenas, Nullable<bool> v_Activo)
+        {
+            var prv_IDProveedorParameter = prv_IDProveedor.HasValue ?
+                new ObjectParameter("prv_IDProveedor", prv_IDProveedor) :
+                new ObjectParameter("prv_IDProveedor", typeof(int));
+    
+            var prv_NombreVariableParameter = prv_NombreVariable != null ?
+                new ObjectParameter("prv_NombreVariable", prv_NombreVariable) :
+                new ObjectParameter("prv_NombreVariable", typeof(string));
+    
+            var prv_NombreRepresentanteParameter = prv_NombreRepresentante != null ?
+                new ObjectParameter("prv_NombreRepresentante", prv_NombreRepresentante) :
+                new ObjectParameter("prv_NombreRepresentante", typeof(string));
+    
+            var prv_PrimerApellidoParameter = prv_PrimerApellido != null ?
+                new ObjectParameter("prv_PrimerApellido", prv_PrimerApellido) :
+                new ObjectParameter("prv_PrimerApellido", typeof(string));
+    
+            var prv_SegundoApellidoParameter = prv_SegundoApellido != null ?
+                new ObjectParameter("prv_SegundoApellido", prv_SegundoApellido) :
+                new ObjectParameter("prv_SegundoApellido", typeof(string));
+    
+            var prv_CedulaRepresentanteParameter = prv_CedulaRepresentante != null ?
+                new ObjectParameter("prv_CedulaRepresentante", prv_CedulaRepresentante) :
+                new ObjectParameter("prv_CedulaRepresentante", typeof(string));
+    
+            var prv_CedulaJuridicaParameter = prv_CedulaJuridica != null ?
+                new ObjectParameter("prv_CedulaJuridica", prv_CedulaJuridica) :
+                new ObjectParameter("prv_CedulaJuridica", typeof(string));
+    
+            var prv_TelefonoParameter = prv_Telefono != null ?
+                new ObjectParameter("prv_Telefono", prv_Telefono) :
+                new ObjectParameter("prv_Telefono", typeof(string));
+    
+            var prv_EmailParameter = prv_Email != null ?
+                new ObjectParameter("prv_Email", prv_Email) :
+                new ObjectParameter("prv_Email", typeof(string));
+    
+            var prv_TipoProveedorParameter = prv_TipoProveedor != null ?
+                new ObjectParameter("prv_TipoProveedor", prv_TipoProveedor) :
+                new ObjectParameter("prv_TipoProveedor", typeof(string));
+    
+            var v_ProvinciaParameter = v_Provincia.HasValue ?
+                new ObjectParameter("v_Provincia", v_Provincia) :
+                new ObjectParameter("v_Provincia", typeof(int));
+    
+            var prv_OtrasSenasParameter = prv_OtrasSenas != null ?
+                new ObjectParameter("prv_OtrasSenas", prv_OtrasSenas) :
+                new ObjectParameter("prv_OtrasSenas", typeof(string));
+    
+            var v_ActivoParameter = v_Activo.HasValue ?
+                new ObjectParameter("v_Activo", v_Activo) :
+                new ObjectParameter("v_Activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarProveedor_Elimina", prv_IDProveedorParameter, prv_NombreVariableParameter, prv_NombreRepresentanteParameter, prv_PrimerApellidoParameter, prv_SegundoApellidoParameter, prv_CedulaRepresentanteParameter, prv_CedulaJuridicaParameter, prv_TelefonoParameter, prv_EmailParameter, prv_TipoProveedorParameter, v_ProvinciaParameter, prv_OtrasSenasParameter, v_ActivoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaClienteDataGrid_Result> sp_RetornaClienteDataGrid(Nullable<bool> v_alq_activo)
+        {
+            var v_alq_activoParameter = v_alq_activo.HasValue ?
+                new ObjectParameter("v_alq_activo", v_alq_activo) :
+                new ObjectParameter("v_alq_activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaClienteDataGrid_Result>("sp_RetornaClienteDataGrid", v_alq_activoParameter);
         }
     }
 }

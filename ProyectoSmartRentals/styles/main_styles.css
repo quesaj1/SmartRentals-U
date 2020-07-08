@@ -1627,3 +1627,7 @@ section
 {
 	color: #adc867;
 }
+
+[id^="VisibleReportContent"] > div > table {
+	margin: 0 auto;
+}

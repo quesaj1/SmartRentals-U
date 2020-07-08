@@ -21,22 +21,22 @@ namespace ProyectoSmartRentals.Formularios
         void CargaDatosGrid()
         {
 
-            string cedula = this.txtCedula.Text.ToString();
-            string nombre = this.txtNombre.Text.ToString();
-            string segundonombre = this.txtSegundoNombre.Text.ToString();
-            string primerapellido = this.txtPrimerApellido.Text.ToString();
-            string segundoapellido = this.txtSegundoApellido.Text.ToString();
-            string TelefonoCasa = this.txtTelefonoCasa.Text.ToString();
-            string TelefonoCelular = this.txtTelefonoCelular.Text.ToString();
-            string email = this.txtEmail.Text.ToString();
+            //string cedula = this.txtCedula.Text.ToString();
+            //string nombre = this.txtNombre.Text.ToString();
+            //string segundonombre = this.txtSegundoNombre.Text.ToString();
+            //string primerapellido = this.txtPrimerApellido.Text.ToString();
+            //string segundoapellido = this.txtSegundoApellido.Text.ToString();
+            //string TelefonoCasa = this.txtTelefonoCasa.Text.ToString();
+            //string TelefonoCelular = this.txtTelefonoCelular.Text.ToString();
+            ////string email = this.txtEmail.Text.ToString();
 
 
-            C_Clientes oAdminRentals = new C_Clientes();
-            ///Asignarle la fuente de datos al grid
-            this.grdListaClientes.DataSource =
-                oAdminRentals.RetornarCliente(cedula, nombre, segundonombre, primerapellido, segundoapellido, TelefonoCasa, TelefonoCelular, email);
-            ///indicar al grid que se muestre
-            this.grdListaClientes.DataBind();
+            ////C_Clientes oAdminRentals = new C_Clientes();
+            /////Asignarle la fuente de datos al grid
+            ////this.grdListaClientes.DataSource =
+            //  /*  oAdminRentals.RetornarCliente(cedula, nombre, segundonombre, primerapellido, segundoapellido, TelefonoCasa, TelefonoCelular, email*/);
+            /////indicar al grid que se muestre
+            //this.grdListaClientes.DataBind();
         }
         #endregion
 

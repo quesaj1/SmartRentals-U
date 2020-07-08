@@ -565,8 +565,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.17639cm</Top>
-          <Left>6.26745cm</Left>
+          <Top>0.14111cm</Top>
+          <Left>5.28439cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -595,7 +595,7 @@
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
           <Top>0.17639cm</Top>
-          <Left>8.94384cm</Left>
+          <Left>9.23488cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -624,7 +624,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>0.22931cm</Top>
+          <Top>0.19403cm</Top>
           <Left>8.27828cm</Left>
           <Height>0.54708cm</Height>
           <Width>0.48917cm</Width>
