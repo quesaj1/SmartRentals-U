@@ -25,7 +25,7 @@ namespace ProyectoSmartRentals.Formularios
         int _pk_cliente = 0;
         int _pk_proveedor = 0;
         string _estado = null;
-        string _rol = "Cliente";
+        string _rol = "Admin";
 
         protected void Page_Load(object sender, EventArgs e)
         {
