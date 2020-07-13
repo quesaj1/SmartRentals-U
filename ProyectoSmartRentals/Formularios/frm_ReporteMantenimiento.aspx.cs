@@ -201,7 +201,7 @@ namespace ProyectoSmartRentals.Formularios
                     estado = null;
                 }
 
-                if(this.fechainicio1.Text == null)
+                if(!this.fechainicio1.Text.Equals(""))
                 {
                     DateTime inicio = DateTime.ParseExact(this.fechainicio1.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                     DateTime final = DateTime.ParseExact(this.fechafinalizacion.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
@@ -268,7 +268,7 @@ namespace ProyectoSmartRentals.Formularios
                     estado = null;
                 }
 
-                if (this.fechainicio1.Text == null)
+                if (!this.fechainicio1.Text.Equals(""))
                 {
                     DateTime inicio = DateTime.ParseExact(this.fechainicio1.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                     DateTime final = DateTime.ParseExact(this.fechafinalizacion.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
@@ -335,7 +335,7 @@ namespace ProyectoSmartRentals.Formularios
                     estado = null;
                 }
 
-                if (this.fechainicio1.Text == null)
+                if (!this.fechainicio1.Text.Equals(""))
                 {
                     DateTime inicio = DateTime.ParseExact(this.fechainicio1.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                     DateTime final = DateTime.ParseExact(this.fechafinalizacion.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
