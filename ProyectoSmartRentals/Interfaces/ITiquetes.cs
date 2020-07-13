@@ -51,6 +51,13 @@ namespace ProyectoSmartRentals.Interfaces
         List<sp_RetornaGastosCat_Result> RetornarGastosCat(string tqt_tipo_problema);
         #endregion
 
+        #region Método para obtener la información para el reporte de los tiquetes
+        List<sp_RetornaReporteAdmin_Result> RetornarReporteTiquetes(
+            Nullable<int> v_fk_adr_id_admin, Nullable<int> v_fk_ctr_cliente, Nullable<int> v_fk_prv_proveedor,
+            string v_estado, Nullable<System.DateTime> v_fecha_inicio1, Nullable<System.DateTime> v_fecha_inicio2,
+            Nullable<System.DateTime> v_fecha_finalizacion1, Nullable<System.DateTime> v_fecha_finalizacion2,
+            Nullable<int> v_ctr_contrato);
+        #endregion
 
     }
 }

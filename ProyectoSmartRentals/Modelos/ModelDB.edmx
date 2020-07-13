@@ -595,6 +595,17 @@
         <Function Name="sp_RetornaProveedorID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="prv_IDProveedor" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_RetornaReporteAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_fk_adr_id_admin" Type="int" Mode="In" />
+          <Parameter Name="v_fk_ctr_cliente" Type="int" Mode="In" />
+          <Parameter Name="v_fk_prv_proveedor" Type="int" Mode="In" />
+          <Parameter Name="v_estado" Type="varchar" Mode="In" />
+          <Parameter Name="v_fecha_inicio1" Type="datetime" Mode="In" />
+          <Parameter Name="v_fecha_inicio2" Type="datetime" Mode="In" />
+          <Parameter Name="v_fecha_finalizacion1" Type="datetime" Mode="In" />
+          <Parameter Name="v_fecha_finalizacion2" Type="datetime" Mode="In" />
+          <Parameter Name="v_ctr_contrato" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_RetornarProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="prv_NombreRepresentante" Type="varchar" Mode="In" />
           <Parameter Name="prv_CedulaRepresentante" Type="varchar" Mode="In" />
@@ -1327,7 +1338,18 @@
             <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaClienteDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaClienteDataGrid_Result)">
-            <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
+          <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaReporteAdmin" ReturnType="Collection(SmartRentalsModel.sp_RetornaReporteAdmin_Result)">
+            <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
+            <Parameter Name="v_fk_ctr_cliente" Mode="In" Type="Int32" />
+            <Parameter Name="v_fk_prv_proveedor" Mode="In" Type="Int32" />
+            <Parameter Name="v_estado" Mode="In" Type="String" />
+            <Parameter Name="v_fecha_inicio1" Mode="In" Type="DateTime" />
+            <Parameter Name="v_fecha_inicio2" Mode="In" Type="DateTime" />
+            <Parameter Name="v_fecha_finalizacion1" Mode="In" Type="DateTime" />
+            <Parameter Name="v_fecha_finalizacion2" Mode="In" Type="DateTime" />
+            <Parameter Name="v_ctr_contrato" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -1639,6 +1661,23 @@
           <Property Type="String" Name="cli_TelefonoCasa" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="cli_TelefonoCelular" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="cli_Email" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaReporteAdmin_Result">
+          <Property Type="Int32" Name="tqt_id" Nullable="false" />
+          <Property Type="String" Name="tqt_tipo_problema" Nullable="true" MaxLength="15" />
+          <Property Type="DateTime" Name="tqt_fecha_inicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="tqt_fecha_finalizacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="tqt_estado" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="tqt_titulo" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="fk_id_ctr_contrato" Nullable="true" />
+          <Property Type="Decimal" Name="tqt_precio_reparacion" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="fk_prv_idProveedor" Nullable="true" />
+          <Property Type="String" Name="prv_nombreVariable" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="fk_adr_id_admin" Nullable="true" />
+          <Property Type="String" Name="ctr_numeroContrato" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="fk_cli_cliente" Nullable="false" />
+          <Property Type="String" Name="Administrador" Nullable="true" MaxLength="102" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="102" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2139,6 +2178,27 @@
                 <ScalarProperty Name="cli_TelefonoCasa" ColumnName="cli_TelefonoCasa" />
                 <ScalarProperty Name="cli_TelefonoCelular" ColumnName="cli_TelefonoCelular" />
                 <ScalarProperty Name="cli_Email" ColumnName="cli_Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaReporteAdmin" FunctionName="SmartRentalsModel.Store.sp_RetornaReporteAdmin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaReporteAdmin_Result">
+                <ScalarProperty Name="tqt_id" ColumnName="tqt_id" />
+                <ScalarProperty Name="tqt_tipo_problema" ColumnName="tqt_tipo_problema" />
+                <ScalarProperty Name="tqt_fecha_inicio" ColumnName="tqt_fecha_inicio" />
+                <ScalarProperty Name="tqt_fecha_finalizacion" ColumnName="tqt_fecha_finalizacion" />
+                <ScalarProperty Name="tqt_estado" ColumnName="tqt_estado" />
+                <ScalarProperty Name="tqt_titulo" ColumnName="tqt_titulo" />
+                <ScalarProperty Name="fk_id_ctr_contrato" ColumnName="fk_id_ctr_contrato" />
+                <ScalarProperty Name="tqt_precio_reparacion" ColumnName="tqt_precio_reparacion" />
+                <ScalarProperty Name="fk_prv_idProveedor" ColumnName="fk_prv_idProveedor" />
+                <ScalarProperty Name="prv_nombreVariable" ColumnName="prv_nombreVariable" />
+                <ScalarProperty Name="fk_adr_id_admin" ColumnName="fk_adr_id_admin" />
+                <ScalarProperty Name="ctr_numeroContrato" ColumnName="ctr_numeroContrato" />
+                <ScalarProperty Name="fk_cli_cliente" ColumnName="fk_cli_cliente" />
+                <ScalarProperty Name="Administrador" ColumnName="Administrador" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

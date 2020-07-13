@@ -184,6 +184,7 @@
     <Content Include="Formularios\frm_InicioMenu.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
     <Content Include="Formularios\frm_ReporteGastos.aspx" />
+    <Content Include="Formularios\frm_ReporteMantenimiento.aspx" />
     <Content Include="Formularios\frm_SolicitudModContrato.aspx" />
     <Content Include="Formularios\frm_tiqueteLista.aspx" />
     <Content Include="Formularios\frm_TiqueteModifica.aspx" />
@@ -582,6 +583,12 @@
     <Compile Include="Formularios\frm_ReporteGastos.aspx.designer.cs">
       <DependentUpon>frm_ReporteGastos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_ReporteMantenimiento.aspx.cs">
+      <DependentUpon>frm_ReporteMantenimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ReporteMantenimiento.aspx.designer.cs">
+      <DependentUpon>frm_ReporteMantenimiento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_SolicitudModContrato.aspx.cs">
       <DependentUpon>frm_SolicitudModContrato.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -732,6 +739,9 @@
     <Compile Include="Modelos\sp_RetornaProveedorID_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\sp_RetornaReporteAdmin_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\sp_RetornarProveedor_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -810,6 +820,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Reportes\R_AdminRental.rdlc" />
     <EmbeddedResource Include="Reportes\R_Gastos.rdlc" />
+    <EmbeddedResource Include="Reportes\R_MantenimientoAdministrador.rdlc" />
+    <EmbeddedResource Include="Reportes\R_MantenimientoCliente.rdlc" />
+    <EmbeddedResource Include="Reportes\R_MantenimientoProveedor.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

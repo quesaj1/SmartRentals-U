@@ -11,18 +11,22 @@ namespace ProyectoSmartRentals.Modelos
 {
     using System;
     
-    public partial class sp_RetornaTiquetesDataGrid_Result
+    public partial class sp_RetornaReporteAdmin_Result
     {
         public int tqt_id { get; set; }
-        public string ctr_numeroContrato { get; set; }
         public string tqt_tipo_problema { get; set; }
-        public string tqt_titulo { get; set; }
-        public string tqt_descripcion { get; set; }
-        public string tqt_nota_reparacion { get; set; }
-        public string prv_nombrevariable { get; set; }
         public Nullable<System.DateTime> tqt_fecha_inicio { get; set; }
         public Nullable<System.DateTime> tqt_fecha_finalizacion { get; set; }
         public string tqt_estado { get; set; }
+        public string tqt_titulo { get; set; }
+        public Nullable<int> fk_id_ctr_contrato { get; set; }
         public Nullable<decimal> tqt_precio_reparacion { get; set; }
+        public Nullable<int> fk_prv_idProveedor { get; set; }
+        public string prv_nombreVariable { get; set; }
+        public Nullable<int> fk_adr_id_admin { get; set; }
+        public string ctr_numeroContrato { get; set; }
+        public int fk_cli_cliente { get; set; }
+        public string Administrador { get; set; }
+        public string Nombre { get; set; }
     }
 }

@@ -122,5 +122,15 @@ namespace ProyectoSmartRentals.Metodos
             resultado = this.modeloDB.sp_RetornaGastosCat(tqt_tipo_problema).ToList();
             return resultado;
         }
+
+        public List<sp_RetornaReporteAdmin_Result> RetornarReporteTiquetes(int? v_fk_adr_id_admin, int? v_fk_ctr_cliente, 
+            int? v_fk_prv_proveedor, string v_estado, DateTime? v_fecha_inicio1, DateTime? v_fecha_inicio2, 
+            DateTime? v_fecha_finalizacion1, DateTime? v_fecha_finalizacion2, int? v_ctr_contrato)
+        {
+            List<sp_RetornaReporteAdmin_Result> resultado = new List<sp_RetornaReporteAdmin_Result>();
+            resultado = this.modeloDB.sp_RetornaReporteAdmin(v_fk_adr_id_admin,v_fk_ctr_cliente,v_fk_prv_proveedor,
+            v_estado,v_fecha_inicio1,v_fecha_inicio2,v_fecha_finalizacion1, v_fecha_finalizacion2,v_ctr_contrato).ToList();
+            return resultado;
+        }
     }
 }
