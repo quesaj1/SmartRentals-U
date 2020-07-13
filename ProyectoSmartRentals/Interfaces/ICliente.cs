@@ -22,7 +22,8 @@ namespace ProyectoSmartRentals.Interfaces
             Nullable<System.DateTime> cli_FechaNacimiento,
             string cli_TelefonoCasa,
             string cli_TelefonoCelular,
-            string cli_Email);
+            string cli_Email,
+             Nullable<bool> prv_Activo);
         #endregion
 
         #region Metodo Modificar Cliente
@@ -36,12 +37,10 @@ namespace ProyectoSmartRentals.Interfaces
            Nullable<System.DateTime> cli_FechaNacimiento,
            string cli_TelefonoCasa,
            string cli_TelefonoCelular,
-           string cli_Email);
+           string cli_Email,
+          Nullable<bool> prv_Activo);
         #endregion
 
-        #region Metodo Eliminar Cliente
-        bool EliminalCliente(int cli_Cliente);
-        #endregion
 
 
         #region Metodo  Retornar Cliente
@@ -52,11 +51,16 @@ namespace ProyectoSmartRentals.Interfaces
            string cli_SegundoApellido,
            string cli_TelefonoCasa,
            string cli_TelefonoCelular,
-           string cli_Email);
+           string cli_Email, bool alq_Activo);
         #endregion
 
         #region Metodo  Retornar ID Cliente
         sp_RetornaClienteID_Result RetornaClienteID(int cli_Cliente);
+        #endregion
+
+
+        #region Metodo  Retornar Grid Cliente
+        List<sp_RetornaClienteDataGrid_Result> RetornarClienteDataGrid_Result(bool alq_activo);
         #endregion
 
 

@@ -19,32 +19,32 @@
          <h1 style="text-align: center">Agregar Cliente</h1>
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
             <div class="form-group col-md-6">
-                <!-- Nombre -->
+                <!-- Cedula -->
                 <label for="txtCedula"></label>
                 <asp:TextBox ID="txtCedula" type="text" CssClass="form-control" placeholder="Cédula" runat="server" MaxLength="25"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- Nombre -->
                 <label for="txtNombre"></label>
                 <asp:TextBox ID="txtNombre" type="text" CssClass="form-control" placeholder="Nombre" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- Segundo Nombre -->
                 <label for="txtSegundoNombre"></label>
                 <asp:TextBox ID="txtSegundoNombre" type="text" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- Primer Apellido -->
                 <label for="txtPrimerApellido"></label>
                 <asp:TextBox ID="txtPrimerApellido" type="text" CssClass="form-control" placeholder="Primer Apellido" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- Segundo Apellido -->
                 <label for="txtSegundoApellido"></label>
                 <asp:TextBox ID="txtSegundoApellido" type="text" CssClass="form-control" placeholder="Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- Fecha Nacimiento -->
                 <label for="txtFechaNacimiento"></label>
                 <asp:TextBox ID="txtFechaNacimiento" type="text" CssClass="form-control" placeholder="Fecha Nacimiento" runat="server" MaxLength="50"></asp:TextBox>
             </div>
@@ -54,12 +54,12 @@
                 <asp:TextBox ID="txtTelefonoCasa" type="text" CssClass="form-control" placeholder="Telefono Casa" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- Telefono Celular -->
                 <label for="txtTelefonoCelular"></label>
                 <asp:TextBox ID="txtTelefonoCelular" type="text" CssClass="form-control" placeholder="Telefono Celular" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- Email -->
                 <label for="txtEmail"></label>
                 <asp:TextBox ID="txtEmail" type="text" CssClass="form-control" placeholder="Email" runat="server" MaxLength="50"></asp:TextBox>
             </div>

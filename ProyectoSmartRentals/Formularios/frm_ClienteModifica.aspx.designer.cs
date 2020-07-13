@@ -22,6 +22,15 @@ namespace ProyectoSmartRentals.Formularios {
         protected global::System.Web.UI.WebControls.HiddenField hdlCliente;
         
         /// <summary>
+        /// Control txtIdCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdCliente;
+        
+        /// <summary>
         /// Control txtCedula.
         /// </summary>
         /// <remarks>
@@ -103,13 +112,13 @@ namespace ProyectoSmartRentals.Formularios {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// Control btnModificar.
+        /// Control btnShowPopup.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
+        protected global::System.Web.UI.WebControls.Button btnShowPopup;
         
         /// <summary>
         /// Control btnAtras.

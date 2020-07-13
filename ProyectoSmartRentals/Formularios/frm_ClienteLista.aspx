@@ -5,77 +5,60 @@
 
 
           
-    <div style="margin-top:12%; text-align:center;">
-            <h2>Lista de Clientes</h2>
+    <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
 
-        <div class="form-row" style="margin:5%;">
-             <div class="form-group col-md-4">
-        
-                <label for="txtCedula"></label>
-                <asp:TextBox ID="txtCedula" type="text" CssClass="form-control" placeholder="Cédula" runat="server" MaxLength="25"></asp:TextBox>
-            </div>
-              <div class="form-group col-md-4">
-           
-                <label for="txtNombre"></label>
-                <asp:TextBox ID="txtNombre" type="text" CssClass="form-control" placeholder="Nombre" runat="server" MaxLength="50"></asp:TextBox>
-            </div>
-              <div class="form-group col-md-4">
-           
-                <label for="txtSegundoNombre"></label>
-                <asp:TextBox ID="txtSegundoNombre" type="text" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
-            </div>
-              <div class="form-group col-md-4">
-           
-                <label for="txtPrimerApellido"></label>
-                <asp:TextBox ID="txtPrimerApellido" type="text" CssClass="form-control" placeholder="Primer Apellido" runat="server" MaxLength="50"></asp:TextBox>
-            </div>
-              <div class="form-group col-md-4">
-              
-                <label for="txtSegundoApellido"></label>
-                <asp:TextBox ID="txtSegundoApellido" type="text" CssClass="form-control" placeholder="Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
-            </div>
+        <h2 style="text-align:center">Lista de Clientes</h2>
 
-            <div class="form-group col-md-4">
-              
-                <label for="txtTelefonoCasa"></label>
-                <asp:TextBox ID="txtTelefonoCasa" type="text" CssClass="form-control" placeholder="Telefono Casa" runat="server" MaxLength="50"></asp:TextBox>
-            </div>
+        <div class="form-row" style="margin-top:5%; margin-bottom:5%">
 
-                <div class="form-group col-md-4">
-              
-                <label for="txtTelefonoCelular"></label>
-                <asp:TextBox ID="txtTelefonoCelular" type="text" CssClass="form-control" placeholder="Telefono Celular" runat="server" MaxLength="50"></asp:TextBox>
-            </div>
+            <div class="form-group col-sm-3" >
 
-         <div class="form-group col-md-4">
-                
-                <label for="txtEmail"></label>
-                <asp:TextBox ID="txtEmail" type="text" CssClass="form-control" placeholder="Email" runat="server" MaxLength="50"></asp:TextBox>
-            </div>
-            </div>
- 
-        <div>
-                <asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar Información" />
-            <br /><br />
-                <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="~/Formularios/frm_ClienteAgregar.aspx">Agregar Nuevo Cliente</asp:HyperLink>
-                </strong>
-         </div>
+                <!-- Id-->
+                <label for="txt_Id">Buscar:</label><br />
+               <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaClientes')"  runat="server" Height="31px" Width="195px"></asp:TextBox>    
+            </div> &nbsp&nbsp&nbsp&nbsp&nbsp
             
-        
+           <div class="form-group col-sm-3" >
+                <!-- Estado -->
+                <label for="txtEstado">Estado</label>
+                  <br/>
+                <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" >
+                      <asp:ListItem Value="0">Activos</asp:ListItem>
+                       <asp:ListItem Value="1">Desactivados</asp:ListItem>
+                   
+                      </asp:DropDownList>
+            </div>
+
+           
+        </div><br>
+
+        <div style="text-align:center">
+
+           
+            <strong>
+                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_ClienteAgregar.aspx">Agregar Nuevo Cliente</asp:HyperLink>
+            </strong>
         </div>
+
+    </div>
+
+
+
+
+
     <br />
     <div style= "margin-left: 10%">
         <p>
                 
-                <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnPageIndexChanging="grdListaClientes_PageIndexChanging">
+                <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal">
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
-                        <asp:BoundField DataField="cli_Cedula" HeaderText="Cédula del Cliente" />
+                        <asp:BoundField DataField="cli_Cliente" HeaderText="ID del Cliente" />
+                        <asp:BoundField DataField="cli_Cedula" HeaderText="Cedula" />
                         <asp:BoundField DataField="cli_Nombre" HeaderText="Nombre del Cliente" />
-                        <asp:BoundField DataField="cli_SegundoNombre" HeaderText="Segundo Nombre" />
                         <asp:BoundField DataField="cli_PrimerApelido" HeaderText="Primer Apellido" />
                         <asp:BoundField DataField="cli_SegundoApellido" HeaderText="Segundo Apellido" />
+                        <asp:BoundField DataField="cli_FechaNacimiento" HeaderText="Fecha Nacimiento" />
                         <asp:BoundField DataField="cli_TelefonoCasa" HeaderText="Telefono Casa" />
                         <asp:BoundField DataField="cli_TelefonoCelular" HeaderText="Telefono Celular" />
                         <asp:BoundField DataField="cli_Email" HeaderText="Email del Cliente" />

@@ -182,6 +182,10 @@
     <Content Include="Formularios\frm_DudaClienteAgrega.aspx" />
     <Content Include="Formularios\frm_EnvioModContrato.aspx" />
     <Content Include="Formularios\frm_InicioMenu.aspx" />
+    <Content Include="Formularios\frm_ProveedorAgregar.aspx" />
+    <Content Include="Formularios\frm_ProveedorElimina.aspx" />
+    <Content Include="Formularios\frm_ProveedorLista.aspx" />
+    <Content Include="Formularios\frm_ProveedorModifica.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
     <Content Include="Formularios\frm_ReporteGastos.aspx" />
     <Content Include="Formularios\frm_ReporteMantenimiento.aspx" />
@@ -334,6 +338,15 @@
     <Content Include="plugins\scrollmagic\ScrollMagic.min.js" />
     <Content Include="Propiedades\img_apartamento.jpg" />
     <Content Include="Propiedades\img_Casa.jpg" />
+    <EntityDeploy Include="Modelos\ModelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Modelos\ModelDB.edmx.diagram">
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Propiedades\img_Casa2.jpg" />
+    <Content Include="Propiedades\img_Casa3.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -342,16 +355,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Modelos\ModelDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Modelos\ModelDB.edmx.diagram">
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Propiedades\img_Casa2.jpg" />
-    <Content Include="Propiedades\img_Casa3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -570,6 +574,34 @@
     <Compile Include="Formularios\frm_InicioMenu.aspx.designer.cs">
       <DependentUpon>frm_InicioMenu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_ProveedorAgregar.aspx.cs">
+      <DependentUpon>frm_ProveedorAgregar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ProveedorAgregar.aspx.designer.cs">
+      <DependentUpon>frm_ProveedorAgregar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ProveedorElimina.aspx.cs">
+      <DependentUpon>frm_ProveedorElimina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ProveedorElimina.aspx.designer.cs">
+      <DependentUpon>frm_ProveedorElimina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ProveedorLista.aspx.cs">
+      <DependentUpon>frm_ProveedorLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ProveedorLista.aspx.designer.cs">
+      <DependentUpon>frm_ProveedorLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ProveedorModifica.aspx.cs">
+      <DependentUpon>frm_ProveedorModifica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ProveedorModifica.aspx.designer.cs">
+      <DependentUpon>frm_ProveedorModifica.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_ReporteAdminRentals.aspx.cs">
       <DependentUpon>frm_ReporteAdminRentals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -618,6 +650,7 @@
     <Compile Include="Interfaces\ITiquetes.cs" />
     <Compile Include="Interfaces\I_AdminRentals.cs" />
     <Compile Include="Interfaces\I_Alquileres.cs" />
+    <Compile Include="Interfaces\I_Proveedor.cs" />
     <Compile Include="MasterPage\MasterSmartRentals.Master.cs">
       <DependentUpon>MasterSmartRentals.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -636,6 +669,7 @@
     <Compile Include="Metodos\C_Alquileres.cs" />
     <Compile Include="Metodos\C_Clientes.cs" />
     <Compile Include="Metodos\C_Contrato.cs" />
+    <Compile Include="Metodos\C_Proveedor.cs" />
     <Compile Include="Metodos\C_Tiquetes.cs" />
     <Compile Include="Modelos\C_Admin_Rentals.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>

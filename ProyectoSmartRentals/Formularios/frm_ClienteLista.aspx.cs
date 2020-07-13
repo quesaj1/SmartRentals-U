@@ -13,30 +13,20 @@ namespace ProyectoSmartRentals.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.CargaDatosGrid();
+            CargaDatosGrid();
         }
 
 
-        #region
-        void CargaDatosGrid()
+        #region Carga DatosGrid
+      public void CargaDatosGrid()
         {
 
-            //string cedula = this.txtCedula.Text.ToString();
-            //string nombre = this.txtNombre.Text.ToString();
-            //string segundonombre = this.txtSegundoNombre.Text.ToString();
-            //string primerapellido = this.txtPrimerApellido.Text.ToString();
-            //string segundoapellido = this.txtSegundoApellido.Text.ToString();
-            //string TelefonoCasa = this.txtTelefonoCasa.Text.ToString();
-            //string TelefonoCelular = this.txtTelefonoCelular.Text.ToString();
-            ////string email = this.txtEmail.Text.ToString();
-
-
-            ////C_Clientes oAdminRentals = new C_Clientes();
-            /////Asignarle la fuente de datos al grid
-            ////this.grdListaClientes.DataSource =
-            //  /*  oAdminRentals.RetornarCliente(cedula, nombre, segundonombre, primerapellido, segundoapellido, TelefonoCasa, TelefonoCelular, email*/);
-            /////indicar al grid que se muestre
-            //this.grdListaClientes.DataBind();
+            C_Clientes oClientes = new C_Clientes();
+            ///Asignarle la fuente de datos al grid
+            this.grdListaClientes.DataSource =
+               oClientes.RetornarClienteDataGrid_Result(true);
+            ///indicar al grid que se muestre
+            this.grdListaClientes.DataBind();
         }
         #endregion
 
@@ -47,12 +37,28 @@ namespace ProyectoSmartRentals.Formularios
             this.CargaDatosGrid();
         }
 
-        protected void grdListaClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ///asignar al grid el nuevo índice de la página del grid
-            this.grdListaClientes.PageIndex = e.NewPageIndex;
-            ///asignar nuevamente la fuente de datos al grid
-            this.CargaDatosGrid();
+            string texto = this.DropDownList1.SelectedItem.ToString();
+            C_Clientes oCliente = new C_Clientes();
+            ///Asignarle la fuente de datos al grid
+
+
+            if (texto.Equals("Activos"))
+            {
+                this.grdListaClientes.DataSource =
+                    oCliente.RetornarClienteDataGrid_Result(true);
+                ///indicar al grid que se muestre
+                this.grdListaClientes.DataBind();
+            }
+            else
+            {
+                this.grdListaClientes.DataSource =
+              oCliente.RetornarClienteDataGrid_Result(false);
+                ///indicar al grid que se muestre
+                this.grdListaClientes.DataBind();
+            }
         }
     }
 }

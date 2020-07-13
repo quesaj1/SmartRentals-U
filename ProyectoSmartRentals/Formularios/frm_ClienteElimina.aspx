@@ -1,5 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_ClienteElimina.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_ClienteElimina" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+          <%-- Llamado del script de JS para el Modal show y hide --%>
+
+    <script type="text/javascript">
+        function ShowPopup(title, body) {
+            $("#MyPopup .modal-title").html(title);
+            $("#MyPopup .modal-body").html(body);
+            $("#MyPopup").modal("show");
+        }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -18,11 +29,17 @@
     background-color: #ffffff;
   }
 </style>
+
+
         <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
         <h1 style="text-align: center">Eliminar Cliente</h1>
                 <asp:HiddenField ID="hdlCliente" runat="server" />
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
-            <div class="form-group col-md-6">
+                 <div class="form-group col-md-6">
+                <label for="txtIdCliente"></label><br>
+                <asp:TextBox ID="txtIdCliente" runat="server"  ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
+           </div>
+             <div class="form-group col-md-6">
                 <!-- Nombre -->
                 <label for="txtCedula"></label>
                 <asp:TextBox ID="txtCedula" type="text" CssClass="form-control" placeholder="Cédula" runat="server" MaxLength="25"></asp:TextBox>
@@ -67,18 +84,30 @@
                 <label for="txtEmail"></label>
                 <asp:TextBox ID="txtEmail" type="text" CssClass="form-control" placeholder="Email" runat="server" MaxLength="50"></asp:TextBox>
             </div>
-
+            </div>
             
-    </div>
+  
         
-        <div class="form-group" style="text-align:center">
-            <!-- Submit Button -->
-            <asp:Button ID="btnEliminar" runat="server" CssClass="btn btn-primary" Text="Eliminar" OnClick="btnEliminar_Click" />
-            &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnAtras" CssClass="btn btn-danger" runat="server" Text="Atras" OnClick="btnAtras_Click" PostBackUrl="~/Formularios/frm_ClienteLista.aspx" />
-            <br />
-            <br />
-            <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
+           <div class="form-group" style="text-align: center">
+        <!-- Submit Button -->
+
+
+        <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado" Font-Size="Medium" Height="49px" Width="111px" Text="Eliminar" OnClick="btnAgregar_Click"  />
+
+
+        &nbsp;&nbsp;&nbsp;
+
+            <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ClienteLista.aspx" />
+
+        <br />
+        <br />
+        <asp:Label ID="lblResultado" runat="server" ForeColor="#009900" CssClass="alert-success" Font-Size="Large"></asp:Label>
+
+        <br />
+        <br />
+        <br>
+
+
         </div>
         </div>
    

@@ -10,52 +10,43 @@
 namespace ProyectoSmartRentals.Formularios {
     
     
-    public partial class frm_ClienteElimina {
+    public partial class frm_ProveedorElimina {
         
         /// <summary>
-        /// Control hdlCliente.
+        /// Control hdldProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdlCliente;
+        protected global::System.Web.UI.WebControls.HiddenField hdldProveedor;
         
         /// <summary>
-        /// Control txtIdCliente.
+        /// Control txtIDProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtIDProveedor;
         
         /// <summary>
-        /// Control txtCedula.
+        /// Control txtNombreVariable.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCedula;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreVariable;
         
         /// <summary>
-        /// Control txtNombre.
+        /// Control txtNombreRepresentante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
-        
-        /// <summary>
-        /// Control txtSegundoNombre.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSegundoNombre;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreRepresentante;
         
         /// <summary>
         /// Control txtPrimerApellido.
@@ -76,31 +67,31 @@ namespace ProyectoSmartRentals.Formularios {
         protected global::System.Web.UI.WebControls.TextBox txtSegundoApellido;
         
         /// <summary>
-        /// Control txtFechaNacimiento.
+        /// Control txtCedulaRepresentante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
+        protected global::System.Web.UI.WebControls.TextBox txtCedulaRepresentante;
         
         /// <summary>
-        /// Control txtTelefonoCasa.
+        /// Control txtCedulaJuridica.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefonoCasa;
+        protected global::System.Web.UI.WebControls.TextBox txtCedulaJuridica;
         
         /// <summary>
-        /// Control txtTelefonoCelular.
+        /// Control txtTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefonoCelular;
+        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
         
         /// <summary>
         /// Control txtEmail.
@@ -110,6 +101,33 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        
+        /// <summary>
+        /// Control txtTipoProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTipoProveedor;
+        
+        /// <summary>
+        /// Control DropDownListProvincia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListProvincia;
+        
+        /// <summary>
+        /// Control txtOtrasSenas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOtrasSenas;
         
         /// <summary>
         /// Control btnAgregar.

@@ -2,7 +2,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style type="text/css">
+        .boton_personalizado {
+            font-weight: 600;
+            font-size: 20px;
+            color: #ffffff;
+            background-color: #2ECC71;
+        }
 
+            .boton_personalizado:hover {
+                color: #1883ba;
+                background-color: #ffffff;
+            }
+    </style>
 
      <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
          <h1 style="text-align: center">Modificar Cliente</h1>
@@ -10,6 +22,11 @@
                 <asp:HiddenField ID="hdlCliente" runat="server" />
 
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
+                
+                 <div class="form-group col-md-6">
+                <label for="txtIdCliente"></label><br>
+                <asp:TextBox ID="txtIdCliente" runat="server"  ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
+           </div>
             <div class="form-group col-md-6">
                 <!-- Nombre -->
                 <label for="txtCedula"></label>
@@ -59,14 +76,21 @@
             
     </div>
         
-        <div class="form-group" style="text-align:center">
+      <div class="form-group" style="text-align: center">
             <!-- Submit Button -->
-            <asp:Button ID="btnModificar" runat="server" CssClass="btn btn-primary" Text="Modificar" OnClick="btnModificar_Click" />
+
+
+             <asp:Button ID="btnShowPopup" runat="server" CssClass="boton_personalizado" Font-Size="Medium" Height="49px" Width="111px" Text="Modificar" OnClick="btnAgregar_Click" />
+
+           
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnAtras" CssClass="btn btn-danger" runat="server" Text="Atras" OnClick="btnAtras_Click" PostBackUrl="~/Formularios/frm_ClienteLista.aspx" />
+
+             <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ClienteLista.aspx"  />
+
             <br />
             <br />
-            <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
+
+            <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900" CssClass="alert-success" Font-Size="Large"></asp:Label>
         </div>
         </div>
 
