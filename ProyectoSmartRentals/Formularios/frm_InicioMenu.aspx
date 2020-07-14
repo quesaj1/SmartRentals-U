@@ -169,7 +169,7 @@
                         <h3>CLIENTES</h3><br>
                         <p>Este módulo permite realizar todo el mantenimiento de clientes del sistema de Smart Rentals</p>
                         </figcaption>
-                        <a href="../frm_ClienteLista"></a>
+                        <a href="frm_ClienteLista.aspx"></a>
                         </figure>
 
                     </article>
@@ -185,7 +185,7 @@
                         <h3>PROVEEDORES</h3><br>
                         <p>Este módulo permite realizar todo el mantenimiento de proveedores del sistema de Smart Rentals</p>
                         </figcaption>
-                        <a href="../frm_ClienteLista"></a>
+                        <a href="frm_proveedorLista.aspx"></a>
                         </figure>
 
 
@@ -202,7 +202,7 @@
                         <h3>ALQUILERES</h3><br>
                         <p>Este módulo permite realizar todo el mantenimiento de los Alquileres del sistema de Smart Rentals</p>
                         </figcaption>
-                        <a href="../frm_ClienteLista"></a>
+                        <a href="frm_alquilereslista.aspx"></a>
                         </figure>
 
                     </article>
@@ -221,7 +221,7 @@
                         <h3>CONTRATOS</h3><br>
                         <p>Este módulo permite realizar todo el mantenimiento de contratos del sistema de Smart Rentals</p>
                         </figcaption>
-                        <a href="../frm_ClienteLista"></a>
+                        <a href="frm_contratolista.aspx"></a>
                         </figure>
 
                     </article>
@@ -235,7 +235,7 @@
                         <h3>TIQUETES</h3><br>
                         <p>Este módulo permite realizar todo el mantenimiento de tiquetes del sistema de Smart Rentals</p>
                         </figcaption>
-                        <a href="../frm_ClienteLista"></a>
+                        <a href="frm_tiqueteLista.aspx"></a>
                         </figure>   
 
                     </article>
@@ -250,7 +250,7 @@
                         <h3>REPORTES</h3><br>
                         <p>Este módulo permite realizar todo el manejo de la reportería del sistema de Smart Rentals</p>
                         </figcaption>
-                        <a href="../frm_ClienteLista"></a>
+                        <a href="frm_reporteMantenimiento"></a>
                         </figure>
 
                     </article>
@@ -268,7 +268,7 @@
                         <h3>ADMIN RENTALS</h3><br>
                         <p>Este módulo permite realizar todo el mantenimiento de Administradores del sistema de Smart Rentals</p>
                         </figcaption>
-                        <a href="../frm_ClienteLista"></a>
+                        <a href="frm_AdminRentalsLista.aspx"></a>
                         </figure>
 
                     </article>

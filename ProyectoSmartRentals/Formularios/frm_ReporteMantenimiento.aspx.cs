@@ -25,18 +25,21 @@ namespace ProyectoSmartRentals.Formularios
         int _pk_cliente = 0;
         int _pk_proveedor = 0;
         string _estado = null;
-        string _rol = "Admin";
+        
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 cargaDropDown();
+                this.Label1.Text = Convert.ToString(Session["Tipo"]);
                  }
         }
 
         public void cargaDropDown()
         {
+           string _rol = Convert.ToString(Session["Tipo"]);
             if (_rol.Equals("Cliente"))
             {
                 _pk_cliente = 4;
@@ -59,7 +62,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.ddadmin.Visible = true;
                 DropDownAdmmin();
             }
-            if (_rol.Equals("Admin"))
+            if (_rol.Equals("Administrador"))
             {
                 _pk_cliente = 0;
                 _pk_admin = 7;
@@ -385,8 +388,8 @@ namespace ProyectoSmartRentals.Formularios
         protected void Button2_Click(object sender, EventArgs e)
         {
             //this.Label1.Text = this.fechainicio1.Text + " 00:00:00.0000";
-
-            if (_rol.Equals("Admin")) {
+            string _rol= Convert.ToString(Session["Tipo"]);
+            if (_rol.Equals("Administrador")) {
                 construirReporteAdmin();
             }
 
