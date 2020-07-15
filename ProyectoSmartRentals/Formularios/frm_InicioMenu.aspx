@@ -8,6 +8,14 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Quattrocento');
 
+df-messenger {
+   --df-messenger-bot-message: #55407d;
+   --df-messenger-button-titlebar-color: #adc867;
+   --df-messenger-chat-background-color: #fafafa;
+   --df-messenger-font-color: white;
+   --df-messenger-send-icon: #adc867;
+   --df-messenger-user-message: #adc867;
+  }
 
 /*ESTILOS DE TITULO ANIMADO*/
 
@@ -156,6 +164,7 @@
         <h1 style="text-align: center" class="ml12";  >Smart Rentals</h1><br/><br/><br/><br/>
 
         <div>
+
 
           <main class="main">
             <div >
@@ -346,5 +355,19 @@
 
 
     </script>
+
+    <%-- CHATBOT SNIPPET --%>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    
+    <df-messenger
+        
+        chat-icon="../images/smartRound.png"
+        intent="WELCOME"
+        chat-title="Smart Rentals"
+        agent-id="8b4d067c-bb88-43da-a13c-7bef5f3032ab"
+        language-code="es">
+
+    </df-messenger>
+
 
 </asp:Content>

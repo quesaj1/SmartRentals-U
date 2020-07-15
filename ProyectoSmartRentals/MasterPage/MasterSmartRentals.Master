@@ -29,7 +29,11 @@
 <!-- Bootstrap del modal-->
 
 
+
     <asp:ContentPlaceHolder ID="head" runat="server">
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+     
         
     </asp:ContentPlaceHolder>
 	</head>
@@ -128,8 +132,10 @@
 	</div>
         <%--formulario--%>
     <form id="form1" runat="server">
+		 
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
 
             </asp:ContentPlaceHolder>
         </div>
@@ -296,5 +302,7 @@
 <script src="../plugins/parallax-js-master/parallax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="../js/custom.js"></script>
+
+
 </body>
 </html>
