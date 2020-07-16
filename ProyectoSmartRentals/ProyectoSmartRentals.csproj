@@ -273,6 +273,8 @@
     <Content Include="images\service_4.png" />
     <Content Include="images\service_5.png" />
     <Content Include="images\service_6.png" />
+    <Content Include="images\SMART.png" />
+    <Content Include="images\SMART1.PNG" />
     <Content Include="images\smartrentals.png" />
     <Content Include="images\smartRound.png" />
     <Content Include="images\smart_elipse.png" />
