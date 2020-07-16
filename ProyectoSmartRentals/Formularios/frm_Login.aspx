@@ -3,191 +3,177 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-     <style type="text/css">
-        .boton_personalizado {
-            font-weight: 600;
-            font-size: 20px;
-            color: #ffffff;
-            background-color: #2ECC71;
-        }
-
-            .boton_personalizado:hover {
-                color: #1883ba;
-                background-color: #ffffff;
-            }
+<%--/** ESTILOS DEL LOGIN **/--%>
 
 
-        input.error {
-            border: 1px dotted red;
-        }
-
-        label.error {
-            position: static;
-            background: url('images/unchecked.gif') no-repeat;
-            padding-left: 20px;
-            margin-left: .3em;
-            vertical-align: middle;
-            width: 250px;
-            float: right;
-        }
 
 
-/*ACA VA EL ESTILO DEL CARRUSEL ANIMADO*/
+ <style>
+* {
+  box-sizing: border-box;
+}
 
-.tarjetas {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 115px;
-  height: 77px;
+.container {
+  display: flex;
+  height: 100vh;
+}
+.left-section {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-animation-name: left-section;
+          animation-name: left-section;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+     .right-section {
+         flex: 1;
+         background: linear-gradient(to right, #f50629 0%, #fd9d08 100%);
+         transition: 1s;
+         background-image: url(../images/SMART.png);
+         background-size: cover;
+         background-repeat: no-repeat;
+         background-position: center;
+     }
+.header1 > h1 {
   margin: 0;
-  -webkit-perspective: 800px;
-		  perspective: 800px;
-  -webkit-transform: translate(-50%, -50%);
-	  -ms-transform: translate(-50%, -50%);
-		  transform: translate(-50%, -50%);
+  color: #6c7079;
 }
-
-.tarjetas__contenido {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-transform-style: preserve-3d;
-		  transform-style: preserve-3d;
-  -webkit-transform: translateZ(-182px) rotateY(0);
-		  transform: translateZ(-182px) rotateY(0);
-  -webkit-animation: carrusel 10s infinite cubic-bezier(1, 0.015, 0.295, 1.225) forwards;
-		  animation: carrusel 10s infinite cubic-bezier(1, 0.015, 0.295, 1.225) forwards;
+.header1 > h4 {
+  margin-top: 10px;
+  font-weight: normal;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.4);
 }
-
-.tarjetas__elemento {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 115px;
-  height: 77px;
-  border-radius: 15px;
+.form1 {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
 }
-
-.tarjetas__elemento:nth-child(1) {
-  background: #394fd5;
-  -webkit-transform: rotateY(0) translateZ(182px);
-		  transform: rotateY(0) translateZ(182px);
+.form1 > p {
+  text-align: right;
 }
-.tarjetas__elemento:nth-child(2) {
-  background: #39d570;
-  -webkit-transform: rotateY(120deg) translateZ(182px);
-		  transform: rotateY(120deg) translateZ(182px);
+.form1 > p > a {
+  color: #000;
+  font-size: 14px;
 }
-.tarjetas__elemento:nth-child(3) {
-  background: #f0091f;
-  -webkit-transform: rotateY(240deg) translateZ(182px);
-		  transform: rotateY(240deg) translateZ(182px);
+.form1-field {
+  height: 46px;
+  padding: 0 16px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  outline: 0;
+  transition: .2s;
+  margin-top: 20px;
+}
+.form1-field:focus {
+  border-color: #0f7ef1;
 }
 
 
-@-webkit-keyframes carrusel {
-  0%,  17.5% {
-    -webkit-transform: translateZ(-182px) rotateY(0);
-		    transform: translateZ(-182px) rotateY(0);
+.animation {
+  -webkit-animation-name: move;
+          animation-name: move;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+ 
+.a1 {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+.a2 {
+  -webkit-animation-delay: 2.1s;
+          animation-delay: 2.1s;
+}
+.a3 {
+  -webkit-animation-delay: 2.2s;
+          animation-delay: 2.2s;
+}
+.a4 {
+  -webkit-animation-delay: 2.3s;
+          animation-delay: 2.3s;
+}
+.a5 {
+  -webkit-animation-delay: 2.4s;
+          animation-delay: 2.4s;
+}
+.a6 {
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+}
+@keyframes move {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-40px);
+            transform: translateY(-40px);
   }
-  27.5%, 45% {
-    -webkit-transform: translateZ(-182px) rotateY(-120deg);
-		    transform: translateZ(-182px) rotateY(-120deg);
-  }
-  55%, 72.5% {
-    -webkit-transform: translateZ(-182px) rotateY(-240deg);
-		    transform: translateZ(-182px) rotateY(-240deg);
-  }
-  82.5%, 100% {
-    -webkit-transform: translateZ(-182px) rotateY(-360deg);
-		    transform: translateZ(-182px) rotateY(-360deg);
+  100% {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
+@keyframes left-section {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    padding: 20px 40px;
+    width: 440px;
+  }
 
-@keyframes carrusel {
-  0%,  17.5% {
-    -webkit-transform: translateZ(-182px) rotateY(0);
-		    transform: translateZ(-182px) rotateY(0);
-  }
-  27.5%, 45% {
-    -webkit-transform: translateZ(-182px) rotateY(-120deg);
-		    transform: translateZ(-182px) rotateY(-120deg);
-  }
-  55%, 72.5% {
-    -webkit-transform: translateZ(-182px) rotateY(-240deg);
-		    transform: translateZ(-182px) rotateY(-240deg);
-  }
-  82.5%, 100% {
-    -webkit-transform: translateZ(-182px) rotateY(-360deg);
-		    transform: translateZ(-182px) rotateY(-360deg);
-  }
+
 }
 
+</style>
 
+ 
+        <div class="container">
+            <div class="left-section">
+                <div class="header1">
+                <h1 class="animation a1">Bienvenido!</h1><br/>
+                <h4 class="animation a2">Loguearse para ingresar al perfil</h4><br/>
+                </div>
 
-
-
-    </style>
-
-  
-
-
-   <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
-        <h1 style="text-align: center">Iniciar Sesión</h1><br><br><br><br>
-
-     <div>
-
-             <figure class="tarjetas">
-  <div class="tarjetas__contenido">
-    <div class="tarjetas__elemento"   > <img src="/Imagenes/img_smartRentals.png" style="border-radius:inherit" /></div>
-    <div class="tarjetas__elemento"   > <img src="/Imagenes/img_smartRentals.png" style="border-radius:inherit"/></div>
-    <div class="tarjetas__elemento"   > <img src="/Imagenes/img_smartRentals.png" style="border-radius:inherit"/></div>
-  </div>
-             </figure>  
-
-     </div><br /><br />
-
-        <div class="form-row" style="text-align:center;  margin-top: 5%; margin-bottom: 5%; margin-left:24%">
-            <div class="form-group col-md-8">
-                <!-- Nombre -->
-                <label for="txtUsuario">Usuario</label>
-                <br />
+                <div class="form1">
+                <label for="txtUsuario" >Usuario</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*Debe ingresar su usuario*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
-
-                <asp:TextBox ID="txtUsuario" type="text" CssClass="form-control" runat="server" MaxLength="100" placeholder="Ingrese su usuario"></asp:TextBox>
-                <br />
-            </div>
-
-      
-
-            <div class="form-group col-md-8">
-                
-                 <!-- Primer Apellido-->
-                <label for="txtContrasena">Contraseña</label>
-                <br />
+                <asp:TextBox ID="txtUsuario" type="text" class="form1-field animation a3" runat="server"  placeholder="Ingrese su usuario"></asp:TextBox>
+                <br/>           
+                <label for="txtContrasena"  >Contraseña</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrasena" runat="server" ControlToValidate="txtContrasena" ErrorMessage="*Debe ingresar su contraseña*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
-
-                <asp:TextBox ID="txtContrasena" type="password" CssClass="form-control" runat="server" MaxLength="50" placeholder="Ingrese su contraseña"></asp:TextBox>
-                <br />
-            </div>
-            <br />
-        <div class="form-group col-md-8" style="text-align: center">
-            <!-- Submit Button -->
-
-            <asp:Button ID="btnLogin" runat="server" CssClass="boton_personalizado" Text="Iniciar Sesión" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click" />
-            &nbsp;&nbsp;&nbsp;&nbsp;
-
-            <br />
-            <br />
-            <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900" CssClass="alert-success" Font-Size="Large"></asp:Label>
+                <asp:TextBox ID="txtContrasena" type="password" class="form1-field animation a4" runat="server" placeholder="Ingrese su contraseña"></asp:TextBox>
+                
+                <br/><br />
+                
+                <asp:Button ID="btnLogin" runat="server" Style="border:0; color: #fff;  margin-top:10px;  border-radius:5px;background:linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673); box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75); letter-spacing:1px; padding:12px 10px"   Cssclass="animation a6"   Text="Iniciar Sesión"  OnClick="btnAgregar_Click"  Font-Bold="True"  Font-Size="Medium" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+           </div>
+          </div>
+          <div class="right-section"></div>
         </div>
+     
+            <asp:Label ID="lblResultado" runat="server"  Font-Bold="True" ForeColor="#009900" CssClass="alert-success" Font-Size="Large"></asp:Label>
+        
         <br>
         <br>
         <br>
-    </div>
-       </div>
+
 
 
 </asp:Content>
