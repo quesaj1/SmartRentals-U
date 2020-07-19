@@ -356,8 +356,8 @@ df-messenger {
 
     </script>
 
-    <%-- CHATBOT SNIPPET --%>
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <%-- CHATBOT SNIPPET DEL BOT DE GUILLERMO--%>
+<%--    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     
     <df-messenger
         
@@ -367,7 +367,22 @@ df-messenger {
         agent-id="8b4d067c-bb88-43da-a13c-7bef5f3032ab"
         language-code="es">
 
-    </df-messenger>
+    </df-messenger>--%>
+
+    <%-- CHATBOT SNIPPET DEL BOT MIGRADO A LA CUENTA DE SMART RENTALS--%>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  
+    <df-messenger
+
+  chat-icon="../images/smartRound.png"
+  intent="WELCOME"
+  chat-title="Smart Rentals"
+  agent-id="7c0a6021-3969-47b5-8900-f4f08a44ce4c"
+  language-code="es">
+
+
+  </df-messenger>
 
 
 </asp:Content>
