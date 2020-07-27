@@ -23,5 +23,6 @@ namespace ProyectoSmartRentals.Modelos
         public string cli_TelefonoCasa { get; set; }
         public string cli_TelefonoCelular { get; set; }
         public string cli_Email { get; set; }
+        public Nullable<bool> alq_Activo { get; set; }
     }
 }

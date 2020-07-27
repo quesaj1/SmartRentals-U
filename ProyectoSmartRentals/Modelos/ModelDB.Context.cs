@@ -36,9 +36,9 @@ namespace ProyectoSmartRentals.Modelos
         public DbSet<C_Distrito> C_Distrito { get; set; }
         public DbSet<C_Proveedor> C_Proveedor { get; set; }
         public DbSet<C_Provincia> C_Provincia { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<C_Tiquete> C_Tiquete { get; set; }
         public DbSet<C_Usuario> C_Usuario { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -59,6 +59,15 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("definition", typeof(byte[]));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual ObjectResult<sp_BuscaContratoDataGrid_Result> sp_BuscaContratoDataGrid(string v_ctr_numeroContrato)
+        {
+            var v_ctr_numeroContratoParameter = v_ctr_numeroContrato != null ?
+                new ObjectParameter("v_ctr_numeroContrato", v_ctr_numeroContrato) :
+                new ObjectParameter("v_ctr_numeroContrato", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_BuscaContratoDataGrid_Result>("sp_BuscaContratoDataGrid", v_ctr_numeroContratoParameter);
         }
     
         public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -102,24 +111,6 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("v_id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EliminarAdminRental", v_idParameter);
-        }
-    
-        public virtual int sp_EliminarCliente(Nullable<int> c_idCliente)
-        {
-            var c_idClienteParameter = c_idCliente.HasValue ?
-                new ObjectParameter("c_idCliente", c_idCliente) :
-                new ObjectParameter("c_idCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EliminarCliente", c_idClienteParameter);
-        }
-    
-        public virtual int sp_EliminarProveedor(Nullable<int> v_id)
-        {
-            var v_idParameter = v_id.HasValue ?
-                new ObjectParameter("v_id", v_id) :
-                new ObjectParameter("v_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EliminarProveedor", v_idParameter);
         }
     
         public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
@@ -375,6 +366,55 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("v_Activo", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarProveedor", prv_NombreVariableParameter, prv_NombreRepresentanteParameter, prv_PrimerApellidoParameter, prv_SegundoApellidoParameter, prv_CedulaRepresentanteParameter, prv_CedulaJuridicaParameter, prv_TelefonoParameter, prv_EmailParameter, prv_TipoProveedorParameter, v_DistritoParameter, v_CantonParameter, v_ProvinciaParameter, prv_OtrasSenasParameter, v_ActivoParameter);
+        }
+    
+        public virtual int sp_InsertarTiquete(Nullable<int> v_fk_ctr_contrato, string v_tqt_tipo_problema, Nullable<bool> v_tqt_activo, string v_tqt_descripcion, string v_tqt_nota_reparacion, Nullable<System.DateTime> v_tqt_fecha_inicio, Nullable<System.DateTime> v_tqt_fecha_finalizacion, Nullable<int> v_fk_prv_idproveedor, string v_tqt_titulo, Nullable<decimal> v_tqt_precio_preparacion, string v_tqt_estado)
+        {
+            var v_fk_ctr_contratoParameter = v_fk_ctr_contrato.HasValue ?
+                new ObjectParameter("v_fk_ctr_contrato", v_fk_ctr_contrato) :
+                new ObjectParameter("v_fk_ctr_contrato", typeof(int));
+    
+            var v_tqt_tipo_problemaParameter = v_tqt_tipo_problema != null ?
+                new ObjectParameter("v_tqt_tipo_problema", v_tqt_tipo_problema) :
+                new ObjectParameter("v_tqt_tipo_problema", typeof(string));
+    
+            var v_tqt_activoParameter = v_tqt_activo.HasValue ?
+                new ObjectParameter("v_tqt_activo", v_tqt_activo) :
+                new ObjectParameter("v_tqt_activo", typeof(bool));
+    
+            var v_tqt_descripcionParameter = v_tqt_descripcion != null ?
+                new ObjectParameter("v_tqt_descripcion", v_tqt_descripcion) :
+                new ObjectParameter("v_tqt_descripcion", typeof(string));
+    
+            var v_tqt_nota_reparacionParameter = v_tqt_nota_reparacion != null ?
+                new ObjectParameter("v_tqt_nota_reparacion", v_tqt_nota_reparacion) :
+                new ObjectParameter("v_tqt_nota_reparacion", typeof(string));
+    
+            var v_tqt_fecha_inicioParameter = v_tqt_fecha_inicio.HasValue ?
+                new ObjectParameter("v_tqt_fecha_inicio", v_tqt_fecha_inicio) :
+                new ObjectParameter("v_tqt_fecha_inicio", typeof(System.DateTime));
+    
+            var v_tqt_fecha_finalizacionParameter = v_tqt_fecha_finalizacion.HasValue ?
+                new ObjectParameter("v_tqt_fecha_finalizacion", v_tqt_fecha_finalizacion) :
+                new ObjectParameter("v_tqt_fecha_finalizacion", typeof(System.DateTime));
+    
+            var v_fk_prv_idproveedorParameter = v_fk_prv_idproveedor.HasValue ?
+                new ObjectParameter("v_fk_prv_idproveedor", v_fk_prv_idproveedor) :
+                new ObjectParameter("v_fk_prv_idproveedor", typeof(int));
+    
+            var v_tqt_tituloParameter = v_tqt_titulo != null ?
+                new ObjectParameter("v_tqt_titulo", v_tqt_titulo) :
+                new ObjectParameter("v_tqt_titulo", typeof(string));
+    
+            var v_tqt_precio_preparacionParameter = v_tqt_precio_preparacion.HasValue ?
+                new ObjectParameter("v_tqt_precio_preparacion", v_tqt_precio_preparacion) :
+                new ObjectParameter("v_tqt_precio_preparacion", typeof(decimal));
+    
+            var v_tqt_estadoParameter = v_tqt_estado != null ?
+                new ObjectParameter("v_tqt_estado", v_tqt_estado) :
+                new ObjectParameter("v_tqt_estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarTiquete", v_fk_ctr_contratoParameter, v_tqt_tipo_problemaParameter, v_tqt_activoParameter, v_tqt_descripcionParameter, v_tqt_nota_reparacionParameter, v_tqt_fecha_inicioParameter, v_tqt_fecha_finalizacionParameter, v_fk_prv_idproveedorParameter, v_tqt_tituloParameter, v_tqt_precio_preparacionParameter, v_tqt_estadoParameter);
         }
     
         public virtual int sp_ModificaAlquiler(Nullable<int> v_id_Propiedad, string v_UbicacionExacta, string v_TipoPropiedad, string v_Detalles, Nullable<int> v_Distrito, Nullable<int> v_Canton, Nullable<int> v_Provincia, string v_ImagenURL, Nullable<bool> v_Activo)
@@ -663,6 +703,141 @@ namespace ProyectoSmartRentals.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarProveedor", prv_IDProveedorParameter, prv_NombreVariableParameter, prv_NombreRepresentanteParameter, prv_PrimerApellidoParameter, prv_SegundoApellidoParameter, prv_CedulaRepresentanteParameter, prv_CedulaJuridicaParameter, prv_TelefonoParameter, prv_EmailParameter, prv_TipoProveedorParameter, v_DistritoParameter, v_CantonParameter, v_ProvinciaParameter, prv_OtrasSenasParameter, v_ActivoParameter);
         }
     
+        public virtual int sp_ModificarProveedor_Elimina(Nullable<int> prv_IDProveedor, string prv_NombreVariable, string prv_NombreRepresentante, string prv_PrimerApellido, string prv_SegundoApellido, string prv_CedulaRepresentante, string prv_CedulaJuridica, string prv_Telefono, string prv_Email, string prv_TipoProveedor, Nullable<int> v_Provincia, string prv_OtrasSenas, Nullable<bool> v_Activo)
+        {
+            var prv_IDProveedorParameter = prv_IDProveedor.HasValue ?
+                new ObjectParameter("prv_IDProveedor", prv_IDProveedor) :
+                new ObjectParameter("prv_IDProveedor", typeof(int));
+    
+            var prv_NombreVariableParameter = prv_NombreVariable != null ?
+                new ObjectParameter("prv_NombreVariable", prv_NombreVariable) :
+                new ObjectParameter("prv_NombreVariable", typeof(string));
+    
+            var prv_NombreRepresentanteParameter = prv_NombreRepresentante != null ?
+                new ObjectParameter("prv_NombreRepresentante", prv_NombreRepresentante) :
+                new ObjectParameter("prv_NombreRepresentante", typeof(string));
+    
+            var prv_PrimerApellidoParameter = prv_PrimerApellido != null ?
+                new ObjectParameter("prv_PrimerApellido", prv_PrimerApellido) :
+                new ObjectParameter("prv_PrimerApellido", typeof(string));
+    
+            var prv_SegundoApellidoParameter = prv_SegundoApellido != null ?
+                new ObjectParameter("prv_SegundoApellido", prv_SegundoApellido) :
+                new ObjectParameter("prv_SegundoApellido", typeof(string));
+    
+            var prv_CedulaRepresentanteParameter = prv_CedulaRepresentante != null ?
+                new ObjectParameter("prv_CedulaRepresentante", prv_CedulaRepresentante) :
+                new ObjectParameter("prv_CedulaRepresentante", typeof(string));
+    
+            var prv_CedulaJuridicaParameter = prv_CedulaJuridica != null ?
+                new ObjectParameter("prv_CedulaJuridica", prv_CedulaJuridica) :
+                new ObjectParameter("prv_CedulaJuridica", typeof(string));
+    
+            var prv_TelefonoParameter = prv_Telefono != null ?
+                new ObjectParameter("prv_Telefono", prv_Telefono) :
+                new ObjectParameter("prv_Telefono", typeof(string));
+    
+            var prv_EmailParameter = prv_Email != null ?
+                new ObjectParameter("prv_Email", prv_Email) :
+                new ObjectParameter("prv_Email", typeof(string));
+    
+            var prv_TipoProveedorParameter = prv_TipoProveedor != null ?
+                new ObjectParameter("prv_TipoProveedor", prv_TipoProveedor) :
+                new ObjectParameter("prv_TipoProveedor", typeof(string));
+    
+            var v_ProvinciaParameter = v_Provincia.HasValue ?
+                new ObjectParameter("v_Provincia", v_Provincia) :
+                new ObjectParameter("v_Provincia", typeof(int));
+    
+            var prv_OtrasSenasParameter = prv_OtrasSenas != null ?
+                new ObjectParameter("prv_OtrasSenas", prv_OtrasSenas) :
+                new ObjectParameter("prv_OtrasSenas", typeof(string));
+    
+            var v_ActivoParameter = v_Activo.HasValue ?
+                new ObjectParameter("v_Activo", v_Activo) :
+                new ObjectParameter("v_Activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarProveedor_Elimina", prv_IDProveedorParameter, prv_NombreVariableParameter, prv_NombreRepresentanteParameter, prv_PrimerApellidoParameter, prv_SegundoApellidoParameter, prv_CedulaRepresentanteParameter, prv_CedulaJuridicaParameter, prv_TelefonoParameter, prv_EmailParameter, prv_TipoProveedorParameter, v_ProvinciaParameter, prv_OtrasSenasParameter, v_ActivoParameter);
+        }
+    
+        public virtual int sp_ModificarTiquete(Nullable<int> v_tqt_id, Nullable<int> v_id_ctr_contrato, string v_tqt_tipo_problema, Nullable<bool> v_tqt_activo, string v_tqt_descripcion, string v_tqt_nota_reparacion, Nullable<System.DateTime> v_tqt_fechainicio, Nullable<System.DateTime> v_tqt_fechafinalizacion, Nullable<int> v_fk_prv_idProveedor, string v_tqt_titulo, Nullable<decimal> v_tqt_monto, string v_tqt_estado)
+        {
+            var v_tqt_idParameter = v_tqt_id.HasValue ?
+                new ObjectParameter("v_tqt_id", v_tqt_id) :
+                new ObjectParameter("v_tqt_id", typeof(int));
+    
+            var v_id_ctr_contratoParameter = v_id_ctr_contrato.HasValue ?
+                new ObjectParameter("v_id_ctr_contrato", v_id_ctr_contrato) :
+                new ObjectParameter("v_id_ctr_contrato", typeof(int));
+    
+            var v_tqt_tipo_problemaParameter = v_tqt_tipo_problema != null ?
+                new ObjectParameter("v_tqt_tipo_problema", v_tqt_tipo_problema) :
+                new ObjectParameter("v_tqt_tipo_problema", typeof(string));
+    
+            var v_tqt_activoParameter = v_tqt_activo.HasValue ?
+                new ObjectParameter("v_tqt_activo", v_tqt_activo) :
+                new ObjectParameter("v_tqt_activo", typeof(bool));
+    
+            var v_tqt_descripcionParameter = v_tqt_descripcion != null ?
+                new ObjectParameter("v_tqt_descripcion", v_tqt_descripcion) :
+                new ObjectParameter("v_tqt_descripcion", typeof(string));
+    
+            var v_tqt_nota_reparacionParameter = v_tqt_nota_reparacion != null ?
+                new ObjectParameter("v_tqt_nota_reparacion", v_tqt_nota_reparacion) :
+                new ObjectParameter("v_tqt_nota_reparacion", typeof(string));
+    
+            var v_tqt_fechainicioParameter = v_tqt_fechainicio.HasValue ?
+                new ObjectParameter("v_tqt_fechainicio", v_tqt_fechainicio) :
+                new ObjectParameter("v_tqt_fechainicio", typeof(System.DateTime));
+    
+            var v_tqt_fechafinalizacionParameter = v_tqt_fechafinalizacion.HasValue ?
+                new ObjectParameter("v_tqt_fechafinalizacion", v_tqt_fechafinalizacion) :
+                new ObjectParameter("v_tqt_fechafinalizacion", typeof(System.DateTime));
+    
+            var v_fk_prv_idProveedorParameter = v_fk_prv_idProveedor.HasValue ?
+                new ObjectParameter("v_fk_prv_idProveedor", v_fk_prv_idProveedor) :
+                new ObjectParameter("v_fk_prv_idProveedor", typeof(int));
+    
+            var v_tqt_tituloParameter = v_tqt_titulo != null ?
+                new ObjectParameter("v_tqt_titulo", v_tqt_titulo) :
+                new ObjectParameter("v_tqt_titulo", typeof(string));
+    
+            var v_tqt_montoParameter = v_tqt_monto.HasValue ?
+                new ObjectParameter("v_tqt_monto", v_tqt_monto) :
+                new ObjectParameter("v_tqt_monto", typeof(decimal));
+    
+            var v_tqt_estadoParameter = v_tqt_estado != null ?
+                new ObjectParameter("v_tqt_estado", v_tqt_estado) :
+                new ObjectParameter("v_tqt_estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarTiquete", v_tqt_idParameter, v_id_ctr_contratoParameter, v_tqt_tipo_problemaParameter, v_tqt_activoParameter, v_tqt_descripcionParameter, v_tqt_nota_reparacionParameter, v_tqt_fechainicioParameter, v_tqt_fechafinalizacionParameter, v_fk_prv_idProveedorParameter, v_tqt_tituloParameter, v_tqt_montoParameter, v_tqt_estadoParameter);
+        }
+    
+        public virtual int sp_ModificarTiquetexProveedor(Nullable<int> v_tqt_id, string v_tqt_nota_reparacion, Nullable<System.DateTime> v_tqt_fechafinalizacion, Nullable<decimal> v_tqt_monto, string v_tqt_estado)
+        {
+            var v_tqt_idParameter = v_tqt_id.HasValue ?
+                new ObjectParameter("v_tqt_id", v_tqt_id) :
+                new ObjectParameter("v_tqt_id", typeof(int));
+    
+            var v_tqt_nota_reparacionParameter = v_tqt_nota_reparacion != null ?
+                new ObjectParameter("v_tqt_nota_reparacion", v_tqt_nota_reparacion) :
+                new ObjectParameter("v_tqt_nota_reparacion", typeof(string));
+    
+            var v_tqt_fechafinalizacionParameter = v_tqt_fechafinalizacion.HasValue ?
+                new ObjectParameter("v_tqt_fechafinalizacion", v_tqt_fechafinalizacion) :
+                new ObjectParameter("v_tqt_fechafinalizacion", typeof(System.DateTime));
+    
+            var v_tqt_montoParameter = v_tqt_monto.HasValue ?
+                new ObjectParameter("v_tqt_monto", v_tqt_monto) :
+                new ObjectParameter("v_tqt_monto", typeof(decimal));
+    
+            var v_tqt_estadoParameter = v_tqt_estado != null ?
+                new ObjectParameter("v_tqt_estado", v_tqt_estado) :
+                new ObjectParameter("v_tqt_estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarTiquetexProveedor", v_tqt_idParameter, v_tqt_nota_reparacionParameter, v_tqt_fechafinalizacionParameter, v_tqt_montoParameter, v_tqt_estadoParameter);
+        }
+    
         public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
         {
             var diagramnameParameter = diagramname != null ?
@@ -757,6 +932,19 @@ namespace ProyectoSmartRentals.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaAlquilerID_Result>("sp_RetornaAlquilerID", id_PropiedadParameter);
         }
     
+        public virtual ObjectResult<Nullable<int>> sp_RetornaCantidadContratos(Nullable<bool> ctr_activo, Nullable<int> ctr_cliente)
+        {
+            var ctr_activoParameter = ctr_activo.HasValue ?
+                new ObjectParameter("ctr_activo", ctr_activo) :
+                new ObjectParameter("ctr_activo", typeof(bool));
+    
+            var ctr_clienteParameter = ctr_cliente.HasValue ?
+                new ObjectParameter("ctr_cliente", ctr_cliente) :
+                new ObjectParameter("ctr_cliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_RetornaCantidadContratos", ctr_activoParameter, ctr_clienteParameter);
+        }
+    
         public virtual ObjectResult<sp_RetornaCliente_Result> sp_RetornaCliente(string cli_Cedula, string cli_Nombre, string cli_SegundoNombre, string cli_PrimerApellido, string cli_SegundoApellido, string cli_TelefonoCasa, string cli_TelefonoCelular, string cli_Email, Nullable<bool> v_Activo)
         {
             var cli_CedulaParameter = cli_Cedula != null ?
@@ -796,6 +984,15 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("v_Activo", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaCliente_Result>("sp_RetornaCliente", cli_CedulaParameter, cli_NombreParameter, cli_SegundoNombreParameter, cli_PrimerApellidoParameter, cli_SegundoApellidoParameter, cli_TelefonoCasaParameter, cli_TelefonoCelularParameter, cli_EmailParameter, v_ActivoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaClienteDataGrid_Result> sp_RetornaClienteDataGrid(Nullable<bool> v_alq_activo)
+        {
+            var v_alq_activoParameter = v_alq_activo.HasValue ?
+                new ObjectParameter("v_alq_activo", v_alq_activo) :
+                new ObjectParameter("v_alq_activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaClienteDataGrid_Result>("sp_RetornaClienteDataGrid", v_alq_activoParameter);
         }
     
         public virtual ObjectResult<sp_RetornaClienteID_Result> sp_RetornaClienteID(Nullable<int> id_IDCliente)
@@ -854,6 +1051,37 @@ namespace ProyectoSmartRentals.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaContratoID_Result>("sp_RetornaContratoID", v_id_contratoParameter);
         }
     
+        public virtual ObjectResult<sp_RetornaGastosCalend_Result> sp_RetornaGastosCalend(Nullable<System.DateTime> v_inicio, Nullable<System.DateTime> v_final)
+        {
+            var v_inicioParameter = v_inicio.HasValue ?
+                new ObjectParameter("v_inicio", v_inicio) :
+                new ObjectParameter("v_inicio", typeof(System.DateTime));
+    
+            var v_finalParameter = v_final.HasValue ?
+                new ObjectParameter("v_final", v_final) :
+                new ObjectParameter("v_final", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaGastosCalend_Result>("sp_RetornaGastosCalend", v_inicioParameter, v_finalParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaGastosCat_Result> sp_RetornaGastosCat(string v_cat)
+        {
+            var v_catParameter = v_cat != null ?
+                new ObjectParameter("v_cat", v_cat) :
+                new ObjectParameter("v_cat", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaGastosCat_Result>("sp_RetornaGastosCat", v_catParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaProveedorDataGrid_Result> sp_RetornaProveedorDataGrid(Nullable<bool> v_alq_activo)
+        {
+            var v_alq_activoParameter = v_alq_activo.HasValue ?
+                new ObjectParameter("v_alq_activo", v_alq_activo) :
+                new ObjectParameter("v_alq_activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaProveedorDataGrid_Result>("sp_RetornaProveedorDataGrid", v_alq_activoParameter);
+        }
+    
         public virtual ObjectResult<sp_RetornaProveedorID_Result> sp_RetornaProveedorID(Nullable<int> prv_IDProveedor)
         {
             var prv_IDProveedorParameter = prv_IDProveedor.HasValue ?
@@ -861,6 +1089,47 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("prv_IDProveedor", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaProveedorID_Result>("sp_RetornaProveedorID", prv_IDProveedorParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaReporteAdmin_Result> sp_RetornaReporteAdmin(Nullable<int> v_fk_adr_id_admin, Nullable<int> v_fk_ctr_cliente, Nullable<int> v_fk_prv_proveedor, string v_estado, Nullable<System.DateTime> v_fecha_inicio1, Nullable<System.DateTime> v_fecha_inicio2, Nullable<System.DateTime> v_fecha_finalizacion1, Nullable<System.DateTime> v_fecha_finalizacion2, Nullable<int> v_ctr_contrato)
+        {
+            var v_fk_adr_id_adminParameter = v_fk_adr_id_admin.HasValue ?
+                new ObjectParameter("v_fk_adr_id_admin", v_fk_adr_id_admin) :
+                new ObjectParameter("v_fk_adr_id_admin", typeof(int));
+    
+            var v_fk_ctr_clienteParameter = v_fk_ctr_cliente.HasValue ?
+                new ObjectParameter("v_fk_ctr_cliente", v_fk_ctr_cliente) :
+                new ObjectParameter("v_fk_ctr_cliente", typeof(int));
+    
+            var v_fk_prv_proveedorParameter = v_fk_prv_proveedor.HasValue ?
+                new ObjectParameter("v_fk_prv_proveedor", v_fk_prv_proveedor) :
+                new ObjectParameter("v_fk_prv_proveedor", typeof(int));
+    
+            var v_estadoParameter = v_estado != null ?
+                new ObjectParameter("v_estado", v_estado) :
+                new ObjectParameter("v_estado", typeof(string));
+    
+            var v_fecha_inicio1Parameter = v_fecha_inicio1.HasValue ?
+                new ObjectParameter("v_fecha_inicio1", v_fecha_inicio1) :
+                new ObjectParameter("v_fecha_inicio1", typeof(System.DateTime));
+    
+            var v_fecha_inicio2Parameter = v_fecha_inicio2.HasValue ?
+                new ObjectParameter("v_fecha_inicio2", v_fecha_inicio2) :
+                new ObjectParameter("v_fecha_inicio2", typeof(System.DateTime));
+    
+            var v_fecha_finalizacion1Parameter = v_fecha_finalizacion1.HasValue ?
+                new ObjectParameter("v_fecha_finalizacion1", v_fecha_finalizacion1) :
+                new ObjectParameter("v_fecha_finalizacion1", typeof(System.DateTime));
+    
+            var v_fecha_finalizacion2Parameter = v_fecha_finalizacion2.HasValue ?
+                new ObjectParameter("v_fecha_finalizacion2", v_fecha_finalizacion2) :
+                new ObjectParameter("v_fecha_finalizacion2", typeof(System.DateTime));
+    
+            var v_ctr_contratoParameter = v_ctr_contrato.HasValue ?
+                new ObjectParameter("v_ctr_contrato", v_ctr_contrato) :
+                new ObjectParameter("v_ctr_contrato", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaReporteAdmin_Result>("sp_RetornaReporteAdmin", v_fk_adr_id_adminParameter, v_fk_ctr_clienteParameter, v_fk_prv_proveedorParameter, v_estadoParameter, v_fecha_inicio1Parameter, v_fecha_inicio2Parameter, v_fecha_finalizacion1Parameter, v_fecha_finalizacion2Parameter, v_ctr_contratoParameter);
         }
     
         public virtual ObjectResult<sp_RetornarProveedor_Result> sp_RetornarProveedor(string prv_NombreRepresentante, string prv_CedulaRepresentante, string prv_CedulaJuridica, string prv_Email, Nullable<bool> v_Activo)
@@ -886,169 +1155,6 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("v_Activo", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornarProveedor_Result>("sp_RetornarProveedor", prv_NombreRepresentanteParameter, prv_CedulaRepresentanteParameter, prv_CedulaJuridicaParameter, prv_EmailParameter, v_ActivoParameter);
-        }
-    
-        public virtual int sp_upgraddiagrams()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
-    
-        public virtual ObjectResult<sp_BuscaContratoDataGrid_Result> sp_BuscaContratoDataGrid(string v_ctr_numeroContrato)
-        {
-            var v_ctr_numeroContratoParameter = v_ctr_numeroContrato != null ?
-                new ObjectParameter("v_ctr_numeroContrato", v_ctr_numeroContrato) :
-                new ObjectParameter("v_ctr_numeroContrato", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_BuscaContratoDataGrid_Result>("sp_BuscaContratoDataGrid", v_ctr_numeroContratoParameter);
-        }
-    
-        public virtual int sp_InsertarTiquete(Nullable<int> v_fk_ctr_contrato, string v_tqt_tipo_problema, Nullable<bool> v_tqt_activo, string v_tqt_descripcion, string v_tqt_nota_reparacion, Nullable<System.DateTime> v_tqt_fecha_inicio, Nullable<System.DateTime> v_tqt_fecha_finalizacion, Nullable<int> v_fk_prv_idproveedor, string v_tqt_titulo, Nullable<decimal> v_tqt_precio_preparacion, string v_tqt_estado)
-        {
-            var v_fk_ctr_contratoParameter = v_fk_ctr_contrato.HasValue ?
-                new ObjectParameter("v_fk_ctr_contrato", v_fk_ctr_contrato) :
-                new ObjectParameter("v_fk_ctr_contrato", typeof(int));
-    
-            var v_tqt_tipo_problemaParameter = v_tqt_tipo_problema != null ?
-                new ObjectParameter("v_tqt_tipo_problema", v_tqt_tipo_problema) :
-                new ObjectParameter("v_tqt_tipo_problema", typeof(string));
-    
-            var v_tqt_activoParameter = v_tqt_activo.HasValue ?
-                new ObjectParameter("v_tqt_activo", v_tqt_activo) :
-                new ObjectParameter("v_tqt_activo", typeof(bool));
-    
-            var v_tqt_descripcionParameter = v_tqt_descripcion != null ?
-                new ObjectParameter("v_tqt_descripcion", v_tqt_descripcion) :
-                new ObjectParameter("v_tqt_descripcion", typeof(string));
-    
-            var v_tqt_nota_reparacionParameter = v_tqt_nota_reparacion != null ?
-                new ObjectParameter("v_tqt_nota_reparacion", v_tqt_nota_reparacion) :
-                new ObjectParameter("v_tqt_nota_reparacion", typeof(string));
-    
-            var v_tqt_fecha_inicioParameter = v_tqt_fecha_inicio.HasValue ?
-                new ObjectParameter("v_tqt_fecha_inicio", v_tqt_fecha_inicio) :
-                new ObjectParameter("v_tqt_fecha_inicio", typeof(System.DateTime));
-    
-            var v_tqt_fecha_finalizacionParameter = v_tqt_fecha_finalizacion.HasValue ?
-                new ObjectParameter("v_tqt_fecha_finalizacion", v_tqt_fecha_finalizacion) :
-                new ObjectParameter("v_tqt_fecha_finalizacion", typeof(System.DateTime));
-    
-            var v_fk_prv_idproveedorParameter = v_fk_prv_idproveedor.HasValue ?
-                new ObjectParameter("v_fk_prv_idproveedor", v_fk_prv_idproveedor) :
-                new ObjectParameter("v_fk_prv_idproveedor", typeof(int));
-    
-            var v_tqt_tituloParameter = v_tqt_titulo != null ?
-                new ObjectParameter("v_tqt_titulo", v_tqt_titulo) :
-                new ObjectParameter("v_tqt_titulo", typeof(string));
-    
-            var v_tqt_precio_preparacionParameter = v_tqt_precio_preparacion.HasValue ?
-                new ObjectParameter("v_tqt_precio_preparacion", v_tqt_precio_preparacion) :
-                new ObjectParameter("v_tqt_precio_preparacion", typeof(decimal));
-    
-            var v_tqt_estadoParameter = v_tqt_estado != null ?
-                new ObjectParameter("v_tqt_estado", v_tqt_estado) :
-                new ObjectParameter("v_tqt_estado", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarTiquete", v_fk_ctr_contratoParameter, v_tqt_tipo_problemaParameter, v_tqt_activoParameter, v_tqt_descripcionParameter, v_tqt_nota_reparacionParameter, v_tqt_fecha_inicioParameter, v_tqt_fecha_finalizacionParameter, v_fk_prv_idproveedorParameter, v_tqt_tituloParameter, v_tqt_precio_preparacionParameter, v_tqt_estadoParameter);
-        }
-    
-        public virtual int sp_ModificarTiquete(Nullable<int> v_tqt_id, Nullable<int> v_id_ctr_contrato, string v_tqt_tipo_problema, Nullable<bool> v_tqt_activo, string v_tqt_descripcion, string v_tqt_nota_reparacion, Nullable<System.DateTime> v_tqt_fechainicio, Nullable<System.DateTime> v_tqt_fechafinalizacion, Nullable<int> v_fk_prv_idProveedor, string v_tqt_titulo, Nullable<decimal> v_tqt_monto, string v_tqt_estado)
-        {
-            var v_tqt_idParameter = v_tqt_id.HasValue ?
-                new ObjectParameter("v_tqt_id", v_tqt_id) :
-                new ObjectParameter("v_tqt_id", typeof(int));
-    
-            var v_id_ctr_contratoParameter = v_id_ctr_contrato.HasValue ?
-                new ObjectParameter("v_id_ctr_contrato", v_id_ctr_contrato) :
-                new ObjectParameter("v_id_ctr_contrato", typeof(int));
-    
-            var v_tqt_tipo_problemaParameter = v_tqt_tipo_problema != null ?
-                new ObjectParameter("v_tqt_tipo_problema", v_tqt_tipo_problema) :
-                new ObjectParameter("v_tqt_tipo_problema", typeof(string));
-    
-            var v_tqt_activoParameter = v_tqt_activo.HasValue ?
-                new ObjectParameter("v_tqt_activo", v_tqt_activo) :
-                new ObjectParameter("v_tqt_activo", typeof(bool));
-    
-            var v_tqt_descripcionParameter = v_tqt_descripcion != null ?
-                new ObjectParameter("v_tqt_descripcion", v_tqt_descripcion) :
-                new ObjectParameter("v_tqt_descripcion", typeof(string));
-    
-            var v_tqt_nota_reparacionParameter = v_tqt_nota_reparacion != null ?
-                new ObjectParameter("v_tqt_nota_reparacion", v_tqt_nota_reparacion) :
-                new ObjectParameter("v_tqt_nota_reparacion", typeof(string));
-    
-            var v_tqt_fechainicioParameter = v_tqt_fechainicio.HasValue ?
-                new ObjectParameter("v_tqt_fechainicio", v_tqt_fechainicio) :
-                new ObjectParameter("v_tqt_fechainicio", typeof(System.DateTime));
-    
-            var v_tqt_fechafinalizacionParameter = v_tqt_fechafinalizacion.HasValue ?
-                new ObjectParameter("v_tqt_fechafinalizacion", v_tqt_fechafinalizacion) :
-                new ObjectParameter("v_tqt_fechafinalizacion", typeof(System.DateTime));
-    
-            var v_fk_prv_idProveedorParameter = v_fk_prv_idProveedor.HasValue ?
-                new ObjectParameter("v_fk_prv_idProveedor", v_fk_prv_idProveedor) :
-                new ObjectParameter("v_fk_prv_idProveedor", typeof(int));
-    
-            var v_tqt_tituloParameter = v_tqt_titulo != null ?
-                new ObjectParameter("v_tqt_titulo", v_tqt_titulo) :
-                new ObjectParameter("v_tqt_titulo", typeof(string));
-    
-            var v_tqt_montoParameter = v_tqt_monto.HasValue ?
-                new ObjectParameter("v_tqt_monto", v_tqt_monto) :
-                new ObjectParameter("v_tqt_monto", typeof(decimal));
-    
-            var v_tqt_estadoParameter = v_tqt_estado != null ?
-                new ObjectParameter("v_tqt_estado", v_tqt_estado) :
-                new ObjectParameter("v_tqt_estado", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarTiquete", v_tqt_idParameter, v_id_ctr_contratoParameter, v_tqt_tipo_problemaParameter, v_tqt_activoParameter, v_tqt_descripcionParameter, v_tqt_nota_reparacionParameter, v_tqt_fechainicioParameter, v_tqt_fechafinalizacionParameter, v_fk_prv_idProveedorParameter, v_tqt_tituloParameter, v_tqt_montoParameter, v_tqt_estadoParameter);
-        }
-    
-        public virtual int sp_ModificarTiquetexProveedor(Nullable<int> v_tqt_id, string v_tqt_nota_reparacion, Nullable<System.DateTime> v_tqt_fechafinalizacion, Nullable<decimal> v_tqt_monto, string v_tqt_estado)
-        {
-            var v_tqt_idParameter = v_tqt_id.HasValue ?
-                new ObjectParameter("v_tqt_id", v_tqt_id) :
-                new ObjectParameter("v_tqt_id", typeof(int));
-    
-            var v_tqt_nota_reparacionParameter = v_tqt_nota_reparacion != null ?
-                new ObjectParameter("v_tqt_nota_reparacion", v_tqt_nota_reparacion) :
-                new ObjectParameter("v_tqt_nota_reparacion", typeof(string));
-    
-            var v_tqt_fechafinalizacionParameter = v_tqt_fechafinalizacion.HasValue ?
-                new ObjectParameter("v_tqt_fechafinalizacion", v_tqt_fechafinalizacion) :
-                new ObjectParameter("v_tqt_fechafinalizacion", typeof(System.DateTime));
-    
-            var v_tqt_montoParameter = v_tqt_monto.HasValue ?
-                new ObjectParameter("v_tqt_monto", v_tqt_monto) :
-                new ObjectParameter("v_tqt_monto", typeof(decimal));
-    
-            var v_tqt_estadoParameter = v_tqt_estado != null ?
-                new ObjectParameter("v_tqt_estado", v_tqt_estado) :
-                new ObjectParameter("v_tqt_estado", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarTiquetexProveedor", v_tqt_idParameter, v_tqt_nota_reparacionParameter, v_tqt_fechafinalizacionParameter, v_tqt_montoParameter, v_tqt_estadoParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> sp_RetornaCantidadContratos(Nullable<bool> ctr_activo, Nullable<int> ctr_cliente)
-        {
-            var ctr_activoParameter = ctr_activo.HasValue ?
-                new ObjectParameter("ctr_activo", ctr_activo) :
-                new ObjectParameter("ctr_activo", typeof(bool));
-    
-            var ctr_clienteParameter = ctr_cliente.HasValue ?
-                new ObjectParameter("ctr_cliente", ctr_cliente) :
-                new ObjectParameter("ctr_cliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_RetornaCantidadContratos", ctr_activoParameter, ctr_clienteParameter);
-        }
-    
-        public virtual ObjectResult<sp_RetornaProveedorDataGrid_Result> sp_RetornaProveedorDataGrid(Nullable<bool> v_alq_activo)
-        {
-            var v_alq_activoParameter = v_alq_activo.HasValue ?
-                new ObjectParameter("v_alq_activo", v_alq_activo) :
-                new ObjectParameter("v_alq_activo", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaProveedorDataGrid_Result>("sp_RetornaProveedorDataGrid", v_alq_activoParameter);
         }
     
         public virtual ObjectResult<sp_RetornaTiqueteID_Result> sp_RetornaTiqueteID(Nullable<int> v_tqt_id)
@@ -1094,142 +1200,9 @@ namespace ProyectoSmartRentals.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaUsuarioUserID_Result>("sp_RetornaUsuarioUserID", v_usuarioParameter);
         }
     
-        public virtual ObjectResult<sp_RetornaContratoDataGridMod_Result> sp_RetornaContratoDataGridMod(Nullable<bool> v_ctr_activo)
+        public virtual int sp_upgraddiagrams()
         {
-            var v_ctr_activoParameter = v_ctr_activo.HasValue ?
-                new ObjectParameter("v_ctr_activo", v_ctr_activo) :
-                new ObjectParameter("v_ctr_activo", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaContratoDataGridMod_Result>("sp_RetornaContratoDataGridMod", v_ctr_activoParameter);
-        }
-    
-        public virtual ObjectResult<sp_RetornaGastosCalend_Result> sp_RetornaGastosCalend(Nullable<System.DateTime> v_inicio, Nullable<System.DateTime> v_final)
-        {
-            var v_inicioParameter = v_inicio.HasValue ?
-                new ObjectParameter("v_inicio", v_inicio) :
-                new ObjectParameter("v_inicio", typeof(System.DateTime));
-    
-            var v_finalParameter = v_final.HasValue ?
-                new ObjectParameter("v_final", v_final) :
-                new ObjectParameter("v_final", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaGastosCalend_Result>("sp_RetornaGastosCalend", v_inicioParameter, v_finalParameter);
-        }
-    
-        public virtual ObjectResult<sp_RetornaGastosCat_Result> sp_RetornaGastosCat(string v_cat)
-        {
-            var v_catParameter = v_cat != null ?
-                new ObjectParameter("v_cat", v_cat) :
-                new ObjectParameter("v_cat", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaGastosCat_Result>("sp_RetornaGastosCat", v_catParameter);
-        }
-    
-        public virtual int sp_ModificarProveedor_Elimina(Nullable<int> prv_IDProveedor, string prv_NombreVariable, string prv_NombreRepresentante, string prv_PrimerApellido, string prv_SegundoApellido, string prv_CedulaRepresentante, string prv_CedulaJuridica, string prv_Telefono, string prv_Email, string prv_TipoProveedor, Nullable<int> v_Provincia, string prv_OtrasSenas, Nullable<bool> v_Activo)
-        {
-            var prv_IDProveedorParameter = prv_IDProveedor.HasValue ?
-                new ObjectParameter("prv_IDProveedor", prv_IDProveedor) :
-                new ObjectParameter("prv_IDProveedor", typeof(int));
-    
-            var prv_NombreVariableParameter = prv_NombreVariable != null ?
-                new ObjectParameter("prv_NombreVariable", prv_NombreVariable) :
-                new ObjectParameter("prv_NombreVariable", typeof(string));
-    
-            var prv_NombreRepresentanteParameter = prv_NombreRepresentante != null ?
-                new ObjectParameter("prv_NombreRepresentante", prv_NombreRepresentante) :
-                new ObjectParameter("prv_NombreRepresentante", typeof(string));
-    
-            var prv_PrimerApellidoParameter = prv_PrimerApellido != null ?
-                new ObjectParameter("prv_PrimerApellido", prv_PrimerApellido) :
-                new ObjectParameter("prv_PrimerApellido", typeof(string));
-    
-            var prv_SegundoApellidoParameter = prv_SegundoApellido != null ?
-                new ObjectParameter("prv_SegundoApellido", prv_SegundoApellido) :
-                new ObjectParameter("prv_SegundoApellido", typeof(string));
-    
-            var prv_CedulaRepresentanteParameter = prv_CedulaRepresentante != null ?
-                new ObjectParameter("prv_CedulaRepresentante", prv_CedulaRepresentante) :
-                new ObjectParameter("prv_CedulaRepresentante", typeof(string));
-    
-            var prv_CedulaJuridicaParameter = prv_CedulaJuridica != null ?
-                new ObjectParameter("prv_CedulaJuridica", prv_CedulaJuridica) :
-                new ObjectParameter("prv_CedulaJuridica", typeof(string));
-    
-            var prv_TelefonoParameter = prv_Telefono != null ?
-                new ObjectParameter("prv_Telefono", prv_Telefono) :
-                new ObjectParameter("prv_Telefono", typeof(string));
-    
-            var prv_EmailParameter = prv_Email != null ?
-                new ObjectParameter("prv_Email", prv_Email) :
-                new ObjectParameter("prv_Email", typeof(string));
-    
-            var prv_TipoProveedorParameter = prv_TipoProveedor != null ?
-                new ObjectParameter("prv_TipoProveedor", prv_TipoProveedor) :
-                new ObjectParameter("prv_TipoProveedor", typeof(string));
-    
-            var v_ProvinciaParameter = v_Provincia.HasValue ?
-                new ObjectParameter("v_Provincia", v_Provincia) :
-                new ObjectParameter("v_Provincia", typeof(int));
-    
-            var prv_OtrasSenasParameter = prv_OtrasSenas != null ?
-                new ObjectParameter("prv_OtrasSenas", prv_OtrasSenas) :
-                new ObjectParameter("prv_OtrasSenas", typeof(string));
-    
-            var v_ActivoParameter = v_Activo.HasValue ?
-                new ObjectParameter("v_Activo", v_Activo) :
-                new ObjectParameter("v_Activo", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarProveedor_Elimina", prv_IDProveedorParameter, prv_NombreVariableParameter, prv_NombreRepresentanteParameter, prv_PrimerApellidoParameter, prv_SegundoApellidoParameter, prv_CedulaRepresentanteParameter, prv_CedulaJuridicaParameter, prv_TelefonoParameter, prv_EmailParameter, prv_TipoProveedorParameter, v_ProvinciaParameter, prv_OtrasSenasParameter, v_ActivoParameter);
-        }
-    
-        public virtual ObjectResult<sp_RetornaClienteDataGrid_Result> sp_RetornaClienteDataGrid(Nullable<bool> v_alq_activo)
-        {
-            var v_alq_activoParameter = v_alq_activo.HasValue ?
-                new ObjectParameter("v_alq_activo", v_alq_activo) :
-                new ObjectParameter("v_alq_activo", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaClienteDataGrid_Result>("sp_RetornaClienteDataGrid", v_alq_activoParameter);
-        }
-    
-        public virtual ObjectResult<sp_RetornaReporteAdmin_Result> sp_RetornaReporteAdmin(Nullable<int> v_fk_adr_id_admin, Nullable<int> v_fk_ctr_cliente, Nullable<int> v_fk_prv_proveedor, string v_estado, Nullable<System.DateTime> v_fecha_inicio1, Nullable<System.DateTime> v_fecha_inicio2, Nullable<System.DateTime> v_fecha_finalizacion1, Nullable<System.DateTime> v_fecha_finalizacion2, Nullable<int> v_ctr_contrato)
-        {
-            var v_fk_adr_id_adminParameter = v_fk_adr_id_admin.HasValue ?
-                new ObjectParameter("v_fk_adr_id_admin", v_fk_adr_id_admin) :
-                new ObjectParameter("v_fk_adr_id_admin", typeof(int));
-    
-            var v_fk_ctr_clienteParameter = v_fk_ctr_cliente.HasValue ?
-                new ObjectParameter("v_fk_ctr_cliente", v_fk_ctr_cliente) :
-                new ObjectParameter("v_fk_ctr_cliente", typeof(int));
-    
-            var v_fk_prv_proveedorParameter = v_fk_prv_proveedor.HasValue ?
-                new ObjectParameter("v_fk_prv_proveedor", v_fk_prv_proveedor) :
-                new ObjectParameter("v_fk_prv_proveedor", typeof(int));
-    
-            var v_estadoParameter = v_estado != null ?
-                new ObjectParameter("v_estado", v_estado) :
-                new ObjectParameter("v_estado", typeof(string));
-    
-            var v_fecha_inicio1Parameter = v_fecha_inicio1.HasValue ?
-                new ObjectParameter("v_fecha_inicio1", v_fecha_inicio1) :
-                new ObjectParameter("v_fecha_inicio1", typeof(System.DateTime));
-    
-            var v_fecha_inicio2Parameter = v_fecha_inicio2.HasValue ?
-                new ObjectParameter("v_fecha_inicio2", v_fecha_inicio2) :
-                new ObjectParameter("v_fecha_inicio2", typeof(System.DateTime));
-    
-            var v_fecha_finalizacion1Parameter = v_fecha_finalizacion1.HasValue ?
-                new ObjectParameter("v_fecha_finalizacion1", v_fecha_finalizacion1) :
-                new ObjectParameter("v_fecha_finalizacion1", typeof(System.DateTime));
-    
-            var v_fecha_finalizacion2Parameter = v_fecha_finalizacion2.HasValue ?
-                new ObjectParameter("v_fecha_finalizacion2", v_fecha_finalizacion2) :
-                new ObjectParameter("v_fecha_finalizacion2", typeof(System.DateTime));
-    
-            var v_ctr_contratoParameter = v_ctr_contrato.HasValue ?
-                new ObjectParameter("v_ctr_contrato", v_ctr_contrato) :
-                new ObjectParameter("v_ctr_contrato", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaReporteAdmin_Result>("sp_RetornaReporteAdmin", v_fk_adr_id_adminParameter, v_fk_ctr_clienteParameter, v_fk_prv_proveedorParameter, v_estadoParameter, v_fecha_inicio1Parameter, v_fecha_inicio2Parameter, v_fecha_finalizacion1Parameter, v_fecha_finalizacion2Parameter, v_ctr_contratoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     }
 }

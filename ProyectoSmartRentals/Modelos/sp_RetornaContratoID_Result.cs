@@ -22,5 +22,7 @@ namespace ProyectoSmartRentals.Modelos
         public Nullable<bool> ctr_activo { get; set; }
         public string ctr_file { get; set; }
         public int fk_alq_id_propiedad { get; set; }
+        public Nullable<int> fk_adr_id_admin { get; set; }
+        public Nullable<System.DateTime> ctr_fechapago { get; set; }
     }
 }

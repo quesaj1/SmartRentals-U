@@ -31,9 +31,9 @@ namespace ProyectoSmartRentals.Modelos
         public Nullable<int> fk_adr_id_admin { get; set; }
         public Nullable<System.DateTime> ctr_fechaPago { get; set; }
     
+        public virtual C_Admin_Rentals C_Admin_Rentals { get; set; }
         public virtual C_Alquiler C_Alquiler { get; set; }
         public virtual C_Cliente C_Cliente { get; set; }
-        public virtual C_Admin_Rentals C_Admin_Rentals { get; set; }
         public virtual ICollection<C_Tiquete> C_Tiquete { get; set; }
     }
 }

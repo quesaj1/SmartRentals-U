@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SmartRentalsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SmartRentalsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="C_Admin_Rentals">
           <Key>
             <PropertyRef Name="adr_id_admin" />
@@ -692,7 +692,8 @@
             <End Role="C_Tiquete" EntitySet="C_Tiquete" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SmartRentalsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -710,7 +711,7 @@
           <Property Name="adr_TelefonoCasa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="adr_TelefonoCelular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="adr_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="C_Contratos" Relationship="SmartRentalsModel.FK_C_Contratos_C_AdminRentals" FromRole="C_Admin_Rentals" ToRole="C_Contratos" />
+          <NavigationProperty Name="C_Contratos" Relationship="Self.FK_C_Contratos_C_AdminRentals" FromRole="C_Admin_Rentals" ToRole="C_Contratos" />
         </EntityType>
         <EntityType Name="C_Alquiler">
           <Key>
@@ -756,8 +757,8 @@
           <Property Name="cli_TelefonoCasa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cli_TelefonoCelular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cli_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="C_Contratos" Relationship="Self.FK_C_Contratos_C_Cliente" FromRole="C_Cliente" ToRole="C_Contratos" />
           <Property Name="alq_Activo" Type="Boolean" />
+          <NavigationProperty Name="C_Contratos" Relationship="Self.FK_C_Contratos_C_Cliente" FromRole="C_Cliente" ToRole="C_Contratos" />
         </EntityType>
         <EntityType Name="C_Contratos">
           <Key>
@@ -772,12 +773,12 @@
           <Property Name="ctr_activo" Type="Boolean" />
           <Property Name="ctr_file" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="fk_alq_id_propiedad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="C_Alquiler" Relationship="Self.FK_C_Contratos_C_Alquiler" FromRole="C_Contratos" ToRole="C_Alquiler" />
-          <NavigationProperty Name="C_Cliente" Relationship="Self.FK_C_Contratos_C_Cliente" FromRole="C_Contratos" ToRole="C_Cliente" />
           <Property Name="fk_adr_id_admin" Type="Int32" />
           <Property Name="ctr_fechaPago" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="C_Admin_Rentals" Relationship="SmartRentalsModel.FK_C_Contratos_C_AdminRentals" FromRole="C_Contratos" ToRole="C_Admin_Rentals" />
-          <NavigationProperty Name="C_Tiquete" Relationship="SmartRentalsModel.FK_Tiquete_1_C_Contratos" FromRole="C_Contratos" ToRole="C_Tiquete" />
+          <NavigationProperty Name="C_Admin_Rentals" Relationship="Self.FK_C_Contratos_C_AdminRentals" FromRole="C_Contratos" ToRole="C_Admin_Rentals" />
+          <NavigationProperty Name="C_Alquiler" Relationship="Self.FK_C_Contratos_C_Alquiler" FromRole="C_Contratos" ToRole="C_Alquiler" />
+          <NavigationProperty Name="C_Cliente" Relationship="Self.FK_C_Contratos_C_Cliente" FromRole="C_Contratos" ToRole="C_Cliente" />
+          <NavigationProperty Name="C_Tiquete" Relationship="Self.FK_Tiquete_1_C_Contratos" FromRole="C_Contratos" ToRole="C_Tiquete" />
         </EntityType>
         <EntityType Name="C_Distrito">
           <Key>
@@ -808,11 +809,11 @@
           <Property Name="Id_Canton" Type="Int32" Nullable="false" />
           <Property Name="Id_Provincia" Type="Int32" Nullable="false" />
           <Property Name="prv_OtrasSenas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alq_Activo" Type="Boolean" />
           <NavigationProperty Name="C_Canton" Relationship="Self.FK_C_Proveedor_C_Canton" FromRole="C_Proveedor" ToRole="C_Canton" />
           <NavigationProperty Name="C_Distrito" Relationship="Self.FK_C_Proveedor_C_Distrito" FromRole="C_Proveedor" ToRole="C_Distrito" />
           <NavigationProperty Name="C_Provincia" Relationship="Self.FK_C_Proveedor_C_Provincia" FromRole="C_Proveedor" ToRole="C_Provincia" />
-          <Property Name="alq_Activo" Type="Boolean" />
-          <NavigationProperty Name="C_Tiquete" Relationship="SmartRentalsModel.FK_Tiquete_1_C_Proveedor" FromRole="C_Proveedor" ToRole="C_Tiquete" />
+          <NavigationProperty Name="C_Tiquete" Relationship="Self.FK_Tiquete_1_C_Proveedor" FromRole="C_Proveedor" ToRole="C_Tiquete" />
         </EntityType>
         <EntityType Name="C_Provincia">
           <Key>
@@ -824,7 +825,36 @@
           <NavigationProperty Name="C_Canton" Relationship="Self.FK_C_Canton_C_Provincia" FromRole="C_Provincia" ToRole="C_Canton" />
           <NavigationProperty Name="C_Proveedor" Relationship="Self.FK_C_Proveedor_C_Provincia" FromRole="C_Provincia" ToRole="C_Proveedor" />
         </EntityType>
-        <EntityType Name="sysdiagram">
+        <EntityType Name="C_Tiquete">
+          <Key>
+            <PropertyRef Name="tqt_id" />
+          </Key>
+          <Property Name="tqt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_id_ctr_contrato" Type="Int32" />
+          <Property Name="tqt_tipo_problema" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="tqt_activo" Type="Boolean" />
+          <Property Name="tqt_descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="tqt_nota_reparacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="tqt_fecha_inicio" Type="DateTime" Precision="3" />
+          <Property Name="tqt_fecha_finalizacion" Type="DateTime" Precision="3" />
+          <Property Name="fk_prv_idProveedor" Type="Int32" />
+          <Property Name="tqt_titulo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tqt_precio_reparacion" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tqt_estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="C_Contratos" Relationship="Self.FK_Tiquete_1_C_Contratos" FromRole="C_Tiquete" ToRole="C_Contratos" />
+          <NavigationProperty Name="C_Proveedor" Relationship="Self.FK_Tiquete_1_C_Proveedor" FromRole="C_Tiquete" ToRole="C_Proveedor" />
+        </EntityType>
+        <EntityType Name="C_Usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="enc_password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="tipo" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -834,6 +864,18 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <Association Name="FK_C_Contratos_C_AdminRentals">
+          <End Role="C_Admin_Rentals" Type="Self.C_Admin_Rentals" Multiplicity="0..1" />
+          <End Role="C_Contratos" Type="Self.C_Contratos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_Admin_Rentals">
+              <PropertyRef Name="adr_id_admin" />
+            </Principal>
+            <Dependent Role="C_Contratos">
+              <PropertyRef Name="fk_adr_id_admin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_C_Alquiler_C_Canton">
           <End Role="C_Canton" Type="Self.C_Canton" Multiplicity="1" />
           <End Role="C_Alquiler" Type="Self.C_Alquiler" Multiplicity="*" />
@@ -930,6 +972,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tiquete_1_C_Contratos">
+          <End Role="C_Contratos" Type="Self.C_Contratos" Multiplicity="0..1" />
+          <End Role="C_Tiquete" Type="Self.C_Tiquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_Contratos">
+              <PropertyRef Name="id_ctr_contrato" />
+            </Principal>
+            <Dependent Role="C_Tiquete">
+              <PropertyRef Name="fk_id_ctr_contrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_C_Proveedor_C_Distrito">
           <End Role="C_Distrito" Type="Self.C_Distrito" Multiplicity="1" />
           <End Role="C_Proveedor" Type="Self.C_Proveedor" Multiplicity="*" />
@@ -954,6 +1008,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tiquete_1_C_Proveedor">
+          <End Role="C_Proveedor" Type="Self.C_Proveedor" Multiplicity="0..1" />
+          <End Role="C_Tiquete" Type="Self.C_Tiquete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_Proveedor">
+              <PropertyRef Name="prv_IDProveedor" />
+            </Principal>
+            <Dependent Role="C_Tiquete">
+              <PropertyRef Name="fk_prv_idProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SmartRentalsEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C_Admin_Rentals" EntityType="Self.C_Admin_Rentals" />
           <EntitySet Name="C_Alquiler" EntityType="Self.C_Alquiler" />
@@ -963,7 +1029,13 @@
           <EntitySet Name="C_Distrito" EntityType="Self.C_Distrito" />
           <EntitySet Name="C_Proveedor" EntityType="Self.C_Proveedor" />
           <EntitySet Name="C_Provincia" EntityType="Self.C_Provincia" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="C_Tiquete" EntityType="Self.C_Tiquete" />
+          <EntitySet Name="C_Usuario" EntityType="Self.C_Usuario" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_C_Contratos_C_AdminRentals" Association="Self.FK_C_Contratos_C_AdminRentals">
+            <End Role="C_Admin_Rentals" EntitySet="C_Admin_Rentals" />
+            <End Role="C_Contratos" EntitySet="C_Contratos" />
+          </AssociationSet>
           <AssociationSet Name="FK_C_Alquiler_C_Canton" Association="Self.FK_C_Alquiler_C_Canton">
             <End Role="C_Canton" EntitySet="C_Canton" />
             <End Role="C_Alquiler" EntitySet="C_Alquiler" />
@@ -996,6 +1068,10 @@
             <End Role="C_Cliente" EntitySet="C_Cliente" />
             <End Role="C_Contratos" EntitySet="C_Contratos" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tiquete_1_C_Contratos" Association="Self.FK_Tiquete_1_C_Contratos">
+            <End Role="C_Contratos" EntitySet="C_Contratos" />
+            <End Role="C_Tiquete" EntitySet="C_Tiquete" />
+          </AssociationSet>
           <AssociationSet Name="FK_C_Proveedor_C_Distrito" Association="Self.FK_C_Proveedor_C_Distrito">
             <End Role="C_Distrito" EntitySet="C_Distrito" />
             <End Role="C_Proveedor" EntitySet="C_Proveedor" />
@@ -1004,11 +1080,18 @@
             <End Role="C_Provincia" EntitySet="C_Provincia" />
             <End Role="C_Proveedor" EntitySet="C_Proveedor" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tiquete_1_C_Proveedor" Association="Self.FK_Tiquete_1_C_Proveedor">
+            <End Role="C_Proveedor" EntitySet="C_Proveedor" />
+            <End Role="C_Tiquete" EntitySet="C_Tiquete" />
+          </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="version" Mode="In" Type="Int32" />
             <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_BuscaContratoDataGrid" ReturnType="Collection(SmartRentalsModel.sp_BuscaContratoDataGrid_Result)">
+            <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_creatediagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -1021,13 +1104,7 @@
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_EliminarAdminRental">
-          <Parameter Name="v_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_EliminarCliente">
-          <Parameter Name="c_idCliente" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_EliminarProveedor">
-          <Parameter Name="v_id" Mode="In" Type="Int32" />
+            <Parameter Name="v_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SmartRentalsModel.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -1097,6 +1174,19 @@
             <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
             <Parameter Name="prv_OtrasSenas" Mode="In" Type="String" />
             <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertarTiquete">
+            <Parameter Name="v_fk_ctr_contrato" Mode="In" Type="Int32" />
+            <Parameter Name="v_tqt_tipo_problema" Mode="In" Type="String" />
+            <Parameter Name="v_tqt_activo" Mode="In" Type="Boolean" />
+            <Parameter Name="v_tqt_descripcion" Mode="In" Type="String" />
+            <Parameter Name="v_tqt_nota_reparacion" Mode="In" Type="String" />
+            <Parameter Name="v_tqt_fecha_inicio" Mode="In" Type="DateTime" />
+            <Parameter Name="v_tqt_fecha_finalizacion" Mode="In" Type="DateTime" />
+            <Parameter Name="v_fk_prv_idproveedor" Mode="In" Type="Int32" />
+            <Parameter Name="v_tqt_titulo" Mode="In" Type="String" />
+            <Parameter Name="v_tqt_precio_preparacion" Mode="In" Type="Decimal" />
+            <Parameter Name="v_tqt_estado" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_ModificaAlquiler">
             <Parameter Name="v_id_Propiedad" Mode="In" Type="Int32" />
@@ -1174,102 +1264,20 @@
             <Parameter Name="prv_OtrasSenas" Mode="In" Type="String" />
             <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaAdminRental" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRental_Result)">
-            <Parameter Name="v_cedula" Mode="In" Type="String" />
-            <Parameter Name="v_nombre" Mode="In" Type="String" />
-            <Parameter Name="v_segundonombre" Mode="In" Type="String" />
-            <Parameter Name="v_apellido" Mode="In" Type="String" />
-            <Parameter Name="v_segundoapellido" Mode="In" Type="String" />
-            <Parameter Name="v_email" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaAdminRentalID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRentalID_Result)">
-          <Parameter Name="id_admin" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaAlquiler" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquiler_Result)">
-            <Parameter Name="v_alq_id_Propiedad" Mode="In" Type="Int32" />
-            <Parameter Name="v_alq_tipo_Propiedad" Mode="In" Type="String" />
-            <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
-            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaAlquilerDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquilerDataGrid_Result)">
-          <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaAlquilerID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquilerID_Result)">
-          <Parameter Name="id_Propiedad" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaCliente" ReturnType="Collection(SmartRentalsModel.sp_RetornaCliente_Result)">
-            <Parameter Name="cli_Cedula" Mode="In" Type="String" />
-            <Parameter Name="cli_Nombre" Mode="In" Type="String" />
-            <Parameter Name="cli_SegundoNombre" Mode="In" Type="String" />
-            <Parameter Name="cli_PrimerApellido" Mode="In" Type="String" />
-            <Parameter Name="cli_SegundoApellido" Mode="In" Type="String" />
-            <Parameter Name="cli_TelefonoCasa" Mode="In" Type="String" />
-            <Parameter Name="cli_TelefonoCelular" Mode="In" Type="String" />
-            <Parameter Name="cli_Email" Mode="In" Type="String" />
-            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaClienteID" ReturnType="Collection(SmartRentalsModel.sp_RetornaClienteID_Result)">
-          <Parameter Name="id_IDCliente" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaContrato" ReturnType="Collection(SmartRentalsModel.sp_RetornaContrato_Result)">
-            <Parameter Name="v_id_ctr_contrato" Mode="In" Type="Int32" />
-            <Parameter Name="v_fk_cli_cliente" Mode="In" Type="Int32" />
-            <Parameter Name="v_ctr_numero" Mode="In" Type="String" />
-            <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
-            <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaContratoDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaContratoDataGrid_Result)">
-            <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
-            <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaContratoID" ReturnType="Collection(SmartRentalsModel.sp_RetornaContratoID_Result)">
-          <Parameter Name="v_id_contrato" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaProveedorID" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorID_Result)">
-          <Parameter Name="prv_IDProveedor" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornarProveedor" ReturnType="Collection(SmartRentalsModel.sp_RetornarProveedor_Result)">
+          <FunctionImport Name="sp_ModificarProveedor_Elimina">
+            <Parameter Name="prv_IDProveedor" Mode="In" Type="Int32" />
+            <Parameter Name="prv_NombreVariable" Mode="In" Type="String" />
             <Parameter Name="prv_NombreRepresentante" Mode="In" Type="String" />
+            <Parameter Name="prv_PrimerApellido" Mode="In" Type="String" />
+            <Parameter Name="prv_SegundoApellido" Mode="In" Type="String" />
             <Parameter Name="prv_CedulaRepresentante" Mode="In" Type="String" />
             <Parameter Name="prv_CedulaJuridica" Mode="In" Type="String" />
+            <Parameter Name="prv_Telefono" Mode="In" Type="String" />
             <Parameter Name="prv_Email" Mode="In" Type="String" />
+            <Parameter Name="prv_TipoProveedor" Mode="In" Type="String" />
+            <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
+            <Parameter Name="prv_OtrasSenas" Mode="In" Type="String" />
             <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
-          <FunctionImport Name="sp_BuscaContratoDataGrid" ReturnType="Collection(SmartRentalsModel.sp_BuscaContratoDataGrid_Result)">
-          <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="C_Tiquete" EntityType="SmartRentalsModel.C_Tiquete" />
-          <EntitySet Name="C_Usuario" EntityType="SmartRentalsModel.C_Usuario" />
-          <AssociationSet Name="FK_C_Contratos_C_AdminRentals" Association="SmartRentalsModel.FK_C_Contratos_C_AdminRentals">
-            <End Role="C_Admin_Rentals" EntitySet="C_Admin_Rentals" />
-            <End Role="C_Contratos" EntitySet="C_Contratos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tiquete_1_C_Contratos" Association="SmartRentalsModel.FK_Tiquete_1_C_Contratos">
-            <End Role="C_Contratos" EntitySet="C_Contratos" />
-            <End Role="C_Tiquete" EntitySet="C_Tiquete" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tiquete_1_C_Proveedor" Association="SmartRentalsModel.FK_Tiquete_1_C_Proveedor">
-            <End Role="C_Proveedor" EntitySet="C_Proveedor" />
-            <End Role="C_Tiquete" EntitySet="C_Tiquete" />
-          </AssociationSet>
-          <FunctionImport Name="sp_InsertarTiquete">
-            <Parameter Name="v_fk_ctr_contrato" Mode="In" Type="Int32" />
-            <Parameter Name="v_tqt_tipo_problema" Mode="In" Type="String" />
-            <Parameter Name="v_tqt_activo" Mode="In" Type="Boolean" />
-            <Parameter Name="v_tqt_descripcion" Mode="In" Type="String" />
-            <Parameter Name="v_tqt_nota_reparacion" Mode="In" Type="String" />
-            <Parameter Name="v_tqt_fecha_inicio" Mode="In" Type="DateTime" />
-            <Parameter Name="v_tqt_fecha_finalizacion" Mode="In" Type="DateTime" />
-            <Parameter Name="v_fk_prv_idproveedor" Mode="In" Type="Int32" />
-            <Parameter Name="v_tqt_titulo" Mode="In" Type="String" />
-            <Parameter Name="v_tqt_precio_preparacion" Mode="In" Type="Decimal" />
-            <Parameter Name="v_tqt_estado" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_ModificarTiquete">
             <Parameter Name="v_tqt_id" Mode="In" Type="Int32" />
@@ -1292,53 +1300,81 @@
             <Parameter Name="v_tqt_monto" Mode="In" Type="Decimal" />
             <Parameter Name="v_tqt_estado" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAdminRental" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRental_Result)">
+            <Parameter Name="v_cedula" Mode="In" Type="String" />
+            <Parameter Name="v_nombre" Mode="In" Type="String" />
+            <Parameter Name="v_segundonombre" Mode="In" Type="String" />
+            <Parameter Name="v_apellido" Mode="In" Type="String" />
+            <Parameter Name="v_segundoapellido" Mode="In" Type="String" />
+            <Parameter Name="v_email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAdminRentalID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRentalID_Result)">
+            <Parameter Name="id_admin" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAlquiler" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquiler_Result)">
+            <Parameter Name="v_alq_id_Propiedad" Mode="In" Type="Int32" />
+            <Parameter Name="v_alq_tipo_Propiedad" Mode="In" Type="String" />
+            <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAlquilerDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquilerDataGrid_Result)">
+            <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAlquilerID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquilerID_Result)">
+            <Parameter Name="id_Propiedad" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="sp_RetornaCantidadContratos" ReturnType="Collection(Int32)">
             <Parameter Name="ctr_activo" Mode="In" Type="Boolean" />
             <Parameter Name="ctr_cliente" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_RetornaProveedorDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorDataGrid_Result)">
-          <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
+          <FunctionImport Name="sp_RetornaCliente" ReturnType="Collection(SmartRentalsModel.sp_RetornaCliente_Result)">
+            <Parameter Name="cli_Cedula" Mode="In" Type="String" />
+            <Parameter Name="cli_Nombre" Mode="In" Type="String" />
+            <Parameter Name="cli_SegundoNombre" Mode="In" Type="String" />
+            <Parameter Name="cli_PrimerApellido" Mode="In" Type="String" />
+            <Parameter Name="cli_SegundoApellido" Mode="In" Type="String" />
+            <Parameter Name="cli_TelefonoCasa" Mode="In" Type="String" />
+            <Parameter Name="cli_TelefonoCelular" Mode="In" Type="String" />
+            <Parameter Name="cli_Email" Mode="In" Type="String" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="sp_RetornaTiqueteID" ReturnType="Collection(SmartRentalsModel.sp_RetornaTiqueteID_Result)">
-          <Parameter Name="v_tqt_id" Mode="In" Type="Int32" />
+          <FunctionImport Name="sp_RetornaClienteDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaClienteDataGrid_Result)">
+            <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="sp_RetornaTiquetesDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaTiquetesDataGrid_Result)">
-            <Parameter Name="v_tqr_activo" Mode="In" Type="Boolean" />
-            <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
-            <Parameter Name="v_fk_cli_client" Mode="In" Type="Int32" />
-            <Parameter Name="v_fk_prv_proveedor" Mode="In" Type="Int32" />
-            <Parameter Name="v_tqt_estado" Mode="In" Type="String" />
+          <FunctionImport Name="sp_RetornaClienteID" ReturnType="Collection(SmartRentalsModel.sp_RetornaClienteID_Result)">
+            <Parameter Name="id_IDCliente" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_RetornaUsuarioUserID" ReturnType="Collection(SmartRentalsModel.sp_RetornaUsuarioUserID_Result)">
-          <Parameter Name="v_usuario" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaContratoDataGridMod" ReturnType="Collection(SmartRentalsModel.sp_RetornaContratoDataGridMod_Result)">
+          <FunctionImport Name="sp_RetornaContrato" ReturnType="Collection(SmartRentalsModel.sp_RetornaContrato_Result)">
+            <Parameter Name="v_id_ctr_contrato" Mode="In" Type="Int32" />
+            <Parameter Name="v_fk_cli_cliente" Mode="In" Type="Int32" />
+            <Parameter Name="v_ctr_numero" Mode="In" Type="String" />
             <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
+            <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaContratoDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaContratoDataGrid_Result)">
+            <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
+            <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaContratoID" ReturnType="Collection(SmartRentalsModel.sp_RetornaContratoID_Result)">
+            <Parameter Name="v_id_contrato" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaGastosCalend" ReturnType="Collection(SmartRentalsModel.sp_RetornaGastosCalend_Result)">
             <Parameter Name="v_inicio" Mode="In" Type="DateTime" />
             <Parameter Name="v_final" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaGastosCat" ReturnType="Collection(SmartRentalsModel.sp_RetornaGastosCat_Result)">
-          <Parameter Name="v_cat" Mode="In" Type="String" />
+            <Parameter Name="v_cat" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_ModificarProveedor_Elimina">
+          <FunctionImport Name="sp_RetornaProveedorDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorDataGrid_Result)">
+            <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaProveedorID" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorID_Result)">
             <Parameter Name="prv_IDProveedor" Mode="In" Type="Int32" />
-            <Parameter Name="prv_NombreVariable" Mode="In" Type="String" />
-            <Parameter Name="prv_NombreRepresentante" Mode="In" Type="String" />
-            <Parameter Name="prv_PrimerApellido" Mode="In" Type="String" />
-            <Parameter Name="prv_SegundoApellido" Mode="In" Type="String" />
-            <Parameter Name="prv_CedulaRepresentante" Mode="In" Type="String" />
-            <Parameter Name="prv_CedulaJuridica" Mode="In" Type="String" />
-            <Parameter Name="prv_Telefono" Mode="In" Type="String" />
-            <Parameter Name="prv_Email" Mode="In" Type="String" />
-            <Parameter Name="prv_TipoProveedor" Mode="In" Type="String" />
-            <Parameter Name="v_Provincia" Mode="In" Type="Int32" />
-            <Parameter Name="prv_OtrasSenas" Mode="In" Type="String" />
-            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaClienteDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaClienteDataGrid_Result)">
-          <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaReporteAdmin" ReturnType="Collection(SmartRentalsModel.sp_RetornaReporteAdmin_Result)">
             <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
@@ -1351,7 +1387,38 @@
             <Parameter Name="v_fecha_finalizacion2" Mode="In" Type="DateTime" />
             <Parameter Name="v_ctr_contrato" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="sp_RetornarProveedor" ReturnType="Collection(SmartRentalsModel.sp_RetornarProveedor_Result)">
+            <Parameter Name="prv_NombreRepresentante" Mode="In" Type="String" />
+            <Parameter Name="prv_CedulaRepresentante" Mode="In" Type="String" />
+            <Parameter Name="prv_CedulaJuridica" Mode="In" Type="String" />
+            <Parameter Name="prv_Email" Mode="In" Type="String" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaTiqueteID" ReturnType="Collection(SmartRentalsModel.sp_RetornaTiqueteID_Result)">
+            <Parameter Name="v_tqt_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaTiquetesDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaTiquetesDataGrid_Result)">
+            <Parameter Name="v_tqr_activo" Mode="In" Type="Boolean" />
+            <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
+            <Parameter Name="v_fk_cli_client" Mode="In" Type="Int32" />
+            <Parameter Name="v_fk_prv_proveedor" Mode="In" Type="Int32" />
+            <Parameter Name="v_tqt_estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaUsuarioUserID" ReturnType="Collection(SmartRentalsModel.sp_RetornaUsuarioUserID_Result)">
+            <Parameter Name="v_usuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
+        <ComplexType Name="sp_BuscaContratoDataGrid_Result">
+          <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
+          <Property Type="String" Name="ctr_numeroContrato" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="102" />
+          <Property Type="DateTime" Name="ctr_fechainicio" Nullable="false" />
+          <Property Type="DateTime" Name="ctr_fechafinalizacion" Nullable="true" />
+          <Property Type="Decimal" Name="ctr_monto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="ctr_file" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="alq_ubicacionExacta" Nullable="true" MaxLength="100" />
+        </ComplexType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -1430,6 +1497,18 @@
           <Property Type="String" Name="cli_TelefonoCasa" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="cli_TelefonoCelular" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="cli_Email" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="alq_Activo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaClienteDataGrid_Result">
+          <Property Type="Int32" Name="cli_Cliente" Nullable="false" />
+          <Property Type="String" Name="cli_Cedula" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="cli_Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cli_PrimerApelido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cli_SegundoApellido" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="cli_FechaNacimiento" Nullable="true" Precision="23" />
+          <Property Type="String" Name="cli_TelefonoCasa" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cli_TelefonoCelular" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cli_Email" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="sp_RetornaClienteID_Result">
           <Property Type="Int32" Name="cli_Cliente" Nullable="false" />
@@ -1452,6 +1531,8 @@
           <Property Type="Decimal" Name="ctr_monto" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Boolean" Name="ctr_activo" Nullable="true" />
           <Property Type="String" Name="ctr_file" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="fk_adr_id_admin" Nullable="true" />
+          <Property Type="DateTime" Name="ctr_fechapago" Nullable="true" />
         </ComplexType>
         <ComplexType Name="sp_RetornaContratoDataGrid_Result">
           <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
@@ -1462,6 +1543,7 @@
           <Property Type="Decimal" Name="ctr_monto" Nullable="false" Precision="18" Scale="0" />
           <Property Type="String" Name="ctr_file" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="alq_ubicacionExacta" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="ctr_fechapago" Nullable="true" />
         </ComplexType>
         <ComplexType Name="sp_RetornaContratoID_Result">
           <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
@@ -1473,6 +1555,37 @@
           <Property Type="Boolean" Name="ctr_activo" Nullable="true" />
           <Property Type="String" Name="ctr_file" Nullable="true" MaxLength="255" />
           <Property Type="Int32" Name="fk_alq_id_propiedad" Nullable="false" />
+          <Property Type="Int32" Name="fk_adr_id_admin" Nullable="true" />
+          <Property Type="DateTime" Name="ctr_fechapago" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaGastosCalend_Result">
+          <Property Type="String" Name="tqt_tipo_problema" Nullable="true" MaxLength="15" />
+          <Property Type="DateTime" Name="tqt_fecha_inicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="tqt_fecha_finalizacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="tqt_titulo" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="tqt_precio_reparacion" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaGastosCat_Result">
+          <Property Type="String" Name="tqt_tipo_problema" Nullable="true" MaxLength="15" />
+          <Property Type="DateTime" Name="tqt_fecha_inicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="tqt_fecha_finalizacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="tqt_titulo" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="tqt_precio_reparacion" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaProveedorDataGrid_Result">
+          <Property Type="Int32" Name="prv_IDProveedor" Nullable="false" />
+          <Property Type="String" Name="prv_NombreVariable" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="prv_NombreRepresentante" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="prv_PrimerApellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="prv_CedulaRepresentante" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="prv_CedulaJuridica" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="prv_Telefono" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="prv_Email" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="prv_TipoProveedor" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Provincia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Canton" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="prv_OtrasSenas" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="sp_RetornaProveedorID_Result">
           <Property Type="Int32" Name="prv_IDProveedor" Nullable="false" />
@@ -1490,6 +1603,23 @@
           <Property Type="Int32" Name="Id_Provincia" Nullable="false" />
           <Property Type="String" Name="prv_OtrasSenas" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="sp_RetornaReporteAdmin_Result">
+          <Property Type="Int32" Name="tqt_id" Nullable="false" />
+          <Property Type="String" Name="tqt_tipo_problema" Nullable="true" MaxLength="15" />
+          <Property Type="DateTime" Name="tqt_fecha_inicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="tqt_fecha_finalizacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="tqt_estado" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="tqt_titulo" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="fk_id_ctr_contrato" Nullable="true" />
+          <Property Type="Decimal" Name="tqt_precio_reparacion" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="fk_prv_idProveedor" Nullable="true" />
+          <Property Type="String" Name="prv_nombreVariable" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="fk_adr_id_admin" Nullable="true" />
+          <Property Type="String" Name="ctr_numeroContrato" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="fk_cli_cliente" Nullable="false" />
+          <Property Type="String" Name="Administrador" Nullable="true" MaxLength="102" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="102" />
+        </ComplexType>
         <ComplexType Name="sp_RetornarProveedor_Result">
           <Property Type="Int32" Name="prv_IDProveedor" Nullable="false" />
           <Property Type="String" Name="prv_NombreVariable" Nullable="true" MaxLength="50" />
@@ -1503,96 +1633,7 @@
           <Property Type="String" Name="prv_TipoProveedor" Nullable="true" MaxLength="30" />
           <Property Type="Int32" Name="Id_Provincia" Nullable="false" />
           <Property Type="String" Name="prv_OtrasSenas" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="sp_BuscaContratoDataGrid_Result">
-          <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
-          <Property Type="String" Name="ctr_numeroContrato" Nullable="false" MaxLength="10" />
-          <Property Type="String" Name="nombre" Nullable="true" MaxLength="102" />
-          <Property Type="DateTime" Name="ctr_fechainicio" Nullable="false" />
-          <Property Type="DateTime" Name="ctr_fechafinalizacion" Nullable="true" />
-          <Property Type="Decimal" Name="ctr_monto" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="ctr_file" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="alq_ubicacionExacta" Nullable="true" MaxLength="100" />
-        </ComplexType>
-        <EntityType Name="C_Tiquete">
-          <Key>
-            <PropertyRef Name="tqt_id" />
-          </Key>
-          <Property Name="tqt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fk_id_ctr_contrato" Type="Int32" />
-          <Property Name="tqt_tipo_problema" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="tqt_activo" Type="Boolean" />
-          <Property Name="tqt_descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="tqt_nota_reparacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="tqt_fecha_inicio" Type="DateTime" Precision="3" />
-          <Property Name="tqt_fecha_finalizacion" Type="DateTime" Precision="3" />
-          <Property Name="fk_prv_idProveedor" Type="Int32" />
-          <Property Name="tqt_titulo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="tqt_precio_reparacion" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="tqt_estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="C_Contratos" Relationship="SmartRentalsModel.FK_Tiquete_1_C_Contratos" FromRole="C_Tiquete" ToRole="C_Contratos" />
-          <NavigationProperty Name="C_Proveedor" Relationship="SmartRentalsModel.FK_Tiquete_1_C_Proveedor" FromRole="C_Tiquete" ToRole="C_Proveedor" />
-        </EntityType>
-        <EntityType Name="C_Usuario">
-          <Key>
-            <PropertyRef Name="id_usuario" />
-          </Key>
-          <Property Name="usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="enc_password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="activo" Type="Boolean" Nullable="false" />
-          <Property Name="tipo" Type="Int32" Nullable="false" />
-          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <Association Name="FK_C_Contratos_C_AdminRentals">
-          <End Type="SmartRentalsModel.C_Admin_Rentals" Role="C_Admin_Rentals" Multiplicity="0..1" />
-          <End Type="SmartRentalsModel.C_Contratos" Role="C_Contratos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Admin_Rentals">
-              <PropertyRef Name="adr_id_admin" />
-            </Principal>
-            <Dependent Role="C_Contratos">
-              <PropertyRef Name="fk_adr_id_admin" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tiquete_1_C_Contratos">
-          <End Type="SmartRentalsModel.C_Contratos" Role="C_Contratos" Multiplicity="0..1" />
-          <End Type="SmartRentalsModel.C_Tiquete" Role="C_Tiquete" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Contratos">
-              <PropertyRef Name="id_ctr_contrato" />
-            </Principal>
-            <Dependent Role="C_Tiquete">
-              <PropertyRef Name="fk_id_ctr_contrato" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tiquete_1_C_Proveedor">
-          <End Type="SmartRentalsModel.C_Proveedor" Role="C_Proveedor" Multiplicity="0..1" />
-          <End Type="SmartRentalsModel.C_Tiquete" Role="C_Tiquete" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="C_Proveedor">
-              <PropertyRef Name="prv_IDProveedor" />
-            </Principal>
-            <Dependent Role="C_Tiquete">
-              <PropertyRef Name="fk_prv_idProveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <ComplexType Name="sp_RetornaProveedorDataGrid_Result">
-          <Property Type="Int32" Name="prv_IDProveedor" Nullable="false" />
-          <Property Type="String" Name="prv_NombreVariable" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="prv_NombreRepresentante" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="prv_PrimerApellido" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="prv_CedulaRepresentante" Nullable="true" MaxLength="12" />
-          <Property Type="String" Name="prv_CedulaJuridica" Nullable="true" MaxLength="12" />
-          <Property Type="String" Name="prv_Telefono" Nullable="true" MaxLength="15" />
-          <Property Type="String" Name="prv_Email" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="prv_TipoProveedor" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="Provincia" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Canton" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="prv_OtrasSenas" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="alq_Activo" Nullable="true" />
         </ComplexType>
         <ComplexType Name="sp_RetornaTiqueteID_Result">
           <Property Type="Int32" Name="tqt_id" Nullable="false" />
@@ -1625,59 +1666,6 @@
           <Property Type="String" Name="enc_password" Nullable="false" MaxLength="200" />
           <Property Type="Boolean" Name="activo" Nullable="false" />
           <Property Type="Int32" Name="tipo" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="sp_RetornaContratoDataGridMod_Result">
-          <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
-          <Property Type="String" Name="ctr_numeroContrato" Nullable="false" MaxLength="10" />
-          <Property Type="String" Name="nombre" Nullable="true" MaxLength="102" />
-          <Property Type="DateTime" Name="ctr_fechainicio" Nullable="false" />
-          <Property Type="DateTime" Name="ctr_fechafinalizacion" Nullable="true" />
-          <Property Type="Decimal" Name="ctr_monto" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="ctr_file" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="alq_ubicacionExacta" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="ctr_fechapago" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_RetornaGastosCalend_Result">
-          <Property Type="String" Name="tqt_tipo_problema" Nullable="true" MaxLength="15" />
-          <Property Type="DateTime" Name="tqt_fecha_inicio" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="tqt_fecha_finalizacion" Nullable="true" Precision="23" />
-          <Property Type="String" Name="tqt_titulo" Nullable="true" MaxLength="30" />
-          <Property Type="Decimal" Name="tqt_precio_reparacion" Nullable="true" Precision="18" Scale="0" />
-        </ComplexType>
-        <ComplexType Name="sp_RetornaGastosCat_Result">
-          <Property Type="String" Name="tqt_tipo_problema" Nullable="true" MaxLength="15" />
-          <Property Type="DateTime" Name="tqt_fecha_inicio" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="tqt_fecha_finalizacion" Nullable="true" Precision="23" />
-          <Property Type="String" Name="tqt_titulo" Nullable="true" MaxLength="30" />
-          <Property Type="Decimal" Name="tqt_precio_reparacion" Nullable="true" Precision="18" Scale="0" />
-        </ComplexType>
-        <ComplexType Name="sp_RetornaClienteDataGrid_Result">
-          <Property Type="Int32" Name="cli_Cliente" Nullable="false" />
-          <Property Type="String" Name="cli_Cedula" Nullable="true" MaxLength="15" />
-          <Property Type="String" Name="cli_Nombre" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="cli_PrimerApelido" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="cli_SegundoApellido" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="cli_FechaNacimiento" Nullable="true" Precision="23" />
-          <Property Type="String" Name="cli_TelefonoCasa" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="cli_TelefonoCelular" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="cli_Email" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="sp_RetornaReporteAdmin_Result">
-          <Property Type="Int32" Name="tqt_id" Nullable="false" />
-          <Property Type="String" Name="tqt_tipo_problema" Nullable="true" MaxLength="15" />
-          <Property Type="DateTime" Name="tqt_fecha_inicio" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="tqt_fecha_finalizacion" Nullable="true" Precision="23" />
-          <Property Type="String" Name="tqt_estado" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="tqt_titulo" Nullable="true" MaxLength="30" />
-          <Property Type="Int32" Name="fk_id_ctr_contrato" Nullable="true" />
-          <Property Type="Decimal" Name="tqt_precio_reparacion" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="fk_prv_idProveedor" Nullable="true" />
-          <Property Type="String" Name="prv_nombreVariable" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="fk_adr_id_admin" Nullable="true" />
-          <Property Type="String" Name="ctr_numeroContrato" Nullable="false" MaxLength="10" />
-          <Property Type="Int32" Name="fk_cli_cliente" Nullable="false" />
-          <Property Type="String" Name="Administrador" Nullable="true" MaxLength="102" />
-          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="102" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1728,7 +1716,6 @@
           <EntitySetMapping Name="C_Cliente">
             <EntityTypeMapping TypeName="SmartRentalsModel.C_Cliente">
               <MappingFragment StoreEntitySet="C_Cliente">
-                <ScalarProperty Name="alq_Activo" ColumnName="alq_Activo" />
                 <ScalarProperty Name="cli_Cliente" ColumnName="cli_Cliente" />
                 <ScalarProperty Name="cli_Cedula" ColumnName="cli_Cedula" />
                 <ScalarProperty Name="cli_Nombre" ColumnName="cli_Nombre" />
@@ -1739,14 +1726,13 @@
                 <ScalarProperty Name="cli_TelefonoCasa" ColumnName="cli_TelefonoCasa" />
                 <ScalarProperty Name="cli_TelefonoCelular" ColumnName="cli_TelefonoCelular" />
                 <ScalarProperty Name="cli_Email" ColumnName="cli_Email" />
+                <ScalarProperty Name="alq_Activo" ColumnName="alq_Activo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="C_Contratos">
             <EntityTypeMapping TypeName="SmartRentalsModel.C_Contratos">
               <MappingFragment StoreEntitySet="C_Contratos">
-                <ScalarProperty Name="ctr_fechaPago" ColumnName="ctr_fechaPago" />
-                <ScalarProperty Name="fk_adr_id_admin" ColumnName="fk_adr_id_admin" />
                 <ScalarProperty Name="id_ctr_contrato" ColumnName="id_ctr_contrato" />
                 <ScalarProperty Name="fk_cli_cliente" ColumnName="fk_cli_cliente" />
                 <ScalarProperty Name="ctr_numeroContrato" ColumnName="ctr_numeroContrato" />
@@ -1756,6 +1742,8 @@
                 <ScalarProperty Name="ctr_activo" ColumnName="ctr_activo" />
                 <ScalarProperty Name="ctr_file" ColumnName="ctr_file" />
                 <ScalarProperty Name="fk_alq_id_propiedad" ColumnName="fk_alq_id_propiedad" />
+                <ScalarProperty Name="fk_adr_id_admin" ColumnName="fk_adr_id_admin" />
+                <ScalarProperty Name="ctr_fechaPago" ColumnName="ctr_fechaPago" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1771,7 +1759,6 @@
           <EntitySetMapping Name="C_Proveedor">
             <EntityTypeMapping TypeName="SmartRentalsModel.C_Proveedor">
               <MappingFragment StoreEntitySet="C_Proveedor">
-                <ScalarProperty Name="alq_Activo" ColumnName="alq_Activo" />
                 <ScalarProperty Name="prv_IDProveedor" ColumnName="prv_IDProveedor" />
                 <ScalarProperty Name="prv_NombreVariable" ColumnName="prv_NombreVariable" />
                 <ScalarProperty Name="prv_NombreRepresentante" ColumnName="prv_NombreRepresentante" />
@@ -1786,6 +1773,7 @@
                 <ScalarProperty Name="Id_Canton" ColumnName="Id_Canton" />
                 <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
                 <ScalarProperty Name="prv_OtrasSenas" ColumnName="prv_OtrasSenas" />
+                <ScalarProperty Name="alq_Activo" ColumnName="alq_Activo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1797,8 +1785,37 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="C_Tiquete">
+            <EntityTypeMapping TypeName="SmartRentalsModel.C_Tiquete">
+              <MappingFragment StoreEntitySet="C_Tiquete">
+                <ScalarProperty Name="tqt_id" ColumnName="tqt_id" />
+                <ScalarProperty Name="fk_id_ctr_contrato" ColumnName="fk_id_ctr_contrato" />
+                <ScalarProperty Name="tqt_tipo_problema" ColumnName="tqt_tipo_problema" />
+                <ScalarProperty Name="tqt_activo" ColumnName="tqt_activo" />
+                <ScalarProperty Name="tqt_descripcion" ColumnName="tqt_descripcion" />
+                <ScalarProperty Name="tqt_nota_reparacion" ColumnName="tqt_nota_reparacion" />
+                <ScalarProperty Name="tqt_fecha_inicio" ColumnName="tqt_fecha_inicio" />
+                <ScalarProperty Name="tqt_fecha_finalizacion" ColumnName="tqt_fecha_finalizacion" />
+                <ScalarProperty Name="fk_prv_idProveedor" ColumnName="fk_prv_idProveedor" />
+                <ScalarProperty Name="tqt_titulo" ColumnName="tqt_titulo" />
+                <ScalarProperty Name="tqt_precio_reparacion" ColumnName="tqt_precio_reparacion" />
+                <ScalarProperty Name="tqt_estado" ColumnName="tqt_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_Usuario">
+            <EntityTypeMapping TypeName="SmartRentalsModel.C_Usuario">
+              <MappingFragment StoreEntitySet="C_Usuario">
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="enc_password" ColumnName="enc_password" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="SmartRentalsModel.sysdiagram">
+            <EntityTypeMapping TypeName="SmartRentalsModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1809,6 +1826,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="SmartRentalsModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_BuscaContratoDataGrid" FunctionName="SmartRentalsModel.Store.sp_BuscaContratoDataGrid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_BuscaContratoDataGrid_Result">
+                <ScalarProperty Name="id_ctr_contrato" ColumnName="id_ctr_contrato" />
+                <ScalarProperty Name="ctr_numeroContrato" ColumnName="ctr_numeroContrato" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ctr_fechainicio" ColumnName="ctr_fechainicio" />
+                <ScalarProperty Name="ctr_fechafinalizacion" ColumnName="ctr_fechafinalizacion" />
+                <ScalarProperty Name="ctr_monto" ColumnName="ctr_monto" />
+                <ScalarProperty Name="ctr_file" ColumnName="ctr_file" />
+                <ScalarProperty Name="alq_ubicacionExacta" ColumnName="alq_ubicacionExacta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="SmartRentalsModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="SmartRentalsModel.Store.sp_dropdiagram" />
           <FunctionImportMapping FunctionImportName="sp_EliminarAdminRental" FunctionName="SmartRentalsModel.Store.sp_EliminarAdminRental" />
@@ -1836,12 +1867,16 @@
           <FunctionImportMapping FunctionImportName="sp_InsertarCliente" FunctionName="SmartRentalsModel.Store.sp_InsertarCliente" />
           <FunctionImportMapping FunctionImportName="sp_InsertarContrato" FunctionName="SmartRentalsModel.Store.sp_InsertarContrato" />
           <FunctionImportMapping FunctionImportName="sp_InsertarProveedor" FunctionName="SmartRentalsModel.Store.sp_InsertarProveedor" />
+          <FunctionImportMapping FunctionImportName="sp_InsertarTiquete" FunctionName="SmartRentalsModel.Store.sp_InsertarTiquete" />
           <FunctionImportMapping FunctionImportName="sp_ModificaAlquiler" FunctionName="SmartRentalsModel.Store.sp_ModificaAlquiler" />
           <FunctionImportMapping FunctionImportName="sp_ModificarAdminRental" FunctionName="SmartRentalsModel.Store.sp_ModificarAdminRental" />
           <FunctionImportMapping FunctionImportName="sp_ModificarAlquiler" FunctionName="SmartRentalsModel.Store.sp_ModificarAlquiler" />
           <FunctionImportMapping FunctionImportName="sp_ModificarCliente" FunctionName="SmartRentalsModel.Store.sp_ModificarCliente" />
           <FunctionImportMapping FunctionImportName="sp_ModificarContrato" FunctionName="SmartRentalsModel.Store.sp_ModificarContrato" />
           <FunctionImportMapping FunctionImportName="sp_ModificarProveedor" FunctionName="SmartRentalsModel.Store.sp_ModificarProveedor" />
+          <FunctionImportMapping FunctionImportName="sp_ModificarProveedor_Elimina" FunctionName="SmartRentalsModel.Store.sp_ModificarProveedor_Elimina" />
+          <FunctionImportMapping FunctionImportName="sp_ModificarTiquete" FunctionName="SmartRentalsModel.Store.sp_ModificarTiquete" />
+          <FunctionImportMapping FunctionImportName="sp_ModificarTiquetexProveedor" FunctionName="SmartRentalsModel.Store.sp_ModificarTiquetexProveedor" />
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SmartRentalsModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_RetornaAdminRental" FunctionName="SmartRentalsModel.Store.sp_RetornaAdminRental">
             <ResultMapping>
@@ -1919,6 +1954,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaCantidadContratos" FunctionName="SmartRentalsModel.Store.sp_RetornaCantidadContratos" />
           <FunctionImportMapping FunctionImportName="sp_RetornaCliente" FunctionName="SmartRentalsModel.Store.sp_RetornaCliente">
             <ResultMapping>
               <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaCliente_Result">
@@ -1926,6 +1962,22 @@
                 <ScalarProperty Name="cli_Cedula" ColumnName="cli_Cedula" />
                 <ScalarProperty Name="cli_Nombre" ColumnName="cli_Nombre" />
                 <ScalarProperty Name="cli_SegundoNombre" ColumnName="cli_SegundoNombre" />
+                <ScalarProperty Name="cli_PrimerApelido" ColumnName="cli_PrimerApelido" />
+                <ScalarProperty Name="cli_SegundoApellido" ColumnName="cli_SegundoApellido" />
+                <ScalarProperty Name="cli_FechaNacimiento" ColumnName="cli_FechaNacimiento" />
+                <ScalarProperty Name="cli_TelefonoCasa" ColumnName="cli_TelefonoCasa" />
+                <ScalarProperty Name="cli_TelefonoCelular" ColumnName="cli_TelefonoCelular" />
+                <ScalarProperty Name="cli_Email" ColumnName="cli_Email" />
+                <ScalarProperty Name="alq_Activo" ColumnName="alq_Activo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaClienteDataGrid" FunctionName="SmartRentalsModel.Store.sp_RetornaClienteDataGrid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaClienteDataGrid_Result">
+                <ScalarProperty Name="cli_Cliente" ColumnName="cli_Cliente" />
+                <ScalarProperty Name="cli_Cedula" ColumnName="cli_Cedula" />
+                <ScalarProperty Name="cli_Nombre" ColumnName="cli_Nombre" />
                 <ScalarProperty Name="cli_PrimerApelido" ColumnName="cli_PrimerApelido" />
                 <ScalarProperty Name="cli_SegundoApellido" ColumnName="cli_SegundoApellido" />
                 <ScalarProperty Name="cli_FechaNacimiento" ColumnName="cli_FechaNacimiento" />
@@ -1962,6 +2014,8 @@
                 <ScalarProperty Name="ctr_monto" ColumnName="ctr_monto" />
                 <ScalarProperty Name="ctr_activo" ColumnName="ctr_activo" />
                 <ScalarProperty Name="ctr_file" ColumnName="ctr_file" />
+                <ScalarProperty Name="fk_adr_id_admin" ColumnName="fk_adr_id_admin" />
+                <ScalarProperty Name="ctr_fechapago" ColumnName="ctr_fechapago" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1976,6 +2030,7 @@
                 <ScalarProperty Name="ctr_monto" ColumnName="ctr_monto" />
                 <ScalarProperty Name="ctr_file" ColumnName="ctr_file" />
                 <ScalarProperty Name="alq_ubicacionExacta" ColumnName="alq_ubicacionExacta" />
+                <ScalarProperty Name="ctr_fechapago" ColumnName="ctr_fechapago" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1991,6 +2046,49 @@
                 <ScalarProperty Name="ctr_activo" ColumnName="ctr_activo" />
                 <ScalarProperty Name="ctr_file" ColumnName="ctr_file" />
                 <ScalarProperty Name="fk_alq_id_propiedad" ColumnName="fk_alq_id_propiedad" />
+                <ScalarProperty Name="fk_adr_id_admin" ColumnName="fk_adr_id_admin" />
+                <ScalarProperty Name="ctr_fechapago" ColumnName="ctr_fechapago" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaGastosCalend" FunctionName="SmartRentalsModel.Store.sp_RetornaGastosCalend">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaGastosCalend_Result">
+                <ScalarProperty Name="tqt_tipo_problema" ColumnName="tqt_tipo_problema" />
+                <ScalarProperty Name="tqt_fecha_inicio" ColumnName="tqt_fecha_inicio" />
+                <ScalarProperty Name="tqt_fecha_finalizacion" ColumnName="tqt_fecha_finalizacion" />
+                <ScalarProperty Name="tqt_titulo" ColumnName="tqt_titulo" />
+                <ScalarProperty Name="tqt_precio_reparacion" ColumnName="tqt_precio_reparacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaGastosCat" FunctionName="SmartRentalsModel.Store.sp_RetornaGastosCat">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaGastosCat_Result">
+                <ScalarProperty Name="tqt_tipo_problema" ColumnName="tqt_tipo_problema" />
+                <ScalarProperty Name="tqt_fecha_inicio" ColumnName="tqt_fecha_inicio" />
+                <ScalarProperty Name="tqt_fecha_finalizacion" ColumnName="tqt_fecha_finalizacion" />
+                <ScalarProperty Name="tqt_titulo" ColumnName="tqt_titulo" />
+                <ScalarProperty Name="tqt_precio_reparacion" ColumnName="tqt_precio_reparacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaProveedorDataGrid" FunctionName="SmartRentalsModel.Store.sp_RetornaProveedorDataGrid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaProveedorDataGrid_Result">
+                <ScalarProperty Name="prv_IDProveedor" ColumnName="prv_IDProveedor" />
+                <ScalarProperty Name="prv_NombreVariable" ColumnName="prv_NombreVariable" />
+                <ScalarProperty Name="prv_NombreRepresentante" ColumnName="prv_NombreRepresentante" />
+                <ScalarProperty Name="prv_PrimerApellido" ColumnName="prv_PrimerApellido" />
+                <ScalarProperty Name="prv_CedulaRepresentante" ColumnName="prv_CedulaRepresentante" />
+                <ScalarProperty Name="prv_CedulaJuridica" ColumnName="prv_CedulaJuridica" />
+                <ScalarProperty Name="prv_Telefono" ColumnName="prv_Telefono" />
+                <ScalarProperty Name="prv_Email" ColumnName="prv_Email" />
+                <ScalarProperty Name="prv_TipoProveedor" ColumnName="prv_TipoProveedor" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Canton" ColumnName="Canton" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+                <ScalarProperty Name="prv_OtrasSenas" ColumnName="prv_OtrasSenas" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2014,6 +2112,27 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaReporteAdmin" FunctionName="SmartRentalsModel.Store.sp_RetornaReporteAdmin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaReporteAdmin_Result">
+                <ScalarProperty Name="tqt_id" ColumnName="tqt_id" />
+                <ScalarProperty Name="tqt_tipo_problema" ColumnName="tqt_tipo_problema" />
+                <ScalarProperty Name="tqt_fecha_inicio" ColumnName="tqt_fecha_inicio" />
+                <ScalarProperty Name="tqt_fecha_finalizacion" ColumnName="tqt_fecha_finalizacion" />
+                <ScalarProperty Name="tqt_estado" ColumnName="tqt_estado" />
+                <ScalarProperty Name="tqt_titulo" ColumnName="tqt_titulo" />
+                <ScalarProperty Name="fk_id_ctr_contrato" ColumnName="fk_id_ctr_contrato" />
+                <ScalarProperty Name="tqt_precio_reparacion" ColumnName="tqt_precio_reparacion" />
+                <ScalarProperty Name="fk_prv_idProveedor" ColumnName="fk_prv_idProveedor" />
+                <ScalarProperty Name="prv_nombreVariable" ColumnName="prv_nombreVariable" />
+                <ScalarProperty Name="fk_adr_id_admin" ColumnName="fk_adr_id_admin" />
+                <ScalarProperty Name="ctr_numeroContrato" ColumnName="ctr_numeroContrato" />
+                <ScalarProperty Name="fk_cli_cliente" ColumnName="fk_cli_cliente" />
+                <ScalarProperty Name="Administrador" ColumnName="Administrador" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_RetornarProveedor" FunctionName="SmartRentalsModel.Store.sp_RetornarProveedor">
             <ResultMapping>
               <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornarProveedor_Result">
@@ -2029,73 +2148,7 @@
                 <ScalarProperty Name="prv_TipoProveedor" ColumnName="prv_TipoProveedor" />
                 <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
                 <ScalarProperty Name="prv_OtrasSenas" ColumnName="prv_OtrasSenas" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SmartRentalsModel.Store.sp_upgraddiagrams" />
-          <FunctionImportMapping FunctionImportName="sp_BuscaContratoDataGrid" FunctionName="SmartRentalsModel.Store.sp_BuscaContratoDataGrid">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_BuscaContratoDataGrid_Result">
-                <ScalarProperty Name="id_ctr_contrato" ColumnName="id_ctr_contrato" />
-                <ScalarProperty Name="ctr_numeroContrato" ColumnName="ctr_numeroContrato" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="ctr_fechainicio" ColumnName="ctr_fechainicio" />
-                <ScalarProperty Name="ctr_fechafinalizacion" ColumnName="ctr_fechafinalizacion" />
-                <ScalarProperty Name="ctr_monto" ColumnName="ctr_monto" />
-                <ScalarProperty Name="ctr_file" ColumnName="ctr_file" />
-                <ScalarProperty Name="alq_ubicacionExacta" ColumnName="alq_ubicacionExacta" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <EntitySetMapping Name="C_Tiquete">
-            <EntityTypeMapping TypeName="SmartRentalsModel.C_Tiquete">
-              <MappingFragment StoreEntitySet="C_Tiquete">
-                <ScalarProperty Name="tqt_estado" ColumnName="tqt_estado" />
-                <ScalarProperty Name="tqt_precio_reparacion" ColumnName="tqt_precio_reparacion" />
-                <ScalarProperty Name="tqt_titulo" ColumnName="tqt_titulo" />
-                <ScalarProperty Name="fk_prv_idProveedor" ColumnName="fk_prv_idProveedor" />
-                <ScalarProperty Name="tqt_fecha_finalizacion" ColumnName="tqt_fecha_finalizacion" />
-                <ScalarProperty Name="tqt_fecha_inicio" ColumnName="tqt_fecha_inicio" />
-                <ScalarProperty Name="tqt_nota_reparacion" ColumnName="tqt_nota_reparacion" />
-                <ScalarProperty Name="tqt_descripcion" ColumnName="tqt_descripcion" />
-                <ScalarProperty Name="tqt_activo" ColumnName="tqt_activo" />
-                <ScalarProperty Name="tqt_tipo_problema" ColumnName="tqt_tipo_problema" />
-                <ScalarProperty Name="fk_id_ctr_contrato" ColumnName="fk_id_ctr_contrato" />
-                <ScalarProperty Name="tqt_id" ColumnName="tqt_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="C_Usuario">
-            <EntityTypeMapping TypeName="SmartRentalsModel.C_Usuario">
-              <MappingFragment StoreEntitySet="C_Usuario">
-                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="enc_password" ColumnName="enc_password" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_InsertarTiquete" FunctionName="SmartRentalsModel.Store.sp_InsertarTiquete" />
-          <FunctionImportMapping FunctionImportName="sp_ModificarTiquete" FunctionName="SmartRentalsModel.Store.sp_ModificarTiquete" />
-          <FunctionImportMapping FunctionImportName="sp_ModificarTiquetexProveedor" FunctionName="SmartRentalsModel.Store.sp_ModificarTiquetexProveedor" />
-          <FunctionImportMapping FunctionImportName="sp_RetornaCantidadContratos" FunctionName="SmartRentalsModel.Store.sp_RetornaCantidadContratos" />
-          <FunctionImportMapping FunctionImportName="sp_RetornaProveedorDataGrid" FunctionName="SmartRentalsModel.Store.sp_RetornaProveedorDataGrid">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaProveedorDataGrid_Result">
-                <ScalarProperty Name="prv_IDProveedor" ColumnName="prv_IDProveedor" />
-                <ScalarProperty Name="prv_NombreVariable" ColumnName="prv_NombreVariable" />
-                <ScalarProperty Name="prv_NombreRepresentante" ColumnName="prv_NombreRepresentante" />
-                <ScalarProperty Name="prv_PrimerApellido" ColumnName="prv_PrimerApellido" />
-                <ScalarProperty Name="prv_CedulaRepresentante" ColumnName="prv_CedulaRepresentante" />
-                <ScalarProperty Name="prv_CedulaJuridica" ColumnName="prv_CedulaJuridica" />
-                <ScalarProperty Name="prv_Telefono" ColumnName="prv_Telefono" />
-                <ScalarProperty Name="prv_Email" ColumnName="prv_Email" />
-                <ScalarProperty Name="prv_TipoProveedor" ColumnName="prv_TipoProveedor" />
-                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
-                <ScalarProperty Name="Canton" ColumnName="Canton" />
-                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
-                <ScalarProperty Name="prv_OtrasSenas" ColumnName="prv_OtrasSenas" />
+                <ScalarProperty Name="alq_Activo" ColumnName="alq_Activo" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2143,65 +2196,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_RetornaGastosCalend" FunctionName="SmartRentalsModel.Store.sp_RetornaGastosCalend">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaGastosCalend_Result">
-                <ScalarProperty Name="tqt_tipo_problema" ColumnName="tqt_tipo_problema" />
-                <ScalarProperty Name="tqt_fecha_inicio" ColumnName="tqt_fecha_inicio" />
-                <ScalarProperty Name="tqt_fecha_finalizacion" ColumnName="tqt_fecha_finalizacion" />
-                <ScalarProperty Name="tqt_titulo" ColumnName="tqt_titulo" />
-                <ScalarProperty Name="tqt_precio_reparacion" ColumnName="tqt_precio_reparacion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_RetornaGastosCat" FunctionName="SmartRentalsModel.Store.sp_RetornaGastosCat">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaGastosCat_Result">
-                <ScalarProperty Name="tqt_tipo_problema" ColumnName="tqt_tipo_problema" />
-                <ScalarProperty Name="tqt_fecha_inicio" ColumnName="tqt_fecha_inicio" />
-                <ScalarProperty Name="tqt_fecha_finalizacion" ColumnName="tqt_fecha_finalizacion" />
-                <ScalarProperty Name="tqt_titulo" ColumnName="tqt_titulo" />
-                <ScalarProperty Name="tqt_precio_reparacion" ColumnName="tqt_precio_reparacion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_ModificarProveedor_Elimina" FunctionName="SmartRentalsModel.Store.sp_ModificarProveedor_Elimina" />
-          <FunctionImportMapping FunctionImportName="sp_RetornaClienteDataGrid" FunctionName="SmartRentalsModel.Store.sp_RetornaClienteDataGrid">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaClienteDataGrid_Result">
-                <ScalarProperty Name="cli_Cliente" ColumnName="cli_Cliente" />
-                <ScalarProperty Name="cli_Cedula" ColumnName="cli_Cedula" />
-                <ScalarProperty Name="cli_Nombre" ColumnName="cli_Nombre" />
-                <ScalarProperty Name="cli_PrimerApelido" ColumnName="cli_PrimerApelido" />
-                <ScalarProperty Name="cli_SegundoApellido" ColumnName="cli_SegundoApellido" />
-                <ScalarProperty Name="cli_FechaNacimiento" ColumnName="cli_FechaNacimiento" />
-                <ScalarProperty Name="cli_TelefonoCasa" ColumnName="cli_TelefonoCasa" />
-                <ScalarProperty Name="cli_TelefonoCelular" ColumnName="cli_TelefonoCelular" />
-                <ScalarProperty Name="cli_Email" ColumnName="cli_Email" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_RetornaReporteAdmin" FunctionName="SmartRentalsModel.Store.sp_RetornaReporteAdmin">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaReporteAdmin_Result">
-                <ScalarProperty Name="tqt_id" ColumnName="tqt_id" />
-                <ScalarProperty Name="tqt_tipo_problema" ColumnName="tqt_tipo_problema" />
-                <ScalarProperty Name="tqt_fecha_inicio" ColumnName="tqt_fecha_inicio" />
-                <ScalarProperty Name="tqt_fecha_finalizacion" ColumnName="tqt_fecha_finalizacion" />
-                <ScalarProperty Name="tqt_estado" ColumnName="tqt_estado" />
-                <ScalarProperty Name="tqt_titulo" ColumnName="tqt_titulo" />
-                <ScalarProperty Name="fk_id_ctr_contrato" ColumnName="fk_id_ctr_contrato" />
-                <ScalarProperty Name="tqt_precio_reparacion" ColumnName="tqt_precio_reparacion" />
-                <ScalarProperty Name="fk_prv_idProveedor" ColumnName="fk_prv_idProveedor" />
-                <ScalarProperty Name="prv_nombreVariable" ColumnName="prv_nombreVariable" />
-                <ScalarProperty Name="fk_adr_id_admin" ColumnName="fk_adr_id_admin" />
-                <ScalarProperty Name="ctr_numeroContrato" ColumnName="ctr_numeroContrato" />
-                <ScalarProperty Name="fk_cli_cliente" ColumnName="fk_cli_cliente" />
-                <ScalarProperty Name="Administrador" ColumnName="Administrador" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SmartRentalsModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2216,10 +2211,10 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="true" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

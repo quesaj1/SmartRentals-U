@@ -25,5 +25,6 @@ namespace ProyectoSmartRentals.Modelos
         public string prv_TipoProveedor { get; set; }
         public int Id_Provincia { get; set; }
         public string prv_OtrasSenas { get; set; }
+        public Nullable<bool> alq_Activo { get; set; }
     }
 }

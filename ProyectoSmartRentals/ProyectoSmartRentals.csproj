@@ -367,13 +367,6 @@
     <Content Include="plugins\scrollmagic\ScrollMagic.min.js" />
     <Content Include="Propiedades\img_apartamento.jpg" />
     <Content Include="Propiedades\img_Casa.jpg" />
-    <EntityDeploy Include="Modelos\ModelDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Modelos\ModelDB.edmx.diagram">
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-    </Content>
     <Content Include="Propiedades\img_Casa2.jpg" />
     <Content Include="Propiedades\img_Casa3.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -384,6 +377,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Modelos\ModelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Modelos\ModelDB.edmx.diagram">
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -805,9 +805,6 @@
     <Compile Include="Modelos\sp_RetornaCliente_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelos\sp_RetornaContratoDataGridMod_Result.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelos\sp_RetornaContratoDataGrid_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -844,7 +841,7 @@
     <Compile Include="Modelos\sp_RetornaUsuarioUserID_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelos\sysdiagram.cs">
+    <Compile Include="Modelos\sysdiagrams.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
