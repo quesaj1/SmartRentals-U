@@ -209,10 +209,14 @@
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
     <Content Include="Formularios\frm_ReporteGastos.aspx" />
     <Content Include="Formularios\frm_ReporteMantenimiento.aspx" />
+    <Content Include="Formularios\frm_reportes.aspx" />
     <Content Include="Formularios\frm_SolicitudModContrato.aspx" />
     <Content Include="Formularios\frm_tiqueteLista.aspx" />
     <Content Include="Formularios\frm_TiqueteModifica.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\img_reporte_gastos.jpg" />
+    <Content Include="Imagenes\img_reporte_gastosvsperdidas.jpg" />
+    <Content Include="Imagenes\img_reporte_mantenimiento.png" />
     <Content Include="images\about.jpg" />
     <Content Include="images\agent_1.jpg" />
     <Content Include="images\blog.jpg" />
@@ -664,6 +668,13 @@
     <Compile Include="Formularios\frm_ReporteMantenimiento.aspx.designer.cs">
       <DependentUpon>frm_ReporteMantenimiento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_reportes.aspx.cs">
+      <DependentUpon>frm_reportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_reportes.aspx.designer.cs">
+      <DependentUpon>frm_reportes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_SolicitudModContrato.aspx.cs">
       <DependentUpon>frm_SolicitudModContrato.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -866,8 +877,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Contratos\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Imagenes\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

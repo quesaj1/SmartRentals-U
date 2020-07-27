@@ -113,8 +113,9 @@ namespace ProyectoSmartRentals.Formularios
                 {
                     this.txtContratoNumero.Text = resultadoSp.ctr_numeroContrato;
                     //Falta ver lo de la fecha
-                    //this.txtFechaFinaliacion.Text = StringFormat(resultadoSp.ctr_fechafinalizacion);
-                    //this.txtFechaInicio.Text = resultadoSp.ctr_fechainicio;
+                    this.txtFechaFinaliacion.Text = Convert.ToString(resultadoSp.ctr_fechafinalizacion);
+                    this.txtFechaInicio.Text = Convert.ToString(resultadoSp.ctr_fechainicio);
+                    //this.txtFechaPago.Text = Convert.ToString(resultadoSp)
                     this.txtMonto.Text = (resultadoSp.ctr_monto).ToString("N0");
                  
                     this.DropDownListCliente.Text = resultadoSp.fk_cli_cliente.ToString();

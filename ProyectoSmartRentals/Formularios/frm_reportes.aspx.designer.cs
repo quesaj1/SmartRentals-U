@@ -7,56 +7,38 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoSmartRentals.MasterPage
+namespace ProyectoSmartRentals.Formularios
 {
 
 
-    public partial class MasterSmartRentals
+    public partial class frm_reportes
     {
 
         /// <summary>
-        /// Control head.
+        /// Control art1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl art1;
 
         /// <summary>
-        /// Control DateDisplay.
+        /// Control art2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DateDisplay;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl art2;
 
         /// <summary>
-        /// Control menu_horizontal.
+        /// Control art3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_horizontal;
-
-        /// <summary>
-        /// Control form1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// Control ContentPlaceHolder1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl art3;
     }
 }

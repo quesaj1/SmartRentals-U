@@ -90,17 +90,18 @@
 		</div>
 
 		<!-- Header Content -->
-		<div class="header_content d-flex flex-row align-items-center justify-content-start"><br />
+		<div id="menu_horizontal" runat="server" class="header_content d-flex flex-row align-items-center justify-content-start"><br />
 			<div class="logo" style="width:90px; height:60px;"><a href="#">
                 <img src="../images/SMART1.png" style="max-width:100%; max-height:100%; display:block" /></a></div>
 			<nav class="main_nav">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
-					<li class="active"><a href="#">Inicio</a></li>
+					<li class="active"><a href="../Formularios/frm_InicioMenu.aspx">Inicio</a></li>
 					<li><a href="../Formularios/frm_AdminRentalsLista.aspx">Admin Rentals</a></li>
-					<li><a href="#">Proveedores</a></li>
+					<li><a href="../Formularios/frm_ProveedorLista.aspx">Proveedores</a></li>
 					<li><a href="../Formularios/frm_AlquileresLista.aspx">Alquileres</a></li>
-					<li><a href="#">Contratos</a></li>
-					<li><a href="../Formularios/frm_ReporteAdminRentals.aspx">Reportes</a></li>
+					<li><a href="../Formularios/frm_contratoLista.aspx">Contratos</a></li>
+					<li><a href="../Formularios/frm_tiqueteLista.aspx">Mantenimientos</a></li>
+					<li><a href="../Formularios/frm_Reportes.aspx">Reportes</a></li>
 				</ul>
 			</nav>
 			
@@ -120,12 +121,13 @@
 			</div>
 			<nav class="menu_nav">
 				<ul>
-					<li><a href="#">Inicio</a></li>
+					<li><a href="../Formularios/frm_InicioMenu.aspx">Inicio</a></li>
 					<li><a href="../Formularios/frm_AdminRentalsLista.aspx">Admin Rentals</a></li>
-					<li><a href="#">Proveedores</a></li>
+					<li><a href="../Formularios/frm_ProveedorLista.aspx">Proveedores</a></li>
 					<li><a href="../Formularios/frm_AlquileresLista.aspx">Alquileres</a></li>
 					<li><a href="../Formularios/frm_ContratoLista.aspx">Contratos</a></li>
-					<li><a href="../Formularios/frm_ReporteAdminRentals.aspx">Reportes</a></li>
+					<li><a href="../Formularios/frm_tiqueteLista.aspx">Mantenimientos</a></li>
+					<li><a href="../Formularios/frm_Reportes.aspx">Reportes</a></li>
 				</ul>
 			</nav>
 		</div>

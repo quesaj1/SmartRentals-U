@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -54,41 +55,91 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
+       public void limpiardatos()
+        {
+            this.txtContratoNumero.Text = null;
+            this.txtMonto.Text = null;
+            this.txtFechaInicio.Text = null;
+            this.txtFechaFinaliacion.Text = null;
+            this.txtFechaPago.Text = null;            
+        }
+
 
         public void agregarContrato()
         {
+            this.Label2.Text = "";
+            string extension = System.IO.Path.GetExtension(up_Contrato.FileName);
+            string file_name = System.IO.Path.GetFileNameWithoutExtension(up_Contrato.FileName);
+            string ctr_path = "";
+            if (this.up_Contrato.HasFile) {
+
+                if (extension == ".pdf" || extension == ".docx") {
+                    if (!File.Exists(Server.MapPath("~/Contratos/" + up_Contrato.FileName)))
+                    {
+                        up_Contrato.SaveAs(Server.MapPath("~/Contratos/" + up_Contrato.FileName));
+                        ctr_path = "~/Contratos/" + up_Contrato.FileName;
+                    }
+                    else
+                    {
+                        up_Contrato.SaveAs(Server.MapPath("~/Contratos/" + file_name + "-Copia" + extension));
+                        ctr_path = "~/Contratos/" + file_name + "-Copia"+extension;
+                    }
+                
+
             try
             {
                 string contrato = this.txtContratoNumero.Text.ToString();
-                string fechainicio = this.txtFechaInicio.Text.ToString();
-                string fechafinal = this.txtFechaFinaliacion.Text.ToString();
+                //string fechainicio = this.txtFechaInicio.Text.ToString();
+                //string fechafinal = this.txtFechaFinaliacion.Text.ToString();
                 decimal monto = Convert.ToDecimal(txtMonto.Text.ToString());
                 int Id_Ciente = Convert.ToInt16(this.DropDownListCliente.Text.ToString());
                 int Id_propiedades = Convert.ToInt16(this.DropDownPropiedad.Text.ToString());
-                DateTime now = DateTime.Now;
+                string ctr_name = this.up_Contrato.FileName.ToString();
+                
+                DateTime fechainicio = Convert.ToDateTime(this.txtFechaInicio.Text);
+                DateTime fechaFinalizacion = Convert.ToDateTime(this.txtFechaFinaliacion.Text);
+                DateTime fechapago = Convert.ToDateTime(this.txtFechaPago.Text);
 
                 //Hay que tomar la fecha con el datepicker
 
 
                 C_Contrato oContrato = new C_Contrato();
                 bool ContratoInsertar =
-                    oContrato.InsertaContrato(Id_Ciente, contrato, now,
-                    now, monto, true, "aún nada", Id_propiedades,7, now);
+                    oContrato.InsertaContrato(Id_Ciente, contrato, fechainicio,
+                    fechaFinalizacion, monto, true, ctr_path, Id_propiedades,7, fechapago);
 
 
-                if (ContratoInsertar)
+                        
+
+
+                        if (ContratoInsertar) { 
                     this.lblResultado.Text = "Contrato agregado";
-                else
+                    this.limpiardatos();
+                        }
+                        else{
                     this.lblResultado.Text = "No se pudo agregar el contrato";
-            }
+                        }
+                    }
             catch (Exception error)
             {
 
                 this.lblResultado.
                     Text = "Ocurrió un error:" + error.Message;
             }
+                }
+
+                else
+                {
+                    this.Label2.Text = "Solo se aceptan archivos .pdf o .docx";
+                }    
+            }
+            else
+            {
+                this.Label2.Text = "Debe de subir un archivo";
+            }
         }
 
+        
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             agregarContrato();
