@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <style>
+   <%-- <style>
 
            
 @keyframes showTopText {
@@ -100,7 +100,7 @@ input[type="date"], focus {
 }
 
 
-    </style>
+    </style>--%>
     
            <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
          <h1 style="text-align: center">Modificar Contrato</h1>

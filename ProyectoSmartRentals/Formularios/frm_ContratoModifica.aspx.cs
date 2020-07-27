@@ -14,15 +14,63 @@ namespace ProyectoSmartRentals.Formularios
 {
     public partial class frm_ContratoModifica : System.Web.UI.Page
     {
+
+        int _pk_admin = 0;
+        int _pk_cliente = 0;
+        int _pk_proveedor = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
+                menu();
                 DropDownClientes();
                 DropDownAlquileres();
                 this.hdldContrato.Value = this.Request.QueryString["id_ctr_contrato"];
                 cargarDatos();
             }
+        }
+
+        void menu()
+        {
+            string _rol = Convert.ToString(Session["Tipo"]);
+            if (_rol.Equals("Cliente"))
+            {
+                _pk_cliente = 4;
+                _pk_admin = 0;
+                _pk_proveedor = 0;
+                this.Page.Master.FindControl("menu_admin").Visible = false;
+                this.Page.Master.FindControl("menu_cliente").Visible = true;
+                this.Page.Master.FindControl("menu_proveedor").Visible = false;
+                this.Page.Master.FindControl("menu_admin_").Visible = false;
+                this.Page.Master.FindControl("menu_cliente_").Visible = true;
+                this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+
+            }
+            if (_rol.Equals("Proveedor"))
+            {
+                _pk_cliente = 0;
+                _pk_admin = 0;
+                _pk_proveedor = 1;
+                this.Page.Master.FindControl("menu_admin").Visible = false;
+                this.Page.Master.FindControl("menu_cliente").Visible = false;
+                this.Page.Master.FindControl("menu_proveedor").Visible = true;
+                this.Page.Master.FindControl("menu_admin_").Visible = false;
+                this.Page.Master.FindControl("menu_cliente_").Visible = false;
+                this.Page.Master.FindControl("menu_proveedor_").Visible = true;
+            }
+            if (_rol.Equals("Administrador"))
+            {
+                _pk_cliente = 0;
+                _pk_admin = 7;
+                _pk_proveedor = 0;
+                this.Page.Master.FindControl("menu_admin").Visible = true;
+                this.Page.Master.FindControl("menu_cliente").Visible = false;
+                this.Page.Master.FindControl("menu_proveedor").Visible = false;
+                this.Page.Master.FindControl("menu_admin_").Visible = true;
+                this.Page.Master.FindControl("menu_cliente_").Visible = false;
+                this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+            }
+
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -113,9 +161,9 @@ namespace ProyectoSmartRentals.Formularios
                 {
                     this.txtContratoNumero.Text = resultadoSp.ctr_numeroContrato;
                     //Falta ver lo de la fecha
-                    this.txtFechaFinaliacion.Text = Convert.ToString(resultadoSp.ctr_fechafinalizacion);
-                    this.txtFechaInicio.Text = Convert.ToString(resultadoSp.ctr_fechainicio);
-                    this.txtFechaPago.Text = Convert.ToString(resultadoSp.ctr_fechapago);
+                    //this.txtFechaFinaliacion.Text = DateTime.;
+                    //this.txtFechaInicio.Text = Convert.ToString(resultadoSp.ctr_fechainicio);
+                    //this.txtFechaPago.Text = Convert.ToString(resultadoSp.ctr_fechapago);
                     this.txtMonto.Text = (resultadoSp.ctr_monto).ToString("N0");
                  
                     this.DropDownListCliente.Text = resultadoSp.fk_cli_cliente.ToString();

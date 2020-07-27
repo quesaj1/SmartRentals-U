@@ -50,6 +50,13 @@ namespace ProyectoSmartRentals.Formularios
                 this.ddproveedores.Visible = false;
                 this.ddadmin.Visible = false;
                 DropDownContratoCliente(_pk_cliente);
+                this.Page.Master.FindControl("menu_admin").Visible = false;
+                this.Page.Master.FindControl("menu_cliente").Visible = true;
+                this.Page.Master.FindControl("menu_proveedor").Visible = false;
+                this.Page.Master.FindControl("menu_admin_").Visible = false;
+                this.Page.Master.FindControl("menu_cliente_").Visible = true;
+                this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+
             }
             if (_rol.Equals("Proveedor"))
             {
@@ -61,6 +68,12 @@ namespace ProyectoSmartRentals.Formularios
                 this.ddproveedores.Visible = false;
                 this.ddadmin.Visible = true;
                 DropDownAdmmin();
+                this.Page.Master.FindControl("menu_admin").Visible = false;
+                this.Page.Master.FindControl("menu_cliente").Visible = false;
+                this.Page.Master.FindControl("menu_proveedor").Visible = true;
+                this.Page.Master.FindControl("menu_admin_").Visible = false;
+                this.Page.Master.FindControl("menu_cliente_").Visible = false;
+                this.Page.Master.FindControl("menu_proveedor_").Visible = true;
             }
             if (_rol.Equals("Administrador"))
             {
@@ -74,6 +87,12 @@ namespace ProyectoSmartRentals.Formularios
                 DropDownContratoAdmin(_pk_admin);
                 DropDownProveedores();
                 DropDownClientes();
+                this.Page.Master.FindControl("menu_admin").Visible = true;
+                this.Page.Master.FindControl("menu_cliente").Visible = false;
+                this.Page.Master.FindControl("menu_proveedor").Visible = false;
+                this.Page.Master.FindControl("menu_admin_").Visible = true;
+                this.Page.Master.FindControl("menu_cliente_").Visible = false;
+                this.Page.Master.FindControl("menu_proveedor_").Visible = false;
             }
         }
 
