@@ -17,6 +17,7 @@ namespace ProyectoSmartRentals.Modelos
         public C_Cliente()
         {
             this.C_Contratos = new HashSet<C_Contratos>();
+            this.C_ReportePago = new HashSet<C_ReportePago>();
         }
     
         public int cli_Cliente { get; set; }
@@ -32,5 +33,6 @@ namespace ProyectoSmartRentals.Modelos
         public Nullable<bool> alq_Activo { get; set; }
     
         public virtual ICollection<C_Contratos> C_Contratos { get; set; }
+        public virtual ICollection<C_ReportePago> C_ReportePago { get; set; }
     }
 }

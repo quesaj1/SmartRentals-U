@@ -39,6 +39,7 @@ namespace ProyectoSmartRentals.Modelos
         public DbSet<C_Tiquete> C_Tiquete { get; set; }
         public DbSet<C_Usuario> C_Usuario { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<C_ReportePago> C_ReportePago { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -1203,6 +1204,152 @@ namespace ProyectoSmartRentals.Modelos
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int sp_InsertarReportePago(Nullable<int> v_fk_cli_cliente, Nullable<int> v_fk_ctr_IDContrato, Nullable<System.DateTime> v_rpp_FechaPagoRecibido, Nullable<bool> v_rpp_estadoDePago, string v_rpp_DetallesDePago)
+        {
+            var v_fk_cli_clienteParameter = v_fk_cli_cliente.HasValue ?
+                new ObjectParameter("v_fk_cli_cliente", v_fk_cli_cliente) :
+                new ObjectParameter("v_fk_cli_cliente", typeof(int));
+    
+            var v_fk_ctr_IDContratoParameter = v_fk_ctr_IDContrato.HasValue ?
+                new ObjectParameter("v_fk_ctr_IDContrato", v_fk_ctr_IDContrato) :
+                new ObjectParameter("v_fk_ctr_IDContrato", typeof(int));
+    
+            var v_rpp_FechaPagoRecibidoParameter = v_rpp_FechaPagoRecibido.HasValue ?
+                new ObjectParameter("v_rpp_FechaPagoRecibido", v_rpp_FechaPagoRecibido) :
+                new ObjectParameter("v_rpp_FechaPagoRecibido", typeof(System.DateTime));
+    
+            var v_rpp_estadoDePagoParameter = v_rpp_estadoDePago.HasValue ?
+                new ObjectParameter("v_rpp_estadoDePago", v_rpp_estadoDePago) :
+                new ObjectParameter("v_rpp_estadoDePago", typeof(bool));
+    
+            var v_rpp_DetallesDePagoParameter = v_rpp_DetallesDePago != null ?
+                new ObjectParameter("v_rpp_DetallesDePago", v_rpp_DetallesDePago) :
+                new ObjectParameter("v_rpp_DetallesDePago", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarReportePago", v_fk_cli_clienteParameter, v_fk_ctr_IDContratoParameter, v_rpp_FechaPagoRecibidoParameter, v_rpp_estadoDePagoParameter, v_rpp_DetallesDePagoParameter);
+        }
+    
+        public virtual int sp_ModificarReportePago(Nullable<int> v_rpp_IDReportarPago, Nullable<int> v_fk_cli_cliente, Nullable<int> v_fk_ctr_IDContrato, Nullable<System.DateTime> v_rpp_FechaPagoRecibido, Nullable<bool> v_rpp_estadoDePago, string v_rpp_DetallesDePago)
+        {
+            var v_rpp_IDReportarPagoParameter = v_rpp_IDReportarPago.HasValue ?
+                new ObjectParameter("v_rpp_IDReportarPago", v_rpp_IDReportarPago) :
+                new ObjectParameter("v_rpp_IDReportarPago", typeof(int));
+    
+            var v_fk_cli_clienteParameter = v_fk_cli_cliente.HasValue ?
+                new ObjectParameter("v_fk_cli_cliente", v_fk_cli_cliente) :
+                new ObjectParameter("v_fk_cli_cliente", typeof(int));
+    
+            var v_fk_ctr_IDContratoParameter = v_fk_ctr_IDContrato.HasValue ?
+                new ObjectParameter("v_fk_ctr_IDContrato", v_fk_ctr_IDContrato) :
+                new ObjectParameter("v_fk_ctr_IDContrato", typeof(int));
+    
+            var v_rpp_FechaPagoRecibidoParameter = v_rpp_FechaPagoRecibido.HasValue ?
+                new ObjectParameter("v_rpp_FechaPagoRecibido", v_rpp_FechaPagoRecibido) :
+                new ObjectParameter("v_rpp_FechaPagoRecibido", typeof(System.DateTime));
+    
+            var v_rpp_estadoDePagoParameter = v_rpp_estadoDePago.HasValue ?
+                new ObjectParameter("v_rpp_estadoDePago", v_rpp_estadoDePago) :
+                new ObjectParameter("v_rpp_estadoDePago", typeof(bool));
+    
+            var v_rpp_DetallesDePagoParameter = v_rpp_DetallesDePago != null ?
+                new ObjectParameter("v_rpp_DetallesDePago", v_rpp_DetallesDePago) :
+                new ObjectParameter("v_rpp_DetallesDePago", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarReportePago", v_rpp_IDReportarPagoParameter, v_fk_cli_clienteParameter, v_fk_ctr_IDContratoParameter, v_rpp_FechaPagoRecibidoParameter, v_rpp_estadoDePagoParameter, v_rpp_DetallesDePagoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaPagoID_Result> sp_RetornaPagoID(Nullable<int> v_rpp_IDReportarPago)
+        {
+            var v_rpp_IDReportarPagoParameter = v_rpp_IDReportarPago.HasValue ?
+                new ObjectParameter("v_rpp_IDReportarPago", v_rpp_IDReportarPago) :
+                new ObjectParameter("v_rpp_IDReportarPago", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaPagoID_Result>("sp_RetornaPagoID", v_rpp_IDReportarPagoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaPagosRealizadosDataGrid_Result> sp_RetornaPagosRealizadosDataGrid(Nullable<bool> v_rpp_estadoDePago)
+        {
+            var v_rpp_estadoDePagoParameter = v_rpp_estadoDePago.HasValue ?
+                new ObjectParameter("v_rpp_estadoDePago", v_rpp_estadoDePago) :
+                new ObjectParameter("v_rpp_estadoDePago", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaPagosRealizadosDataGrid_Result>("sp_RetornaPagosRealizadosDataGrid", v_rpp_estadoDePagoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaReportarPago_Result> sp_RetornaReportarPago(Nullable<int> v_rpp_IDReportarPago, Nullable<int> v_fk_cli_cliente, Nullable<int> v_fk_ctr_IDContrato, Nullable<System.DateTime> v_rpp_FechaPagoRecibido, Nullable<bool> v_rpp_estadoDePago, string v_rpp_DetallesDePago)
+        {
+            var v_rpp_IDReportarPagoParameter = v_rpp_IDReportarPago.HasValue ?
+                new ObjectParameter("v_rpp_IDReportarPago", v_rpp_IDReportarPago) :
+                new ObjectParameter("v_rpp_IDReportarPago", typeof(int));
+    
+            var v_fk_cli_clienteParameter = v_fk_cli_cliente.HasValue ?
+                new ObjectParameter("v_fk_cli_cliente", v_fk_cli_cliente) :
+                new ObjectParameter("v_fk_cli_cliente", typeof(int));
+    
+            var v_fk_ctr_IDContratoParameter = v_fk_ctr_IDContrato.HasValue ?
+                new ObjectParameter("v_fk_ctr_IDContrato", v_fk_ctr_IDContrato) :
+                new ObjectParameter("v_fk_ctr_IDContrato", typeof(int));
+    
+            var v_rpp_FechaPagoRecibidoParameter = v_rpp_FechaPagoRecibido.HasValue ?
+                new ObjectParameter("v_rpp_FechaPagoRecibido", v_rpp_FechaPagoRecibido) :
+                new ObjectParameter("v_rpp_FechaPagoRecibido", typeof(System.DateTime));
+    
+            var v_rpp_estadoDePagoParameter = v_rpp_estadoDePago.HasValue ?
+                new ObjectParameter("v_rpp_estadoDePago", v_rpp_estadoDePago) :
+                new ObjectParameter("v_rpp_estadoDePago", typeof(bool));
+    
+            var v_rpp_DetallesDePagoParameter = v_rpp_DetallesDePago != null ?
+                new ObjectParameter("v_rpp_DetallesDePago", v_rpp_DetallesDePago) :
+                new ObjectParameter("v_rpp_DetallesDePago", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaReportarPago_Result>("sp_RetornaReportarPago", v_rpp_IDReportarPagoParameter, v_fk_cli_clienteParameter, v_fk_ctr_IDContratoParameter, v_rpp_FechaPagoRecibidoParameter, v_rpp_estadoDePagoParameter, v_rpp_DetallesDePagoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaReportePagos_Result> sp_RetornaReportePagos(Nullable<int> v_rpp_IDReportarPago, Nullable<int> v_fk_cli_cliente, Nullable<int> v_fk_ctr_IDContrato, string v_estado, Nullable<System.DateTime> v_fecha_Pagoinicio1, Nullable<System.DateTime> v_fecha_Pagoinicio2, Nullable<System.DateTime> v_fecha_Pagofinalizacion1, Nullable<System.DateTime> v_fecha_Pagofinalizacion2, string v_rpp_DetallesDePago, Nullable<int> v_ctr_contrato)
+        {
+            var v_rpp_IDReportarPagoParameter = v_rpp_IDReportarPago.HasValue ?
+                new ObjectParameter("v_rpp_IDReportarPago", v_rpp_IDReportarPago) :
+                new ObjectParameter("v_rpp_IDReportarPago", typeof(int));
+    
+            var v_fk_cli_clienteParameter = v_fk_cli_cliente.HasValue ?
+                new ObjectParameter("v_fk_cli_cliente", v_fk_cli_cliente) :
+                new ObjectParameter("v_fk_cli_cliente", typeof(int));
+    
+            var v_fk_ctr_IDContratoParameter = v_fk_ctr_IDContrato.HasValue ?
+                new ObjectParameter("v_fk_ctr_IDContrato", v_fk_ctr_IDContrato) :
+                new ObjectParameter("v_fk_ctr_IDContrato", typeof(int));
+    
+            var v_estadoParameter = v_estado != null ?
+                new ObjectParameter("v_estado", v_estado) :
+                new ObjectParameter("v_estado", typeof(string));
+    
+            var v_fecha_Pagoinicio1Parameter = v_fecha_Pagoinicio1.HasValue ?
+                new ObjectParameter("v_fecha_Pagoinicio1", v_fecha_Pagoinicio1) :
+                new ObjectParameter("v_fecha_Pagoinicio1", typeof(System.DateTime));
+    
+            var v_fecha_Pagoinicio2Parameter = v_fecha_Pagoinicio2.HasValue ?
+                new ObjectParameter("v_fecha_Pagoinicio2", v_fecha_Pagoinicio2) :
+                new ObjectParameter("v_fecha_Pagoinicio2", typeof(System.DateTime));
+    
+            var v_fecha_Pagofinalizacion1Parameter = v_fecha_Pagofinalizacion1.HasValue ?
+                new ObjectParameter("v_fecha_Pagofinalizacion1", v_fecha_Pagofinalizacion1) :
+                new ObjectParameter("v_fecha_Pagofinalizacion1", typeof(System.DateTime));
+    
+            var v_fecha_Pagofinalizacion2Parameter = v_fecha_Pagofinalizacion2.HasValue ?
+                new ObjectParameter("v_fecha_Pagofinalizacion2", v_fecha_Pagofinalizacion2) :
+                new ObjectParameter("v_fecha_Pagofinalizacion2", typeof(System.DateTime));
+    
+            var v_rpp_DetallesDePagoParameter = v_rpp_DetallesDePago != null ?
+                new ObjectParameter("v_rpp_DetallesDePago", v_rpp_DetallesDePago) :
+                new ObjectParameter("v_rpp_DetallesDePago", typeof(string));
+    
+            var v_ctr_contratoParameter = v_ctr_contrato.HasValue ?
+                new ObjectParameter("v_ctr_contrato", v_ctr_contrato) :
+                new ObjectParameter("v_ctr_contrato", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaReportePagos_Result>("sp_RetornaReportePagos", v_rpp_IDReportarPagoParameter, v_fk_cli_clienteParameter, v_fk_ctr_IDContratoParameter, v_estadoParameter, v_fecha_Pagoinicio1Parameter, v_fecha_Pagoinicio2Parameter, v_fecha_Pagofinalizacion1Parameter, v_fecha_Pagofinalizacion2Parameter, v_rpp_DetallesDePagoParameter, v_ctr_contratoParameter);
         }
     }
 }
