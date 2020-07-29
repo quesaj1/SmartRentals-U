@@ -86,19 +86,19 @@ namespace ProyectoSmartRentals.Formularios
                 ///del procedimiento almacenado
                 ///
                 sp_RetornaAlquilerID_Result resultadoSp = oAlquileres.RetornaAlquilerID(id_Alquiler);
-               
-                DropDownListProvincia.DataSource = Consultar("select p.Nombre as Provincia from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia WHERE a.alq_id_Propiedad =" + id_Alquiler);
-                DropDownListProvincia.DataBind();
-              
 
-                DropDownListCanton.DataSource = Consultar("select c.Nombre as Canton from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia INNER JOIN C_Canton c ON a.Id_Canton = c.Id_Canton WHERE a.alq_id_Propiedad = " + id_Alquiler);
-                DropDownListCanton.DataBind();
-                
-                
-                DropDownListDistrito.DataSource = Consultar("select d.Nombre as Distrito from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia INNER JOIN C_Canton c ON a.Id_Canton = c.Id_Canton INNER JOIN C_Distrito d ON a.Id_Distrito = d.Id_Distrito WHERE a.alq_id_Propiedad =" + id_Alquiler);
-                DropDownListDistrito.DataBind();
-               
-                
+                //DropDownListProvincia.DataSource = Consultar("select p.Nombre as Provincia from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia WHERE a.alq_id_Propiedad =" + id_Alquiler);
+                //DropDownListProvincia.DataBind();
+
+
+                //DropDownListCanton.DataSource = Consultar("select c.Nombre as Canton from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia INNER JOIN C_Canton c ON a.Id_Canton = c.Id_Canton WHERE a.alq_id_Propiedad = " + id_Alquiler);
+                //DropDownListCanton.DataBind();
+
+
+                //DropDownListDistrito.DataSource = Consultar("select d.Nombre as Distrito from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia INNER JOIN C_Canton c ON a.Id_Canton = c.Id_Canton INNER JOIN C_Distrito d ON a.Id_Distrito = d.Id_Distrito WHERE a.alq_id_Propiedad =" + id_Alquiler);
+                //DropDownListDistrito.DataBind();
+
+
 
                 ///validar que el procedimiento retorne un valor
                 if (resultadoSp != null)
@@ -107,6 +107,9 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtUbicacionExacta.Text = resultadoSp.alq_UbicacionExacta;
                     this.txtTipoPropiedad.Text = resultadoSp.alq_TipoPropiedad;
                     this.txtDetalles.Text = resultadoSp.alq_Detalles;
+                    this.txtDistrito.Text = resultadoSp.Id_Distrito.ToString();
+                    this.txtCanton.Text = resultadoSp.Id_Canton.ToString();
+                    this.txtProvincia.Text = resultadoSp.Id_Provincia.ToString();
                     this.txtImagen.Text = resultadoSp.alq_ImagenURL;
                     
                 }
@@ -131,9 +134,9 @@ namespace ProyectoSmartRentals.Formularios
 
                     if (oAlquileres.ModificaAlquiler(id_contrato,
                         txtUbicacionExacta.Text, txtTipoPropiedad.Text,
-                        txtDetalles.Text, Convert.ToInt16(DropDownListDistrito.Text),
-                        Convert.ToInt16(DropDownListCanton.Text),
-                        Convert.ToInt16(DropDownListProvincia.Text), txtImagen.Text, false))
+                        txtDetalles.Text, Convert.ToInt16(txtDistrito.Text),
+                        Convert.ToInt16(txtCanton.Text),
+                        Convert.ToInt16(txtProvincia.Text), txtImagen.Text, false))
 
                         this.lblResultado.Text = "Registro eliminado";
 
@@ -163,11 +166,11 @@ namespace ProyectoSmartRentals.Formularios
                         "--------------------------------------------------------" + "<br/>" +
                         "Propiedad :" +"&nbsp;&nbsp " +txtTipoPropiedad.Text +"<br/>" +
                         "--------------------------------------------------------" + "<br/>" +
-                        "Provincia :" + " &nbsp;&nbsp;&nbsp;&nbsp" + DropDownListProvincia.Text+ "<br/>" +
+                        "Provincia :" + " &nbsp;&nbsp;&nbsp;&nbsp" + txtProvincia.Text+ "<br/>" +
                         "--------------------------------------------------------" + "<br/>" +
-                        "Cantón :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + DropDownListCanton.Text + "<br/>" +
+                        "Cantón :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + txtCanton.Text + "<br/>" +
                         "--------------------------------------------------------" + "<br/>" +
-                        "Distrito :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + DropDownListDistrito.Text + "<br/>";
+                        "Distrito :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + txtDistrito.Text + "<br/>";
 
             ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
         }
