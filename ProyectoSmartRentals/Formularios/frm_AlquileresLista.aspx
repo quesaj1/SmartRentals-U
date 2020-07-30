@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
 
@@ -62,8 +62,8 @@
                     <asp:BoundField DataField="Distrito" HeaderText="Distrito" />
                     <asp:BoundField DataField="Canton" HeaderText="Canton" />
                     <asp:BoundField DataField="Provincia" HeaderText="Provincia" />
-                    <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquileresModifica?alq_id_Propiedad={0}" Text="Modificar" />
-                    <asp:HyperLinkField DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquilerElimina?alq_id_Propiedad={0}" Text="Eliminar" />
+                    <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquileresModifica?alq_id_Propiedad={0}" Text='<i class="fa fa-pencil" style="font-size:25px"></i>' />
+                    <asp:HyperLinkField DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquilerElimina?alq_id_Propiedad={0}" Text='<i class="fa fa-trash" style="font-size:25px"></i>' />
                 </Columns>
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
