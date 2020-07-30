@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
+using System.Net.Mime;
 
 namespace ProyectoSmartRentals.Formularios
 {
@@ -76,24 +78,32 @@ namespace ProyectoSmartRentals.Formularios
             // "<span>Revisaremos su solicitud a la mayor brevedad con nuestros representantes</span>" +
             // "<br/></br><span>Saludos cordiales.</span>" +
             // "</body>";
-
+            string stImagen;
             string elemento = txtElemento.Value.ToString();
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential(txtOrigen.Text, txtContrasena.Text);
+            smtp.Credentials = new NetworkCredential("info.smartrentals@gmail.com", "Clover20*");
 
             MailMessage mail = new MailMessage();
-            mail.From = new MailAddress(txtOrigen.Text, "Smart Rentals Clientes");
+            mail.From = new MailAddress("info.smartrentals@gmail.com", "Smart Rentals Clientes");
             mail.To.Add(new MailAddress("info.smartrentals@gmail.com"));
-            mail.Subject = "Solicitud modificacion de Contrato";
+            mail.Subject = "Solicitud modificacion de Contrato" + " | " + txtContrato.Text;
             mail.IsBodyHtml = true;
             mail.Body = "NUMERO DE CONTRATO : " + txtContrato.Text + "<br/>" + "<br/>" +
+                        "CORREO DE CLIENTE : "  + txtOrigen.Text + "<br/>" + "<br/>" +
+                        "TELEFONO DE CLIENTE : " + txtTelefono.Text + "<br/>" + "<br/>" +
                         "ELEMENTO A MODIFICAR : " + elemento.ToString() + "<br/>" + "<br/>" +
-                        "JUSTIFICACION : " + txtJustifica.Text + "<br/>";
-           
+                        "JUSTIFICACION : " + txtJustifica.Text + "<br/>"+
+                        "<img style='padding: 0; display: block' src='cid:imagen' >";
+            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mail.Body, Encoding.UTF8, MediaTypeNames.Text.Html);
+            stImagen = Server.MapPath("~") + @"\images\FIRMA.jpg";
+            LinkedResource img = new LinkedResource(stImagen, MediaTypeNames.Image.Jpeg); img.ContentId = "imagen";
+            htmlView.LinkedResources.Add(img);
+            mail.AlternateViews.Add(htmlView);
+
             smtp.Send(mail);
 
             this.lblResultado.

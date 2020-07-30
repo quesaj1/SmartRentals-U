@@ -39,36 +39,30 @@
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
         <h1 style="text-align: center">Envío de Solicitud de Modificación
         </h1><br />
-        <p style="text-align:center" margin-left: 15%; margin-right: 15%">Ingrese la información de su contrato que desea revisar y envíela al correo info.smartrentals@gmail.com para su respectiva revisión</p>
+        <p style="text-align:center" margin-left: 15%; margin-right: 15%">Por favor ingrese la información de su contrato que desea revisar para su respectiva revisión</p>
      
         <div class="form-row" style="margin-top: 5%; margin-bottom: 5%">
 
             <div class="form-group col-md-6">
                 <!-- Correo origen-->
                 <label for="txtOrigen">De :</label><br />
-                <asp:TextBox ID="txtOrigen" type="text"  CssClass="form-control" placeholder="Correo de origen" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtOrigen" type="text"  CssClass="form-control" placeholder="Ingrese su correo" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
 
         <div class="form-group col-md-6">
-                <!-- Correo origen-->
+                <!-- Contrato-->
                 <label for="txtContrato">Contrato :</label><br />
                 <asp:TextBox ID="txtContrato" type="text"  CssClass="form-control" placeholder="Ingrese su numero de contrato" runat="server" MaxLength="50"></asp:TextBox>
             </div>
            
             <div class="form-group col-md-6">
-                <!-- Contraseña-->
-                <label for="txtContrasena">Contraseña :</label><br />
-                <asp:TextBox ID="txtContrasena" type="password" CssClass="form-control" placeholder="Contraseña de correo" runat="server" MaxLength="50"></asp:TextBox>
+               <%--  Telefono->--%>
+                <label for="txtTelefono">Telefono :</label><br />
+                <asp:TextBox ID="txtTelefono" type="text" CssClass="form-control" placeholder="Ingrese su telefono" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
              <div class="form-group col-md-6">
-                <!-- Correo destino-->
-                <label for="txtDestino">Para :</label><br />
-                <asp:TextBox ID="txtDestino" type="text"  CssClass="form-control" placeholder="Correo de destino" runat="server" MaxLength="50"></asp:TextBox>
-            </div>
-            <div class="form-group col-md-6">
-                <!-- Correo destino-->
                 <label for="txtElemento">Elemento a modificar:</label><br>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorTipo" runat="server" ErrorMessage="*Debe seleccionar un elemento a modificar*" SetFocusOnError="True" Font-Size="Small" InitialValue="Seleccionar" ControlToValidate="txtElemento" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
 
@@ -93,6 +87,8 @@
                 <asp:TextBox ID="txtJustifica" type="text" TextMode="MultiLine" CssClass="form-control"  runat="server" Width="530px" Height="250px"></asp:TextBox>
             </div>
     
+        </div>
+
         </div>
 
         <div class="form-group" style="text-align: center">

@@ -16,7 +16,7 @@
 
                 <!-- Id-->
                 <label for="txt_Id">Buscar:</label><br />
-               <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaAlquileres')"  runat="server" Height="31px" Width="195px"></asp:TextBox>    
+               <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaAlquileres')"  runat="server" Height="35px" Width="195px"></asp:TextBox>    
             </div> &nbsp&nbsp&nbsp&nbsp&nbsp
             
            <div class="form-group col-sm-3" >
@@ -24,8 +24,8 @@
                 <label for="txtEstado">Estado</label>
                   <br/>
                 
-                  <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                      <asp:ListItem Value="0">Activos</asp:ListItem>
+                  <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control"  runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                      <asp:ListItem  Value="0">Activos</asp:ListItem>
                        <asp:ListItem Value="1">Desactivados</asp:ListItem>
                     
                       </asp:DropDownList>
@@ -47,23 +47,22 @@
     <div style="margin-left: 10%">
         <p>
 
-            <asp:GridView ID="grdListaAlquileres" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None"  BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnSelectedIndexChanged="grdListaAlquileres_SelectedIndexChanged">
+            <asp:GridView ID="grdListaAlquileres" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" CssClass="table" BorderColor="#E7E7FF" BorderStyle="None"  BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnSelectedIndexChanged="grdListaAlquileres_SelectedIndexChanged">
                      <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
-                    <asp:BoundField DataField="alq_id_Propiedad" HeaderText="Id de Propiedad" />
+                    <asp:TemplateField HeaderText="Galería">
+                        <ItemTemplate>
+                            <asp:Image DataField="alq_ImagenURL" runat="server" CssClass="rounded" ID="ImagenURL" ImageUrl='<%# Eval("alq_ImagenURL") %>' Width="150px" Height="140px" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="alq_id_Propiedad" visible=False />
                     <asp:BoundField DataField="alq_UbicacionExacta" HeaderText="Ubicacion Exacta" />
                     <asp:BoundField DataField="alq_TipoPropiedad" HeaderText="Tipo de Propiedad" />
                     <asp:BoundField DataField="alq_Detalles" HeaderText="Detalles" />
                     <asp:BoundField DataField="Distrito" HeaderText="Distrito" />
                     <asp:BoundField DataField="Canton" HeaderText="Canton" />
                     <asp:BoundField DataField="Provincia" HeaderText="Provincia" />
-                    <asp:TemplateField HeaderText="Galería">
-                        <ItemTemplate>
-                            <asp:Image DataField="alq_ImagenURL" runat="server" CssClass="rounded" ID="ImagenURL" ImageUrl='<%# Eval("alq_ImagenURL") %>' Width="150px" Height="140px" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:HyperLinkField DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquileresModifica?alq_id_Propiedad={0}" Text="Modificar" />
+                    <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquileresModifica?alq_id_Propiedad={0}" Text="Modificar" />
                     <asp:HyperLinkField DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquilerElimina?alq_id_Propiedad={0}" Text="Eliminar" />
                 </Columns>
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
