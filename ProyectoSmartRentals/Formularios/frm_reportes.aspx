@@ -5,7 +5,7 @@
 
     
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
- <style>
+  <style>
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Quattrocento');
 
@@ -70,8 +70,8 @@ df-messenger {
   left: 0;
   width: 100%;
   height: 80px;
-  background-image: -webkit-linear-gradient(top, transparent 0%, #ffffff 100%);
-  background-image: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+  background-image: -webkit-linear-gradient(top, transparent 0%,  100% );
+  background-image: linear-gradient(to bottom, transparent 0%,  100%);
 }
 .snip1361 h3,
 .snip1361 p {
@@ -87,7 +87,8 @@ df-messenger {
 .snip1361 p {
   font-size: 0.9em;
   letter-spacing: 1px;
-  opacity: 0.9;
+  opacity: 1;
+  color: black ; 
 }
 .snip1361 a {
   position: absolute;
