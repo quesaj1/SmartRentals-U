@@ -17,7 +17,7 @@
                <!-- Estado -->
                <label for="txtContrato">Ingrese su numero de contrato :</label><br />
                <asp:TextBox ID="txtContrato" type="text" CssClass="form-control" placeholder="Numero de contrato" runat="server" MaxLength="30"></asp:TextBox><br>
-               <asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Buscar" />
+               <asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Buscar" CssClass="btn btn-primary" />
            </div>
         </div>
         <br>

@@ -94,10 +94,10 @@
         <div class="form-group" style="text-align: center">
             <!-- Submit Button -->
 
-            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado" Text="Enviar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnEnviar_Click" />
+            <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-primary" Text="Enviar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnEnviar_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;
 
-            <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_AlquileresLista.aspx" />
+            <asp:Button ID="btnAtras" CssClass="btn btn-danger" runat="server" CausesValidation="false" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_SolicitudModContrato.aspx" />
 
             <br />
             <br />

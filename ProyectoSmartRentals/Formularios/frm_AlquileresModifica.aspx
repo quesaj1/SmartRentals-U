@@ -53,7 +53,7 @@
             <div class="form-group col-md-6">
 
                 <label for="txtID">Id de Alquiler</label><br>
-                <asp:TextBox ID="txtID" runat="server"  ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
+                <asp:TextBox ID="txtID" runat="server"  ReadOnly="true" CssClass="form-control" MaxLength="25" ForeColor="Black"></asp:TextBox>
            </div>
 
                 <div class="form-group col-md-6">
@@ -61,7 +61,7 @@
                 <label for="txtUbicacionExacta">Ubicacion Exacta</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUbic" runat="server" ControlToValidate="txtUbicacionExacta" ErrorMessage="*Debe ingresar una ubicación*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
 
-                <asp:TextBox ID="txtUbicacionExacta" type="text" CssClass="form-control" placeholder="Ingrese una ubicación" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtUbicacionExacta" type="text" CssClass="form-control" placeholder="Ingrese una ubicación" runat="server" MaxLength="50" ForeColor="Black"></asp:TextBox>
                 <br>
             </div>
             <div class="form-group col-md-6">
@@ -85,35 +85,35 @@
                 <!-- Detalles-->
                 <label for="txtDetalles">Detalles</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorDet" runat="server" ControlToValidate="txtDetalles" ErrorMessage="*Debe ingresar los detalles*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtDetalles" type="text" CssClass="form-control" placeholder="Ingrese el detalle" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtDetalles" type="text" CssClass="form-control" placeholder="Ingrese el detalle" runat="server" MaxLength="50" ForeColor="Black"></asp:TextBox>
                 <br>
             </div>
             <div class="form-group col-md-6">
                 <!-- Provincia -->
                 <label for="txtProvincia">Provincia</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorProv" runat="server" ControlToValidate="DropDownListProvincia" ErrorMessage="*Debe selecccionar una provincia*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                <asp:DropDownList ID="DropDownListProvincia" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaProvincia"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListProvincia" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaProvincia" ForeColor="Black"></asp:DropDownList>
                 <br />
             </div>
             <div class="form-group col-md-6">
                 <!--  Canton -->
                 <label for="txtCanton">Canton</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorCant" runat="server" ControlToValidate="DropDownListCanton" ErrorMessage="*Debe seleccionar un cantón*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                <asp:DropDownList ID="DropDownListCanton" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaCanton"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListCanton" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaCanton" ForeColor="Black"></asp:DropDownList>
                 <br>
             </div>
             <div class="form-group col-md-6">
                 <!-- Distrito -->
                 <label for="txtDistrito">Distrito</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorDist" runat="server" ControlToValidate="DropDownListDistrito" ErrorMessage="*Debe seleccionar un distrito*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                <asp:DropDownList ID="DropDownListDistrito" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaDistrito"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListDistrito" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaDistrito" ForeColor="Black"></asp:DropDownList>
                 <br>
             </div>
             <div class="form-group col-md-6">
                 <!-- URL Imagen -->
                 <label for="txtImagen">Galería</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorImg" runat="server" ControlToValidate="fupImage" ErrorMessage="*Debe cargar una imagen*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:FileUpload ID="fupImage" CssClass="form-control" runat="server" />
+                <asp:FileUpload ID="fupImage" CssClass="form-control" runat="server" ForeColor="Black" />
                 <br>
             </div>
        

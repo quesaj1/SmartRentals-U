@@ -24,7 +24,7 @@
                 <label for="txtEstado">Estado</label>
                   <br/>
                 
-                  <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control"  runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                  <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control"  runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" ForeColor="Black">
                       <asp:ListItem  Value="0">Activos</asp:ListItem>
                        <asp:ListItem Value="1">Desactivados</asp:ListItem>
                     
