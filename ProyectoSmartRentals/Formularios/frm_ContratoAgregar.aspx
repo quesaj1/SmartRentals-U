@@ -16,7 +16,7 @@
   }
 
     
-@keyframes showTopText {
+/*@keyframes showTopText {
   0% { transform: translate3d(0, 100%, 0); }
   40%, 60% { transform: translate3d(0, 50%, 0); }
   100% { transform: translate3d(0, 0, 0); }
@@ -71,7 +71,7 @@
   animation-fill-mode: forwards;
   top: 0;
   transform: translate(0, -100%);
-}
+}*/
 
 /*ESTILOS PARA EL DATE PICKER */
 
@@ -80,17 +80,17 @@
 
 
 /* Removes the spin button */
-input[type="date"]::-webkit-inner-spin-button { 
+/*input[type="date"]::-webkit-inner-spin-button { 
     display: none;
-}
+}*/
 
 /* Always display the drop down caret */
-input[type="date"]::-webkit-calendar-picker-indicator {
+/*input[type="date"]::-webkit-calendar-picker-indicator {
     color: #2c3e50;
-}
+}*/
 
 /* A few custom styles for date inputs */
-input[type="date"] {
+/*input[type="date"] {
   
     -webkit-appearance: none;
     color: #95a5a6;
@@ -107,17 +107,44 @@ input[type="date"], focus {
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
+}*/
+
+
+/*Agregar esto para el diseño del select2 de los dropdownlists*/
+.select2-selection__rendered {
+    line-height: 23px !important;
+    font-family: Montserrat, sans-serif; 
+    font-size: 16px;
+    color: #6c757d !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 35px !important;
 }
 
+.select2-selection { overflow: hidden; }
+.select2-selection__rendered { white-space: normal; word-break: break-all; }
+
+/*Finaliza el estilo del select2 dropdownlist */
 
 </style>
 
 
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
   
+    <%--Agregar estas librerias para el select 2--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+    <link href="../Content/css/select2.min.css" rel="stylesheet" /> 
+    <script src="../Scripts/select2.min.js"></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
 
+
+    <%--Finaliza las librerias--%>
     
     
 
@@ -126,42 +153,42 @@ input[type="date"], focus {
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
             <div class="form-group col-md-6">
                 <!-- Numero de contrato -->
-                <label for="txtContratoNumero"></label>
+                <label for="txtContratoNumero">Número de contrato <span style="color:red;">*</span></label>
                 <asp:TextBox ID="txtContratoNumero" type="text" CssClass="form-control" placeholder="Número de contrato" runat="server" MaxLength="25"></asp:TextBox>
             </div>
                <div class="form-group col-md-6">
                 <!-- Cliente -->
-                <label for="txtCliente"></label>
+                <label for="txtCliente">Cliente <span style="color:red;">*</span></label>
                   <asp:DropDownList ID="DropDownListCliente" placeholder="Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de inicio -->
-                <label for="txtFechaInicio"></label>
+                <label for="txtFechaInicio">Fecha de inicio <span style="color:red;">*</span></label>
                 <asp:TextBox ID="txtFechaInicio" type="date" CssClass="form-control" placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de finalización -->
-                <label for="txtFechaFinaliacion"></label>
+                <label for="txtFechaFinaliacion">Fecha de finalización</label>
                 <asp:TextBox ID="txtFechaFinaliacion" type="date" CssClass="form-control" placeholder="Fecha de finalización" runat="server" MaxLength="50"></asp:TextBox>
             </div>
                  <div class="form-group col-md-6">
                 <!-- Propiedad -->
-                <label for="txtPropiedad">Propiedad</label>
+                <label for="txtPropiedad">Propiedad <span style="color:red;">*</span></label>
                   <asp:DropDownList ID="DropDownPropiedad"  DataTextField="Propiedad" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
               <div class="form-group col-md-6">
                 <!-- Monto mensual -->
-                <label for="txtMonto"></label>
+                <label for="txtMonto">Monto Mensual<span style="color:red;">*</span></label>
                 <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 
-                <label for="txtFechaPago"></label>
+                <label for="txtFechaPago">Fecha de Pago <span style="color:red;">*</span></label>
                 <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- URL Contrato -->
-                <label for="txtContrato">Contrato</label>
+                <label for="txtContrato">Contrato <span style="color:red;">*</span></label>
                 <asp:FileUpload ID="up_Contrato" CssClass="form-control" runat="server" />
                    <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="red"></asp:Label>
             </div>  
@@ -184,9 +211,18 @@ input[type="date"], focus {
         </div>
     <br /><br />
    
-<%--    <script>
-        $('#<%=DropDownListCliente.cli_cliente%>').chosen();
+<%--   Agregar este script para el select 2--%>
+<%--   Cambiar lo que dice dorpdownlistcliente por el nombre del correcto--%>
 
-    </script>--%>
-
+      <script>
+      $(function () {
+          $("#<%=DropDownListCliente.ClientID%>").select2({
+              selectOnClose: true,
+              theme: 'bootstrap',
+              height: '100%',
+              width: '100%'
+                     }
+          );
+    })
+      </script>
 </asp:Content>
