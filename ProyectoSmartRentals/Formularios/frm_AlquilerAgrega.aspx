@@ -24,7 +24,47 @@
             width: 250px;
             float: right;
         }
-    </style>
+
+        /*Agregar esto para el diseño del select2 de los dropdownlists*/
+.select2-selection__rendered {
+    line-height: 23px !important;
+    font-family: Montserrat, sans-serif; 
+    font-size: 16px;
+    color: #6c757d !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 35px !important;
+}
+
+.select2-selection { overflow: hidden; }
+.select2-selection__rendered { white-space: normal; word-break: break-all; }
+
+/*Finaliza el estilo del select2 dropdownlist */
+
+</style>
+
+
+
+    <%--Agregar estas librerias para el select 2--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+    <link href="../Content/css/select2.min.css" rel="stylesheet" /> 
+    <script src="../Scripts/select2.min.js"></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+
+
+    <%--Finaliza las librerias--%>
+
+  
+
+
+
+ 
 
 
   
@@ -39,7 +79,7 @@
         <div class="form-row" style="margin-top: 5%; margin-bottom: 5%">
             <div class="form-group col-md-6">
                 <!-- Ubicacion -->
-                <label for="txtUbicacionExacta" >Ubicacion Exacta</label>
+                <label for="txtUbicacionExacta" >Ubicacion Exacta <span style="color:red;">*</span> </label>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUbicacion" runat="server" ControlToValidate="txtUbicacionExacta" ErrorMessage="*Debe ingresar una ubicación*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
 
@@ -49,7 +89,7 @@
 
             <div class="form-group col-md-6">
                 <!-- Tipo Propiedad -->
-                <label for="txtTipoPropiedad">Tipo de Propiedad</label>
+                <label for="txtTipoPropiedad">Tipo de Propiedad <span style="color:red;">*</span></label>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorTipo" runat="server" ErrorMessage="*Debe seleccionar un tipo de propiedad*" SetFocusOnError="True" Font-Size="Small" InitialValue="Seleccionar" ControlToValidate="txtTipoPropiedad" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
 
@@ -70,7 +110,7 @@
             <div class="form-group col-md-6">
                 
                  <!-- Detalles-->
-                <label for="txtDetalles">Detalles</label>
+                <label for="txtDetalles">Detalles<span style="color:red;">*</span> </label>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorDetalle" runat="server" ControlToValidate="txtDetalles" ErrorMessage="*Debe ingresar los detalles*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
 
@@ -82,7 +122,7 @@
 
             <div class="form-group col-md-6">
                 <!-- Provincia -->
-                <label for="txtProvincia">Provincia</label>
+                <label for="txtProvincia">Provincia <span style="color:red;">*</span></label>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorProv" runat="server" ControlToValidate="DropDownListProvincia" ErrorMessage="*Debe seleccionar una provincia*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
 
@@ -92,7 +132,7 @@
 
             <div class="form-group col-md-6">
                 <!--  Canton -->
-                <label for="txtCanton">Canton</label>
+                <label for="txtCanton">Canton<span style="color:red;">*</span> </label>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorCant" runat="server" ControlToValidate="DropDownListCanton" ErrorMessage="*Debe seleccionar un cantón*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
 
@@ -102,7 +142,7 @@
 
             <div class="form-group col-md-6">
               <!-- Distrito -->
-                <label for="txtDistrito">Distrito</label>
+                <label for="txtDistrito">Distrito <span style="color:red;">*</span></label>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorDist" runat="server" ControlToValidate="DropDownListDistrito" ErrorMessage="*Debe seleccionar un distrito*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
 
@@ -112,7 +152,7 @@
 
             <div class="form-group col-md-6">
                 <!-- URL Imagen -->
-                <label for="txtImagen">Galería</label><br />
+                <label for="txtImagen">Galería <span style="color:red;">*</span></label><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorImg" runat="server" ControlToValidate="fupImage" ErrorMessage="*Debe cargar una imagen*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
 
                 <asp:FileUpload ID="fupImage" CssClass="form-control" runat="server" ForeColor="Black" />
@@ -137,7 +177,52 @@
         <br>
     </div>
 
+    <%--   Agregar este script para el select 2--%>
+<%--   Cambiar lo que dice dorpdownlistcliente por el nombre del correcto--%>
 
+      <script>
+      $(function () {
+          $("#<%=DropDownListDistrito.ClientID%>").select2({
+              selectOnClose: true,
+              theme: 'bootstrap',
+              height: '100%',
+              width: '100%'
+                     }
+          );
+      })
+          $(function () {
+              $("#<%=DropDownListProvincia.ClientID%>").select2({
+                  selectOnClose: true,
+                  theme: 'bootstrap',
+                  height: '100%',
+                  width: '100%'
+              }
+              );
+          })
+
+
+          $(function () {
+              $("#<%=DropDownListCanton.ClientID%>").select2({
+                  selectOnClose: true,
+                  theme: 'bootstrap',
+                  height: '100%',
+                  width: '100%'
+              }
+              );
+          })
+
+
+          $(function () {
+              $("#<%=txtTipoPropiedad.ClientID%>").select2({
+                   selectOnClose: true,
+                   theme: 'bootstrap',
+                   height: '100%',
+                   width: '100%'
+               }
+               );
+           })
+
+      </script>
 
 
 

@@ -216,11 +216,11 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
-        //protected void ShowPopup(object sender, EventArgs e)
-        //{
-        //    string title = "Modificar registro";
-        //    string body = "Esta seguro de modificar este registro?.  Por favor confirme";
-        //    ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
-        //}
+        protected void ShowPopup(object sender, EventArgs e)
+        {
+            string title = "Modificar registro";
+           string body = "Esta seguro de modificar este registro?.  Por favor confirme";
+           ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
+        }
     }
 }

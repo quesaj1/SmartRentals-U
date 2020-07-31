@@ -31,9 +31,40 @@
             width: 250px;
             float: right;
         }
-    </style>
+
+ /*Agregar esto para el diseño del select2 de los dropdownlists*/
+.select2-selection__rendered {
+    line-height: 23px !important;
+    font-family: Montserrat, sans-serif; 
+    font-size: 16px;
+    color: #6c757d !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 35px !important;
+}
+
+.select2-selection { overflow: hidden; }
+.select2-selection__rendered { white-space: normal; word-break: break-all; }
+
+/*Finaliza el estilo del select2 dropdownlist */
 
 
+  </style>
+
+     <%--Agregar estas librerias para el select 2--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+    <link href="../Content/css/select2.min.css" rel="stylesheet" /> 
+    <script src="../Scripts/select2.min.js"></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+
+
+    <%--Finaliza las librerias--%>
   
 
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
@@ -45,25 +76,25 @@
 
             <div class="form-group col-md-6">
                 <!-- Correo origen-->
-                <label for="txtOrigen">De :</label><br />
+                <label for="txtOrigen">De : <span style="color:red;">*</span></label><br />
                 <asp:TextBox ID="txtOrigen" type="text"  CssClass="form-control" placeholder="Ingrese su correo" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
 
         <div class="form-group col-md-6">
                 <!-- Contrato-->
-                <label for="txtContrato">Contrato :</label><br />
+                <label for="txtContrato">Contrato : <span style="color:red;">*</span></label><br />
                 <asp:TextBox ID="txtContrato" type="text"  CssClass="form-control" placeholder="Ingrese su numero de contrato" runat="server" MaxLength="50"></asp:TextBox>
             </div>
            
             <div class="form-group col-md-6">
                <%--  Telefono->--%>
-                <label for="txtTelefono">Telefono :</label><br />
+                <label for="txtTelefono">Telefono : <span style="color:red;">*</span></label><br />
                 <asp:TextBox ID="txtTelefono" type="text" CssClass="form-control" placeholder="Ingrese su telefono" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
              <div class="form-group col-md-6">
-                <label for="txtElemento">Elemento a modificar:</label><br>
+                <label for="txtElemento">Elemento a modificar: <span style="color:red;">*</span></label><br>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorTipo" runat="server" ErrorMessage="*Debe seleccionar un elemento a modificar*" SetFocusOnError="True" Font-Size="Small" InitialValue="Seleccionar" ControlToValidate="txtElemento" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
 
                 <select id="txtElemento" class="custom-select" runat="server" CssClass="form-control">
@@ -83,7 +114,7 @@
 
             <div class="form-group col-md-6">
                 <!-- Comentarios-->
-                <label for="txtJustifica">Justificación :</label><br />
+                <label for="txtJustifica">Justificación : <span style="color:red;">*</span></label><br />
                 <asp:TextBox ID="txtJustifica" type="text" TextMode="MultiLine" CssClass="form-control"  runat="server" Width="530px" Height="250px"></asp:TextBox>
             </div>
     
@@ -106,12 +137,22 @@
         <br>
         <br>    
         <br>
-    </div>
+    
    
+    
+      <script>
+          $(function () {
+              $("#<%=txtElemento.ClientID%>").select2({
+              selectOnClose: true,
+              theme: 'bootstrap',
+              height: '100%',
+              width: '100%'
+          }
+          );
+      })
+          
 
-
-
-
+      </script>
 
 
 
