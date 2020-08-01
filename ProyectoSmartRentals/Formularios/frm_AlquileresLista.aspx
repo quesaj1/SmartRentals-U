@@ -4,19 +4,26 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+<style>
+    .fa fa-search {
+    position: absolute;
+    margin-left: -10px;
+}
+</style>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
 
         <h2 style="text-align:center">Lista de Alquileres</h2>
 
-        <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:34%;padding-right:34%; text-align:center"  ">
+        <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:32%;padding-right:30%; text-align:center">
 
             <div  style="text-align:center; padding:1em ;float:left"  >
 
                 <!-- Id-->
-                <label for="txt_Id">Buscar:</label><br />
-               <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaAlquileres')"  runat="server" Height="35px" Width="195px"></asp:TextBox>    
+                <label for="txt_Id">Buscar: &nbsp <i class="fa fa-search" style="font-size:17px"></i></label><br />
+               <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaAlquileres')" runat="server" Height="35px" Width="195px"></asp:TextBox>
             </div> &nbsp&nbsp
             
            <div style="text-align:center; padding:1em ;float:left"  >
@@ -24,7 +31,7 @@
                 <label for="txtEstado">Estado</label>
                   <br/>
                 
-                  <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control"  runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" ForeColor="Black">
+                  <asp:DropDownList ID="DropDownList1" Height="35px" Width="195px"  CssClass="form-control"  runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" ForeColor="Black">
                       <asp:ListItem  Value="0">Activos</asp:ListItem>
                        <asp:ListItem Value="1">Desactivados</asp:ListItem>
                     
@@ -37,7 +44,7 @@
         <div style="text-align:center">
 
             <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_AlquilerAgrega.aspx">Agregar Nuevo Alquiler</asp:HyperLink>
+                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_AlquilerAgrega.aspx" Font-Size="Medium">Agregar Nuevo Alquiler &nbsp <i class="fa fa-plus-circle" style="font-size:19px"></i></asp:HyperLink>
             </strong>
         </div>
 
@@ -62,8 +69,8 @@
                     <asp:BoundField DataField="Distrito" HeaderText="Distrito" />
                     <asp:BoundField DataField="Canton" HeaderText="Canton" />
                     <asp:BoundField DataField="Provincia" HeaderText="Provincia" />
-                    <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquileresModifica?alq_id_Propiedad={0}" Text='<i class="fa fa-pencil" style="font-size:25px"></i>' />
-                    <asp:HyperLinkField DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquilerElimina?alq_id_Propiedad={0}" Text='<i class="fa fa-trash" style="font-size:25px"></i>' />
+                    <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquileresModifica?alq_id_Propiedad={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>' ItemStyle-Width="25px" />
+                    <asp:HyperLinkField DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquilerElimina?alq_id_Propiedad={0}" Text='<i class="fa fa-trash" style="font-size:25px"></i>' ItemStyle-Width="25px" />
                 </Columns>
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

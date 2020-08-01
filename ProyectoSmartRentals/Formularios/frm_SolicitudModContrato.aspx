@@ -6,16 +6,12 @@
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
         <h2 style="text-align: center">Solicitud de Modificacion de Contrato</h2>
         <asp:HiddenField ID="hdldContrato" runat="server" />
-        <br />
-        <br />
-      
-        <div class="form-row" style="margin-top: 5%; margin-bottom: 5%">
-
-         
-            
-           <div class="form-group col-sm-3">
+           
+        <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:40%;padding-right:40%; text-align:center" >
+            <label for="txtContrato" style="font-size:medium; text-align:center">Ingrese su numero de contrato :</label><br><br>
+           <div style="text-align:center; padding:1em ;float:left">
                <!-- Estado -->
-               <label for="txtContrato">Ingrese su numero de contrato :</label><br />
+               
                <asp:TextBox ID="txtContrato" type="text" CssClass="form-control" placeholder="Numero de contrato" runat="server" MaxLength="30"></asp:TextBox><br>
                <asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Buscar" CssClass="btn btn-primary" />
            </div>
@@ -60,6 +56,8 @@
             </p>
 
             </div>
+
+     <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900" CssClass="alert-success" Font-Size="Large"></asp:Label>
            
     <br />
 

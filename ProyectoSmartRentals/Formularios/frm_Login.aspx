@@ -146,8 +146,8 @@
         <div class="container">
             <div class="left-section">
                 <div class="header1">
-                <h1 class="animation a1">Bienvenido!</h1><br/>
-                <h4 class="animation a2">Loguearse para ingresar al perfil</h4><br/>
+                <h1 class="animation a1">¡Bienvenido!</h1><br/>
+                <h4 class="animation a2">Inicie sesion para ingresar al perfil</h4><br/>
                 </div>
 
                 <div class="form1">

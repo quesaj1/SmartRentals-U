@@ -129,8 +129,8 @@ input[type="date"], focus {
        <br />
             <div style="text-align:center"  width:30%>
                 <!-- Categoria-->
-                <label for="txtCategoria" style="font-weight:bold">Reporte por categoría</label><br /><br /><br />
-              
+                <label for="txtCategoria" style="font-weight:bold">Reporte por categoría</label><br /><br />
+                <div style="text-align:center"><i class="fa fa-wrench" style="font-size:24px"></i></div><br />
 
                 <select id="txtCategoria" class="custom-select" runat="server" style="max-width:40%" >
                     <option style="font-size: small">Seleccione una categoría</option>
@@ -147,7 +147,9 @@ input[type="date"], focus {
            
        <div style="text-align:center">
            <label for="txtFecha"  style="font-weight:bold; text-align:center">Reporte por fechas</label><br /><br />
+           <i class="fa fa-calendar" style="font-size:22px"></i>
        </div>
+      
 
            <div style="overflow:hidden; padding-left:34%;padding-right:34%; text-align:center">
 
@@ -164,7 +166,7 @@ input[type="date"], focus {
                  <label for="txtFechaFinal">Fecha Final</label><br /><br />
                <asp:TextBox runat="server" ID="Final" type="date"  ></asp:TextBox>
         </div>
-          </div><br /><br />
+          </div><br />
    
             <div style="text-align:center">   
            <asp:Button  ID="Button2"  runat="server" Text="Generar Reporte" class="btn btn-primary" OnClick="Button1_Click" />

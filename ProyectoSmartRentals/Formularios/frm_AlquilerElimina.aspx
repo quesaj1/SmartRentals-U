@@ -101,7 +101,7 @@
                 <asp:TextBox ID="txtImagen" type="text" CssClass="form-control" ReadOnly="true" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
-       
+       </div>
     </div>
 
     <div class="form-group" style="text-align: center">

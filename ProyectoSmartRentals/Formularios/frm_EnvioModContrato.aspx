@@ -77,20 +77,25 @@
             <div class="form-group col-md-6">
                 <!-- Correo origen-->
                 <label for="txtOrigen">De : <span style="color:red;">*</span></label><br />
-                <asp:TextBox ID="txtOrigen" type="text"  CssClass="form-control" placeholder="Ingrese su correo" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtOrigen" ErrorMessage="Ingrese un correo electronico" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" ></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator" runat="server" ControlToValidate="txtOrigen" ErrorMessage="Ingrese un correo electronico valido"  ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
+                <asp:TextBox ID="txtOrigen" type="text"  CssClass="form-control" placeholder="Ingrese un correo en el formato usuario@gmail.com" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
 
         <div class="form-group col-md-6">
                 <!-- Contrato-->
                 <label for="txtContrato">Contrato : <span style="color:red;">*</span></label><br />
-                <asp:TextBox ID="txtContrato" type="text"  CssClass="form-control" placeholder="Ingrese su numero de contrato" runat="server" MaxLength="50"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrato" runat="server" ControlToValidate="txtContrato" ErrorMessage="*Debe ingresar los detalles*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"> </asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtContrato" type="text"  CssClass="form-control" placeholder="Ingrese su numero de contrato" runat="server" MaxLength="50" ForeColor="Black" ></asp:TextBox>
             </div>
            
             <div class="form-group col-md-6">
                <%--  Telefono->--%>
                 <label for="txtTelefono">Telefono : <span style="color:red;">*</span></label><br />
-                <asp:TextBox ID="txtTelefono" type="text" CssClass="form-control" placeholder="Ingrese su telefono" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTelefono" ErrorMessage="Ingrese un numero telefonico" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" ></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator runat="server" ControlToValidate="txtTelefono" ErrorMessage="Debe ingresar un numero telefonico de 8 digitos " ValidationExpression="[0-9]{8}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
+                <asp:TextBox ID="txtTelefono" type="text" CssClass="form-control" placeholder="Ingrese un telefono seguido y sin guiones" runat="server" MaxLength="50" ForeColor="Black"></asp:TextBox>
             </div>
 
              <div class="form-group col-md-6">
@@ -115,7 +120,8 @@
             <div class="form-group col-md-6">
                 <!-- Comentarios-->
                 <label for="txtJustifica">Justificación : <span style="color:red;">*</span></label><br />
-                <asp:TextBox ID="txtJustifica" type="text" TextMode="MultiLine" CssClass="form-control"  runat="server" Width="530px" Height="250px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorJustifica" runat="server" ControlToValidate="txtJustifica" ErrorMessage="*Debe ingresar una justificacion*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtJustifica" type="text" TextMode="MultiLine" CssClass="form-control" runat="server" Width="530px" Height="250px" ForeColor="Black" ></asp:TextBox>
             </div>
     
         </div>

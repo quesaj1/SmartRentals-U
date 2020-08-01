@@ -62,18 +62,9 @@
 
   
 
-
-
- 
-
-
-  
-
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
         <h1 style="text-align: center">Agregar Alquiler
         </h1>
-
-     
 
 
         <div class="form-row" style="margin-top: 5%; margin-bottom: 5%">

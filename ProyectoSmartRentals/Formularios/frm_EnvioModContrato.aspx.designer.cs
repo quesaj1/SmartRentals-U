@@ -15,6 +15,15 @@ namespace ProyectoSmartRentals.Formularios
     {
 
         /// <summary>
+        /// RegularExpressionValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator;
+
+        /// <summary>
         /// txtOrigen control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace ProyectoSmartRentals.Formularios
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOrigen;
+
+        /// <summary>
+        /// RequiredFieldValidatorContrato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorContrato;
 
         /// <summary>
         /// txtContrato control.
@@ -58,6 +76,15 @@ namespace ProyectoSmartRentals.Formularios
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect txtElemento;
+
+        /// <summary>
+        /// RequiredFieldValidatorJustifica control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorJustifica;
 
         /// <summary>
         /// txtJustifica control.
