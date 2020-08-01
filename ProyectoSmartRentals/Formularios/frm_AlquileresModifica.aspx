@@ -20,6 +20,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <style>
+
+ .boton_personalizado{
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #adc867;
+    border-radius:5px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #55407d;
+    border-radius:5px;
+  }
        /*Agregar esto para el diseño del select2 de los dropdownlists*/
 .select2-selection__rendered {
     line-height: 23px !important;
@@ -165,12 +178,12 @@
             <!-- Submit Button -->
 
 
-             <asp:Button ID="btnShowPopup" runat="server" CssClass="btn btn-primary" Font-Size="Medium" Height="49px" Width="111px" Text="Modificar" OnClick="btnAgregar_Click" />
+             <asp:Button ID="btnShowPopup" runat="server" CssClass="boton_personalizado" Font-Size="Medium" Height="49px" Width="111px" Text="Modificar" OnClick="btnAgregar_Click" />
 
            
             &nbsp;&nbsp;&nbsp;
 
-             <asp:Button ID="btnAtras" CssClass="btn btn-danger" runat="server" CausesValidation="false" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_AlquileresLista.aspx" />
+             <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_AlquileresLista.aspx" />
 
             <br />
             <br />

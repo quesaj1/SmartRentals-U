@@ -16,8 +16,20 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-  
+   <style>
+     .boton_personalizado{
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #adc867;
+    border-radius:5px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #55407d;
+    border-radius:5px;
+  }
+  </style> 
 
     <!-- Modal Popup -->
 
@@ -108,12 +120,12 @@
         <!-- Submit Button -->
 
 
-        <asp:Button ID="btnShowPopup" runat="server" CssClass="btn btn-primary" Font-Size="Medium" Height="49px" Width="111px" Text="Eliminar" OnClick="ShowPopup" />
+        <asp:Button ID="btnShowPopup" runat="server" CssClass="boton_personalizado" Font-Size="Medium" Height="49px" Width="111px" Text="Eliminar" OnClick="ShowPopup" />
 
 
         &nbsp;&nbsp;&nbsp;
 
-            <asp:Button ID="btnAtras" CssClass="btn btn-danger" runat="server" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_AlquileresLista.aspx" />
+            <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_AlquileresLista.aspx" />
 
         <br />
         

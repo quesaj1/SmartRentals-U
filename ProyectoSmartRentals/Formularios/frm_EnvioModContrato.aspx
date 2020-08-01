@@ -5,17 +5,18 @@
 
 
      <style type="text/css">
-        .boton_personalizado {
-            font-weight: 600;
-            font-size: 20px;
-            color: #ffffff;
-            background-color: #2ECC71;
-        }
-
-            .boton_personalizado:hover {
-                color: #1883ba;
-                background-color: #ffffff;
-            }
+       .boton_personalizado{
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #adc867;
+    border-radius:5px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #55407d;
+    border-radius:5px;
+  }
 
 
         input.error {
@@ -131,10 +132,10 @@
         <div class="form-group" style="text-align: center">
             <!-- Submit Button -->
 
-            <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-primary" Text="Enviar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnEnviar_Click" />
+            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado" Text="Enviar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnEnviar_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;
 
-            <asp:Button ID="btnAtras" CssClass="btn btn-danger" runat="server" CausesValidation="false" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_SolicitudModContrato.aspx" />
+            <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_SolicitudModContrato.aspx" />
 
             <br />
             <br />
