@@ -161,19 +161,22 @@ namespace ProyectoSmartRentals.Formularios
 
 
                         if (ContratoInsertar) { 
-                    this.lblResultado.Text = "Contrato agregado";
+                    
+                    contratoAgregado();
                     this.limpiardatos();
                         }
                         else{
-                    this.lblResultado.Text = "No se pudo agregar el contrato";
+                            contratoNoAgregado();
                         }
                     }
             catch (Exception error)
             {
+                        contratoNoAgregado();
+                        //Ver si acá implementamos alguna tabla con log de errores
 
-                this.lblResultado.
-                    Text = "Ocurrió un error:" + error.Message;
-            }
+                        //this.lblResultado.
+                        //    Text = "Ocurrió un error:" + error.Message;
+                    }
                 }
 
                 else
@@ -192,5 +195,24 @@ namespace ProyectoSmartRentals.Formularios
         {
             agregarContrato();
         }
+
+        public void contratoAgregado()
+        {
+            string title = "Contrato agregado";
+            string body =
+                         "El contrato: " + this.txtContratoNumero.Text + " ha sido guardado exitosamente";
+                        ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
+        }
+
+        public void contratoNoAgregado()
+        {
+            string title = "Contrato agregado";
+            string body =
+                         "El contrato: " + this.txtContratoNumero.Text + " no ha sido guardado. En caso de que el problema persista" +
+                         " favor contacte al administrador del sistema.";
+            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
+        }
+
+   
     }
 }

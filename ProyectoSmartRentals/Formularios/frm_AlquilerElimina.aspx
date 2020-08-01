@@ -116,6 +116,7 @@
             <asp:Button ID="btnAtras" CssClass="btn btn-danger" runat="server" Text="Atras" OnClick="btnAtras_Click" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_AlquileresLista.aspx" />
 
         <br />
+        
         <br />
         <asp:Label ID="lblResultado" runat="server" ForeColor="#009900" CssClass="alert-success" Font-Size="Large"></asp:Label>
 

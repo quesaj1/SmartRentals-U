@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_ContratoAgregar.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_ContratoAgregar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     
+        <script type="text/javascript">
+            function ShowPopup(title, body) {
+                $("#MyPopup .modal-title").html(title);
+                $("#MyPopup .modal-body").html(body);
+                $("#MyPopup").modal("show");
+            }
+        </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <style type="text/css">
@@ -146,7 +152,32 @@ input[type="date"], focus {
 
     <%--Finaliza las librerias--%>
     
-    
+        <!-- Modal Popup -->
+
+    <div id="MyPopup" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #55407d">
+                    <h4 class="modal-title" style="color: white"></h4>
+                 <%--   <button type="button" class="close" aria-label="Cancelar" style="color: white" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>--%>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color:#ADC867;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Popup -->
 
            <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
          <h1 style="text-align: center">Agregar Contrato</h1>
@@ -206,6 +237,8 @@ input[type="date"], focus {
             <asp:Button ID="btnAtras" runat="server" CssClass="boton_personalizado"  Text="Atras"  Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ClienteLista.aspx" />
             <br />
             <br />
+
+           
             <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
         </div>
         </div>
