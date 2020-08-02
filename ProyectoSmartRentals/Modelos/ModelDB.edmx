@@ -67,7 +67,7 @@
           <Property Name="ctr_numeroContrato" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="ctr_fechainicio" Type="date" Nullable="false" />
           <Property Name="ctr_fechafinalizacion" Type="date" />
-          <Property Name="ctr_monto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ctr_monto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="ctr_activo" Type="bit" />
           <Property Name="ctr_file" Type="varchar" MaxLength="255" />
           <Property Name="fk_alq_id_propiedad" Type="int" Nullable="false" />
@@ -359,6 +359,10 @@
         </Function>
         <Function Name="sp_EliminarAdminRental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_EliminarContrato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_id_ctr_contrato" Type="int" Mode="In" />
+          <Parameter Name="v_ctr_activo" Type="bit" Mode="In" />
         </Function>
         <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -854,7 +858,7 @@
           <Property Name="ctr_numeroContrato" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ctr_fechainicio" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ctr_fechafinalizacion" Type="DateTime" Precision="0" />
-          <Property Name="ctr_monto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ctr_monto" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="ctr_activo" Type="Boolean" />
           <Property Name="ctr_file" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="fk_alq_id_propiedad" Type="Int32" Nullable="false" />
@@ -1519,10 +1523,10 @@
             <Parameter Name="v_rpp_DetallesDePago" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaPagoID" ReturnType="Collection(SmartRentalsModel.sp_RetornaPagoID_Result)">
-            <Parameter Name="v_rpp_IDReportarPago" Mode="In" Type="Int32" />
+          <Parameter Name="v_rpp_IDReportarPago" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaPagosRealizadosDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaPagosRealizadosDataGrid_Result)">
-            <Parameter Name="v_rpp_estadoDePago" Mode="In" Type="Boolean" />
+          <Parameter Name="v_rpp_estadoDePago" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaReportarPago" ReturnType="Collection(SmartRentalsModel.sp_RetornaReportarPago_Result)">
             <Parameter Name="v_rpp_IDReportarPago" Mode="In" Type="Int32" />
@@ -1543,6 +1547,10 @@
             <Parameter Name="v_fecha_Pagofinalizacion2" Mode="In" Type="DateTime" />
             <Parameter Name="v_rpp_DetallesDePago" Mode="In" Type="String" />
             <Parameter Name="v_ctr_contrato" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_EliminarContrato">
+            <Parameter Name="v_id_ctr_contrato" Mode="In" Type="Int32" />
+            <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
@@ -2482,6 +2490,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_EliminarContrato" FunctionName="SmartRentalsModel.Store.sp_EliminarContrato" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

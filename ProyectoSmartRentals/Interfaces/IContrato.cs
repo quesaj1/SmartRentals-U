@@ -43,6 +43,12 @@ namespace ProyectoSmartRentals.Interfaces
              Nullable<System.DateTime> v_fechaPago);
         #endregion
 
+        #region Metodo Modificar Contrato
+        bool EliminarCliente(
+             int id_ctr_contrato,
+             Nullable<bool> ctr_activo
+             );
+        #endregion
         //#region Metodo Eliminar Cliente
         //bool EliminalCliente(int cli_Cliente);
         //#endregion

@@ -93,6 +93,8 @@ namespace ProyectoSmartRentals.Formularios
 
             if (texto.Equals("Activos"))
             {
+                this.grdListaContratos.Columns[9].Visible = true;
+                this.grdListaContratos.Columns[10].Visible = true;
                 this.grdListaContratos.DataSource =
                     oContratos.RetornarContratoDataGrid(true, _fk_admin_rental);
                 ///indicar al grid que se muestre
@@ -101,7 +103,7 @@ namespace ProyectoSmartRentals.Formularios
             else
             {
                 this.grdListaContratos.Columns[9].Visible = false;
-                this.grdListaContratos.Columns[8].Visible = false;
+                this.grdListaContratos.Columns[10].Visible = false;
                 this.grdListaContratos.DataSource =
               oContratos.RetornarContratoDataGrid(false, _fk_admin_rental);
                 ///indicar al grid que se muestre

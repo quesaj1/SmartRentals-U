@@ -116,24 +116,51 @@ namespace ProyectoSmartRentals.Formularios
 
                     C_Contrato oContratos = new C_Contrato();
                     DateTime now = DateTime.Now;
-                    if (oContratos.ModificarCliente(id_contrato, Convert.ToInt16(this.DropDownListCliente.Text), this.txtContratoNumero.Text,
-                       now, now, Convert.ToDecimal(this.txtMonto.Text), false, "aun nada",
-                       Convert.ToInt16(this.DropDownPropiedad.Text),1, now)
-                        )
+                    if (oContratos.EliminarCliente(id_contrato , false))
+                        
                     {
-                        this.lblResultado.Text = "Registro Eliminado";
+                        this.btnAgregar.Visible = false;
+                        this.btnAtras.Text = "Atrás";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+
+                        //this.lblResultado.Text = "Registro Eliminado";
                     }
                     else
                     {
-                        this.lblResultado.Text = "No se pudo eliminar el registro";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                        //this.lblResultado.Text = "No se pudo eliminar el registro";
                     }
 
                 }
                 catch (Exception error)
                 {
-                    this.lblResultado.Text = "No se pudo eliminar: " + error;
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                    //this.lblResultado.Text = "No se pudo eliminar: " + error;
                 }
             }
+        }
+
+        protected void ShowPopup(object sender, EventArgs e)
+        {
+
+            string title = "Eliminar registro";
+            string body =
+                         "¿Está seguro de eliminar este contrato? Este cambio no puede revertirse" + "<br/>" + "<br/>" +
+                         "No. Contrato :" + "&nbsp" + this.txtContratoNumero.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                         "Cliente :" + "&nbsp;&nbsp " + this.DropDownListCliente.SelectedItem.ToString() + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                         "Fecha de Inicio :" + " &nbsp;&nbsp;&nbsp;&nbsp" + this.txtFechaInicio.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                         "Fecha de Finalización :" + " &nbsp;&nbsp;&nbsp;&nbsp" + this.txtFechaFinaliacion.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                         "Inicio Fecha de Pago :" + " &nbsp;&nbsp;&nbsp;&nbsp" + this.txtFechaPago.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                         "Monto Mensual :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp ₡" + this.txtMonto.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                         "Propiedad :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + this.DropDownPropiedad.SelectedItem.ToString() + "<br/>";
+
+            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
         }
 
         public void cargarDatos()

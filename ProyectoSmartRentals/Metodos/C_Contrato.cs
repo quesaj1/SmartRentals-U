@@ -123,5 +123,23 @@ namespace ProyectoSmartRentals.Metodos
             return resultado;
         }
 
+        public bool EliminarCliente(int id_ctr_contrato, bool? ctr_activo)
+        {
+
+            try
+            {
+                int registroAfectados = 0;
+                registroAfectados = this.modeloDB.sp_EliminarContrato(id_ctr_contrato, ctr_activo);
+
+                if (registroAfectados > 0)
+                    return true;
+            }
+            catch (Exception error)
+            {
+
+                throw error;
+            }
+            return false;
+        }
     }
 }

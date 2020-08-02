@@ -1351,5 +1351,18 @@ namespace ProyectoSmartRentals.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaReportePagos_Result>("sp_RetornaReportePagos", v_rpp_IDReportarPagoParameter, v_fk_cli_clienteParameter, v_fk_ctr_IDContratoParameter, v_estadoParameter, v_fecha_Pagoinicio1Parameter, v_fecha_Pagoinicio2Parameter, v_fecha_Pagofinalizacion1Parameter, v_fecha_Pagofinalizacion2Parameter, v_rpp_DetallesDePagoParameter, v_ctr_contratoParameter);
         }
+    
+        public virtual int sp_EliminarContrato(Nullable<int> v_id_ctr_contrato, Nullable<bool> v_ctr_activo)
+        {
+            var v_id_ctr_contratoParameter = v_id_ctr_contrato.HasValue ?
+                new ObjectParameter("v_id_ctr_contrato", v_id_ctr_contrato) :
+                new ObjectParameter("v_id_ctr_contrato", typeof(int));
+    
+            var v_ctr_activoParameter = v_ctr_activo.HasValue ?
+                new ObjectParameter("v_ctr_activo", v_ctr_activo) :
+                new ObjectParameter("v_ctr_activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EliminarContrato", v_id_ctr_contratoParameter, v_ctr_activoParameter);
+        }
     }
 }
