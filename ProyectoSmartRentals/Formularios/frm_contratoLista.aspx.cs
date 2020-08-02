@@ -100,11 +100,27 @@ namespace ProyectoSmartRentals.Formularios
             }
             else
             {
+                this.grdListaContratos.Columns[9].Visible = false;
+                this.grdListaContratos.Columns[8].Visible = false;
                 this.grdListaContratos.DataSource =
               oContratos.RetornarContratoDataGrid(false, _fk_admin_rental);
                 ///indicar al grid que se muestre
                 this.grdListaContratos.DataBind();
+             
             }
+        }
+
+        protected void grdListaContratos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grdListaContratos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ///asignar al grid el nuevo índice de la página del grid
+            this.grdListaContratos.PageIndex = e.NewPageIndex;
+            ///asignar nuevamente la fuente de datos al grid
+            this.cargardatosGrid();
         }
     }
 }

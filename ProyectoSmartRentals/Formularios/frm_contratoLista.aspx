@@ -24,7 +24,7 @@
               <div class="form-group col-sm-3">
                 <!-- Ubicacion -->
                 <label for="txtUbicacionExacta">Buscar: </label>
-                   <asp:TextBox ID="txtSearch"  CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaContratos')"  runat="server" Height="31px" Width="195px"></asp:TextBox>
+                   <asp:TextBox ID="txtSearch" ForeColor="Black" CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaContratos')"  runat="server" Height="31px" Width="195px"></asp:TextBox>
             </div>
               <div class="form-group col-sm-3">
                 <!-- Tipo Propiedad -->
@@ -32,7 +32,7 @@
                   <br/>
                 
 
-                  <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                  <asp:DropDownList ID="DropDownList1" class="custom-select" ForeColor="Black" CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                       <asp:ListItem Value="0">Activos</asp:ListItem>
                        <asp:ListItem Value="1">Desactivados</asp:ListItem>
                     
@@ -49,10 +49,15 @@
       <div style= "margin-left: 10%">
         <p>
                 
-                <asp:GridView ID="grdListaContratos" CssClass="table" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnSelectedIndexChanged="grdListaAdminRentals_SelectedIndexChanged">
+                <asp:GridView ID="grdListaContratos" CssClass="table" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnPageIndexChanging="grdListaContratos_PageIndexChanging" OnSelectedIndexChanged="grdListaContratos_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
-                         <asp:BoundField DataField="id_ctr_contrato" HeaderText="ID" Visible="False" />
+                        <asp:TemplateField HeaderText="Ítem">
+                        <ItemTemplate>
+                        <%# Container.DataItemIndex + 1 %>
+                        </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="id_ctr_contrato" HeaderText="ID" Visible="False" />
                         <asp:BoundField DataField="ctr_numeroContrato" HeaderText="Contrato" />
                         <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                         <asp:BoundField DataField="ctr_fechainicio" HeaderText="Fecha de inicio" />
@@ -60,8 +65,11 @@
                         <asp:BoundField DataField="ctr_monto" HeaderText="Valor mensual" />
                         <asp:BoundField DataField="ctr_file" HeaderText="Contrato" />
                         <asp:BoundField DataField="alq_ubicacionExacta" HeaderText="Ubicación" />
-                        <asp:HyperLinkField DataNavigateUrlFields="id_ctr_contrato" DataNavigateUrlFormatString="frm_ContratoModifica?id_ctr_contrato={0}" Text="Modificar" />
-                        <asp:HyperLinkField DataNavigateUrlFields="id_ctr_contrato" DataNavigateUrlFormatString="frm_ContratoElimina?id_ctr_contrato={0}" Text="Eliminar" />
+                        <asp:HyperLinkField  HeaderText="Acciones" DataNavigateUrlFields="id_ctr_contrato" DataNavigateUrlFormatString="frm_ContratoModifica?id_ctr_contrato={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>' ItemStyle-Width="25px" />
+                        <asp:HyperLinkField  DataNavigateUrlFields="id_ctr_contrato" DataNavigateUrlFormatString="frm_ContratoElimina?id_ctr_contrato={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red;"></i>' ItemStyle-Width="25px" />
+                           
+                        <%--<asp:HyperLinkField DataNavigateUrlFields="id_ctr_contrato" DataNavigateUrlFormatString="frm_ContratoModifica?id_ctr_contrato={0}" Text="Modificar" />
+                        <asp:HyperLinkField DataNavigateUrlFields="id_ctr_contrato" DataNavigateUrlFormatString="frm_ContratoElimina?id_ctr_contrato={0}" Text="Eliminar" />--%>
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

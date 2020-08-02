@@ -182,47 +182,47 @@ input[type="date"], focus {
                 <!-- Numero de contrato -->
                 <label for="txtContratoNumero">Número de contrato <span style="color:red;">*</span></label> <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrato" runat="server" ControlToValidate="txtContratoNumero" ErrorMessage="*Debe ingresar un contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtContratoNumero" type="text" CssClass="form-control" placeholder="Número de contrato" runat="server" MaxLength="25"></asp:TextBox>
+                <asp:TextBox ID="txtContratoNumero" ForeColor="Black" type="text" CssClass="form-control" placeholder="Número de contrato" runat="server" MaxLength="25"></asp:TextBox>
             </div>
                <div class="form-group col-md-6">
                 <!-- Cliente -->
                 <label for="txtCliente">Cliente <span style="color:red;">*</span></label>
-                  <asp:DropDownList ID="DropDownListCliente" placeholder="Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+                  <asp:DropDownList ID="DropDownListCliente" ForeColor="Black" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de inicio -->
                 <label for="txtFechaInicio">Fecha de inicio <span style="color:red;">*</span></label> <br />
                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaInicio" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtFechaInicio" type="date" CssClass="form-control" placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox>             
+                <asp:TextBox ID="txtFechaInicio" type="date" ForeColor="Black" CssClass="form-control" placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de finalización -->
                 <label for="txtFechaFinaliacion">Fecha de finalización</label> <br />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaFin" runat="server" ControlToValidate="txtFechaFinaliacion" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtFechaFinaliacion" type="date" CssClass="form-control"  runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtFechaFinaliacion" type="date" ForeColor="Black" CssClass="form-control"  runat="server" MaxLength="50"></asp:TextBox>
             </div>
                  <div class="form-group col-md-6">
                 <!-- Propiedad -->
                 <label for="txtPropiedad">Propiedad <span style="color:red;">*</span></label>
-                  <asp:DropDownList ID="DropDownPropiedad"  DataTextField="Propiedad" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+                  <asp:DropDownList ID="DropDownPropiedad"  DataTextField="Propiedad" ForeColor="Black" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
               <div class="form-group col-md-6">
                 <!-- Monto mensual -->
                 <label for="txtMonto">Monto Mensual<span style="color:red;">*</span></label> <br />
                   <asp:RequiredFieldValidator ID="RequiredFieldValidatorMonto" runat="server" ControlToValidate="txtMonto" ErrorMessage="*Debe ingresar un monto mensual*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" placeholder="0,0" runat="server" MaxLength="18"></asp:TextBox>
+                <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" ForeColor="Black" placeholder="0,0" runat="server" MaxLength="18"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 
                 <label for="txtFechaPago">Fecha de Pago <span style="color:red;">*</span></label> <br />
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFechaPago" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control"  runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control" ForeColor="Black" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- URL Contrato -->
                 <label for="txtContrato">Contrato <span style="color:red;">*</span></label><br />
                   <asp:RequiredFieldValidator ID="RequiredFieldValidatorFile" runat="server" ControlToValidate="up_Contrato" ErrorMessage="*Debe adjuntar un archivo*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:FileUpload ID="up_Contrato" CssClass="form-control" runat="server" />
+                <asp:FileUpload ID="up_Contrato" CssClass="form-control" ForeColor="Black" runat="server" />
                    <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="red"></asp:Label>
             </div>  
 
