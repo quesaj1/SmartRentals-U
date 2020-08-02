@@ -1,12 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_ContratoAgregar.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_ContratoAgregar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <script type="text/javascript">
-            function ShowPopup(title, body) {
-                $("#MyPopup .modal-title").html(title);
-                $("#MyPopup .modal-body").html(body);
-                $("#MyPopup").modal("show");
-            }
-        </script>
+      
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <style type="text/css">
@@ -151,7 +145,9 @@ input[type="date"], focus {
 
 
     <%--Finaliza las librerias--%>
-    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <!-- Modal Popup -->
 
     <div id="MyPopup" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true">
@@ -184,7 +180,8 @@ input[type="date"], focus {
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
             <div class="form-group col-md-6">
                 <!-- Numero de contrato -->
-                <label for="txtContratoNumero">Número de contrato <span style="color:red;">*</span></label>
+                <label for="txtContratoNumero">Número de contrato <span style="color:red;">*</span></label> <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrato" runat="server" ControlToValidate="txtContratoNumero" ErrorMessage="*Debe ingresar un contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtContratoNumero" type="text" CssClass="form-control" placeholder="Número de contrato" runat="server" MaxLength="25"></asp:TextBox>
             </div>
                <div class="form-group col-md-6">
@@ -194,13 +191,15 @@ input[type="date"], focus {
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de inicio -->
-                <label for="txtFechaInicio">Fecha de inicio <span style="color:red;">*</span></label>
+                <label for="txtFechaInicio">Fecha de inicio <span style="color:red;">*</span></label> <br />
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaInicio" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtFechaInicio" type="date" CssClass="form-control" placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de finalización -->
-                <label for="txtFechaFinaliacion">Fecha de finalización</label>
-                <asp:TextBox ID="txtFechaFinaliacion" type="date" CssClass="form-control" placeholder="Fecha de finalización" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtFechaFinaliacion">Fecha de finalización</label> <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaFin" runat="server" ControlToValidate="txtFechaFinaliacion" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtFechaFinaliacion" type="date" CssClass="form-control"  runat="server" MaxLength="50"></asp:TextBox>
             </div>
                  <div class="form-group col-md-6">
                 <!-- Propiedad -->
@@ -209,17 +208,20 @@ input[type="date"], focus {
             </div>
               <div class="form-group col-md-6">
                 <!-- Monto mensual -->
-                <label for="txtMonto">Monto Mensual<span style="color:red;">*</span></label>
-                <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtMonto">Monto Mensual<span style="color:red;">*</span></label> <br />
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorMonto" runat="server" ControlToValidate="txtMonto" ErrorMessage="*Debe ingresar un monto mensual*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" placeholder="0,0" runat="server" MaxLength="18"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 
-                <label for="txtFechaPago">Fecha de Pago <span style="color:red;">*</span></label>
-                <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtFechaPago">Fecha de Pago <span style="color:red;">*</span></label> <br />
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFechaPago" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control"  runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- URL Contrato -->
-                <label for="txtContrato">Contrato <span style="color:red;">*</span></label>
+                <label for="txtContrato">Contrato <span style="color:red;">*</span></label><br />
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorFile" runat="server" ControlToValidate="up_Contrato" ErrorMessage="*Debe adjuntar un archivo*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:FileUpload ID="up_Contrato" CssClass="form-control" runat="server" />
                    <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="red"></asp:Label>
             </div>  
@@ -232,13 +234,13 @@ input[type="date"], focus {
         
         <div class="form-group" style="text-align:center">
             <!-- Submit Button -->
-            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado"  Text="Agregar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click" />
+            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado"  Text="Agregar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click"  ValidationGroup="Save" />
             &nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnAtras" runat="server" CssClass="boton_personalizado"  Text="Atras"  Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ClienteLista.aspx" />
             <br />
             <br />
 
-           
+            
             <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
         </div>
         </div>
@@ -258,4 +260,27 @@ input[type="date"], focus {
           );
     })
       </script>
+
+    <script>
+        function alertmeError(){
+            swal({
+                title: "Error al agregar",
+                text: "Ha ocurrido un error al agregar el contrato. Si el problema persiste contacte al administrador del sistema",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+       });
+        }
+
+        function alertmeSuccess() {
+            swal({
+                title: "Contrato agregado",
+                text: "El contrato ha sido guardado satisfactoriamente",
+                type: "success",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#55407D"
+            });
+        }
+    </script>
+        
 </asp:Content>

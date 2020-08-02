@@ -15,6 +15,15 @@ namespace ProyectoSmartRentals.Formularios
     {
 
         /// <summary>
+        /// Control RequiredFieldValidatorContrato.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorContrato;
+
+        /// <summary>
         /// Control txtContratoNumero.
         /// </summary>
         /// <remarks>
@@ -33,6 +42,15 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.DropDownList DropDownListCliente;
 
         /// <summary>
+        /// Control RequiredFieldValidatorFechaIni.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFechaIni;
+
+        /// <summary>
         /// Control txtFechaInicio.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,15 @@ namespace ProyectoSmartRentals.Formularios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaInicio;
+
+        /// <summary>
+        /// Control RequiredFieldValidatorFechaFin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFechaFin;
 
         /// <summary>
         /// Control txtFechaFinaliacion.
@@ -60,6 +87,15 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.DropDownList DropDownPropiedad;
 
         /// <summary>
+        /// Control RequiredFieldValidatorMonto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMonto;
+
+        /// <summary>
         /// Control txtMonto.
         /// </summary>
         /// <remarks>
@@ -69,6 +105,15 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.TextBox txtMonto;
 
         /// <summary>
+        /// Control RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
         /// Control txtFechaPago.
         /// </summary>
         /// <remarks>
@@ -76,6 +121,15 @@ namespace ProyectoSmartRentals.Formularios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaPago;
+
+        /// <summary>
+        /// Control RequiredFieldValidatorFile.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFile;
 
         /// <summary>
         /// Control up_Contrato.
