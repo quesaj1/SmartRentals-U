@@ -4,17 +4,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <style type="text/css">
-    .boton_personalizado{
+  .boton_personalizado{
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
-    background-color: #2ECC71;
+    background-color: #adc867;
+    border-radius:5px;
   }
   .boton_personalizado:hover{
-    color: #1883ba;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #55407d;
+    border-radius:5px;
   }
-
     
 /*@keyframes showTopText {
   0% { transform: translate3d(0, 100%, 0); }
@@ -182,7 +183,7 @@ input[type="date"], focus {
                 <!-- Numero de contrato -->
                 <label for="txtContratoNumero">Número de contrato <span style="color:red;">*</span></label> <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrato" runat="server" ControlToValidate="txtContratoNumero" ErrorMessage="*Debe ingresar un contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtContratoNumero" ForeColor="Black" type="text" CssClass="form-control" placeholder="Número de contrato" runat="server" MaxLength="25"></asp:TextBox>
+                <asp:TextBox ID="txtContratoNumero" ForeColor="Black" type="text" CssClass="form-control" placeholder="Número de contrato" runat="server" MaxLength="10"></asp:TextBox>
             </div>
                <div class="form-group col-md-6">
                 <!-- Cliente -->
@@ -198,7 +199,7 @@ input[type="date"], focus {
               <div class="form-group col-md-6">
                 <!-- Fecha de finalización -->
                 <label for="txtFechaFinaliacion">Fecha de finalización</label> <br />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaFin" runat="server" ControlToValidate="txtFechaFinaliacion" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                   
                 <asp:TextBox ID="txtFechaFinaliacion" type="date" ForeColor="Black" CssClass="form-control"  runat="server" MaxLength="50"></asp:TextBox>
             </div>
                  <div class="form-group col-md-6">

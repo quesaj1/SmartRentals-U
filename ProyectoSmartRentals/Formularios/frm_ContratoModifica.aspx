@@ -2,7 +2,40 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+          .boton_personalizado{
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #adc867;
+    border-radius:5px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #55407d;
+    border-radius:5px;
+  }
 
+  /*Agregar esto para el diseño del select2 de los dropdownlists*/
+.select2-selection__rendered {
+    line-height: 23px !important;
+    font-family: Montserrat, sans-serif; 
+    font-size: 16px;
+    color: #6c757d !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 35px !important;
+}
+
+.select2-selection { overflow: hidden; }
+.select2-selection__rendered { white-space: normal; word-break: break-all; }
+
+/*Finaliza el estilo del select2 dropdownlist */
+
+    </style>
    <%-- <style>
 
            
@@ -101,6 +134,20 @@ input[type="date"], focus {
 
 
     </style>--%>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+    <link href="../Content/css/select2.min.css" rel="stylesheet" /> 
+    <script src="../Scripts/select2.min.js"></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+
+
+    <%--Finaliza las librerias--%>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     
            <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
          <h1 style="text-align: center">Modificar Contrato</h1>
@@ -108,43 +155,48 @@ input[type="date"], focus {
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
             <div class="form-group col-md-6">
                 <!-- Numero de contrato -->
-                <label for="txtContratoNumero"></label>
-                <asp:TextBox ID="txtContratoNumero" type="text" CssClass="form-control" placeholder="Número de contrato" runat="server" MaxLength="25"></asp:TextBox>
+                <label for="txtContratoNumero">Número de contrato <span style="color:red;">*</span></label> <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrato" runat="server" ControlToValidate="txtContratoNumero" ErrorMessage="*Debe ingresar un contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtContratoNumero" type="text" ForeColor="Black" CssClass="form-control" placeholder="Número de contrato" runat="server" MaxLength="10"></asp:TextBox>
             </div>
                <div class="form-group col-md-6">
                 <!-- Cliente -->
-                <label for="txtCliente"></label>
-                  <asp:DropDownList ID="DropDownListCliente" placeholder="Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+                   <asp:TextBox ID="txtAdmin" runat="server" Visible="false"></asp:TextBox>
+                <label for="txtCliente">Cliente <span style="color:red;">*</span></label><br />
+                  <asp:DropDownList ID="DropDownListCliente" ForeColor="Black" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de inicio -->
-                <label for="txtFechaInicio"></label>
-                <asp:TextBox ID="txtFechaInicio" type="date" CssClass="form-control" placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox>             
+                <label for="txtFechaInicio">Fecha de inicio <span style="color:red;">*</span></label><br />
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaInicio" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtFechaInicio" type="date" ForeColor="Black" CssClass="form-control" placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de finalización -->
-                <label for="txtFechaFinaliacion"></label>
-                <asp:TextBox ID="txtFechaFinaliacion" type="date" CssClass="form-control" placeholder="Fecha de finalización" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtFechaFinaliacion">Fecha de finalización</label> <br />
+                <asp:TextBox ID="txtFechaFinaliacion" type="date" ForeColor="Black" CssClass="form-control" placeholder="Fecha de finalización" runat="server" MaxLength="50"></asp:TextBox>
             </div>
                  <div class="form-group col-md-6">
                 <!-- Propiedad -->
-                <label for="txtPropiedad">Propiedad</label>
-                  <asp:DropDownList ID="DropDownPropiedad"  DataTextField="Propiedad" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+                <label for="txtPropiedad">Propiedad <span style="color:red;">*</span></label> <br />
+                  <asp:DropDownList ID="DropDownPropiedad" ForeColor="Black" DataTextField="Propiedad" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
               <div class="form-group col-md-6">
                 <!-- Monto mensual -->
-                <label for="txtMonto"></label>
-                <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtMonto">Monto Mensual<span style="color:red;">*</span></label><br />
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorMonto" runat="server" ControlToValidate="txtMonto" ErrorMessage="*Debe ingresar un monto mensual*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtMonto" type="text" ForeColor="Black" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
             </div>
              <div class="form-group col-md-6">
                 
-                <label for="txtFechaPago"></label>
-                <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtFechaPago">Fecha de Pago <span style="color:red;">*</span></label><br />
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFechaPago" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtFechaPago" type="date" ForeColor="Black" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- URL Contrato -->
-                <label for="txtContrato">Contrato</label>
-                <asp:FileUpload ID="contrato" CssClass="form-control" runat="server" />
+                <label for="txtContrato">Contrato <span style="color:red;">*</span></label><br />
+                <asp:FileUpload ID="contrato" ForeColor="Black" CssClass="form-control" runat="server" />
             </div>  
              
 
@@ -153,12 +205,47 @@ input[type="date"], focus {
         
         <div class="form-group" style="text-align:center">
             <!-- Submit Button -->
-            <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-primary"  Text="Modificar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click" />
+            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado"  Text="Modificar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnAtras" runat="server" CssClass="btn btn-danger"  Text="Cancelar"  Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ContratoLista.aspx" />
+            <asp:Button ID="btnAtras" runat="server" CssClass="boton_personalizado"  Text="Cancelar"  Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ContratoLista.aspx" />
             <br />
             <br />
             <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
         </div>
         </div>
+
+
+<script>
+      $(function () {
+          $("#<%=DropDownListCliente.ClientID%>").select2({
+              selectOnClose: true,
+              theme: 'bootstrap',
+              height: '100%',
+              width: '100%'
+                     }
+          );
+    })
+      </script>
+
+    <script>
+        function alertmeError(){
+            swal({
+                title: "Error al modificar el contrato",
+                text: "Ha ocurrido un error al modificar el contrato. Si el problema persiste contacte al administrador del sistema",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+       });
+        }
+
+        function alertmeSuccess() {
+            swal({
+                title: "Contrato modificado",
+                text: "El contrato ha sido guardado satisfactoriamente",
+                type: "success",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#55407D"
+            });
+        }
+    </script>
 </asp:Content>
