@@ -118,23 +118,42 @@ namespace ProyectoSmartRentals.Formularios
                 {
 
                     C_Tiquetes oTiquetes = new C_Tiquetes();
-                    DateTime now = DateTime.Now;
+                    Nullable < DateTime > now;
                     string  nota = this.txtNota.Value;
-                    decimal monto = Convert.ToDecimal(this.txtPrecio.Text);
+                    decimal monto;
                     string _estado = this.DropDownEstado.SelectedItem.ToString();
-                    if (oTiquetes.ModificaTiqueteProveedor(id_tiquete,nota,now,monto, _estado))
+                    if(_estado.Equals("Completado"))
                     {
-                        this.lblResultado.Text = "Registro Modificado";
+                        now = DateTime.Now;
                     }
                     else
                     {
-                        this.lblResultado.Text = "No se pudo modificar";
+                        now = null;
+                    }
+                    if (this.txtPrecio.Text.Equals(""))
+                    {
+                        monto = 0;
+                    }
+                    else
+                    {
+                        monto = Convert.ToDecimal(this.txtPrecio.Text);
+                    }
+                    if (oTiquetes.ModificaTiqueteProveedor(id_tiquete,nota,now,monto, _estado))
+                    {
+                        //this.lblResultado.Text = "Registro Modificado";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                    }
+                    else
+                    {
+                        //this.lblResultado.Text = "No se pudo modificar";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                     }
 
                 }
                 catch (Exception error)
                 {
-                    this.lblResultado.Text = "No se pudo modificar: " + error;
+                    //this.lblResultado.Text = "No se pudo modificar: " + error;
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
             }
         }

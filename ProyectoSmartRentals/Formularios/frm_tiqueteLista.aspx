@@ -23,7 +23,7 @@
               <div class="form-group col-sm-3">
                 <!-- Ubicacion -->
                 <label for="txtUbicacionExacta">Buscar: </label>
-                   <asp:TextBox ID="txtSearch"  CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaTiquetes')"  runat="server" Height="31px" Width="195px"></asp:TextBox>
+                   <asp:TextBox ID="txtSearch"  CssClass="form-control" ForeColor="Black" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaTiquetes')"  runat="server" Height="31px" Width="195px"></asp:TextBox>
             </div>
               <div class="form-group col-sm-3">
                 <!-- Tipo Propiedad -->
@@ -31,7 +31,7 @@
                   <br/>
                 
 
-                  <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                  <asp:DropDownList ID="DropDownList1" class="custom-select" ForeColor="Black" CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                       <asp:ListItem Value="0">Todos</asp:ListItem>
                        <asp:ListItem Value="1">Pendiente</asp:ListItem>
                        <asp:ListItem Value="2">En progreso</asp:ListItem>
@@ -49,9 +49,14 @@
       <div style= "margin-left: 10%">
         <p>
                 
-                <asp:GridView ID="grdListaTiquetes" CssClass="table" runat="server"  AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal">
+                <asp:GridView ID="grdListaTiquetes" CssClass="table" runat="server"  AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnPageIndexChanging="grdListaTiquetes_PageIndexChanging" OnSelectedIndexChanged="grdListaTiquetes_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
+                        <asp:TemplateField HeaderText="Ítem">
+                        <ItemTemplate>
+                        <%# Container.DataItemIndex + 1 %>
+                        </ItemTemplate>
+                        </asp:TemplateField>
                          <asp:BoundField DataField="tqt_id" HeaderText="N° Tiquete"/>
                         <asp:BoundField DataField="ctr_numeroContrato" HeaderText="Contrato" />
                         <asp:BoundField DataField="tqt_tipo_problema" HeaderText="Tipo Problema" />
@@ -59,9 +64,14 @@
                         <asp:BoundField DataField="tqt_fecha_inicio" HeaderText="Fecha de inicio" />
                         <asp:BoundField DataField="tqt_fecha_finalizacion" HeaderText="Fecha de finalización" />
                         <asp:BoundField DataField="prv_nombrevariable" HeaderText="Proveedor" />
+                        <asp:BoundField DataField="tqt_precio_reparacion" HeaderText="Precio" />
+                        <asp:BoundField DataField="tqt_nota_reparacion" HeaderText="Notas" />
                  <%--       <asp:BoundField DataField="tqt_precio_reparacion" HeaderText="Costo" />--%>
-                        <asp:BoundField DataField="tqt_estado" HeaderText="Estado" />
-                        <asp:HyperLinkField DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteModifica?tqt_id={0}" Text="Modificar" />
+                        <%--<asp:BoundField DataField="tqt_estado" HeaderText="Estado" />
+                        <asp:HyperLinkField DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteModifica?tqt_id={0}" Text="Modificar" />--%>
+
+                         <asp:HyperLinkField  HeaderText="Acciones" DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteModifica?tqt_id={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>' ItemStyle-Width="25px" />
+                        <%--<asp:HyperLinkField  DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_ContratoElimina?id_ctr_contrato={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red;"></i>' ItemStyle-Width="25px" />--%>
                       
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
@@ -81,7 +91,7 @@
 
             </div>
              </div>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+   
     <br />
 
     <script src="../Scripts/Search.js"></script>

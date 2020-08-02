@@ -2,22 +2,47 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <style type="text/css">
-    .boton_personalizado{
+<style type="text/css">
+  .boton_personalizado{
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
-    background-color: #2ECC71;
+    background-color: #adc867;
+    border-radius:5px;
   }
   .boton_personalizado:hover{
-    color: #1883ba;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #55407d;
+    border-radius:5px;
   }
+
+
+
+/*Agregar esto para el diseño del select2 de los dropdownlists*/
+.select2-selection__rendered {
+    line-height: 23px !important;
+    font-family: Montserrat, sans-serif; 
+    font-size: 16px;
+    color: #6c757d !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 35px !important;
+}
+
+.select2-selection { overflow: hidden; }
+.select2-selection__rendered { white-space: normal; word-break: break-all; }
+
+/*Finaliza el estilo del select2 dropdownlist */
+
 </style>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
   
-
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     
     
 
@@ -30,12 +55,12 @@
                <div class="form-group col-md-6">
                 <!-- Correo -->
                 <label for="txtPrecio">Contrato</label>
-                <asp:TextBox ID="txtContrato" type="text" CssClass="form-control" runat="server" ReadOnly="true"></asp:TextBox>
+                <asp:TextBox ID="txtContrato" type="text" ForeColor="Black" CssClass="form-control" runat="server" ReadOnly="true"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!-- Cliente -->
                 <label for="txtCliente">Tipo de problema</label>
-                  <asp:DropDownList ID="DropDownTipo" placeholder="Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True" Enabled="False">
+                  <asp:DropDownList ID="DropDownTipo" placeholder="Cliente" DataTextField="Cliente" ForeColor="Black" CssClass="form-control" runat="server" AutoPostBack="True" Enabled="False">
                     <asp:ListItem Value="0">Seleccione un tipo de problema</asp:ListItem>
                      <asp:ListItem Value="1">Eléctrico</asp:ListItem>
                       <asp:ListItem Value="2">Fontaneria</asp:ListItem>
@@ -47,17 +72,17 @@
               <div class="form-group col-md-12">
                 <!-- Fecha de inicio -->
                 <label for="txtTitulo">Titulo</label>
-                <asp:TextBox ID="txtTitulo" type="text" CssClass="form-control" placeholder="Titulo del problema" runat="server" ReadOnly="true" MaxLength="30"></asp:TextBox>             
+                <asp:TextBox ID="txtTitulo" type="text" CssClass="form-control" ForeColor="Black" placeholder="Titulo del problema" runat="server" ReadOnly="true" MaxLength="30"></asp:TextBox>             
             </div>
              <div class="form-group col-md-12">
                 <!-- Fecha de finalización -->
                 <label for="txtDescrip">Detalles</label>
-                <textarea id="txtDescrip" runat="server" placeholder="Descripción" class="form-control"  rows="3" readonly="readonly" ></textarea>
+                <textarea id="txtDescrip" runat="server" placeholder="Descripción" ForeColor="Black" class="form-control"  rows="3" readonly="readonly" ></textarea>
             </div>
                <div class="form-group col-md-6">
                 <!-- Cliente -->
                 <label for="txtCliente">Estado</label>
-                  <asp:DropDownList ID="DropDownEstado" placeholder="Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True">
+                  <asp:DropDownList ID="DropDownEstado" DataTextField="Cliente" ForeColor="Black" CssClass="form-control" runat="server" AutoPostBack="True">
                     <asp:ListItem Value="0">Pendiente</asp:ListItem>
                      <asp:ListItem Value="1">En progreso</asp:ListItem>
                       <asp:ListItem Value="2">Completado</asp:ListItem>
@@ -68,18 +93,18 @@
             <div class="form-group col-md-6">
                 <!-- Correo -->
                 <label for="txtFechaInicio">Fecha apertura</label>
-                <asp:TextBox ID="txtFechaInicio" type="text" CssClass="form-control"  runat="server" readOnly="true"></asp:TextBox>
+                <asp:TextBox ID="txtFechaInicio" type="text" CssClass="form-control" ForeColor="Black" runat="server" readOnly="true"></asp:TextBox>
             </div>
              <div class="form-group col-md-12">
                 <!-- Fecha de finalización -->
                 <label for="txtNota">Notas</label>
-                <textarea id="txtNota" runat="server" placeholder="" class="form-control"  rows="3"></textarea>
+                <textarea id="txtNota" runat="server" placeholder="" class="form-control" ForeColor="Black" rows="3"></textarea>
             </div>
 
               <div class="form-group col-md-12">
                 <!-- Correo -->
                 <label for="txtPrecio">Precio</label>
-                <asp:TextBox ID="txtPrecio" type="text" CssClass="form-control"  runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPrecio" type="text" CssClass="form-control" ForeColor="Black" runat="server"></asp:TextBox>
             </div>
 
 
@@ -90,14 +115,34 @@
         
         <div class="form-group" style="text-align:center">
             <!-- Submit Button -->
-            <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-primary"  Text="Modificar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click" />
+            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado"  Text="Modificar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnAtras" runat="server" CssClass="btn btn-danger"  Text="Atrás"  Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_TiqueteLista.aspx" />
+            <asp:Button ID="btnAtras" runat="server" CssClass="boton_personalizado"  Text="Atrás"  Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_TiqueteLista.aspx" />
             <br />
             <br />
             <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
         </div>
         </div>
     <br /><br />
+     <script>
+        function alertmeError() {
+            swal({
+                title: "Error al modificar el tiquete",
+                text: "Ha ocurrido un error al modificar el tiquete. Si el problema persiste contacte al administrador del sistema",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+            });
+        }
 
+        function alertmeSuccess() {
+            swal({
+                title: "Se modifico el tiquete",
+                text: "El tiquete ha sido modificado satisfactoriamente",
+                type: "success",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#55407D"
+            });
+        }
+     </script>
 </asp:Content>

@@ -1,4 +1,4 @@
-﻿using ProyectoSmartRentals.Metodos;
+﻿    using ProyectoSmartRentals.Metodos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -113,20 +113,35 @@ namespace ProyectoSmartRentals.Formularios
                 C_Tiquetes oTiquete = new C_Tiquetes();
                 bool TiqueteInsertar =
                     oTiquete.InsertaTiquete(contrato,tipoProblema,true, descripcionProblema,null,
-                    now, null, null, tituloProblema, null, "Pendiente");
+                    now, null, 1, tituloProblema, null, "Pendiente");
 
 
-                if (TiqueteInsertar)
-                    this.lblResultado.Text = "Tiquete agregado";
-                else
-                    this.lblResultado.Text = "No se pudo agregar el contrato";
+                if (TiqueteInsertar) { 
+                    //this.lblResultado.Text = "Tiquete agregado";
+                    limpiar();
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                }
+
+                else { 
+                            //this.lblResultado.Text = "No se pudo agregar el contrato";
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                }
             }
             catch (Exception error)
             {
 
-                this.lblResultado.
-                    Text = "Ocurrió un error:" + error.Message;
+                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                //this.lblResultado.
+                //    Text = "Ocurrió un error:" + error.Message;
             }
+        }
+
+        public void limpiar()
+        {
+            this.txtTitulo.Text = "";
+            this.txaMessage.InnerText = "";
+            this.DropDownContratos.SelectedIndex = 0;
+            this.DropDownTipo.SelectedIndex = 0;
         }
     }
 }

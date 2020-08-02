@@ -45,7 +45,8 @@ namespace ProyectoSmartRentals.Formularios
 
         void menu()
         {
-            string _rol = Convert.ToString(Session["Tipo"]);
+            //string _rol = Convert.ToString(Session["Tipo"]);
+            _rol = "Cliente";
             if (_rol.Equals("Cliente"))
             {
                 _pk_cliente = 4;
@@ -88,26 +89,43 @@ namespace ProyectoSmartRentals.Formularios
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string texto = this.DropDownList1.SelectedItem.ToString();
-            this.Label1.Text = texto;
+       
 
             if (texto.Equals("Todos"))
             {
+                _estado = null;
                 cargardatosGrid(_pk_admin, _pk_cliente, _pk_proveedor, null, _rol);
             }
             if (texto.Equals("Pendiente"))
             {
+                _estado = "Pendiente";
                 cargardatosGrid(_pk_admin, _pk_cliente, _pk_proveedor, "Pendiente", _rol);
             }
             if (texto.Equals("Completado"))
             {
+                _estado = "Completado";
                 cargardatosGrid(_pk_admin, _pk_cliente, _pk_proveedor, "Completado", _rol);
             }
             if (texto.Equals("En progreso"))
             {
+                _estado = "En progreso";
                 cargardatosGrid(_pk_admin, _pk_cliente, _pk_proveedor, "En progreso", _rol);
             }
 
 
+        }
+
+        protected void grdListaTiquetes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        protected void grdListaTiquetes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ///asignar al grid el nuevo índice de la página del grid
+            this.grdListaTiquetes.PageIndex = e.NewPageIndex;
+            ///asignar nuevamente la fuente de datos al grid
+            this.cargardatosGrid(_pk_admin, _pk_cliente, _pk_proveedor, _estado, _rol);
         }
     }
 }
