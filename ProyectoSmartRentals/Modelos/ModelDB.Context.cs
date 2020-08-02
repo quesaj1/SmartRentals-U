@@ -1364,5 +1364,18 @@ namespace ProyectoSmartRentals.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EliminarContrato", v_id_ctr_contratoParameter, v_ctr_activoParameter);
         }
+    
+        public virtual int sp_EliminarAlquiler(Nullable<int> v_id_Propiedad, Nullable<bool> v_Activo)
+        {
+            var v_id_PropiedadParameter = v_id_Propiedad.HasValue ?
+                new ObjectParameter("v_id_Propiedad", v_id_Propiedad) :
+                new ObjectParameter("v_id_Propiedad", typeof(int));
+    
+            var v_ActivoParameter = v_Activo.HasValue ?
+                new ObjectParameter("v_Activo", v_Activo) :
+                new ObjectParameter("v_Activo", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EliminarAlquiler", v_id_PropiedadParameter, v_ActivoParameter);
+        }
     }
 }

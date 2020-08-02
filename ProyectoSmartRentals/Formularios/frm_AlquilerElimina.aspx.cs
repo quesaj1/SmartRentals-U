@@ -18,13 +18,20 @@ namespace ProyectoSmartRentals.Formularios
         int _pk_admin = 0;
         int _pk_cliente = 0;
         int _pk_proveedor = 0;
+        int _provincia;
+        int _canton = 2;
+        int _distrito = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
 
             this.hdldAlquiler.Value = this.Request.QueryString["alq_id_Propiedad"];
             CargaDatosAlquileres();
             menu();
-           
+            provincia();
+            canton();
+            distrito();
+
+
 
         }
 
@@ -87,16 +94,7 @@ namespace ProyectoSmartRentals.Formularios
                 ///
                 sp_RetornaAlquilerID_Result resultadoSp = oAlquileres.RetornaAlquilerID(id_Alquiler);
 
-                //DropDownListProvincia.DataSource = Consultar("select p.Nombre as Provincia from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia WHERE a.alq_id_Propiedad =" + id_Alquiler);
-                //DropDownListProvincia.DataBind();
-
-
-                //DropDownListCanton.DataSource = Consultar("select c.Nombre as Canton from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia INNER JOIN C_Canton c ON a.Id_Canton = c.Id_Canton WHERE a.alq_id_Propiedad = " + id_Alquiler);
-                //DropDownListCanton.DataBind();
-
-
-                //DropDownListDistrito.DataSource = Consultar("select d.Nombre as Distrito from C_Alquiler a INNER JOIN C_Provincia p ON a.Id_Provincia = p.Id_Provincia INNER JOIN C_Canton c ON a.Id_Canton = c.Id_Canton INNER JOIN C_Distrito d ON a.Id_Distrito = d.Id_Distrito WHERE a.alq_id_Propiedad =" + id_Alquiler);
-                //DropDownListDistrito.DataBind();
+              
 
 
 
@@ -111,10 +109,49 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtCanton.Text = resultadoSp.Id_Canton.ToString();
                     this.txtProvincia.Text = resultadoSp.Id_Provincia.ToString();
                     this.txtImagen.Text = resultadoSp.alq_ImagenURL;
-                    
+                    _provincia = Convert.ToInt32(this.txtProvincia.Text);
+                    _canton = Convert.ToInt32(this.txtCanton.Text);
+                    _distrito = Convert.ToInt32(this.txtDistrito.Text);
+
+
+          
+
+
+       
+
+
+                
+
                 }
 
             }
+        }
+
+        public void provincia()
+        {
+            DropDownListProvincia.DataSource = Consultar("select * from C_Provincia where id_provincia = " + _provincia);
+            DropDownListProvincia.DataTextField = "nombre";
+            DropDownListProvincia.DataValueField = "id_provincia";
+            DropDownListProvincia.DataBind();
+            this.txtProvincia.Text = this.DropDownListProvincia.SelectedItem.ToString();
+        }
+
+        public void canton()
+        {
+            DropDownListCanton.DataSource = Consultar(" select * from C_Canton where Id_Canton= " + _canton);
+            DropDownListProvincia.DataTextField = "nombre";
+            DropDownListProvincia.DataValueField = "Id_Canton";
+            DropDownListCanton.DataBind();
+            this.txtCanton.Text = this.DropDownListCanton.SelectedItem.ToString();
+        }
+
+        public void distrito()
+        {
+            DropDownListDistrito.DataSource = Consultar("select * from C_Distrito where Id_Distrito = " + _distrito);
+            DropDownListProvincia.DataTextField = "nombre";
+            DropDownListProvincia.DataValueField = "C_Distrito";
+            DropDownListDistrito.DataBind();
+            this.txtDistrito.Text = this.DropDownListDistrito.SelectedItem.ToString();
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -132,20 +169,19 @@ namespace ProyectoSmartRentals.Formularios
                     C_Alquileres oAlquileres = new C_Alquileres();
 
 
-                    if (oAlquileres.ModificaAlquiler(id_contrato,
-                        txtUbicacionExacta.Text, txtTipoPropiedad.Text,
-                        txtDetalles.Text, Convert.ToInt16(txtDistrito.Text),
-                        Convert.ToInt16(txtCanton.Text),
-                        Convert.ToInt16(txtProvincia.Text), txtImagen.Text, false))
+                    if (oAlquileres.EliminarAlquiler(id_contrato, false))
 
-                        this.lblResultado.Text = "Registro eliminado";
+                        //this.lblResultado.Text = "Registro eliminado";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
 
                     else
-                        this.lblResultado.Text = "No fue posible eliminar";
+                        //this.lblResultado.Text = "No fue posible eliminar";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
                 catch (Exception error)
                 {
-                    this.lblResultado.Text = "Ocurrió un error:" + error.Message;
+                    //this.lblResultado.Text = "Ocurrió un error:" + error.Message;
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
 
             }
@@ -166,11 +202,11 @@ namespace ProyectoSmartRentals.Formularios
                         "--------------------------------------------------------" + "<br/>" +
                         "Propiedad :" +"&nbsp;&nbsp " +txtTipoPropiedad.Text +"<br/>" +
                         "--------------------------------------------------------" + "<br/>" +
-                        "Provincia :" + " &nbsp;&nbsp;&nbsp;&nbsp" + txtProvincia.Text+ "<br/>" +
+                        "Provincia :" + " &nbsp;&nbsp;&nbsp;&nbsp" + this.DropDownListProvincia.SelectedItem.ToString() + "<br/>" +
                         "--------------------------------------------------------" + "<br/>" +
-                        "Cantón :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + txtCanton.Text + "<br/>" +
+                        "Cantón :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + this.DropDownListCanton.SelectedItem.ToString() + "<br/>" +
                         "--------------------------------------------------------" + "<br/>" +
-                        "Distrito :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + txtDistrito.Text + "<br/>";
+                        "Distrito :" + "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp " + this.DropDownListDistrito.SelectedItem.ToString() + "<br/>";
 
             ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
         }

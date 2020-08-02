@@ -14,6 +14,28 @@ namespace ProyectoSmartRentals.Metodos
 
 
         SmartRentalsEntities1 modeloDB = new SmartRentalsEntities1();
+
+        public bool EliminarAlquiler(int alq_id_Propiedad, bool? alq_Activo)
+        {
+            try
+            {
+
+                int registrosAfectados = 0;
+                registrosAfectados =
+                    this.modeloDB.sp_EliminarAlquiler(alq_id_Propiedad, alq_Activo);
+
+
+
+                if (registrosAfectados > 0)
+                    return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return false;
+        }
+
         //public bool EliminaAlquiler(int alq_id_Propiedad)
         //{
 

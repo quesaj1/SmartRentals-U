@@ -36,6 +36,11 @@ namespace ProyectoSmartRentals.Interfaces
 
         //bool EliminaAlquiler(int alq_id_Propiedad);
 
+        bool EliminarAlquiler(
+       int alq_id_Propiedad,
+       Nullable<bool> alq_Activo
+          );
+
         List<sp_RetornaAlquiler_Result>
                 RetornaAlquiler(
                 int alq_id_Propiedad, 

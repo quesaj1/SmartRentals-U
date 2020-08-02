@@ -134,7 +134,7 @@
           <Property Name="tqt_fecha_finalizacion" Type="datetime" />
           <Property Name="fk_prv_idProveedor" Type="int" />
           <Property Name="tqt_titulo" Type="varchar" MaxLength="30" />
-          <Property Name="tqt_precio_reparacion" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="tqt_precio_reparacion" Type="decimal" Precision="18" Scale="2" />
           <Property Name="tqt_estado" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="C_Usuario">
@@ -359,6 +359,10 @@
         </Function>
         <Function Name="sp_EliminarAdminRental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_EliminarAlquiler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_id_Propiedad" Type="int" Mode="In" />
+          <Parameter Name="v_Activo" Type="bit" Mode="In" />
         </Function>
         <Function Name="sp_EliminarContrato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id_ctr_contrato" Type="int" Mode="In" />
@@ -929,7 +933,7 @@
           <Property Name="tqt_fecha_finalizacion" Type="DateTime" Precision="3" />
           <Property Name="fk_prv_idProveedor" Type="Int32" />
           <Property Name="tqt_titulo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="tqt_precio_reparacion" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tqt_precio_reparacion" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="tqt_estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="C_Contratos" Relationship="Self.FK_Tiquete_1_C_Contratos" FromRole="C_Tiquete" ToRole="C_Contratos" />
           <NavigationProperty Name="C_Proveedor" Relationship="Self.FK_Tiquete_1_C_Proveedor" FromRole="C_Tiquete" ToRole="C_Proveedor" />
@@ -1551,6 +1555,10 @@
           <FunctionImport Name="sp_EliminarContrato">
             <Parameter Name="v_id_ctr_contrato" Mode="In" Type="Int32" />
             <Parameter Name="v_ctr_activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_EliminarAlquiler">
+            <Parameter Name="v_id_Propiedad" Mode="In" Type="Int32" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
@@ -2491,6 +2499,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_EliminarContrato" FunctionName="SmartRentalsModel.Store.sp_EliminarContrato" />
+          <FunctionImportMapping FunctionImportName="sp_EliminarAlquiler" FunctionName="SmartRentalsModel.Store.sp_EliminarAlquiler" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
