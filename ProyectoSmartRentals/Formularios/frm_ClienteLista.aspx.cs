@@ -107,5 +107,10 @@ namespace ProyectoSmartRentals.Formularios
                 this.grdListaClientes.DataBind();
             }
         }
+
+        protected void grdListaClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

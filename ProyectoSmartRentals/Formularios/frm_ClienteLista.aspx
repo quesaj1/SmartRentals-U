@@ -3,7 +3,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
+<style>
+    .fa fa-search {
+    position: absolute;
+    margin-left: -10px;
+}
+</style>
           
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
 
@@ -14,7 +19,7 @@
             <div class="form-group col-sm-3" >
 
                 <!-- Id-->
-                <label for="txt_Id">Buscar:</label><br />
+                 <label for="txt_Id">Buscar: &nbsp <i class="fa fa-search" style="font-size:17px"></i></label><br />
                <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaClientes')"  runat="server" Height="31px" Width="195px"></asp:TextBox>    
             </div> &nbsp&nbsp&nbsp&nbsp&nbsp
             
@@ -22,7 +27,7 @@
                 <!-- Estado -->
                 <label for="txtEstado">Estado</label>
                   <br/>
-                <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" >
+                <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" ForeColor="Black" >
                       <asp:ListItem Value="0">Activos</asp:ListItem>
                        <asp:ListItem Value="1">Desactivados</asp:ListItem>
                    
@@ -36,7 +41,7 @@
 
            
             <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_ClienteAgregar.aspx">Agregar Nuevo Cliente</asp:HyperLink>
+                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_ClienteAgregar.aspx" Font-Size="Medium">Agregar Nuevo Cliente &nbsp <i class="fa fa-plus-circle" style="font-size:19px"></i></asp:HyperLink>
             </strong>
         </div>
 
@@ -50,10 +55,10 @@
     <div style= "margin-left: 10%">
         <p>
                 
-                <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal">
+                <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" CssClass="table" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="94%" GridLines="Horizontal" OnSelectedIndexChanged="grdListaClientes_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
-                        <asp:BoundField DataField="cli_Cliente" HeaderText="ID del Cliente" />
+                        <asp:BoundField DataField="cli_Cliente" HeaderText="ID Cliente" />
                         <asp:BoundField DataField="cli_Cedula" HeaderText="Cedula" />
                         <asp:BoundField DataField="cli_Nombre" HeaderText="Nombre del Cliente" />
                         <asp:BoundField DataField="cli_PrimerApelido" HeaderText="Primer Apellido" />
@@ -62,8 +67,8 @@
                         <asp:BoundField DataField="cli_TelefonoCasa" HeaderText="Telefono Casa" />
                         <asp:BoundField DataField="cli_TelefonoCelular" HeaderText="Telefono Celular" />
                         <asp:BoundField DataField="cli_Email" HeaderText="Email del Cliente" />
-                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteModifica?cli_Cliente={0}" Text="Modificar" />
-                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteElimina?cli_Cliente={0}" Text="Eliminar" />
+                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteModifica?cli_Cliente={0}" Text="&lt;i class=&quot;fa fa-pencil-square&quot; style=&quot;font-size:24px&quot;&gt;&lt;/i&gt;" HeaderText="Acciones" />
+                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteElimina?cli_Cliente={0}" Text="&lt;i class=&quot;fa fa-trash&quot; style=&quot;font-size:25px&quot; BackColor=&quot;RED&quot;&gt;&lt;/i&gt;" />
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
