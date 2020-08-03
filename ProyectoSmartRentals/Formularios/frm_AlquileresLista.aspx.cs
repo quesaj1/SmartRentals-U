@@ -94,6 +94,8 @@ namespace ProyectoSmartRentals.Formularios
 
             if (texto.Equals("Activos"))
             {
+                this.grdListaAlquileres.Columns[9].Visible = true;
+                this.grdListaAlquileres.Columns[10].Visible = true;
                 this.grdListaAlquileres.DataSource =
                     oAlquileres.RetornarAlquilerDataGrid(true);
                 ///indicar al grid que se muestre
@@ -101,16 +103,13 @@ namespace ProyectoSmartRentals.Formularios
             }
             else
             {
+                this.grdListaAlquileres.Columns[9].Visible = false;
+                this.grdListaAlquileres.Columns[10].Visible = false;
                 this.grdListaAlquileres.DataSource =
               oAlquileres.RetornarAlquilerDataGrid(false);
                 ///indicar al grid que se muestre
                 this.grdListaAlquileres.DataBind();
             }
-
-
-
-
-
 
 
         }
@@ -119,5 +118,14 @@ namespace ProyectoSmartRentals.Formularios
         {
 
         }
+
+       protected void grdListaAlquileres_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ///asignar al grid el nuevo índice de la página del grid
+            this.grdListaAlquileres.PageIndex = e.NewPageIndex;
+            ///asignar nuevamente la fuente de datos al grid
+            this.CargaDatosGrid();
+        }
+
     }
 }

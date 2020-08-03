@@ -198,7 +198,7 @@ namespace ProyectoSmartRentals.Formularios
         {
             this.txtUbicacionExacta.Text = null;
             this.txtDetalles.Text = null;
-            this.txtTipoPropiedad.Value = null;
+            this.txtTipoPropiedad.SelectedIndex = 0;
             this.DropDownListProvincia.Text = null;
             this.DropDownListCanton.Text = null;
             this.DropDownListDistrito.Text = null;
