@@ -67,8 +67,8 @@
                         <asp:BoundField DataField="tqt_precio_reparacion" HeaderText="Precio" />
                         <asp:BoundField DataField="tqt_nota_reparacion" HeaderText="Notas" />
                  <%--       <asp:BoundField DataField="tqt_precio_reparacion" HeaderText="Costo" />--%>
-                        <%--<asp:BoundField DataField="tqt_estado" HeaderText="Estado" />
-                        <asp:HyperLinkField DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteModifica?tqt_id={0}" Text="Modificar" />--%>
+                        <asp:BoundField DataField="tqt_estado" HeaderText="Estado" />
+                        <asp:HyperLinkField DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteModifica?tqt_id={0}" Text="Modificar" />
 
                          <asp:HyperLinkField  HeaderText="Acciones" DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteModifica?tqt_id={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>' ItemStyle-Width="25px" />
                         <%--<asp:HyperLinkField  DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_ContratoElimina?id_ctr_contrato={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red;"></i>' ItemStyle-Width="25px" />--%>
