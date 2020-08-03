@@ -115,11 +115,20 @@ namespace ProyectoSmartRentals.Formularios
                     oReportePago.InsertarPago(fk_cli_cliente, fk_ctr_IDContrato, now, true, DetallesDePago);
 
 
+
                 if (ContratoInsertar)
-                    this.lblResultado.Text = "Pago realizado correctamente";
+
+
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+
                    
+                }
                 else
-                    this.lblResultado.Text = "No se pudo agregar el pago,por favor validar los datos";
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+
+                }
             }
             catch (Exception error)
             {

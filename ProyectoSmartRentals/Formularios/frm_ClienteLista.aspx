@@ -10,7 +10,9 @@
 }
 </style>
           
-    <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%" overflow:hidden; padding-left:25%;padding-right:20%; text-align:center">
 
         <h2 style="text-align:center">Lista de Clientes</h2>
 
@@ -55,9 +57,14 @@
     <div style= "margin-left: 10%">
         <p>
                 
-                <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" CssClass="table" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="94%" GridLines="Horizontal" OnSelectedIndexChanged="grdListaClientes_SelectedIndexChanged">
+                <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" CssClass="table" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="94%" GridLines="Horizontal" OnPageIndexChanging="grdListaClientes_PageIndexChanging" >
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
+                     <asp:TemplateField HeaderText="Ítem">
+                        <ItemTemplate>
+                        <%# Container.DataItemIndex + 1 %>
+                        </ItemTemplate>
+                     </asp:TemplateField>
                         <asp:BoundField DataField="cli_Cliente" HeaderText="ID Cliente" />
                         <asp:BoundField DataField="cli_Cedula" HeaderText="Cedula" />
                         <asp:BoundField DataField="cli_Nombre" HeaderText="Nombre del Cliente" />
@@ -67,8 +74,8 @@
                         <asp:BoundField DataField="cli_TelefonoCasa" HeaderText="Telefono Casa" />
                         <asp:BoundField DataField="cli_TelefonoCelular" HeaderText="Telefono Celular" />
                         <asp:BoundField DataField="cli_Email" HeaderText="Email del Cliente" />
-                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteModifica?cli_Cliente={0}" Text="&lt;i class=&quot;fa fa-pencil-square&quot; style=&quot;font-size:24px&quot;&gt;&lt;/i&gt;" HeaderText="Acciones" />
-                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteElimina?cli_Cliente={0}" Text="&lt;i class=&quot;fa fa-trash&quot; style=&quot;font-size:25px&quot; BackColor=&quot;RED&quot;&gt;&lt;/i&gt;" />
+                        <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteModifica?cli_Cliente={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>'   ItemStyle-Width="25px"/>
+                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteElimina?cli_Cliente={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red"></i>'  ItemStyle-Width="25px" />
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

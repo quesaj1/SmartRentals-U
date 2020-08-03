@@ -98,6 +98,24 @@ input[type="date"], focus {
     -moz-box-shadow: none;
 }
 
+        /*Agregar esto para el diseño del select2 de los dropdownlists*/
+.select2-selection__rendered {
+    line-height: 23px !important;
+    font-family: Montserrat, sans-serif; 
+    font-size: 16px;
+    color: #6c757d !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 35px !important;
+}
+
+.select2-selection { overflow: hidden; }
+.select2-selection__rendered { white-space: normal; word-break: break-all; }
+
+/*Finaliza el estilo del select2 dropdownlist */
 
 </style>
      <br>
@@ -110,6 +128,21 @@ input[type="date"], focus {
     <br>
     <br>
     <br>
+
+        <%--Agregar estas librerias para el select 2--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+    <link href="../Content/css/select2.min.css" rel="stylesheet" /> 
+    <script src="../Scripts/select2.min.js"></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+    <%--Finaliza las librerias--%>
+
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -243,7 +276,7 @@ input[type="date"], focus {
 		</div>
 	</div>
     </div>
-
+    </div>
 
     <br>
     <br>
@@ -262,12 +295,7 @@ input[type="date"], focus {
 	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script src="Fvendor/select2/select2.min.js"></script>
-	<script>
-		$(".selection-2").select2({
-			minimumResultsForSearch: 20,
-			dropdownParent: $('#dropDownSelect1')
-		});
-	</script>
+
 <!--===============================================================================================-->
 	<script src="../vendor/daterangepicker/moment.min.js"></script>
 	<script src="../vendor/daterangepicker/daterangepicker.js"></script>
@@ -286,6 +314,71 @@ input[type="date"], focus {
 	</script>
 
 
-    
+
+      <script>
+      $(function () {
+          $("#<%=DropDownListContrato.ClientID%>").select2({
+              selectOnClose: true,
+              theme: 'bootstrap',
+              height: '100%',
+              width: '100%'
+                     }
+          );
+      })
+          $(function () {
+              $("#<%=DropDownListCliente.ClientID%>").select2({
+                  selectOnClose: true,
+                  theme: 'bootstrap',
+                  height: '100%',
+                  width: '100%'
+              }
+              );
+          })
+
+
+          $(function () {
+              $("#<%=DropDownListEmail.ClientID%>").select2({
+                  selectOnClose: true,
+                  theme: 'bootstrap',
+                  height: '100%',
+                  width: '100%'
+              }
+              );
+          })
+
+
+        
+
+      </script>
+
+
+
+
+
+
+
+
+    <script>
+        function alertmeError() {
+            swal({
+                title: "Error al agregar",
+                text: "Ha ocurrido un error al agregar el pago. Si el problema persiste contacte al administrador del sistema",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+            });
+        }
+
+        function alertmeSuccess() {
+            swal({
+                title: "Pago agregado",
+                text: "El pago ha sido guardado satisfactoriamente, validar el correo eletronico ç",
+                type: "success",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#55407D"
+            });
+        }
+    </script>
+
 
 </asp:Content>

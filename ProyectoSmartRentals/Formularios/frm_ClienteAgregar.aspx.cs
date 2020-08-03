@@ -88,16 +88,35 @@ namespace ProyectoSmartRentals.Formularios
 
 
                 if (ClienteInsertar)
-                    this.lblResultado.Text = "Cliente agregado";
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+
+                    this.limpiardatos();
+                }
                 else
-                    this.lblResultado.Text = "No se pudo agregar el Cliente";
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+
+                }
             }
             catch (Exception error)
             {
 
-                this.lblResultado.
-                    Text = "Ocurrió un error:" + error.Message;
+                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
             }
+        }
+
+        public void limpiardatos()
+        {
+            this.txtCedula.Text = null;
+            this.txtNombre.Text = null;
+            this.txtSegundoNombre.Text = null;
+            this.txtPrimerApellido.Text = null;
+            this.txtSegundoApellido.Text = null;
+            this.txtTelefonoCasa.Text = null;
+            this.txtTelefonoCelular.Text = null;
+            this.txtEmail.Text = null;
+           
         }
 
         protected void btnAtras_Click(object sender, EventArgs e)

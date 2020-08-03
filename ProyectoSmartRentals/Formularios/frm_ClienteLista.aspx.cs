@@ -108,9 +108,12 @@ namespace ProyectoSmartRentals.Formularios
             }
         }
 
-        protected void grdListaClientes_SelectedIndexChanged(object sender, EventArgs e)
+        protected void grdListaClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            ///asignar al grid el nuevo índice de la página del grid
+            this.grdListaClientes.PageIndex = e.NewPageIndex;
+            ///asignar nuevamente la fuente de datos al grid
+            this.CargaDatosGrid();
         }
     }
 }
