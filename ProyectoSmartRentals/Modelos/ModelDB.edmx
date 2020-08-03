@@ -468,6 +468,11 @@
           <Parameter Name="v_tqt_precio_preparacion" Type="decimal" Mode="In" />
           <Parameter Name="v_tqt_estado" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_InsertarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_usuario" Type="varchar" Mode="In" />
+          <Parameter Name="tipo" Type="int" Mode="In" />
+          <Parameter Name="id_principal" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_ModificaAlquiler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id_Propiedad" Type="int" Mode="In" />
           <Parameter Name="v_UbicacionExacta" Type="varchar" Mode="In" />
@@ -1366,6 +1371,11 @@
             <Parameter Name="v_tqt_precio_preparacion" Mode="In" Type="Decimal" />
             <Parameter Name="v_tqt_estado" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_InsertarUsuario">
+            <Parameter Name="v_usuario" Mode="In" Type="String" />
+            <Parameter Name="tipo" Mode="In" Type="Int32" />
+            <Parameter Name="id_principal" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="sp_ModificaAlquiler">
             <Parameter Name="v_id_Propiedad" Mode="In" Type="Int32" />
             <Parameter Name="v_UbicacionExacta" Mode="In" Type="String" />
@@ -1678,8 +1688,12 @@
           <Property Type="String" Name="alq_ubicacionExacta" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="alq_ImagenURL" Nullable="true" MaxLength="255" />
           <Property Type="Int32" Name="Id_Canton" Nullable="false" />
+          <Property Type="String" Name="nombre_canton" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Id_Provincia" Nullable="false" />
+          <Property Type="String" Name="nombre_provincia" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Id_Distrito" Nullable="false" />
+          <Property Type="String" Name="nombre_distrito" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="ctr_fechaPago" Nullable="true" />
         </ComplexType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1969,6 +1983,9 @@
           <Property Type="String" Name="enc_password" Nullable="false" MaxLength="200" />
           <Property Type="Boolean" Name="activo" Nullable="false" />
           <Property Type="Int32" Name="tipo" Nullable="false" />
+          <Property Type="Int32" Name="id_principal" Nullable="false" />
+          <Property Type="DateTime" Name="ult_inicio_sesion" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="sesion_activa" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2214,8 +2231,12 @@
                 <ScalarProperty Name="alq_ubicacionExacta" ColumnName="alq_ubicacionExacta" />
                 <ScalarProperty Name="alq_ImagenURL" ColumnName="alq_ImagenURL" />
                 <ScalarProperty Name="Id_Canton" ColumnName="Id_Canton" />
+                <ScalarProperty Name="nombre_canton" ColumnName="nombre_canton" />
                 <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
+                <ScalarProperty Name="nombre_provincia" ColumnName="nombre_provincia" />
                 <ScalarProperty Name="Id_Distrito" ColumnName="Id_Distrito" />
+                <ScalarProperty Name="nombre_distrito" ColumnName="nombre_distrito" />
+                <ScalarProperty Name="ctr_fechaPago" ColumnName="ctr_fechaPago" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2250,6 +2271,7 @@
           <FunctionImportMapping FunctionImportName="sp_InsertarProveedor" FunctionName="SmartRentalsModel.Store.sp_InsertarProveedor" />
           <FunctionImportMapping FunctionImportName="sp_InsertarReportePago" FunctionName="SmartRentalsModel.Store.sp_InsertarReportePago" />
           <FunctionImportMapping FunctionImportName="sp_InsertarTiquete" FunctionName="SmartRentalsModel.Store.sp_InsertarTiquete" />
+          <FunctionImportMapping FunctionImportName="sp_InsertarUsuario" FunctionName="SmartRentalsModel.Store.sp_InsertarUsuario" />
           <FunctionImportMapping FunctionImportName="sp_ModificaAlquiler" FunctionName="SmartRentalsModel.Store.sp_ModificaAlquiler" />
           <FunctionImportMapping FunctionImportName="sp_ModificarAdminRental" FunctionName="SmartRentalsModel.Store.sp_ModificarAdminRental" />
           <FunctionImportMapping FunctionImportName="sp_ModificarAlquiler" FunctionName="SmartRentalsModel.Store.sp_ModificarAlquiler" />
@@ -2633,6 +2655,9 @@
                 <ScalarProperty Name="enc_password" ColumnName="enc_password" />
                 <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="id_principal" ColumnName="id_principal" />
+                <ScalarProperty Name="ult_inicio_sesion" ColumnName="ult_inicio_sesion" />
+                <ScalarProperty Name="sesion_activa" ColumnName="sesion_activa" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

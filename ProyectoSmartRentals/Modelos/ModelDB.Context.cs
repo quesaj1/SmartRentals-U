@@ -496,6 +496,23 @@ namespace ProyectoSmartRentals.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarTiquete", v_fk_ctr_contratoParameter, v_tqt_tipo_problemaParameter, v_tqt_activoParameter, v_tqt_descripcionParameter, v_tqt_nota_reparacionParameter, v_tqt_fecha_inicioParameter, v_tqt_fecha_finalizacionParameter, v_fk_prv_idproveedorParameter, v_tqt_tituloParameter, v_tqt_precio_preparacionParameter, v_tqt_estadoParameter);
         }
     
+        public virtual int sp_InsertarUsuario(string v_usuario, Nullable<int> tipo, Nullable<int> id_principal)
+        {
+            var v_usuarioParameter = v_usuario != null ?
+                new ObjectParameter("v_usuario", v_usuario) :
+                new ObjectParameter("v_usuario", typeof(string));
+    
+            var tipoParameter = tipo.HasValue ?
+                new ObjectParameter("tipo", tipo) :
+                new ObjectParameter("tipo", typeof(int));
+    
+            var id_principalParameter = id_principal.HasValue ?
+                new ObjectParameter("id_principal", id_principal) :
+                new ObjectParameter("id_principal", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarUsuario", v_usuarioParameter, tipoParameter, id_principalParameter);
+        }
+    
         public virtual int sp_ModificaAlquiler(Nullable<int> v_id_Propiedad, string v_UbicacionExacta, string v_TipoPropiedad, string v_Detalles, Nullable<int> v_Distrito, Nullable<int> v_Canton, Nullable<int> v_Provincia, string v_ImagenURL, Nullable<bool> v_Activo)
         {
             var v_id_PropiedadParameter = v_id_Propiedad.HasValue ?

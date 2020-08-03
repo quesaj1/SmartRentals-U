@@ -15,6 +15,15 @@ namespace ProyectoSmartRentals.Formularios
     {
 
         /// <summary>
+        /// Control imgImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgImagen;
+
+        /// <summary>
         /// Control DropDownContratos.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,22 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.DropDownList DropDownContratos;
 
         /// <summary>
-        /// Control imgImagen.
+        /// Control btnModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgImagen;
+        protected global::System.Web.UI.WebControls.Button btnModificar;
+
+        /// <summary>
+        /// Control btnDesalojar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDesalojar;
 
         /// <summary>
         /// Control txtAdmin.
@@ -69,6 +87,15 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.TextBox TxtPago;
 
         /// <summary>
+        /// Control txtFechaPago.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaPago;
+
+        /// <summary>
         /// Control txtUbicacion.
         /// </summary>
         /// <remarks>
@@ -76,14 +103,5 @@ namespace ProyectoSmartRentals.Formularios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUbicacion;
-
-        /// <summary>
-        /// Control Label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

@@ -48,8 +48,15 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtAdmin.Text = resultadoSp.name_admin;
                     this.txtFechaInicio.Text = Convert.ToString(resultadoSp.ctr_fechainicio);
                     this.TextBox1.Text = Convert.ToString(resultadoSp.ctr_fechafinalizacion);
-                    this.TxtPago.Text = Convert.ToString(resultadoSp.ctr_monto);
-                    //this.txtUbicacion = resultadoSp.alq_ubicacionExacta + ", " + resultadoSp.
+                    this.TxtPago.Text = "₡ "+Convert.ToString(resultadoSp.ctr_monto);
+                    this.txtUbicacion.Text = resultadoSp.alq_ubicacionExacta + ", " + resultadoSp.nombre_distrito +", "+resultadoSp.nombre_canton+ ", " +
+                        "" + resultadoSp.nombre_provincia;
+                    string date = Convert.ToString(resultadoSp.ctr_fechaPago);
+                    string dia = date.Substring(0, date.IndexOf("/"));
+                    this.txtFechaPago.Text = "Los días de pago son: " + dia;
+
+
+
 
 
 
@@ -100,7 +107,7 @@ namespace ProyectoSmartRentals.Formularios
         protected void DropDownContratos_SelectedIndexChanged(object sender, EventArgs e)
         {
             cargaDatos();
-            this.Label1.Text = "Cambio";
+            
         }
     }
 }

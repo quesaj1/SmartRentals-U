@@ -9,6 +9,7 @@
     color: #ffffff;
     background-color: #adc867;
     border-radius:5px;
+    align-content:center;
   }
   .boton_personalizado:hover{
     color: #ffffff;
@@ -32,6 +33,19 @@
 .select2-selection { overflow: hidden; }
 .select2-selection__rendered { white-space: normal; word-break: break-all; }
 
+#img{
+   /* height: 400px;
+    width:167px;*/
+    
+}
+
+#imgImagen{
+    max-height:500px;
+    max-width:500px;
+    height:auto;
+    width:auto;
+}
+
 /*Finaliza el estilo del select2 dropdownlist */
 
 </style>
@@ -50,58 +64,101 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
-               <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
-         <h1 style="text-align: center">Mis Contratos</h1>
-        <div class="form-row" style="margin-top:5%; margin-bottom:5%">
+               <div id="divForm" style="margin-top:8%; margin-left:15%; margin-right:15%">
+         <h1 style="text-align: center">Mis Contratos</h1> <br />
+         <div class="container-fluid">
+        	<div class="row">
+		<div id="img" class="col-md-4">
+            <div class="col text-center">
+			<asp:Image ID="imgImagen" runat="server" CssClass="rounded" ImageUrl="~/Propiedades/IMG_5568.JPG" AlternateText="kyocode"  /> <br /> <br />
+            <h4>Contratos:</h4>
+             <asp:DropDownList ID="DropDownContratos" ForeColor="Black" DataTextField="Cliente" CssClass="form-control" Width="600" runat="server" Enabled="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownContratos_SelectedIndexChanged"></asp:DropDownList>
+		</div> </div> <br /><br />
+		<div class="col-md-4" style="margin-top:21px;">
+			<div class="page-header">
+				
+                    <div class="col text-center">
+                        <h3>
+					¿Necesitas modificar el contrato? <br /><small> ¡Acá lo puedes solicitar!</small>
+                            </h3><br />
+                       <asp:Button ID="btnModificar" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Solicitar"  Font-Size="Medium" Height="49px" Width="111px"  />
+				</div>
+                       
+			</div>
+		</div><br /><br />
+		<div class="col-md-4" style="margin-top:1px;">
+			<div class="page-header">
+                <div class="col text-center"> <br />
+				<h3>
+                     
+					¿Necesitas desalojar? <small>Acá puedes hacer la solicitud para desalojar el inmueble.</small> 
+                     
+				</h3><br />
+                     <asp:Button ID="btnDesalojar" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Solicitar"   Font-Size="Medium" Height="49px" Width="111px"   />
+                    </div>
+			</div>
+		</div><br /><br />
+	</div>
+             </div><br /><br />
+        <div class="form-row" style=" margin-bottom:50px; ">
 
        
-             <div class="form-group col-md-6">
-                <!-- Cliente -->
-                <label for="txtCliente">Contrato</label> <br />
-                  
-                  <asp:DropDownList ID="DropDownContratos" ForeColor="Black" DataTextField="Cliente" CssClass="form-control" runat="server" Enabled="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownContratos_SelectedIndexChanged"></asp:DropDownList>
-            </div>
-                <div class="form-group col-md-6">
-                <!-- Cliente -->
-                <label for="txtCliente">Propiedad</label> <br />
-                 <asp:Image ID="imgImagen" runat="server" ImageUrl="~/Propiedades/IMG_5568.JPG" AlternateText="kyocode"  />
-                    
-            </div>
+      
             <div class="form-group col-md-6">
                 <!-- Cliente -->
                 <label for="txtCliente">Administrador</label> <br />
-                  <asp:TextBox ID="txtAdmin" type="text" CssClass="form-control" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
+                  <asp:TextBox ID="txtAdmin" type="text" CssClass="form-control" ForeColor="Black" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
                     
             </div>
 
              <div class="form-group col-md-6">
                 <!-- Cliente -->
                 <label for="txtCliente">Fecha de Inicio</label> <br />
-                  <asp:TextBox ID="txtFechaInicio" type="text" CssClass="form-control" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
+                  <asp:TextBox ID="txtFechaInicio" type="text" CssClass="form-control" ForeColor="Black" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
                     
             </div>
              <div class="form-group col-md-6">
                 <!-- Cliente -->
                 <label for="txtCliente">Fecha de finalización</label> <br />
-                  <asp:TextBox ID="TextBox1" type="text" CssClass="form-control" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
+                  <asp:TextBox ID="TextBox1" type="text" CssClass="form-control" ForeColor="Black" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
                     
             </div>
               <div class="form-group col-md-6">
                 <!-- Cliente -->
-                <label for="txtCliente">Fecha de pago</label> <br />
-                  <asp:TextBox ID="TxtPago" type="text" CssClass="form-control" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
+                <label for="txtCliente">Monto de pago</label> <br />
+                  <asp:TextBox ID="TxtPago" type="text" CssClass="form-control" ForeColor="Black" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
                     
             </div>
+               <div class="form-group col-md-6">
+                <!-- Cliente -->
+                <label for="txtCliente">Día de pago</label> <br />
+                  <asp:TextBox ID="txtFechaPago" type="text" CssClass="form-control" ForeColor="Black" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
+                    
+            </div>
+
+          <%--  Acá hay que ver si vamos a poner algo para que diga que está al día o no--%>
+           <%-- <div class="form-group col-md-6">
+                <!-- Cliente -->
+                <label for="txtCliente">Estado</label> <br />
+                  <asp:TextBox ID="txtEstado" type="text" CssClass="form-control" ForeColor="Black" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
+                    
+            </div>--%>
+
              <div class="form-group col-md-6">
                 <!-- Cliente -->
                 <label for="txtCliente">Ubicación</label> <br />
-                  <asp:TextBox ID="txtUbicacion" type="text" CssClass="form-control" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
+                  <asp:TextBox ID="txtUbicacion" type="text" CssClass="form-control" ForeColor="Black" runat="server" MaxLength="50" readOnly="true"></asp:TextBox>
                     
             </div>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+          
 
             
     </div>
+
+                    
+
+
+
         
        
         </div>

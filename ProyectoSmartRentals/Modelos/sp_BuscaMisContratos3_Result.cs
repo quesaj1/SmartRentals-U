@@ -24,7 +24,11 @@ namespace ProyectoSmartRentals.Modelos
         public string alq_ubicacionExacta { get; set; }
         public string alq_ImagenURL { get; set; }
         public int Id_Canton { get; set; }
+        public string nombre_canton { get; set; }
         public int Id_Provincia { get; set; }
+        public string nombre_provincia { get; set; }
         public int Id_Distrito { get; set; }
+        public string nombre_distrito { get; set; }
+        public Nullable<System.DateTime> ctr_fechaPago { get; set; }
     }
 }
