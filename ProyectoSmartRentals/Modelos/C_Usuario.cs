@@ -18,6 +18,8 @@ namespace ProyectoSmartRentals.Modelos
         public string enc_password { get; set; }
         public bool activo { get; set; }
         public int tipo { get; set; }
-        public int id_usuario { get; set; }
+        public int id_principal { get; set; }
+        public Nullable<System.DateTime> ult_inicio_sesion { get; set; }
+        public bool sesion_activa { get; set; }
     }
 }

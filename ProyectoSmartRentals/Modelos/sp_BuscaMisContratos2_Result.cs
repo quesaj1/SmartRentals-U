@@ -11,7 +11,7 @@ namespace ProyectoSmartRentals.Modelos
 {
     using System;
     
-    public partial class sp_BuscaContratoDataGrid_Result
+    public partial class sp_BuscaMisContratos2_Result
     {
         public int id_ctr_contrato { get; set; }
         public string ctr_numeroContrato { get; set; }
@@ -25,6 +25,6 @@ namespace ProyectoSmartRentals.Modelos
         public string alq_ImagenURL { get; set; }
         public int Id_Canton { get; set; }
         public int Id_Provincia { get; set; }
-        public int Id_Distrito { get; set; }
+        public int Id_Provincia1 { get; set; }
     }
 }

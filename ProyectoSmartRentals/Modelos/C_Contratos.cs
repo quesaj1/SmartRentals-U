@@ -16,8 +16,8 @@ namespace ProyectoSmartRentals.Modelos
     {
         public C_Contratos()
         {
-            this.C_Tiquete = new HashSet<C_Tiquete>();
             this.C_ReportePago = new HashSet<C_ReportePago>();
+            this.C_Tiquete = new HashSet<C_Tiquete>();
         }
     
         public int id_ctr_contrato { get; set; }
@@ -35,7 +35,7 @@ namespace ProyectoSmartRentals.Modelos
         public virtual C_Admin_Rentals C_Admin_Rentals { get; set; }
         public virtual C_Alquiler C_Alquiler { get; set; }
         public virtual C_Cliente C_Cliente { get; set; }
-        public virtual ICollection<C_Tiquete> C_Tiquete { get; set; }
         public virtual ICollection<C_ReportePago> C_ReportePago { get; set; }
+        public virtual ICollection<C_Tiquete> C_Tiquete { get; set; }
     }
 }

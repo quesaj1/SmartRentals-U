@@ -4,16 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ec5227c505bd439d9ddf255b55e0c07e" Name="Diagram1">
-        <EntityTypeShape EntityType="SmartRentalsModel.C_Admin_Rentals" Width="1.5" PointX="10.5" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartRentalsModel.C_Alquiler" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartRentalsModel.C_Canton" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartRentalsModel.C_Cliente" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartRentalsModel.C_Contratos" Width="1.5" PointX="12.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartRentalsModel.C_Distrito" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartRentalsModel.C_Proveedor" Width="1.5" PointX="10.5" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartRentalsModel.C_Provincia" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SmartRentalsModel.C_Tiquete" Width="1.5" PointX="15" PointY="6.375" IsExpanded="true" />
+      <Diagram DiagramId="37a6cf0ec7b84bd293a6a519dc8ddc24" Name="Diagram1">
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Admin_Rentals" Width="1.5" PointX="10.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Alquiler" Width="1.5" PointX="7.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Canton" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Cliente" Width="1.5" PointX="10.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Contratos" Width="1.5" PointX="12.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Distrito" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Proveedor" Width="1.5" PointX="10.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Provincia" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_ReportePago" Width="1.5" PointX="15" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartRentalsModel.C_Tiquete" Width="1.5" PointX="18" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="SmartRentalsModel.C_Usuario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SmartRentalsModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="SmartRentalsModel.FK_C_Contratos_C_AdminRentals" ManuallyRouted="false" />
@@ -25,13 +26,12 @@
         <AssociationConnector Association="SmartRentalsModel.FK_C_Distrito_C_Canton" ManuallyRouted="false" />
         <AssociationConnector Association="SmartRentalsModel.FK_C_Proveedor_C_Canton" ManuallyRouted="false" />
         <AssociationConnector Association="SmartRentalsModel.FK_C_Contratos_C_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_ReportePago_C_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartRentalsModel.FK_C_ReportePago_C_Contratos" ManuallyRouted="false" />
         <AssociationConnector Association="SmartRentalsModel.FK_Tiquete_1_C_Contratos" ManuallyRouted="false" />
         <AssociationConnector Association="SmartRentalsModel.FK_C_Proveedor_C_Distrito" ManuallyRouted="false" />
         <AssociationConnector Association="SmartRentalsModel.FK_C_Proveedor_C_Provincia" ManuallyRouted="false" />
         <AssociationConnector Association="SmartRentalsModel.FK_Tiquete_1_C_Proveedor" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SmartRentalsModel.C_ReportePago" Width="1.5" PointX="15" PointY="11.375" />
-        <AssociationConnector Association="SmartRentalsModel.FK_C_ReportePago_C_Cliente" />
-        <AssociationConnector Association="SmartRentalsModel.FK_C_ReportePago_C_Contratos" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

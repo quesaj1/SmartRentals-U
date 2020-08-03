@@ -11,7 +11,7 @@ namespace ProyectoSmartRentals.Modelos
 {
     using System;
     
-    public partial class sp_BuscaContratoDataGrid_Result
+    public partial class sp_BuscaMisContratos3_Result
     {
         public int id_ctr_contrato { get; set; }
         public string ctr_numeroContrato { get; set; }

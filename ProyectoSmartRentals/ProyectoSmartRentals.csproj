@@ -219,6 +219,7 @@
     <Content Include="Formularios\frm_InicioMenu.aspx" />
     <Content Include="Formularios\frm_ListaReportarPago.aspx" />
     <Content Include="Formularios\frm_Login.aspx" />
+    <Content Include="Formularios\frm_MisContratos.aspx" />
     <Content Include="Formularios\frm_ProveedorAgregar.aspx" />
     <Content Include="Formularios\frm_ProveedorElimina.aspx" />
     <Content Include="Formularios\frm_ProveedorLista.aspx" />
@@ -392,13 +393,6 @@
     <Content Include="Propiedades\img_Casa.jpg" />
     <Content Include="Propiedades\img_Casa2.jpg" />
     <Content Include="Propiedades\img_Casa3.jpg" />
-    <EntityDeploy Include="Modelos\ModelDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Modelos\ModelDB.edmx.diagram">
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -613,6 +607,13 @@
     <Content Include="Content\sweetalert\sweet-alert-animations.less" />
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\mixins.less" />
+    <EntityDeploy Include="Modelos\ModelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Modelos\ModelDB.edmx.diagram">
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -953,6 +954,13 @@
     <Compile Include="Formularios\frm_Login.aspx.designer.cs">
       <DependentUpon>frm_Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_MisContratos.aspx.cs">
+      <DependentUpon>frm_MisContratos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_MisContratos.aspx.designer.cs">
+      <DependentUpon>frm_MisContratos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_ProveedorAgregar.aspx.cs">
       <DependentUpon>frm_ProveedorAgregar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1126,6 +1134,15 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modelos\sp_BuscaContratoDataGrid_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_BuscaMisContratos2_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_BuscaMisContratos3_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_BuscaMisContratos_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\sp_helpdiagramdefinition_Result.cs">

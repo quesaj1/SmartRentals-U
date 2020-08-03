@@ -102,7 +102,14 @@ namespace ProyectoSmartRentals.Metodos
             return resultado;
         }
         #endregion
+        public sp_BuscaMisContratos2_Result BuscaMisContratos2(int v_ctr_numeroContrato)
+        {
+            sp_BuscaMisContratos2_Result resultado = new sp_BuscaMisContratos2_Result();
 
+            resultado = modeloDB.sp_BuscaMisContratos2(v_ctr_numeroContrato).FirstOrDefault();
+
+            return resultado;
+        }
         public List<sp_RetornaContratoDataGrid_Result> RetornarContratoDataGrid(bool ctr_activo, int fk_id_admin_rentals)
         {
             List<sp_RetornaContratoDataGrid_Result> resultado = new List<sp_RetornaContratoDataGrid_Result>();
@@ -140,6 +147,22 @@ namespace ProyectoSmartRentals.Metodos
                 throw error;
             }
             return false;
+        }
+
+        public List<sp_BuscaMisContratos_Result> BuscaMisContratos(string v_ctr_numeroContrato)
+        {
+            List<sp_BuscaMisContratos_Result> resultado = new List<sp_BuscaMisContratos_Result>();
+            resultado = this.modeloDB.sp_BuscaMisContratos(v_ctr_numeroContrato).ToList();
+            return resultado;
+        }
+
+        public sp_BuscaMisContratos3_Result BuscaMisContratos3(int v_ctr_numeroContrato)
+        {
+            sp_BuscaMisContratos3_Result resultado = new sp_BuscaMisContratos3_Result();
+
+            resultado = modeloDB.sp_BuscaMisContratos3(v_ctr_numeroContrato).FirstOrDefault();
+
+            return resultado;
         }
     }
 }
