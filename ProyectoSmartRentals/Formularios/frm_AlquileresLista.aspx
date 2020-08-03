@@ -54,7 +54,7 @@
     <div style="margin-left: 10%">
         <p>
 
-            <asp:GridView ID="grdListaAlquileres" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" CssClass="table" BorderColor="#E7E7FF" BorderStyle="None"  BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnSelectedIndexChanged="grdListaAlquileres_SelectedIndexChanged">
+            <asp:GridView ID="grdListaAlquileres" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" CssClass="table" BorderColor="#E7E7FF" BorderStyle="None"  BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnPageIndexChanging="grdListaAlquileres_PageIndexChanging" OnSelectedIndexChanged="grdListaAlquileres_SelectedIndexChanged">
                      <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:TemplateField HeaderText="Ítem">
