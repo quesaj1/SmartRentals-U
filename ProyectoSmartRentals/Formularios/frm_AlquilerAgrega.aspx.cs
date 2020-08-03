@@ -129,17 +129,26 @@ namespace ProyectoSmartRentals.Formularios
                             alq_ImagenURL, true);
 
 
-                        if (AlquilerInsertar)
-                            this.lblResultado.Text = "Alquiler agregado";
-                        else
-                            this.lblResultado.Text = "No se pudo agregar el alquiler";
+                            if (AlquilerInsertar)
+
+                            
+                            {
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+
+                                this.limpiardatos();
+                            }
+                            else
+                            {
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+
+                            }
                     }
                     catch (Exception error)
                     {
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
 
-                        this.lblResultado.
-                            Text = "Ocurrió un error:" + error.Message;
                     }
+                
                 }
             }
         }
@@ -182,6 +191,17 @@ namespace ProyectoSmartRentals.Formularios
             da.Fill(ds);
             con.Close();
             return ds;
+
+        }
+
+        public void limpiardatos()
+        {
+            this.txtUbicacionExacta.Text = null;
+            this.txtDetalles.Text = null;
+            this.txtTipoPropiedad.Value = null;
+            this.DropDownListProvincia.Text = null;
+            this.DropDownListCanton.Text = null;
+            this.DropDownListDistrito.Text = null;
 
         }
     }

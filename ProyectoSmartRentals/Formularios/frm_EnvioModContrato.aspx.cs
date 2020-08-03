@@ -72,48 +72,60 @@ namespace ProyectoSmartRentals.Formularios
         protected void btnEnviar_Click(object sender, EventArgs e)
 
         {
-            //string body =
-            // "<body>" +
-            // "<h1>Gracias por ponerse en contacto con Smart Rentals</h1>" +
-            // "<span>Revisaremos su solicitud a la mayor brevedad con nuestros representantes</span>" +
-            // "<br/></br><span>Saludos cordiales.</span>" +
-            // "</body>";
-            string stImagen;
-            string elemento = txtElemento.Value.ToString();
 
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtp.EnableSsl = true;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("info.smartrentals@gmail.com", "Clover20*");
+            if (this.IsValid)
+            {
 
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("info.smartrentals@gmail.com", "Smart Rentals Clientes");
-            mail.To.Add(new MailAddress("info.smartrentals@gmail.com"));
-            mail.Subject = "Solicitud modificacion de Contrato" + " | " + txtContrato.Text;
-            mail.IsBodyHtml = true;
-            mail.Body = "NUMERO DE CONTRATO : " + txtContrato.Text + "<br/>" + "<br/>" +
-                        "CORREO DE CLIENTE : "  + txtOrigen.Text + "<br/>" + "<br/>" +
-                        "TELEFONO DE CLIENTE : " + txtTelefono.Text + "<br/>" + "<br/>" +
-                        "ELEMENTO A MODIFICAR : " + elemento.ToString() + "<br/>" + "<br/>" +
-                        "JUSTIFICACION : " + txtJustifica.Text + "<br/>"+
-                        "<img style='padding: 0; display: block' src='cid:imagen' >";
-            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mail.Body, Encoding.UTF8, MediaTypeNames.Text.Html);
-            stImagen = Server.MapPath("~") + @"\images\FIRMA.jpg";
-            LinkedResource img = new LinkedResource(stImagen, MediaTypeNames.Image.Jpeg); img.ContentId = "imagen";
-            htmlView.LinkedResources.Add(img);
-            mail.AlternateViews.Add(htmlView);
+                //string body =
+                // "<body>" +
+                // "<h1>Gracias por ponerse en contacto con Smart Rentals</h1>" +
+                // "<span>Revisaremos su solicitud a la mayor brevedad con nuestros representantes</span>" +
+                // "<br/></br><span>Saludos cordiales.</span>" +
+                // "</body>";
+                string stImagen;
+                string elemento = txtElemento.Value.ToString();
 
-            smtp.Send(mail);
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("info.smartrentals@gmail.com", "Clover20*");
 
-            this.lblResultado.
-                            Text = "Se ha enviado el correo" ;
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("info.smartrentals@gmail.com", "Smart Rentals Clientes");
+                mail.To.Add(new MailAddress("info.smartrentals@gmail.com"));
+                mail.Subject = "Solicitud modificacion de Contrato" + " | " + txtContrato.Text;
+                mail.IsBodyHtml = true;
+                mail.Body = "NUMERO DE CONTRATO : " + txtContrato.Text + "<br/>" + "<br/>" +
+                            "CORREO DE CLIENTE : " + txtOrigen.Text + "<br/>" + "<br/>" +
+                            "TELEFONO DE CLIENTE : " + txtTelefono.Text + "<br/>" + "<br/>" +
+                            "ELEMENTO A MODIFICAR : " + elemento.ToString() + "<br/>" + "<br/>" +
+                            "JUSTIFICACION : " + txtJustifica.Text + "<br/>" +
+                            "<img style='padding: 0; display: block' src='cid:imagen' >";
+                AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mail.Body, Encoding.UTF8, MediaTypeNames.Text.Html);
+                stImagen = Server.MapPath("~") + @"\images\FIRMA.jpg";
+                LinkedResource img = new LinkedResource(stImagen, MediaTypeNames.Image.Jpeg); img.ContentId = "imagen";
+                htmlView.LinkedResources.Add(img);
+                mail.AlternateViews.Add(htmlView);
+
+                smtp.Send(mail);
+
+
+
+
+                /// this.lblResultado.Text = "Registro Modificado";
+                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+
+            }
+            else
+            {
+                //this.lblResultado.Text = "No se pudo modificar";
+                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+            }
 
         }
-            
-         
 
-        protected void btnAtras_Click(object sender, EventArgs e)
+            protected void btnAtras_Click(object sender, EventArgs e)
         {
            
         }

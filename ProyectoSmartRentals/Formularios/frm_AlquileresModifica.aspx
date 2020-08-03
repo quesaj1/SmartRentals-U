@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_AlquileresModifica.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_AlquileresModifica" %>
+﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_AlquileresModifica.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_AlquileresModifica" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -67,7 +67,8 @@
 
  <%--Finaliza las librerias--%>
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
  
    
   <!-- Modal Popup -->
@@ -242,5 +243,26 @@
 
       </script>
 
+    <script>
+        function alertmeError() {
+            swal({
+                title: "Error al modificar el alquiler",
+                text: "Ha ocurrido un error al modificar el alquiler. Si el problema persiste contacte al administrador del sistema",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+            });
+        }
+
+        function alertmeSuccess() {
+            swal({
+                title: "Alquiler modificado",
+                text: "El alquiler ha sido guardado satisfactoriamente",
+                type: "success",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#55407D"
+            });
+        }
+    </script>
 
 </asp:Content>

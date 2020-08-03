@@ -17,7 +17,7 @@
 
         <h2 style="text-align:center">Lista de Alquileres</h2>
 
-        <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:32%;padding-right:30%; text-align:center">
+        <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:25%;padding-right:20%; text-align:center">
 
             <div  style="text-align:center; padding:1em ;float:left"  >
 
@@ -57,6 +57,11 @@
             <asp:GridView ID="grdListaAlquileres" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" CssClass="table" BorderColor="#E7E7FF" BorderStyle="None"  BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnSelectedIndexChanged="grdListaAlquileres_SelectedIndexChanged">
                      <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
+                    <asp:TemplateField HeaderText="Ítem">
+                        <ItemTemplate>
+                        <%# Container.DataItemIndex + 1 %>
+                        </ItemTemplate>
+                        </asp:TemplateField>
                     <asp:TemplateField HeaderText="Galería">
                         <ItemTemplate>
                             <asp:Image DataField="alq_ImagenURL" runat="server" CssClass="rounded" ID="ImagenURL" ImageUrl='<%# Eval("alq_ImagenURL") %>' Width="150px" Height="140px" />
@@ -70,7 +75,7 @@
                     <asp:BoundField DataField="Canton" HeaderText="Canton" />
                     <asp:BoundField DataField="Provincia" HeaderText="Provincia" />
                     <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquileresModifica?alq_id_Propiedad={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>' ItemStyle-Width="25px" />
-                    <asp:HyperLinkField DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquilerElimina?alq_id_Propiedad={0}" Text='<i class="fa fa-trash" style="font-size:25px"></i>' ItemStyle-Width="25px" />
+                    <asp:HyperLinkField DataNavigateUrlFields="alq_id_Propiedad" DataNavigateUrlFormatString="frm_AlquilerElimina?alq_id_Propiedad={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red"></i>' ItemStyle-Width="25px" />
                 </Columns>
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
