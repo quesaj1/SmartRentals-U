@@ -66,7 +66,9 @@
 
 
     <%--Finaliza las librerias--%>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+ 
 
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
         <h1 style="text-align: center">Envío de Solicitud de Modificación
@@ -80,7 +82,7 @@
                 <label for="txtOrigen">De : <span style="color:red;">*</span></label><br />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtOrigen" ErrorMessage="Ingrese un correo electronico" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" ></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator" runat="server" ControlToValidate="txtOrigen" ErrorMessage="Ingrese un correo electronico valido"  ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
-                <asp:TextBox ID="txtOrigen" type="text"  CssClass="form-control" placeholder="Ingrese un correo en el formato usuario@gmail.com" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtOrigen" type="text"  CssClass="form-control" placeholder="Ingrese un correo en el formato usuario@gmail.com" runat="server" MaxLength="50" ForeColor="Black"></asp:TextBox>
             </div>
 
 
@@ -161,7 +163,27 @@
 
       </script>
 
+    <script>
+        function alertmeError() {
+            swal({
+                title: "Error al enviar el correo",
+                text: "Ha ocurrido un error al enviar el correo. Si el problema persiste contacte al administrador del sistema",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+            });
+        }
 
+        function alertmeSuccess() {
+            swal({
+                title: "Correo enviado",
+                text: "El correo ha sido enviado satisfactoriamente",
+                type: "success",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#55407D"
+            });
+        }
+    </script>
 
 
 </asp:Content>

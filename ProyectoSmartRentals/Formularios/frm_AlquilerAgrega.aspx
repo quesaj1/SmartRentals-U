@@ -62,13 +62,15 @@ label.error {
 
     <%--Agregar estas librerias para el select 2--%>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
     <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
     <link href="../Content/css/select2.min.css" rel="stylesheet" /> 
     <script src="../Scripts/select2.min.js"></script>
     <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
     <%--Finaliza las librerias--%>
 
@@ -86,7 +88,7 @@ label.error {
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUbicacion" runat="server" ControlToValidate="txtUbicacionExacta" ErrorMessage="*Debe ingresar una ubicación*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
 
-                <asp:TextBox ID="txtUbicacionExacta" type="text" CssClass="form-control" runat="server" MaxLength="100" placeholder="Ingrese una ubicación"></asp:TextBox>
+                <asp:TextBox ID="txtUbicacionExacta" type="text" CssClass="form-control" runat="server" MaxLength="100" placeholder="Ingrese una ubicación" ForeColor="Black"></asp:TextBox>
                 <br />
             </div>
 
@@ -97,7 +99,7 @@ label.error {
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorTipo" runat="server" ErrorMessage="*Debe seleccionar un tipo de propiedad*" SetFocusOnError="True" Font-Size="Small" InitialValue="Seleccionar" ControlToValidate="txtTipoPropiedad" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
 
 
-                <select id="txtTipoPropiedad" class="custom-select" runat="server" CssClass="form-control">
+                <select id="txtTipoPropiedad" class="custom-select" runat="server" CssClass="form-control" ForeColor="Black" >
                     <option style="font-size: small">Seleccionar</option>
                     <option style="font-size: small">Casa</option>
                     <option style="font-size: small">Apartamento</option>
@@ -117,7 +119,7 @@ label.error {
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorDetalle" runat="server" ControlToValidate="txtDetalles" ErrorMessage="*Debe ingresar los detalles*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
 
-                <asp:TextBox ID="txtDetalles" type="text" CssClass="form-control" runat="server" MaxLength="50" placeholder="Ingrese el detalle"></asp:TextBox>
+                <asp:TextBox ID="txtDetalles" type="text" CssClass="form-control" runat="server" MaxLength="50" placeholder="Ingrese el detalle" ForeColor="Black"></asp:TextBox>
                 <br />
             </div>
 
@@ -227,6 +229,26 @@ label.error {
 
       </script>
 
+    <script>
+        function alertmeError() {
+            swal({
+                title: "Error al agregar",
+                text: "Ha ocurrido un error al agregar el alquiler. Si el problema persiste contacte al administrador del sistema",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+            });
+        }
 
+        function alertmeSuccess() {
+            swal({
+                title: "Alquiler agregado",
+                text: "El alquiler ha sido guardado satisfactoriamente",
+                type: "success",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#55407D"
+            });
+        }
+    </script>
 
 </asp:Content>

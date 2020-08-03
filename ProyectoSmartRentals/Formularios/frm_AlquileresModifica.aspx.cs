@@ -118,17 +118,20 @@ namespace ProyectoSmartRentals.Formularios
                           Convert.ToInt16(this.DropDownListProvincia.Text), alq_ImagenURL, true)
                             )
                         {
-                            this.lblResultado.Text = "Registro Modificado";
+                            /// this.lblResultado.Text = "Registro Modificado";
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
                         }
                         else
                         {
-                            this.lblResultado.Text = "No se pudo modificar";
+                            //this.lblResultado.Text = "No se pudo modificar";
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                         }
 
                     }
-                    catch (Exception)
+                    catch (Exception error)
                     {
-                        this.lblResultado.Text = "No se pudo modificar";
+                        //this.lblResultado.Text = "No se pudo modificar: " + error;
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
 
                     }
 
