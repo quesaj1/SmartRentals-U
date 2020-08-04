@@ -248,7 +248,7 @@ input[type="date"], focus {
         function alertmeError(){
             swal({
                 title: "Error al agregar",
-                text: "Ha ocurrido un error al agregar el contrato. Si el problema persiste contacte al administrador del sistema",
+                text: "Ha ocurrido un error al agregar el cliente. Si el problema persiste contacte al administrador del sistema",
                 type: "error",
                 confirmButtonText: "Ok",
                 confirmButtonColor: "#ADC867"
@@ -257,7 +257,7 @@ input[type="date"], focus {
 
         function alertmeSuccess() {
             swal({
-                title: "Contrato agregado",
+                title: "Cliente agregado",
                 text: "El contrato ha sido guardado satisfactoriamente",
                 type: "success",
                 confirmButtonText: "Ok",
