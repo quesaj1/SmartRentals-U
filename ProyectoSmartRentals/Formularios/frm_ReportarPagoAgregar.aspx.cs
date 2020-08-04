@@ -133,8 +133,7 @@ namespace ProyectoSmartRentals.Formularios
             catch (Exception error)
             {
 
-                this.lblResultado.
-                    Text = "Ocurrió un error:" + error.Message;
+                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
             }
         }
 
@@ -154,11 +153,11 @@ namespace ProyectoSmartRentals.Formularios
 
         public void limpiardatos()
         {
-            //this.DropDownListEmail.Text = null;
-            this.DropDownListCliente.Text = null;
-            this.DropDownListContrato.Text = null;
-            this.txtFechaPago.Text = null;
-            this.txtDetallesDePago.Value = null;
+            ////this.DropDownListEmail.Text = null;
+            //this.DropDownListCliente.Text = null;
+            //this.DropDownListContrato.Text = null;
+            //this.txtFechaPago.Text = null;
+            //this.txtDetallesDePago.Value = null;
 
 
         }
