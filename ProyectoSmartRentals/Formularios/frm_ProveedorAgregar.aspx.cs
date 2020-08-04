@@ -114,9 +114,18 @@ namespace ProyectoSmartRentals.Formularios
 
 
                 if (ProveedorInsertar)
+                {
                     this.lblResultado.Text = "Proveedor agregado correctamente";
+
+                    Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
+                    int id = oUsuario.obtiene_id_principal(prv_Email, 3);
+                    oUsuario.InsertaUsuario(prv_Email, 3, id);
+
+                }
                 else
+                {
                     this.lblResultado.Text = "No se pudo agregar el Proveedor,intentalo de nuevo";
+                }
             }
             catch (Exception error)
             {

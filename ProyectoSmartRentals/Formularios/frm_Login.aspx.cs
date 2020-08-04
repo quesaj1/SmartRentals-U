@@ -36,6 +36,8 @@ namespace ProyectoSmartRentals.Formularios
                     {
 
                         Session["UserName"] = this.txtUsuario.Text;
+                        Session["ID"] = retornaidprincipal(this.txtUsuario.Text);
+                        Session["Nombre"] = retornanombre(tipo, retornaidprincipal(this.txtUsuario.Text));
 
                         Session["Tipo"] = "";
 
@@ -160,6 +162,72 @@ namespace ProyectoSmartRentals.Formularios
             {
                 return false;
             }
+        }
+
+        int retornaidprincipal(string user)
+        {
+
+            string llavePrimaria = this.txtUsuario.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaUsuarioUserID_Result resultadoSp = oUsuario.RetornaUsuarioUserID_Result(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return resultadoSp.id_principal;
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        string retornanombre(int tipousuario, int idprinc)
+        {
+            string nombre = "";
+            int llavePrimaria = idprinc;
+         
+                int id = llavePrimaria;
+            
+            if(tipousuario == 1)
+            {
+
+                Metodos.C_AdminRentals oadr  = new Metodos.C_AdminRentals();
+    
+                sp_RetornaAdminRentalID_Result resultadoSp = oadr.RetornaAdminRentalID(id);
+                nombre = resultadoSp.adr_PrimerApellido +" "+ resultadoSp.adr_SegundoApellido + " , "+ resultadoSp.adr_Nombre;
+
+            }else if(tipousuario == 2)
+            {
+
+                Metodos.C_Clientes ocl = new Metodos.C_Clientes();
+
+                sp_RetornaClienteID_Result resultadoSp = ocl.RetornaClienteID(id);
+                nombre = resultadoSp.cli_PrimerApelido + " " + resultadoSp.cli_SegundoApellido + " , " + resultadoSp.cli_Nombre;
+
+            }else if(tipousuario == 3)
+            {
+
+                Metodos.C_Proveedor oprv = new Metodos.C_Proveedor();
+
+                sp_RetornaProveedorID_Result resultadoSp = oprv.RetornarProveedorID(id);
+                nombre = resultadoSp.prv_PrimerApellido + " " + resultadoSp.prv_SegundoApellido + " , " + resultadoSp.prv_NombreRepresentante;
+
+            }
+
+            return nombre;
+
         }
 
     }

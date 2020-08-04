@@ -91,7 +91,13 @@ namespace ProyectoSmartRentals.Formularios
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
 
+                    Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
+                    int id = oUsuario.obtiene_id_principal(adr_Email, 2);
+                    oUsuario.InsertaUsuario(adr_Email, 2, id);
+
                     this.limpiardatos();
+
+
                 }
                 else
                 {

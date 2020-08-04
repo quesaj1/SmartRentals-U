@@ -60,7 +60,7 @@
 					<!-- Email -->
 					<li class="d-flex flex-row align-items-center justify-content-start">
 						<div><img src="images/envelope.svg" alt=""></div>
-						<span><a href="mailto:info.smartrentals@gmail.com" style="/*color:white;*/"><%= Session["UserName"] + " | "+ Session["Tipo"] %></a></span>
+						<span><a href="mailto:info.smartrentals@gmail.com" style="/*color:white;*/"><%= Session["Nombre"] + " | "+ Session["Tipo"]%></a></span>
 					</li>
 				</ul>
 			</div>

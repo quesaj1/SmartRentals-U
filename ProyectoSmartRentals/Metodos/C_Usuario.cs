@@ -7,10 +7,68 @@ using ProyectoSmartRentals.Modelos;
 
 namespace ProyectoSmartRentals.Metodos
 {
-    public class C_Usuario
+    public class C_Usuario : I_Usuario
     {
 
         SmartRentalsEntities1 modeloDB = new SmartRentalsEntities1();
+
+        public bool InsertaUsuario(string usuario, int tipo, int id_principal)
+        {
+            try
+            {
+                int registroAfectados = 0;
+                registroAfectados = this.modeloDB.sp_InsertarUsuario(usuario, tipo, id_principal);
+                if (registroAfectados > 0)
+                    return true;
+            }
+            catch (Exception error)
+            {
+
+                throw error;
+            }
+            return false;
+        }
+
+        public int obtiene_id_principal(string usuario, int tipo)
+        {
+
+            int retorna_usuario = 0;
+
+            if (tipo == 1)
+            {
+                sp_RetornaAdminRental_Result resultado =
+                                 new sp_RetornaAdminRental_Result();
+
+                resultado = modeloDB.
+                    sp_RetornaAdminRental("", "", "", "", "", usuario).
+                    FirstOrDefault();
+                retorna_usuario = resultado.adr_id_admin;
+            }
+            else if (tipo == 2)
+            {
+                sp_RetornaCliente_Result resultado =
+                                 new sp_RetornaCliente_Result();
+
+                resultado = modeloDB.
+                    sp_RetornaCliente("", "", "", "", "", "", "", usuario, true).
+                    FirstOrDefault();
+                retorna_usuario = resultado.cli_Cliente;
+            }
+            else if (tipo == 3)
+            {
+                sp_RetornarProveedor_Result resultado =
+                                 new sp_RetornarProveedor_Result();
+
+                resultado = modeloDB.
+                    sp_RetornarProveedor("", "", "", usuario, true).
+                    FirstOrDefault();
+                retorna_usuario = resultado.prv_IDProveedor;
+            }
+
+
+
+            return retorna_usuario;
+        }
 
         public sp_RetornaUsuarioUserID_Result RetornaUsuarioUserID_Result(string usuario)
         {
@@ -23,6 +81,8 @@ namespace ProyectoSmartRentals.Metodos
 
             return resultado;
         }
+
+
 
     }
 }

@@ -45,9 +45,19 @@ namespace ProyectoSmartRentals.Formularios
 
 
                 if (AdminRentalsInsertar)
+                {
                     this.lblResultado.Text = "Administrador agregado";
+
+                    C_Usuario oUsuario = new C_Usuario();
+                    int id = oUsuario.obtiene_id_principal(adr_Email, 1);
+                    oUsuario.InsertaUsuario(adr_Email, 1, id);
+
+
+                }
                 else
+                {
                     this.lblResultado.Text = "No se pudo agregar el administrador";
+                }
             }
             catch (Exception error)
             {
