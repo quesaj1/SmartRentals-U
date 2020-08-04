@@ -4,8 +4,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<style>
-
+<style type="text/css">
+  .boton_personalizado{
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #adc867;
+    border-radius:5px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #55407d;
+    border-radius:5px;
+  }
     
 @keyframes showTopText {
   0% { transform: translate3d(0, 100%, 0); }
@@ -62,7 +73,7 @@
   animation-fill-mode: forwards;
   top: 0;
   transform: translate(0, -100%);
-}
+}*/
 
 /*ESTILOS PARA EL DATE PICKER */
 
@@ -71,17 +82,17 @@
 
 
 /* Removes the spin button */
-input[type="date"]::-webkit-inner-spin-button { 
+/*input[type="date"]::-webkit-inner-spin-button { 
     display: none;
-}
+}*/
 
 /* Always display the drop down caret */
-input[type="date"]::-webkit-calendar-picker-indicator {
+/*input[type="date"]::-webkit-calendar-picker-indicator {
     color: #2c3e50;
-}
+}*/
 
 /* A few custom styles for date inputs */
-input[type="date"] {
+/*input[type="date"] {
   
     -webkit-appearance: none;
     color: #95a5a6;
@@ -101,7 +112,69 @@ input[type="date"], focus {
 }
 
 
+/*Agregar esto para el diseño del select2 de los dropdownlists*/
+.select2-selection__rendered {
+    line-height: 23px !important;
+    font-family: Montserrat, sans-serif; 
+    font-size: 16px;
+    color: #6c757d !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 35px !important;
+}
+
+.select2-selection { overflow: hidden; }
+.select2-selection__rendered { white-space: normal; word-break: break-all; }
+
+/*Finaliza el estilo del select2 dropdownlist */
+
 </style>
+
+
+     
+    <%--Agregar estas librerias para el select 2--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+    <link href="../Content/css/select2.min.css" rel="stylesheet" /> 
+    <script src="../Scripts/select2.min.js"></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+
+
+    <%--Finaliza las librerias--%>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+        <!-- Modal Popup -->
+
+    <div id="MyPopup" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #55407d">
+                    <h4 class="modal-title" style="color: white"></h4>
+                 <%--   <button type="button" class="close" aria-label="Cancelar" style="color: white" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>--%>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color:#ADC867;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Popup -->
 
     <br />
        <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
@@ -114,7 +187,7 @@ input[type="date"], focus {
                                </div>
                              </div>
                            <div class="text-bottom">
-                        <div>Reporte de  Notificacion de Pagos realizados</div>
+                        <div>Reporte de Pagos realizados</div>
                         </div>
                    </div>
        <br /> <br />
@@ -140,37 +213,37 @@ input[type="date"], focus {
                        <br>
                        <br>
                        <br>
-
+                        <br>
+                        <br>
+                          <br>
+                        <br>
            
-                </div>
+          	</div>
                 
-            </div>
-                </div><br /><br /><br />
+              <div class="container-contact100-form-btn">
 
-                <div style="text-align:center">   
-           <asp:Button  ID="Button2"  runat="server" Text="Generar Reporte" class="btn btn-primary" OnClick="Button2_Click1"/>
-                <br>
-                     <br>
-                    
-                   
-                 <asp:Label ID="Label1" runat="server" Text="Label" Visible="false"></asp:Label>
+            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado"  Text="Generar Reporte" Font-Size="Medium" Height="49px" Width="145px" OnClick="Button2_Click1" />
+                     &nbsp;&nbsp;&nbsp;&nbsp;
+                  <asp:Button ID="Button2" runat="server" CssClass="boton_personalizado"  Text="Generar Grafico" Font-Size="Medium" Height="49px" Width="145px" OnClick="Button1_Click" />
+            <br />
+            <br />
+            <asp:Label ID="Label1" runat="server" Text="Label" Visible="false"></asp:Label>
+				</div>
             </div>
-  
-    
-     <div style="text-align:center">   
-           <asp:Button  ID="Button1"  runat="server" Text="Generar Grafico" class="btn btn-primary" OnClick="Button1_Click" />
-                <br>
-               
-            </div>
-    
-    
-    
-    <br /><br /><br />
+                </div>
 
-                    <br />
-        <br />
-        <br />
-        <br />
+
+
+
+
+    
+       <br>
+       <br>
+       <br>
+       <br>
+    
+
+ 
         
             
     <div style="text-align:center" id="VisibleReportContent">
@@ -178,4 +251,51 @@ input[type="date"], focus {
         <rsweb:ReportViewer ID="prvReportarPagos" runat="server" Width="100%" RightToLeft="YES"></rsweb:ReportViewer>
         </div>
 
+    <%--   Agregar este script para el select 2--%>
+<%--   Cambiar lo que dice dorpdownlistcliente por el nombre del correcto--%>
+
+      <script>
+      $(function () {
+          $("#<%=DropDownCliente.ClientID%>").select2({
+              selectOnClose: true,
+              theme: 'bootstrap',
+              height: '100%',
+              width: '100%'
+                     }
+          );
+          })
+
+             $(function () {
+          $("#<%=DropDownContratos.ClientID%>").select2({
+              selectOnClose: true,
+              theme: 'bootstrap',
+              height: '100%',
+              width: '100%'
+                     }
+          );
+    })
+
+      </script>
+    
+   <script>
+        function alertmeError(){
+            swal({
+                title: "Error al agregar",
+                text: "Ha ocurrido un error al agregar el contrato. Si el problema persiste contacte al administrador del sistema",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+       });
+        }
+
+        function alertmeSuccess() {
+            swal({
+                title: "Contrato agregado",
+                text: "El contrato ha sido guardado satisfactoriamente",
+                type: "success",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#55407D"
+            });
+        }
+    </script>
 </asp:Content>

@@ -121,8 +121,8 @@ namespace ProyectoSmartRentals.Formularios
 
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                    this.limpiardatos();
 
-                   
                 }
                 else
                 {
@@ -152,52 +152,70 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
+        public void limpiardatos()
+        {
+            //this.DropDownListEmail.Text = null;
+            this.DropDownListCliente.Text = null;
+            this.DropDownListContrato.Text = null;
+            this.txtFechaPago.Text = null;
+            this.txtDetallesDePago.Value = null;
+
+
+        }
 
         public void enviarNotficacionPago()
         {
             string stImagen;
-            
-
-        System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
-            msg.To.Add(this.DropDownListEmail.SelectedItem.ToString());
-            msg.Subject = "Notificacion de Pago del aquiler en la fecha de:" + " " + this.txtFechaPago.Text.ToString();
-            msg.SubjectEncoding = System.Text.Encoding.UTF8;
-
-
-           
-
-            string html ="<br> <br> Informacion del Cliente:" + this.DropDownListCliente.SelectedItem.ToString() + "<br/>" + "<br/>" +
-                "NUMERO DE CONTRATO : " + this.DropDownListContrato.SelectedItem.ToString() + "<br/>" + "<br/>" +
-                 "Detalles del Pago Adicionales : " + this.txtDetallesDePago.Value.ToString() + "<br/>" + "<br/>" +
-                "<img style='padding: 0; display: block' src='cid:imagen' >";
-            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(html, Encoding.UTF8, MediaTypeNames.Text.Html);
-            stImagen = Server.MapPath("~") + @"\images\FIRMA.jpg";
-            LinkedResource img = new LinkedResource(stImagen, MediaTypeNames.Image.Jpeg); img.ContentId = "imagen";
-            htmlView.LinkedResources.Add(img);
-            msg.AlternateViews.Add(htmlView);
-             
-
-            msg.BodyEncoding = System.Text.Encoding.UTF8;
-            msg.IsBodyHtml = true;
-            msg.From = new System.Net.Mail.MailAddress("info.smartrentals@gmail.com");
-
-            //Cliente Correo
-            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
-            cliente.Credentials = new System.Net.NetworkCredential("info.smartrentals@gmail.com", "Clover20*");
-            cliente.Port = 587;
-            cliente.EnableSsl = true;
-            cliente.Host = "smtp.gmail.com";//Correo diferente mail.dominio.com
-            try
-            {
-                cliente.Send(msg);
-            }
-            catch (Exception error)
+            if (this.IsValid)
             {
 
-                this.lblResultado.
-                     Text = "Ocurrió un error:" + error.Message;
+                System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+                msg.To.Add(this.DropDownListEmail.SelectedItem.ToString());
+                msg.Subject = "Notificacion de Pago del aquiler en la fecha de:" + " " + this.txtFechaPago.Text.ToString();
+                msg.SubjectEncoding = System.Text.Encoding.UTF8;
+
+
+
+
+                string html = "<br> <br> Informacion del Cliente:" + this.DropDownListCliente.SelectedItem.ToString() + "<br/>" + "<br/>" +
+                    "NUMERO DE CONTRATO : " + this.DropDownListContrato.SelectedItem.ToString() + "<br/>" + "<br/>" +
+                     "Detalles del Pago Adicionales : " + this.txtDetallesDePago.Value.ToString() + "<br/>" + "<br/>" +
+                    "<img style='padding: 0; display: block' src='cid:imagen' >";
+                AlternateView htmlView = AlternateView.CreateAlternateViewFromString(html, Encoding.UTF8, MediaTypeNames.Text.Html);
+                stImagen = Server.MapPath("~") + @"\images\FIRMA.jpg";
+                LinkedResource img = new LinkedResource(stImagen, MediaTypeNames.Image.Jpeg); img.ContentId = "imagen";
+                htmlView.LinkedResources.Add(img);
+                msg.AlternateViews.Add(htmlView);
+
+
+                msg.BodyEncoding = System.Text.Encoding.UTF8;
+                msg.IsBodyHtml = true;
+                msg.From = new System.Net.Mail.MailAddress("info.smartrentals@gmail.com");
+
+                //Cliente Correo
+                System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+                cliente.Credentials = new System.Net.NetworkCredential("info.smartrentals@gmail.com", "Clover20*");
+                cliente.Port = 587;
+                cliente.EnableSsl = true;
+                cliente.Host = "smtp.gmail.com";//Correo diferente mail.dominio.com
+                try
+                {
+                    cliente.Send(msg);
+                }
+                catch (Exception error)
+                {
+
+                     ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                }
+
             }
+            else
+            {
+
+
         }
+        }
+
 
         protected void btnAgregarPago_Click(object sender, EventArgs e)
         {

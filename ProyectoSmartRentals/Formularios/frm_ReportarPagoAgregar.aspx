@@ -3,7 +3,31 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
+          .boton_personalizado{
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #adc867;
+    border-radius:5px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #55407d;
+    border-radius:5px;
+  }
 
+input.error {
+            border: 1px dotted red;
+        }
+label.error {
+            position: static;
+            background: url('images/unchecked.gif') no-repeat;
+            padding-left: 20px;
+            margin-left: .3em;
+            vertical-align: middle;
+            width: 250px;
+            float: right;
+        }
     
 @keyframes showTopText {
   0% { transform: translate3d(0, 100%, 0); }
@@ -181,26 +205,30 @@ input[type="date"], focus {
 
                  <!-- Email Cliente -->
 				<label class="label-input100" for="first-name">Correo del Cliente</label>
-				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Correo del Cliente" >
-                    <asp:DropDownList ID="DropDownListEmail" placeholder="Correo del Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+				<div class="wrap-input100 rs1-wrap-input100 validate-input"  >
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="DropDownListEmail" ErrorMessage="*Debe seleccionar una correo*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="DropDownListEmail" placeholder="Correo del Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True" ></asp:DropDownList>
 					<span class="focus-input100"></span>
 				</div>
 
                  <!-- Cliente -->
 				<label class="label-input100" for="first-name">Informacion del Cliente a Pagar</label>
-				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" >
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownListCliente" ErrorMessage="*Debe seleccionar un cliente*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
                     <asp:DropDownList ID="DropDownListCliente" placeholder="Informacion del Cliente a Pagar" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
 					<span class="focus-input100"></span>
 				</div>
                  <!-- Contrato -->
                 <label class="label-input100" for="first-name">Contrato Relacionado</label>
-				<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
+				<div class="wrap-input100 rs2-wrap-input100 validate-input" >
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DropDownListContrato" ErrorMessage="*Debe seleccionar una contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
 					<asp:DropDownList ID="DropDownListContrato"  DataTextField="Contratto" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
 					<span class="focus-input100"></span>
 				</div>
-                 <!-- Monto mensual -->
+                 <!-- Fecha Pago mensual -->
 				<label class="label-input100" for="email">Fecha de Pago realizado</label>
-				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+				<div class="wrap-input100 validate-input" >
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaPago" ErrorMessage="*Debe seleccionar una Fecha de Pago*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ></asp:RequiredFieldValidator>
 					 <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
 					<span class="focus-input100"></span>
 				</div>
@@ -208,16 +236,16 @@ input[type="date"], focus {
                 
                   <!-- Detalles Del Pago -->
 					<label class="label-input100" for="email">Detalles de Pago realizado</label>
-				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+				<div class="wrap-input100 validate-input" >
 					 <textarea ID="txtDetallesDePago"  CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></textarea>
 					<span class="focus-input100"></span>
 				</div>
 
                   <!-- Submit Button -->
 				<div class="container-contact100-form-btn">
-                     <asp:Button ID="btnAgregarPago" runat="server" CssClass="contact100-form-btn" Text="Agregar Pago" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregarPago_Click" />
+                     <asp:Button ID="btnAgregarPago" runat="server" CssClass="boton_personalizado" Text="Notificar Pago" Font-Size="Medium" Height="49px" Width="145px" OnClick="btnAgregarPago_Click" />
                      &nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:Button ID="btnAtras" CssClass="contact100-form-btn" runat="server" CausesValidation="false" Text="Atras" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ListaReportarPago.aspx" />
+                     <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" Font-Size="Medium" Height="49px" Width="145px" PostBackUrl="~/Formularios/frm_ListaReportarPago.aspx" />
             <br />
             <br />
             <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900" CssClass="alert-success" Font-Size="Large"></asp:Label>
@@ -346,17 +374,7 @@ input[type="date"], focus {
               );
           })
 
-
-        
-
       </script>
-
-
-
-
-
-
-
 
     <script>
         function alertmeError() {
@@ -372,7 +390,7 @@ input[type="date"], focus {
         function alertmeSuccess() {
             swal({
                 title: "Pago agregado",
-                text: "El pago ha sido guardado satisfactoriamente, validar el correo eletronico ç",
+                text: "El pago ha sido guardado satisfactoriamente, validar el correo eletronico",
                 type: "success",
                 confirmButtonText: "Ok",
                 confirmButtonColor: "#55407D"

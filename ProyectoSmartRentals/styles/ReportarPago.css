@@ -316,6 +316,19 @@ input.input100 {
   height: 55px;
 }
 
+input.error {
+    border: 1px dotted red;
+}
+
+label.error {
+    position: static;
+    background: url('images/unchecked.gif') no-repeat;
+    padding-left: 20px;
+    margin-left: .3em;
+    vertical-align: middle;
+    width: 250px;
+    float: right;
+}
 
 textarea.input100 {
   min-height: 139px;
@@ -377,7 +390,7 @@ textarea.input100 {
   padding-top: 23px;
 }
 
-.contact100-form-btn {
+/*.contact100-form-btn {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -402,13 +415,25 @@ textarea.input100 {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
-}
+}*/
 
-.contact100-form-btn:hover {
+/*.contact100-form-btn:hover {
   background: #333333;
+}*/
+
+.boton_personalizado {
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #adc867;
+    border-radius: 5px;
 }
 
-
+    .boton_personalizado:hover {
+        color: #ffffff;
+        background-color: #55407d;
+        border-radius: 5px;
+    }
 
 /*------------------------------------------------------------------
 [ Responsive ]*/

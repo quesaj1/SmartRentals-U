@@ -3,51 +3,63 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-     <div id="divForm" style="margin-top:12%;">
-            <h2 style="text-align: center">Lista de Reportes de Pagos realizados</h2>
-        
-                   <div class="form-row" style="margin-top:5%; margin-bottom:5%">
-                       <div class="form-group col-sm-3">           
-                </div>
-              <div class="form-group col-sm-3">
-                <!-- Buscar -->
-                <label for="txtbuscar">Buscar: </label>
-                   <asp:TextBox ID="txtSearch"  CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaPagos')"  runat="server" Height="31px" Width="195px"></asp:TextBox>
-            </div>
-              <div class="form-group col-sm-3">
-                <!-- Tipo Propiedad -->
+<style>
+    .fa fa-search {
+    position: absolute;
+    margin-left: -10px;
+}
+</style>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ 
+
+      <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
+
+       <h2 style="text-align: center">Lista de Reportes de Pagos realizados</h2>
+
+        <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:25%;padding-right:20%; text-align:center">
+
+            <div  style="text-align:center; padding:1em ;float:left"  >
+
+                <!-- Id-->
+                <label for="txt_Id">Buscar: &nbsp <i class="fa fa-search" style="font-size:17px"></i></label><br />
+                 <asp:TextBox ID="txtSearch"  CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaPagos')"  runat="server" Height="31px" Width="195px" ></asp:TextBox>
+            </div> &nbsp&nbsp
+
+            <!-- Estado -->
+           <div style="text-align:center; padding:1em ;float:left"  >
                 <label for="txtEstadoPagos">Estado de Pagos Realizados</label>
                   <br/>             
-                  <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" >
+                  <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" ForeColor="Black">
                       <asp:ListItem Value="0">Pagos Pendientes</asp:ListItem>
                        <asp:ListItem Value="1">Pagos Realizados</asp:ListItem>
                       </asp:DropDownList>
             </div>
 
-
-                      
-  
-        
-  </div> <br>
+           
+        </div><br>
 
         <div style="text-align:center">
 
-           
             <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="~/Formularios/frm_ReportarPagoAgregar.aspx">Agregar Nuevo Pago </asp:HyperLink>
+                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_ReportarPagoAgregar.aspx" Font-Size="Medium">Agregar Nuevo Pago &nbsp <i class="fa fa-plus-circle" style="font-size:19px"></i></asp:HyperLink>
             </strong>
         </div>
 
     </div>
 
 
-
-       
       <div style= "margin-left: 10%">
         <p>
                 <asp:GridView ID="grdListaPagos" CssClass="table" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnPageIndexChanging="grdListaPagos_PageIndexChanging" OnSelectedIndexChanging="grdListaPagos_SelectedIndexChanging" >
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
+                        <asp:TemplateField HeaderText="Ítem">
+                        <ItemTemplate>
+                        <%# Container.DataItemIndex + 1 %>
+                        </ItemTemplate>
+                        </asp:TemplateField>
                          <asp:BoundField DataField="rpp_IDReportarPago" HeaderText="ID Pago" Visible="False" />
                         <asp:BoundField DataField="ctr_numeroContrato" HeaderText="Contrato" />
                         <asp:BoundField DataField="cli_Email" HeaderText="Email del Cliente" />
@@ -69,7 +81,7 @@
                 </asp:GridView>
             </p>
             </div>
-             </div>
+           
     <br/>
     <script src="../Scripts/Search.js"></script>
 </asp:Content>
