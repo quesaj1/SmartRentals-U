@@ -195,10 +195,10 @@ df-messenger {
  
                          <img src="../Imagenes/img_reporte_gastos.jpg" alt="" class="info_img"  width="500" height="330"/>
                         <figcaption>
-                        <h3>Gastos</h3><br>
-                        <p>Este reporte permite ver los gastos en los que se han incurrido</p>
+                        <h3>Pagos</h3><br>
+                        <p>Este reporte permite ver los pagos de los clientes en los que se han incurrido</p>
                         </figcaption>
-                        <a href="frm_ReporteGastos.aspx"></a>
+                        <a href="frm_ReporteReportarPagos.aspx"></a>
                         </figure>
 
 
