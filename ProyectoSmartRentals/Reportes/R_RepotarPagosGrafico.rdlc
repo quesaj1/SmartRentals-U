@@ -748,7 +748,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Grafica Linean de Pagos de Clientes </Caption>
+                <Caption>Grafica de Pagos de Clientes </Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
