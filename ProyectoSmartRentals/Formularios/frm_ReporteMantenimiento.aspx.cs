@@ -30,11 +30,11 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
+            //if (!IsPostBack)
+            //{
                 cargaDropDown();
-                this.Label1.Text = Convert.ToString(Session["Tipo"]);
-                 }
+             
+                 //}
         }
 
         public void cargaDropDown()
@@ -42,7 +42,8 @@ namespace ProyectoSmartRentals.Formularios
            string _rol = Convert.ToString(Session["Tipo"]);
             if (_rol.Equals("Cliente"))
             {
-                _pk_cliente = 4;
+                
+                _pk_cliente = Convert.ToInt16(Session["ID"]);
                 _pk_admin = 0;
                 _pk_proveedor = 0;
                 this.ddclientes.Visible = false;
@@ -62,7 +63,7 @@ namespace ProyectoSmartRentals.Formularios
             {
                 _pk_cliente = 0;
                 _pk_admin = 0;
-                _pk_proveedor = 1;
+                _pk_proveedor = Convert.ToInt16(Session["ID"]);
                 this.ddclientes.Visible = false;
                 this.ddcontratos.Visible = false;
                 this.ddproveedores.Visible = false;
@@ -78,7 +79,7 @@ namespace ProyectoSmartRentals.Formularios
             if (_rol.Equals("Administrador"))
             {
                 _pk_cliente = 0;
-                _pk_admin = 7;
+                _pk_admin = Convert.ToInt16(Session["ID"]);
                 _pk_proveedor = 0;
                 this.ddclientes.Visible = true;
                 this.ddcontratos.Visible = true;

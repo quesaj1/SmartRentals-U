@@ -16,17 +16,27 @@ namespace ProyectoSmartRentals.Formularios
 {
     public partial class frm_MisContratos : System.Web.UI.Page
     {
-        int _pk_cliente = 10;
+        int _pk_cliente = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            _pk_cliente = Convert.ToInt16(Session["ID"]);
             if (!IsPostBack)
             {               
                 
                 DropDownContrato(_pk_cliente);
                 //this.imgImagen.ImageUrl = "~/Propiedades/img_apartamento.jpg";
                 cargaDatos();
+                this.Page.Master.FindControl("menu_admin").Visible = false;
+                this.Page.Master.FindControl("menu_cliente").Visible = true;
+                this.Page.Master.FindControl("menu_proveedor").Visible = false;
+                this.Page.Master.FindControl("menu_admin_").Visible = false;
+                this.Page.Master.FindControl("menu_cliente_").Visible = true;
+                this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+
             }
         }
+        
+      
 
         public void cargaDatos()
         {

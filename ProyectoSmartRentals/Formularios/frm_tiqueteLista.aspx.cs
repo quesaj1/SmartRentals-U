@@ -49,7 +49,7 @@ namespace ProyectoSmartRentals.Formularios
             _rol = "Cliente";
             if (_rol.Equals("Cliente"))
             {
-                _pk_cliente = 4;
+                _pk_cliente = Convert.ToInt16(Session["ID"]);
                 _pk_admin = 0;
                 _pk_proveedor = 0;
                 this.Page.Master.FindControl("menu_admin").Visible = false;
@@ -64,7 +64,7 @@ namespace ProyectoSmartRentals.Formularios
             {
                 _pk_cliente = 0;
                 _pk_admin = 0;
-                _pk_proveedor = 1;
+                _pk_proveedor = Convert.ToInt16(Session["ID"]);
                 this.Page.Master.FindControl("menu_admin").Visible = false;
                 this.Page.Master.FindControl("menu_cliente").Visible = false;
                 this.Page.Master.FindControl("menu_proveedor").Visible = true;
@@ -75,7 +75,7 @@ namespace ProyectoSmartRentals.Formularios
             if (_rol.Equals("Administrador"))
             {
                 _pk_cliente = 0;
-                _pk_admin = 7;
+                _pk_admin = Convert.ToInt16(Session["ID"]);
                 _pk_proveedor = 0;
                 this.Page.Master.FindControl("menu_admin").Visible = true;
                 this.Page.Master.FindControl("menu_cliente").Visible = false;

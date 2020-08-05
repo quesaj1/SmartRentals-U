@@ -33,6 +33,15 @@ namespace ProyectoSmartRentals.MasterPage
         protected global::System.Web.UI.WebControls.Label DateDisplay;
 
         /// <summary>
+        /// Control logout.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logout;
+
+        /// <summary>
         /// Control menu_horizontal.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_cliente;
+
+        /// <summary>
+        /// Control logout_.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logout_;
 
         /// <summary>
         /// Control menu_admin_.

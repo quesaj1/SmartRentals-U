@@ -49,6 +49,7 @@
                               <Value>Número de tiquete</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -82,6 +83,7 @@
                               <Value>Contrato</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -115,6 +117,7 @@
                               <Value>Cliente</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -148,6 +151,7 @@
                               <Value>Tipo de problema</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -181,6 +185,7 @@
                               <Value>Proveedor</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -214,6 +219,7 @@
                               <Value>Apertura mantenimiento</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -247,6 +253,7 @@
                               <Value>Finalización mantenimiento</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -280,6 +287,7 @@
                               <Value>Estado </Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -313,6 +321,7 @@
                               <Value>Precio Reparación</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -332,7 +341,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -666,6 +674,10 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
+                  <Value>Usuario: </Value>
+                  <Style />
+                </TextRun>
+                <TextRun>
                   <Value>=First(Fields!Administrador.Value, "DSReporteMantAdmin")</Value>
                   <Style />
                 </TextRun>
@@ -674,8 +686,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Administrador</rd:DefaultName>
-          <Top>1.09306cm</Top>
-          <Left>17.59162cm</Left>
+          <Top>1.00831cm</Top>
+          <Left>15.21037cm</Left>
           <Height>0.6cm</Height>
           <Width>7.57281cm</Width>
           <Style>
@@ -741,7 +753,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Usuario:</Value>
+                  <Value />
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -771,7 +783,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Fecha:</Value>
+                  <Value />
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -801,6 +813,10 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
+                  <Value>Fecha:</Value>
+                  <Style />
+                </TextRun>
+                <TextRun>
                   <Value>=Globals!ExecutionTime</Value>
                   <Style />
                 </TextRun>
@@ -810,7 +826,7 @@
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
           <Top>1.94cm</Top>
-          <Left>17.06245cm</Left>
+          <Left>15.21037cm</Left>
           <Height>0.6cm</Height>
           <Width>7.57281cm</Width>
           <ZIndex>5</ZIndex>
@@ -848,7 +864,7 @@
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Line Name="Line2">
-          <Top>0.17639cm</Top>
+          <Top>0.17638cm</Top>
           <Height>0cm</Height>
           <Width>25.93109cm</Width>
           <Style>
@@ -867,15 +883,23 @@
                   <Value>=Globals!PageNumber</Value>
                   <Style />
                 </TextRun>
+                <TextRun>
+                  <Value>/</Value>
+                  <Style />
+                </TextRun>
+                <TextRun>
+                  <Value>=Globals!TotalPages</Value>
+                  <Style />
+                </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.61708cm</Top>
+          <Top>0.61707cm</Top>
           <Left>9.04558cm</Left>
           <Height>0.6cm</Height>
-          <Width>1.25646cm</Width>
+          <Width>5.06646cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -894,7 +918,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Globals!TotalPages</Value>
+                  <Value />
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -902,10 +926,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
-          <Top>0.61708cm</Top>
-          <Left>9.58171cm</Left>
+          <Top>0.61707cm</Top>
+          <Left>16.24921cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>5.86021cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -924,7 +948,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>/</Value>
+                  <Value />
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -932,8 +956,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>0.61708cm</Top>
-          <Left>10.1921cm</Left>
+          <Top>0.35277cm</Top>
+          <Left>11.83067cm</Left>
           <Height>0.6cm</Height>
           <Width>0.25104cm</Width>
           <ZIndex>3</ZIndex>

@@ -81,8 +81,8 @@
                </div>&nbsp
 
 				<div class="log_reg d-flex flex-row align-items-center justify-content-start">
-					<ul class="d-flex flex-row align-items-start justify-content-start">
-						<li><a href="#">Iniciar sesión</a></li>
+					<ul class="d-flex flex-row align-items-start justify-content-start"  runat="server" id="logout">
+						<li><a href="#">Cerrar Sesión</a></li>
 						
 					</ul>
 				</div>
@@ -116,7 +116,7 @@
 			<nav  id="menu_cliente" runat="server" class="main_nav" visible="false">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
 					<li class="active"><a href="../Formularios/frm_InicioMenu.aspx">Inicio</a></li>
-					<li><a href="../Formularios/frm_contratoLista.aspx">Mis contratos</a></li>
+					<li><a href="../Formularios/frm_miscontratos.aspx">Mis contratos</a></li>
 					<li><a href="../Formularios/frm_tiqueteLista.aspx">Mantenimientos</a></li>
 					<li><a href="../Formularios/frm_Reportes.aspx">Reportes</a></li>
 				</ul>
@@ -131,8 +131,8 @@
 		<div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
 		<div class="menu_log_reg">
 			<div class="log_reg d-flex flex-row align-items-center justify-content-end">
-				<ul class="d-flex flex-row align-items-start justify-content-start">
-					<li><a href="#">Iniciar Sesión</a></li>
+				<ul class="d-flex flex-row align-items-start justify-content-start" runat="server" id="logout_">
+					<li><a href="#">Cerrar Sesión</a></li>
 					
 				</ul>
 			</div>
@@ -159,7 +159,7 @@
 			<nav  id="menu_cliente_" runat="server" class="main_nav" visible="false">
 				<ul class="d-flex flex-row align-items-start justify-content-start">
 					<li class="active"><a href="../Formularios/frm_InicioMenu.aspx">Inicio</a></li>
-					<li><a href="../Formularios/frm_contratoLista.aspx">Mis contratos</a></li>
+					<li><a href="../Formularios/frm_miscontratos.aspx">Mis contratos</a></li>
 					<li><a href="../Formularios/frm_tiqueteLista.aspx">Mantenimientos</a></li>
 					<li><a href="../Formularios/frm_Reportes.aspx">Reportes</a></li>
 				</ul>

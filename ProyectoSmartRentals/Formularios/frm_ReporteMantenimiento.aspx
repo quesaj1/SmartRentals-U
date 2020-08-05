@@ -193,7 +193,7 @@ input[type="date"], focus {
    
             <div style="text-align:center">   
            <asp:Button  ID="Button2"  runat="server" Text="Generar Reporte" class="btn btn-primary" OnClick="Button2_Click"  />
-                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             </div><br /><br /><br />
 
                     <br />
