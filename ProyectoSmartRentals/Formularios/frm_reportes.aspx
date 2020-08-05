@@ -195,10 +195,10 @@ df-messenger {
  
                          <img src="../Imagenes/img_reporte_gastos.jpg" alt="" class="info_img"  width="500" height="330"/>
                         <figcaption>
-                        <h3>Pagos</h3><br>
-                        <p>Este reporte permite ver los pagos de los clientes en los que se han incurrido</p>
+                        <h3>Gastos</h3><br>
+                        <p>Este reporte permite ver los gastos de los clientes en los que se han incurrido</p>
                         </figcaption>
-                        <a href="frm_ReporteReportarPagos.aspx"></a>
+                        <a href="frm_ReporteGastos.aspx"></a>
                         </figure>
 
 
@@ -221,6 +221,25 @@ df-messenger {
 
                     </article>
                     </div>
+
+                      
+                     <div id="art4" runat="server" visible="false">
+                    <article  class="info_columna">
+
+                          <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)"  ;>
+ 
+                         <img src="../Imagenes/img_ReportePagos.jpg" alt="" class="info_img" width="500" height="330"/>
+                        <figcaption>
+                        <h3>Pagos</h3><br>
+                        <p>Este reporte permite ver los pagos de los clientes realizados</p>
+                        </figcaption>
+                        <a href="frm_ReporteReportarPagos.aspx"></a>
+                        </figure>
+
+                    </article>
+                    </div>
+                    
+
 
 
                 </section><br /><br /><br />

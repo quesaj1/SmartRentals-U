@@ -94,6 +94,7 @@ namespace ProyectoSmartRentals.Formularios
                 art1.Visible = true;
                 art2.Visible = true;
                 art3.Visible = true;
+                art4.Visible = true;
             }
         }
     }

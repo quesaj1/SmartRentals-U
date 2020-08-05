@@ -234,6 +234,7 @@
     <Content Include="Formularios\frm_tiqueteLista.aspx" />
     <Content Include="Formularios\frm_TiqueteModifica.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\img_ReportePagos.jpg" />
     <Content Include="Imagenes\img_reporte_gastos.jpg" />
     <Content Include="Imagenes\img_reporte_gastosvsperdidas.jpg" />
     <Content Include="Imagenes\img_reporte_mantenimiento.png" />
