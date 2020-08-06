@@ -110,6 +110,29 @@ namespace ProyectoSmartRentals.Metodos
 
             return resultado;
         }
+
+
         #endregion
+
+        #region Metodo Retornar Eliminar
+        public bool EliminarProveedor(int prv_IDProveedor, bool? alq_Activo)
+        {
+            try
+            {
+                int registroAfectados = 0;
+                registroAfectados = this.modeloDB.sp_EliminarProveedor(prv_IDProveedor, alq_Activo);
+
+                if (registroAfectados > 0)
+                    return true;
+            }
+            catch (Exception error)
+            {
+
+                throw error;
+            }
+            return false;
+        }
+        #endregion
+
     }
 }

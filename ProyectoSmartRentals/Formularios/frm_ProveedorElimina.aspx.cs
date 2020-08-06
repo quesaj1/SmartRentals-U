@@ -124,18 +124,16 @@ namespace ProyectoSmartRentals.Formularios
             if (this.IsValid)
             {
 
-                int id_contrato = 0;
+                int id_proveedor = 0;
 
-                id_contrato = Convert.ToInt16(this.hdldProveedor.Value);
+                id_proveedor = Convert.ToInt16(this.hdldProveedor.Value);
 
                 try
                 {
                     C_Proveedor oProveedor = new C_Proveedor();
 
 
-                    if (oProveedor.ModificarEliminaProveedor(id_contrato, txtNombreVariable.Text, txtNombreRepresentante.Text,
-                       txtPrimerApellido.Text, txtSegundoApellido.Text, txtCedulaRepresentante.Text, txtCedulaJuridica.Text, txtTelefono.Text,txtEmail.Text, txtTipoProveedor.Text,
-                       Convert.ToInt16(DropDownListProvincia.Text), txtOtrasSenas.Text, false))
+                    if (oProveedor.EliminarProveedor(id_proveedor,  false))
 
                         this.lblResultado.Text = "Registro eliminado";
 

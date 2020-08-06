@@ -17,11 +17,11 @@ namespace ProyectoSmartRentals.Formularios
         int _pk_proveedor = 0;  
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                CargaDatosGrid();
             menu();
-                 }
+            this.CargaDatosGrid();
+               
+
+            
         }
 
 
@@ -31,8 +31,7 @@ namespace ProyectoSmartRentals.Formularios
 
             C_Clientes oClientes = new C_Clientes();
             ///Asignarle la fuente de datos al grid
-            this.grdListaClientes.DataSource =
-               oClientes.RetornarClienteDataGrid_Result(true);
+            this.grdListaClientes.DataSource =  oClientes.RetornarClienteDataGrid_Result(true);
             ///indicar al grid que se muestre
             this.grdListaClientes.DataBind();
         }
@@ -82,26 +81,10 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
-        protected void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            this.CargaDatosGrid();
-        }
+        
 
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.carga();
-        }
-
-        protected void grdListaClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            ///asignar al grid el nuevo índice de la página del grid
-            this.grdListaClientes.PageIndex = e.NewPageIndex;
-            ///asignar nuevamente la fuente de datos al grid
-            this.carga();
-        }
-
-        public void carga()
         {
             string texto = this.DropDownList1.SelectedItem.ToString();
             C_Clientes oCliente = new C_Clientes();
@@ -110,18 +93,37 @@ namespace ProyectoSmartRentals.Formularios
 
             if (texto.Equals("Activos"))
             {
+
+                this.grdListaClientes.Columns[9].Visible = true;
+                this.grdListaClientes.Columns[10].Visible = true;
                 this.grdListaClientes.DataSource =
                     oCliente.RetornarClienteDataGrid_Result(true);
                 ///indicar al grid que se muestre
                 this.grdListaClientes.DataBind();
+
+
+
             }
             else
             {
+                this.grdListaClientes.Columns[9].Visible = false;
+                this.grdListaClientes.Columns[10].Visible = false;
                 this.grdListaClientes.DataSource =
               oCliente.RetornarClienteDataGrid_Result(false);
                 ///indicar al grid que se muestre
                 this.grdListaClientes.DataBind();
+  
             }
         }
+
+        protected void grdListaClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ///asignar al grid el nuevo índice de la página del grid
+            this.grdListaClientes.PageIndex = e.NewPageIndex;
+            ///asignar nuevamente la fuente de datos al grid
+            this.CargaDatosGrid();
+        }
+
+      
     }
 }
