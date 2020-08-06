@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoSmartRentals.MasterPage
-{
-
-
-    public partial class MasterSmartRentals
-    {
-
+namespace ProyectoSmartRentals.MasterPage {
+    
+    
+    public partial class MasterSmartRentals {
+        
         /// <summary>
         /// Control head.
         /// </summary>
@@ -22,7 +20,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-
+        
         /// <summary>
         /// Control DateDisplay.
         /// </summary>
@@ -31,7 +29,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label DateDisplay;
-
+        
         /// <summary>
         /// Control logout.
         /// </summary>
@@ -40,7 +38,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl logout;
-
+        
         /// <summary>
         /// Control menu_horizontal.
         /// </summary>
@@ -49,7 +47,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_horizontal;
-
+        
         /// <summary>
         /// Control menu_admin.
         /// </summary>
@@ -58,7 +56,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_admin;
-
+        
         /// <summary>
         /// Control menu_proveedor.
         /// </summary>
@@ -67,7 +65,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_proveedor;
-
+        
         /// <summary>
         /// Control menu_cliente.
         /// </summary>
@@ -76,7 +74,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_cliente;
-
+        
         /// <summary>
         /// Control logout_.
         /// </summary>
@@ -85,7 +83,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl logout_;
-
+        
         /// <summary>
         /// Control menu_admin_.
         /// </summary>
@@ -94,7 +92,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_admin_;
-
+        
         /// <summary>
         /// Control menu_proveedor_.
         /// </summary>
@@ -103,7 +101,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_proveedor_;
-
+        
         /// <summary>
         /// Control menu_cliente_.
         /// </summary>
@@ -112,7 +110,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_cliente_;
-
+        
         /// <summary>
         /// Control form1.
         /// </summary>
@@ -121,7 +119,7 @@ namespace ProyectoSmartRentals.MasterPage
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// Control ContentPlaceHolder1.
         /// </summary>

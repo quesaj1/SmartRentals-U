@@ -131,7 +131,7 @@ namespace ProyectoSmartRentals.Formularios
                     C_Clientes oCliente = new C_Clientes();
                     DateTime fechanacimiento = Convert.ToDateTime(this.txtFechaNacimiento.Text);
                     DateTime now = DateTime.Now;
-                    if (oCliente.ModificarCliente(id_cliente, txtCedula.Text, txtNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text,
+                    if (oCliente.ModificarCliente(id_cliente, txtIdCliente.Text, txtNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text,
                         txtSegundoApellido.Text, fechanacimiento, txtTelefonoCasa.Text, txtTelefonoCelular.Text, txtEmail.Text, true)
                         )
                     {
@@ -154,7 +154,7 @@ namespace ProyectoSmartRentals.Formularios
 
         public void limpiardatos()
         {
-            this.txtCedula.Text = null;
+            this.txtIdCliente.Text = null;
             this.txtNombre.Text = null;
             this.txtSegundoNombre.Text = null;
             this.txtPrimerApellido.Text = null;

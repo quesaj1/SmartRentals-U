@@ -97,12 +97,14 @@
 				<ul class="d-flex flex-row align-items-start justify-content-start">
 					<li class="active"><a href="../Formularios/frm_InicioMenu.aspx">Inicio</a></li>
 					<li><a href="../Formularios/frm_AdminRentalsLista.aspx">Admin Rentals</a></li>
+                    <li><a href="../Formularios/frm_ClienteLista.aspx">Clientes</a></li>
 					<li><a href="../Formularios/frm_ProveedorLista.aspx">Proveedores</a></li>
 					<li><a href="../Formularios/frm_AlquileresLista.aspx">Alquileres</a></li>
-                    <li><a href="../Formularios/frm_ReportarPagoAgregar.aspx">Reportar Pagos</a></li>
+                    <li><a href="../Formularios/frm_ListaReportarPago.aspx">Reportar</a></li>
 					<li><a href="../Formularios/frm_contratoLista.aspx">Contratos</a></li>
 					<li><a href="../Formularios/frm_tiqueteLista.aspx">Mantenimientos</a></li>
 					<li><a href="../Formularios/frm_Reportes.aspx">Reportes</a></li>
+
 				</ul>
 			</nav>
 

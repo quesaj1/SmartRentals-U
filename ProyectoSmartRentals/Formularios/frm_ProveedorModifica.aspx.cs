@@ -80,8 +80,8 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListProvincia.DataValueField = "Id_Provincia";
             DropDownListProvincia.DataBind();
             DropDownListProvincia.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
-            DropDownListCanton.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
-            DropDownListDistrito.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
+            //DropDownListCanton.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
+            //DropDownListDistrito.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
         }
 
 
@@ -104,23 +104,22 @@ namespace ProyectoSmartRentals.Formularios
 
                     C_Proveedor oProveedor = new C_Proveedor();
                     DateTime now = DateTime.Now;
-                    if (oProveedor.ModificarProveedor(id_contrato, txtNombreVariable.Text, txtNombreRepresentante.Text,
+                    if (oProveedor.ModificarEliminaProveedor(id_contrato, txtNombreVariable.Text, txtNombreRepresentante.Text,
                        txtPrimerApellido.Text, txtSegundoApellido.Text, txtCedulaRepresentante.Text, txtCedulaJuridica.Text, txtTelefono.Text, txtEmail.Text, txtTipoProveedor.Value.ToString(),
-                    Convert.ToInt16(this.DropDownListDistrito.Text), Convert.ToInt16(this.DropDownListCanton.Text),
                        Convert.ToInt16(DropDownListProvincia.Text), txtOtrasSenas.Text, true)
                         )
                     {
-                        this.lblResultado.Text = "Registro Modificado";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
                     }
                     else
                     {
-                        this.lblResultado.Text = "No se pudo modificar";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                     }
 
                 }
                 catch (Exception error)
                 {
-                    this.lblResultado.Text = "No se pudo modificar: " + error;
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
             }
         }
@@ -154,13 +153,11 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtNombreRepresentante.Text = resultadoSp.prv_NombreRepresentante;
                     this.txtPrimerApellido.Text = resultadoSp.prv_PrimerApellido;
                     this.txtSegundoApellido.Text = resultadoSp.prv_SegundoApellido;
-                    this.txtCedulaRepresentante.Text = resultadoSp.prv_SegundoApellido;
+                    this.txtCedulaRepresentante.Text = resultadoSp.prv_CedulaRepresentante;
                     this.txtCedulaJuridica.Text = resultadoSp.prv_CedulaJuridica;
                     this.txtTelefono.Text = resultadoSp.prv_Telefono;
                     this.txtEmail.Text = resultadoSp.prv_Email;
                     this.txtTipoProveedor.Value = resultadoSp.prv_TipoProveedor;
-                    this.DropDownListDistrito.Text = resultadoSp.Id_Distrito.ToString();
-                    this.DropDownListCanton.Text = resultadoSp.Id_Canton.ToString();
                     this.DropDownListProvincia.Text = resultadoSp.Id_Provincia.ToString();
                     this.txtOtrasSenas.Text = resultadoSp.prv_OtrasSenas;
 
@@ -170,27 +167,7 @@ namespace ProyectoSmartRentals.Formularios
             }
         }
 
-        protected void SeleccionaProvincia(object sender, EventArgs e)
-        {
-            int ProvinciaID = Convert.ToInt32(DropDownListProvincia.SelectedValue);
-            DropDownListCanton.DataSource = Consultar("Select * from dbo.C_Canton where Id_Provincia=" + ProvinciaID);
-            DropDownListCanton.DataTextField = "Nombre";
-            DropDownListCanton.DataValueField = "Id_Canton";
-            DropDownListCanton.DataBind();
-            DropDownListCanton.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
-        }
 
-        protected void SeleccionaCanton(object sender, EventArgs e)
-        {
-
-            int CantonID = Convert.ToInt32(DropDownListCanton.SelectedValue);
-            DropDownListDistrito.DataSource = Consultar("Select * from dbo.C_Distrito where Id_Canton=" + CantonID);
-            DropDownListDistrito.DataTextField = "Nombre";
-            DropDownListDistrito.DataValueField = "Id_Distrito";
-            DropDownListDistrito.DataBind();
-            DropDownListDistrito.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
-
-        }
 
         protected void SeleccionaDistrito(object sender, EventArgs e)
         {
