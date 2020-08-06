@@ -17,8 +17,11 @@ namespace ProyectoSmartRentals.Formularios
         int _pk_proveedor = 0;  
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargaDatosGrid();
+            if (!IsPostBack)
+            {
+                CargaDatosGrid();
             menu();
+                 }
         }
 
 
@@ -87,6 +90,19 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.carga();
+        }
+
+        protected void grdListaClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ///asignar al grid el nuevo índice de la página del grid
+            this.grdListaClientes.PageIndex = e.NewPageIndex;
+            ///asignar nuevamente la fuente de datos al grid
+            this.carga();
+        }
+
+        public void carga()
+        {
             string texto = this.DropDownList1.SelectedItem.ToString();
             C_Clientes oCliente = new C_Clientes();
             ///Asignarle la fuente de datos al grid
@@ -106,14 +122,6 @@ namespace ProyectoSmartRentals.Formularios
                 ///indicar al grid que se muestre
                 this.grdListaClientes.DataBind();
             }
-        }
-
-        protected void grdListaClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            ///asignar al grid el nuevo índice de la página del grid
-            this.grdListaClientes.PageIndex = e.NewPageIndex;
-            ///asignar nuevamente la fuente de datos al grid
-            this.CargaDatosGrid();
         }
     }
 }
