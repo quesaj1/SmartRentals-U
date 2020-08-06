@@ -86,6 +86,12 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.CargaDatos();
+
+        }
+
+        public void CargaDatos()
+        {
             string texto = this.DropDownList1.SelectedItem.ToString();
             C_Clientes oCliente = new C_Clientes();
             ///Asignarle la fuente de datos al grid
@@ -112,8 +118,9 @@ namespace ProyectoSmartRentals.Formularios
               oCliente.RetornarClienteDataGrid_Result(false);
                 ///indicar al grid que se muestre
                 this.grdListaClientes.DataBind();
-  
+
             }
+
         }
 
         protected void grdListaClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -121,7 +128,7 @@ namespace ProyectoSmartRentals.Formularios
             ///asignar al grid el nuevo índice de la página del grid
             this.grdListaClientes.PageIndex = e.NewPageIndex;
             ///asignar nuevamente la fuente de datos al grid
-            this.CargaDatosGrid();
+            this.CargaDatos();
         }
 
       
