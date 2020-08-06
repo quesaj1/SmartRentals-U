@@ -94,7 +94,7 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtSegundoNombre.Text = resultadoSp.cli_SegundoNombre;
                     this.txtPrimerApellido.Text = resultadoSp.cli_PrimerApelido;
                     this.txtSegundoApellido.Text = resultadoSp.cli_SegundoApellido;
-                    this.txtFechaNacimiento.Text = resultadoSp.cli_FechaNacimiento.Value.ToString();
+                    this.txtFechaNacimiento.Text = resultadoSp.cli_FechaNacimiento.ToString();
                     this.txtTelefonoCasa.Text = resultadoSp.cli_TelefonoCasa;
                     this.txtTelefonoCelular.Text = resultadoSp.cli_TelefonoCelular;
                     this.txtEmail.Text = resultadoSp.cli_Email;
@@ -129,9 +129,10 @@ namespace ProyectoSmartRentals.Formularios
                 {
 
                     C_Clientes oCliente = new C_Clientes();
+                    DateTime fechanacimiento = Convert.ToDateTime(this.txtFechaNacimiento.Text);
                     DateTime now = DateTime.Now;
                     if (oCliente.ModificarCliente(id_cliente, txtCedula.Text, txtNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text,
-                        txtSegundoApellido.Text, now, txtTelefonoCasa.Text, txtTelefonoCelular.Text, txtEmail.Text, true)
+                        txtSegundoApellido.Text, fechanacimiento, txtTelefonoCasa.Text, txtTelefonoCelular.Text, txtEmail.Text, true)
                         )
                     {
                         ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);

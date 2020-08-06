@@ -145,7 +145,7 @@
    <script>
             function alertmeError() {
                 swal({
-                    title: "Error al eliminar",
+                    title: "Error al eliminar cliente",
                     text: "Ha ocurrido un error al eliminar el cliente. Si el problema persiste contacte al administrador del sistema",
                     type: "error",
                     confirmButtonText: "Ok",

@@ -200,7 +200,7 @@ input[type="date"], focus {
             <div class="form-group col-md-6">
                 <!-- txtCedula -->
                 <label for="txtCedula"></label><br />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCedula" ErrorMessage="*Ingrese un numero Cedula de Representante*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" ></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCedula" ErrorMessage="*Ingrese un numero Cedula de Representante*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"  ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCedula" ErrorMessage="Debe ingresar una Cedula con el formato 0 0000 0000 (9 dígitos, sin cero al inicio ni guiones)." ValidationExpression="[0-9]{9}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
                 <asp:TextBox ID="txtCedula" type="text" CssClass="form-control" placeholder="Cédula" runat="server" MaxLength="25"></asp:TextBox>
             </div>
@@ -238,20 +238,20 @@ input[type="date"], focus {
                 <!-- txtTelefonoCasa -->
                 <label for="txtTelefonoCasa"></label><br />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTelefonoCasa" ErrorMessage="Ingrese un numero telefonico de casa" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" ></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator runat="server" ControlToValidate="txtTelefonoCasa" ErrorMessage="Debe ingresar un numero telefonico de 8 digitos " ValidationExpression="[0-9]{8}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator runat="server" ControlToValidate="txtTelefonoCasa" ErrorMessage="Debe ingresar un numero telefonico de 8 digitos " ValidationExpression="[0-9]{8}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"  ValidationGroup="Save"></asp:RegularExpressionValidator>
                 <asp:TextBox ID="txtTelefonoCasa" type="text" CssClass="form-control" placeholder="Telefono Casa" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- txtTelefonoCelular -->
                 <label for="txtTelefonoCelular"></label><br />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTelefonoCelular" ErrorMessage="Ingrese un numero telefonico celular" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" ></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator runat="server" ControlToValidate="txtTelefonoCelular" ErrorMessage="Debe ingresar un numero telefonico de 8 digitos " ValidationExpression="[0-9]{8}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator runat="server" ControlToValidate="txtTelefonoCelular" ErrorMessage="Debe ingresar un numero telefonico de 8 digitos " ValidationExpression="[0-9]{8}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"  ValidationGroup="Save"></asp:RegularExpressionValidator>
                 <asp:TextBox ID="txtTelefonoCelular" type="text" CssClass="form-control" placeholder="Telefono Celular" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- txtEmail -->
                 <label for="txtEmail"></label><br />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese un correo electronico" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" ></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese un correo electronico" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"  ValidationGroup="Save" ></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator" runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese un correo electronico valido"  ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
                 <asp:TextBox ID="txtEmail" type="text" CssClass="form-control" placeholder="Email" runat="server" MaxLength="50"></asp:TextBox>
             </div>

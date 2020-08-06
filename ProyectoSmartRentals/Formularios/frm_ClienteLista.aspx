@@ -16,16 +16,16 @@
 
         <h2 style="text-align:center">Lista de Clientes</h2>
 
-        <div class="form-row" style="margin-top:5%; margin-bottom:5%">
+       <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:25%;padding-right:20%; text-align:center">
 
-            <div class="form-group col-sm-3" >
+            <div  style="text-align:center; padding:1em ;float:left"  >
 
                 <!-- Id-->
                  <label for="txt_Id">Buscar: &nbsp <i class="fa fa-search" style="font-size:17px"></i></label><br />
                <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaClientes')"  runat="server" Height="31px" Width="195px"></asp:TextBox>    
             </div> &nbsp&nbsp&nbsp&nbsp&nbsp
             
-           <div class="form-group col-sm-3" >
+           <div style="text-align:center; padding:1em ;float:left"  >
                 <!-- Estado -->
                 <label for="txtEstado">Estado</label>
                   <br/>

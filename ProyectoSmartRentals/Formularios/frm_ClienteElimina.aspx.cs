@@ -122,10 +122,17 @@ namespace ProyectoSmartRentals.Formularios
 
                     if (oClientes.ModificarCliente(id_cliente,txtCedula.Text,txtNombre.Text,txtSegundoNombre.Text,txtPrimerApellido.Text,
                         txtSegundoApellido.Text, now, txtTelefonoCasa.Text,txtTelefonoCelular.Text,txtEmail.Text,false))
+                    {
+
 
                         ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
 
+                        this.limpiardatos();
+
+
+                    }
                     else
+
                         ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
                 catch (Exception error)
@@ -134,6 +141,19 @@ namespace ProyectoSmartRentals.Formularios
                 }
 
             }
+        }
+
+        public void limpiardatos()
+        {
+            this.txtCedula.Text = null;
+            this.txtNombre.Text = null;
+            this.txtSegundoNombre.Text = null;
+            this.txtPrimerApellido.Text = null;
+            this.txtSegundoApellido.Text = null;
+            this.txtTelefonoCasa.Text = null;
+            this.txtTelefonoCelular.Text = null;
+            this.txtEmail.Text = null;
+
         }
 
         protected void ShowPopup(object sender, EventArgs e)
@@ -159,16 +179,7 @@ namespace ProyectoSmartRentals.Formularios
                             "--------------------------------------------------------" + "<br/>" +
                             "Correo Electronico :" + "&nbsp;&nbsp " + txtEmail.Text + "<br/>" ;
 
-            //this.txtIdCliente.Text = resultadoSp.cli_Cliente.ToString();
-            //this.txtCedula.Text = resultadoSp.cli_Cedula;
-            //this.txtNombre.Text = resultadoSp.cli_Nombre;
-            //this.txtSegundoNombre.Text = resultadoSp.cli_SegundoNombre;
-            //this.txtPrimerApellido.Text = resultadoSp.cli_PrimerApelido;
-            //this.txtSegundoApellido.Text = resultadoSp.cli_SegundoApellido;
-            //this.txtFechaNacimiento.Text = resultadoSp.cli_FechaNacimiento.ToString();
-            //this.txtTelefonoCasa.Text = resultadoSp.cli_TelefonoCasa;
-            //this.txtTelefonoCelular.Text = resultadoSp.cli_TelefonoCelular;
-            //this.txtEmail.Text = resultadoSp.cli_Email;
+
 
             ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
         }
