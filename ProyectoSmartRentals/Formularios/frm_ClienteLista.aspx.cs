@@ -17,8 +17,11 @@ namespace ProyectoSmartRentals.Formularios
         int _pk_proveedor = 0;  
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargaDatosGrid();
             menu();
+            this.CargaDatosGrid();
+               
+
+            
         }
 
 
@@ -28,8 +31,7 @@ namespace ProyectoSmartRentals.Formularios
 
             C_Clientes oClientes = new C_Clientes();
             ///Asignarle la fuente de datos al grid
-            this.grdListaClientes.DataSource =
-               oClientes.RetornarClienteDataGrid_Result(true);
+            this.grdListaClientes.DataSource =  oClientes.RetornarClienteDataGrid_Result(true);
             ///indicar al grid que se muestre
             this.grdListaClientes.DataBind();
         }
@@ -79,10 +81,7 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
-        protected void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            this.CargaDatosGrid();
-        }
+        
 
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,17 +93,26 @@ namespace ProyectoSmartRentals.Formularios
 
             if (texto.Equals("Activos"))
             {
+
+                this.grdListaClientes.Columns[9].Visible = true;
+                this.grdListaClientes.Columns[10].Visible = true;
                 this.grdListaClientes.DataSource =
                     oCliente.RetornarClienteDataGrid_Result(true);
                 ///indicar al grid que se muestre
                 this.grdListaClientes.DataBind();
+
+
+
             }
             else
             {
+                this.grdListaClientes.Columns[9].Visible = false;
+                this.grdListaClientes.Columns[10].Visible = false;
                 this.grdListaClientes.DataSource =
               oCliente.RetornarClienteDataGrid_Result(false);
                 ///indicar al grid que se muestre
                 this.grdListaClientes.DataBind();
+  
             }
         }
 
@@ -115,5 +123,7 @@ namespace ProyectoSmartRentals.Formularios
             ///asignar nuevamente la fuente de datos al grid
             this.CargaDatosGrid();
         }
+
+      
     }
 }

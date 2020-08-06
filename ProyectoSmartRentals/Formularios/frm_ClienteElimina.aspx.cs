@@ -107,36 +107,32 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+        
             if (this.IsValid)
             {
 
                 int id_cliente = 0;
 
                 id_cliente = Convert.ToInt16(this.hdlCliente.Value);
-                DateTime now = DateTime.Now;
 
                 try
                 {
                     C_Clientes oClientes = new C_Clientes();
 
 
-                    if (oClientes.ModificarCliente(id_cliente,txtCedula.Text,txtNombre.Text,txtSegundoNombre.Text,txtPrimerApellido.Text,
-                        txtSegundoApellido.Text, now, txtTelefonoCasa.Text,txtTelefonoCelular.Text,txtEmail.Text,false))
-                    {
+                    if (oClientes.EliminarCliente(id_cliente, false))
 
-
+                        
                         ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                  
 
-                        this.limpiardatos();
-
-
-                    }
                     else
-
+                       
                         ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
                 catch (Exception error)
                 {
+                    
                     ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
 

@@ -78,5 +78,13 @@ namespace ProyectoSmartRentals.Interfaces
         List<sp_RetornaProveedorDataGrid_Result> RetornarProveedorDataGrid(bool alq_activo);
         #endregion
 
+
+        #region Metodo Elimnar Proveedor
+        bool EliminarProveedor(
+             int prv_IDProveedor,
+             Nullable<bool> alq_Activo
+             );
+        #endregion
+
     }
 }

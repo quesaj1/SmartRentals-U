@@ -64,5 +64,14 @@ namespace ProyectoSmartRentals.Interfaces
         #endregion
 
 
+        #region Metodo  Eliminar Cliente
+
+        bool EliminarCliente(
+             int cli_Cliente,
+             Nullable<bool> alq_Activo
+             );
+        #endregion
+
+
     }
 }
