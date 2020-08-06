@@ -65,7 +65,6 @@
                         <%# Container.DataItemIndex + 1 %>
                         </ItemTemplate>
                      </asp:TemplateField>
-                        <asp:BoundField DataField="cli_Cliente" HeaderText="ID Cliente" />
                         <asp:BoundField DataField="cli_Cedula" HeaderText="Cedula" />
                         <asp:BoundField DataField="cli_Nombre" HeaderText="Nombre del Cliente" />
                         <asp:BoundField DataField="cli_PrimerApelido" HeaderText="Primer Apellido" />

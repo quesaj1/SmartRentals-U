@@ -94,7 +94,7 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtSegundoNombre.Text = resultadoSp.cli_SegundoNombre;
                     this.txtPrimerApellido.Text = resultadoSp.cli_PrimerApelido;
                     this.txtSegundoApellido.Text = resultadoSp.cli_SegundoApellido;
-                    this.txtFechaNacimiento.Text = resultadoSp.cli_FechaNacimiento.ToString();
+                    this.txtFechaNacimiento.Text = resultadoSp.cli_FechaNacimiento.Value.ToString();
                     this.txtTelefonoCasa.Text = resultadoSp.cli_TelefonoCasa;
                     this.txtTelefonoCelular.Text = resultadoSp.cli_TelefonoCelular;
                     this.txtEmail.Text = resultadoSp.cli_Email;
@@ -134,19 +134,42 @@ namespace ProyectoSmartRentals.Formularios
                         txtSegundoApellido.Text, now, txtTelefonoCasa.Text, txtTelefonoCelular.Text, txtEmail.Text, true)
                         )
                     {
-                        this.lblResultado.Text = "Registro Modificado";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                        this.limpiardatos();
                     }
                     else
                     {
-                        this.lblResultado.Text = "No se pudo modificar";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                        this.limpiardatos();
                     }
 
                 }
                 catch (Exception error)
                 {
-                    this.lblResultado.Text = "No se pudo modificar: " + error;
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
             }
+        }
+
+        public void limpiardatos()
+        {
+            this.txtCedula.Text = null;
+            this.txtNombre.Text = null;
+            this.txtSegundoNombre.Text = null;
+            this.txtPrimerApellido.Text = null;
+            this.txtSegundoApellido.Text = null;
+            this.txtTelefonoCasa.Text = null;
+            this.txtTelefonoCelular.Text = null;
+            this.txtEmail.Text = null;
+
+        }
+
+
+        protected void ShowPopup(object sender, EventArgs e)
+        {
+            string title = "Modificar registro";
+            string body = "Esta seguro de modificar este registro?.  Por favor confirme";
+            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
         }
     }
 }

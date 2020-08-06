@@ -14,21 +14,49 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-
-
-     <style type="text/css">
-        .boton_personalizado{
+   <style>
+     .boton_personalizado{
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
-    background-color: #2ECC71;
+    background-color: #adc867;
+    border-radius:5px;
   }
   .boton_personalizado:hover{
-    color: #1883ba;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #55407d;
+    border-radius:5px;
   }
-</style>
+  </style> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <!-- Modal Popup -->
+
+    <div id="MyPopup" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #55407d">
+                    <h4 class="modal-title" style="color: white"></h4>
+                    <button type="button" class="close" aria-label="Cancelar" style="color: white" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <asp:Button runat="server" class="btn btn-primary" Text="Confirmar" OnClick="btnAgregar_Click" />
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Popup -->
 
 
         <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
@@ -92,7 +120,7 @@
         <!-- Submit Button -->
 
 
-        <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado" Font-Size="Medium" Height="49px" Width="111px" Text="Eliminar" OnClick="btnAgregar_Click"  />
+        <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado" Font-Size="Medium" Height="49px" Width="111px" Text="Eliminar" OnClick="ShowPopup"  />
 
 
         &nbsp;&nbsp;&nbsp;
@@ -114,7 +142,27 @@
 
 
 
+   <script>
+            function alertmeError() {
+                swal({
+                    title: "Error al eliminar",
+                    text: "Ha ocurrido un error al eliminar el cliente. Si el problema persiste contacte al administrador del sistema",
+                    type: "error",
+                    confirmButtonText: "Ok",
+                    confirmButtonColor: "#ADC867"
+                });
+            }
 
+            function alertmeSuccess() {
+                swal({
+                    title: "Cliente eliminado",
+                    text: "El cliente ha sido eliminado satisfactoriamente",
+                    type: "success",
+                    confirmButtonText: "Ok",
+                    confirmButtonColor: "#ADC867"
+                });
+            }
+        </script>
 
 
 

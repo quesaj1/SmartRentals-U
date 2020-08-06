@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <style type="text/css">
+     
   .boton_personalizado{
     font-weight: 600;
     font-size: 20px;
@@ -15,6 +16,20 @@
     background-color: #55407d;
     border-radius:5px;
   }
+
+input.error {
+            border: 1px dotted red;
+        }
+label.error {
+            position: static;
+            background: url('images/unchecked.gif') no-repeat;
+            padding-left: 20px;
+            margin-left: .3em;
+            vertical-align: middle;
+            width: 250px;
+            float: right;
+        }
+
     
 @keyframes showTopText {
   0% { transform: translate3d(0, 100%, 0); }
@@ -163,7 +178,9 @@ input[type="date"], focus {
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
             <div class="form-group col-md-6">
                 <!-- Cedula -->
-                <label for="txtCedula"></label>
+                <label for="txtCedula"></label><br />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCedula" ErrorMessage="*Ingrese un numero Cedula de Representante*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" ></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCedula" ErrorMessage="Debe ingresar una Cedula con el formato 0 0000 0000 (9 dígitos, sin cero al inicio ni guiones)." ValidationExpression="[0-9]{9}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
                 <asp:TextBox ID="txtCedula" type="text" CssClass="form-control" placeholder="Cédula" runat="server" MaxLength="25"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">

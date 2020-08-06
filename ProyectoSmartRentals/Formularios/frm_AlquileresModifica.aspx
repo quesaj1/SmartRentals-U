@@ -257,7 +257,7 @@
         function alertmeSuccess() {
             swal({
                 title: "Alquiler modificado",
-                text: "El alquiler ha sido guardado satisfactoriamente",
+                text: "El alquiler ha sido modificado satisfactoriamente",
                 type: "success",
                 confirmButtonText: "Ok",
                 confirmButtonColor: "#55407D"

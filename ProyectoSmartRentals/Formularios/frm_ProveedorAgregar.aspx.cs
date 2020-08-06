@@ -115,23 +115,22 @@ namespace ProyectoSmartRentals.Formularios
 
                 if (ProveedorInsertar)
                 {
-                    this.lblResultado.Text = "Proveedor agregado correctamente";
+                  
 
                     Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
                     int id = oUsuario.obtiene_id_principal(prv_Email, 3);
                     oUsuario.InsertaUsuario(prv_Email, 3, id);
-
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
                 }
                 else
                 {
-                    this.lblResultado.Text = "No se pudo agregar el Proveedor,intentalo de nuevo";
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
             }
             catch (Exception error)
             {
 
-                this.lblResultado.
-                    Text = "Ocurrió un error:" + error.Message;
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
             }
         }
 

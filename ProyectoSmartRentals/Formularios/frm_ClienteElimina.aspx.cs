@@ -123,14 +123,14 @@ namespace ProyectoSmartRentals.Formularios
                     if (oClientes.ModificarCliente(id_cliente,txtCedula.Text,txtNombre.Text,txtSegundoNombre.Text,txtPrimerApellido.Text,
                         txtSegundoApellido.Text, now, txtTelefonoCasa.Text,txtTelefonoCelular.Text,txtEmail.Text,false))
 
-                        this.lblResultado.Text = "Registro eliminado";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
 
                     else
-                        this.lblResultado.Text = "No fue posible eliminar";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
                 catch (Exception error)
                 {
-                    this.lblResultado.Text = "Ocurrió un error:" + error.Message;
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
 
             }
@@ -139,7 +139,37 @@ namespace ProyectoSmartRentals.Formularios
         protected void ShowPopup(object sender, EventArgs e)
         {
             string title = "Eliminar registro";
-            string body = "Esta seguro de eliminar este registro?";
+            string body =
+                         "Esta seguro de eliminar este cliente?" + "<br/>" + "<br/>" +
+                         "No. Cliente :" + "&nbsp" + txtIdCliente.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                         "Cedula :" + "&nbsp;&nbsp " + txtCedula.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                          "Nombre :" + "&nbsp;&nbsp " + txtNombre.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                           "Primer Apellido :" + "&nbsp;&nbsp " + txtPrimerApellido.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                           "Segundo Apellido :" + "&nbsp;&nbsp " + txtSegundoApellido.Text + "<br/>" +
+                          "--------------------------------------------------------" + "<br/>" +
+                           "Fecha Nacimiento :" + "&nbsp;&nbsp " + txtFechaNacimiento.Text + "<br/>"+
+                            "--------------------------------------------------------" + "<br/>" +
+                            "Telefono Casa :" + "&nbsp;&nbsp " + txtTelefonoCasa.Text + "<br/>" +
+                           "--------------------------------------------------------" + "<br/>" +
+                            "Celular :" + "&nbsp;&nbsp " + txtTelefonoCelular.Text + "<br/>" +
+                            "--------------------------------------------------------" + "<br/>" +
+                            "Correo Electronico :" + "&nbsp;&nbsp " + txtEmail.Text + "<br/>" ;
+
+            //this.txtIdCliente.Text = resultadoSp.cli_Cliente.ToString();
+            //this.txtCedula.Text = resultadoSp.cli_Cedula;
+            //this.txtNombre.Text = resultadoSp.cli_Nombre;
+            //this.txtSegundoNombre.Text = resultadoSp.cli_SegundoNombre;
+            //this.txtPrimerApellido.Text = resultadoSp.cli_PrimerApelido;
+            //this.txtSegundoApellido.Text = resultadoSp.cli_SegundoApellido;
+            //this.txtFechaNacimiento.Text = resultadoSp.cli_FechaNacimiento.ToString();
+            //this.txtTelefonoCasa.Text = resultadoSp.cli_TelefonoCasa;
+            //this.txtTelefonoCelular.Text = resultadoSp.cli_TelefonoCelular;
+            //this.txtEmail.Text = resultadoSp.cli_Email;
+
             ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
         }
     }
