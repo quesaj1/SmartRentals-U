@@ -87,6 +87,24 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
+        }
+
+        protected void grdListaContratos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.carga();
+        }
+
+        protected void grdListaContratos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ///asignar al grid el nuevo índice de la página del grid
+            this.grdListaContratos.PageIndex = e.NewPageIndex;
+            ///asignar nuevamente la fuente de datos al grid
+            this.carga();
+        }
+
+        public void carga()
+        {
             string texto = this.DropDownList1.SelectedItem.ToString();
             C_Contrato oContratos = new C_Contrato();
             ///Asignarle la fuente de datos al grid
@@ -108,21 +126,8 @@ namespace ProyectoSmartRentals.Formularios
               oContratos.RetornarContratoDataGrid(false, _fk_admin_rental);
                 ///indicar al grid que se muestre
                 this.grdListaContratos.DataBind();
-             
+
             }
-        }
-
-        protected void grdListaContratos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void grdListaContratos_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            ///asignar al grid el nuevo índice de la página del grid
-            this.grdListaContratos.PageIndex = e.NewPageIndex;
-            ///asignar nuevamente la fuente de datos al grid
-            this.cargardatosGrid();
         }
     }
 }
