@@ -178,67 +178,67 @@ input[type="date"], focus {
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
             <div class="form-group col-md-6">
                 <!-- Cedula -->
-                <label for="txtCedula"></label>
+                <label for="txtCedula"> Cedula<span style="color:red;">*</span></label>
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorID" runat="server" ControlToValidate="txtCedula" ErrorMessage="*Ingrese un numero Cedula*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"  ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCedula" ErrorMessage="Debe ingresar un cedula con el formato 0 0000 0000 (9 dígitos, sin cero al inicio ni guiones). " ValidationExpression="[0-9]{9}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
-                <asp:TextBox ID="txtCedula" type="text" CssClass="form-control" placeholder="Cédula" runat="server" MaxLength="25"></asp:TextBox>
+                <asp:TextBox ID="txtCedula" type="text" ForeColor="Black" CssClass="form-control" placeholder="Ingrese una cedula" runat="server" MaxLength="25"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- Nombre -->
-                <label for="txtNombre"></label> <br />
+                <label for="txtNombre">Nombre de Cliente<span style="color:red;">*</span></label> <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="*Debe ingresar un Nombre*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtNombre" type="text" CssClass="form-control" placeholder="Nombre" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtNombre" type="text" ForeColor="Black" CssClass="form-control" placeholder="Ingrese un nombre" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- Segundo Nombre -->
-                <label for="txtSegundoNombre"></label>
+                <label for="txtSegundoNombre">Segundo Nombre <span style="color:red;">*</span></label>
                     <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSegundoNombre" ErrorMessage="*Debe ingresar un Segundo Nombre*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtSegundoNombre" type="text" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
+                <asp:TextBox ID="txtSegundoNombre" type="text" ForeColor="Black" CssClass="form-control" placeholder="Ingrese un Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
                 <!-- Primer Apellido -->
-                <label for="txtPrimerApellido"></label>
+                <label for="txtPrimerApellido">Primer Apellido <span style="color:red;">*</span></label>
                     <br />
              <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPrimerApellido" ErrorMessage="*Debe ingresar un Apellido*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtPrimerApellido" type="text" CssClass="form-control" placeholder="Primer Apellido" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtPrimerApellido" type="text" ForeColor="Black" CssClass="form-control" placeholder="Ingrese un Primer Apellido" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- Segundo Apellido -->
-                <label for="txtSegundoApellido"></label>
+                <label for="txtSegundoApellido">Segundo Apellido<span style="color:red;">*</span></label>
                     <br />
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtSegundoApellido" ErrorMessage="*Debe ingresar un Segundo Apellido*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
 
-                <asp:TextBox ID="txtSegundoApellido" type="text" CssClass="form-control" placeholder="Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtSegundoApellido" type="text" ForeColor="Black" CssClass="form-control" placeholder="Ingrese un Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha Nacimiento -->
-                <label for="txtFechaNacimiento"></label><br />
+                <label for="txtFechaNacimiento">Fecha Nacimiento <span style="color:red;">*</span></label><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaNacimiento" ErrorMessage="*Debe seleccionar una Fecha de Nacimiento*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
 
-                <asp:TextBox ID="txtFechaNacimiento" type="date" CssClass="form-control" placeholder="Fecha Nacimiento" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtFechaNacimiento" type="date" ForeColor="Black" CssClass="form-control" placeholder="Ingrese una Fecha Nacimiento" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- txtTelefonoCasa -->
-                <label for="txtTelefonoCasa"></label>  <br />
+                <label for="txtTelefonoCasa">Telefono Casa<span style="color:red;">*</span></label>  <br />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTelefonoCasa" ErrorMessage="*Ingrese un numero telefonico*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"  ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator runat="server" ControlToValidate="txtTelefonoCasa" ErrorMessage="Debe ingresar un numero telefonico de 8 digitos " ValidationExpression="[0-9]{8}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
-                <asp:TextBox ID="txtTelefonoCasa" type="text" CssClass="form-control" placeholder="Telefono Casa" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtTelefonoCasa" type="text" ForeColor="Black" CssClass="form-control" placeholder="Ingrese un Telefono Casa" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- Telefono Celular -->
-                <label for="txtTelefonoCelular"></label><br />
+                <label for="txtTelefonoCelular">Telefono Celular<span style="color:red;">*</span></label><br />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTelefonoCelular" ErrorMessage="*Ingrese un telefono de celular*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"  ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator runat="server" ControlToValidate="txtTelefonoCelular" ErrorMessage="Debe ingresar un numero telefonico de 8 digitos " ValidationExpression="[0-9]{8}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
-                <asp:TextBox ID="txtTelefonoCelular" type="text" CssClass="form-control" placeholder="Telefono Celular" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtTelefonoCelular" type="text" ForeColor="Black" CssClass="form-control" placeholder="Ingrese un Telefono Celular" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- Email -->
-                <label for="txtEmail"></label>
+                <label for="txtEmail">Correo Electronico <span style="color:red;">*</span></label> <br />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtEmail" ErrorMessage="*Ingrese un correo electronico*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"  ValidationGroup="Save" ></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator" runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese un correo electronico valido"  ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
-                <asp:TextBox ID="txtEmail" type="text" CssClass="form-control" placeholder="Email" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" type="text" ForeColor="Black" CssClass="form-control" placeholder="Ingrese un correo electronico" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
             

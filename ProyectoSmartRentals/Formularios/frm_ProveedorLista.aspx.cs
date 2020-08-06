@@ -76,33 +76,52 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void DropDownList1_SelectedIndexChanged1(object sender, EventArgs e)
         {
+            this.CargaDatos();
+        }
+
+
+        public void CargaDatos()
+        {
             string texto = this.DropDownList1.SelectedItem.ToString();
-            C_Proveedor oContratos = new C_Proveedor();
+            C_Proveedor oProveedor = new C_Proveedor();
             ///Asignarle la fuente de datos al grid
 
 
             if (texto.Equals("Activos"))
             {
+
+                this.grdProveedor.Columns[9].Visible = true;
+                this.grdProveedor.Columns[10].Visible = true;
                 this.grdProveedor.DataSource =
-                    oContratos.RetornarProveedorDataGrid(true);
+                    oProveedor.RetornarProveedorDataGrid(true);
                 ///indicar al grid que se muestre
                 this.grdProveedor.DataBind();
+
+
+
             }
             else
             {
+                this.grdProveedor.Columns[9].Visible = false;
+                this.grdProveedor.Columns[10].Visible = false;
                 this.grdProveedor.DataSource =
-              oContratos.RetornarProveedorDataGrid(false);
+              oProveedor.RetornarProveedorDataGrid(false);
                 ///indicar al grid que se muestre
                 this.grdProveedor.DataBind();
+
             }
+
         }
+
+
+
 
         protected void grdProveedor_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             ///asignar al grid el nuevo índice de la página del grid
             this.grdProveedor.PageIndex = e.NewPageIndex;
             ///asignar nuevamente la fuente de datos al grid
-            this.CargaDatosGrid();
+            this.CargaDatos();
         }
     }
 }
