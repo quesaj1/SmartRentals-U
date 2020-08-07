@@ -27,13 +27,13 @@
      media="screen" />--%>
 
 <!-- Bootstrap del modal-->
-
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
 
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-     
+
         
     </asp:ContentPlaceHolder>
 	</head>
@@ -60,7 +60,7 @@
 					<!-- Email -->
 					<li class="d-flex flex-row align-items-center justify-content-start">
 						<div><img src="images/envelope.svg" alt=""></div>
-						<span><a href="mailto:info.smartrentals@gmail.com" style="/*color:white;*/"><%= Session["Nombre"] + " | "+ Session["Tipo"]%></a></span>
+						<span><a href="mailto:info.smartrentals@gmail.com" style="color:white;"><%= Session["Nombre"] + " | "+ Session["Tipo"]%></a></span>
 					</li>
 				</ul>
 			</div>
@@ -82,7 +82,8 @@
 
 				<div class="log_reg d-flex flex-row align-items-center justify-content-start">
 					<ul class="d-flex flex-row align-items-start justify-content-start"  runat="server" id="logout">
-						<li><a href="#">Cerrar Sesión</a></li>
+						<li><a href="#">Cerrar Sesión&nbsp&nbsp&nbsp<i class="fa fa-power-off" style="color:#adc867; font-size:1.5em"></i></a> </li>
+						
 						
 					</ul>
 				</div>

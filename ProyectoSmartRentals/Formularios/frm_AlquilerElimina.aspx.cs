@@ -21,6 +21,7 @@ namespace ProyectoSmartRentals.Formularios
         int _provincia;
         int _canton = 2;
         int _distrito = 0;
+        string _img = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -30,6 +31,7 @@ namespace ProyectoSmartRentals.Formularios
             provincia();
             canton();
             distrito();
+            img();
 
 
 
@@ -112,7 +114,7 @@ namespace ProyectoSmartRentals.Formularios
                     _provincia = Convert.ToInt32(this.txtProvincia.Text);
                     _canton = Convert.ToInt32(this.txtCanton.Text);
                     _distrito = Convert.ToInt32(this.txtDistrito.Text);
-
+                    _img = resultadoSp.alq_ImagenURL;
 
           
 
@@ -152,6 +154,12 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListProvincia.DataValueField = "C_Distrito";
             DropDownListDistrito.DataBind();
             this.txtDistrito.Text = this.DropDownListDistrito.SelectedItem.ToString();
+        }
+
+
+        protected void img()
+        {
+            this.image.ImageUrl = _img;
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
