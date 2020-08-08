@@ -68,6 +68,7 @@
                         <asp:BoundField DataField="ctr_monto" HeaderText="Valor mensual" />
                         <asp:BoundField DataField="rpp_FechaPagoRecibido" HeaderText="Fecha de Pago Recibido" />
                          <asp:BoundField DataField="rpp_DetallesDePago" HeaderText="Detalles del Pago" />
+                        <asp:HyperLinkField DataNavigateUrlFields="rpp_IDReportarPago" DataNavigateUrlFormatString="frm_ArchivarPagos?rpp_IDReportarPago={0}" HeaderText="Acciones" Text="&lt;i class=&quot;fa fa-archive&quot; style=&quot;font-size:24px&quot;&gt;&lt;/i&gt;" />
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

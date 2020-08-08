@@ -59,7 +59,13 @@ namespace ProyectoSmartRentals.Interfaces
             Nullable<int> v_ctr_contrato);
         #endregion
 
+        #region Método Archivar Pagos
 
+        bool ArchivarPago(int rpp_IDReportarPago, Nullable<bool> rpp_estadoDePago);
+
+
+
+        #endregion
 
     }
 }

@@ -346,6 +346,10 @@
           <Parameter Name="version" Type="int" Mode="In" />
           <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
         </Function>
+        <Function Name="sp_ArchivarPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_rpp_IDReportarPago" Type="int" Mode="In" />
+          <Parameter Name="v_Activo" Type="bit" Mode="In" />
+        </Function>
         <Function Name="sp_BuscaContratoDataGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_ctr_numeroContrato" Type="varchar" Mode="In" />
         </Function>
@@ -1645,6 +1649,10 @@
             <Parameter Name="v_prv_IDProveedor" Mode="In" Type="Int32" />
             <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="sp_ArchivarPago">
+            <Parameter Name="v_rpp_IDReportarPago" Mode="In" Type="Int32" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
           <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
@@ -2679,6 +2687,7 @@
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SmartRentalsModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="sp_EliminarCliente" FunctionName="SmartRentalsModel.Store.sp_EliminarCliente" />
           <FunctionImportMapping FunctionImportName="sp_EliminarProveedor" FunctionName="SmartRentalsModel.Store.sp_EliminarProveedor" />
+          <FunctionImportMapping FunctionImportName="sp_ArchivarPago" FunctionName="SmartRentalsModel.Store.sp_ArchivarPago" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

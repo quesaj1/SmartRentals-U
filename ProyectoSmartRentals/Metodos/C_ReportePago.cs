@@ -12,6 +12,9 @@ namespace ProyectoSmartRentals.Metodos
 
         SmartRentalsEntities1 modeloDB = new SmartRentalsEntities1();
 
+      
+
+
         #region Metodo Insertar Reportar Pago del Cliente
         public bool InsertarPago(int fk_cli_cliente, int fk_ctr_IDContrato, Nullable<System.DateTime> rpp_FechaPagoRecibido, Nullable<bool> rpp_estadoDePago, string rpp_DetallesDePago)
         {
@@ -97,7 +100,28 @@ namespace ProyectoSmartRentals.Metodos
             return resultado;
         }
 
+        #region Metodo Archivar Pago
+        public bool ArchivarPago(int rpp_IDReportarPago, bool? rpp_estadoDePago)
+        {
+            try
+            {
+
+                int registrosAfectados = 0;
+                registrosAfectados =
+                    this.modeloDB.sp_EliminarAlquiler(rpp_IDReportarPago, rpp_estadoDePago);
 
 
+
+                if (registrosAfectados > 0)
+                    return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return false;
+        }
+
+        #endregion
     }
 }

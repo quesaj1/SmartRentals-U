@@ -34,6 +34,16 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.CargaDatos();
+        }
+
+        protected void grdListaPagos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+
+        }
+
+        public void CargaDatos()
+        {
             string texto = this.DropDownList1.SelectedItem.ToString();
             C_ReportePago oReportarPago = new C_ReportePago();
             ///Asignarle la fuente de datos al grid
@@ -53,18 +63,12 @@ namespace ProyectoSmartRentals.Formularios
                 this.grdListaPagos.DataBind();
             }
         }
-
-        protected void grdListaPagos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-
-        }
-
         protected void grdListaPagos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             ///asignar al grid el nuevo índice de la página del grid
             this.grdListaPagos.PageIndex = e.NewPageIndex;
             ///asignar nuevamente la fuente de datos al grid
-            this.cargardatosGrid();
+            this.CargaDatos();
         }
     }
 }

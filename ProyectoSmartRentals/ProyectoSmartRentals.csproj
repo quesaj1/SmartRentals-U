@@ -205,6 +205,7 @@
     <Content Include="Formularios\frm_AlquilerElimina.aspx" />
     <Content Include="Formularios\frm_AlquileresLista.aspx" />
     <Content Include="Formularios\frm_AlquileresModifica.aspx" />
+    <Content Include="Formularios\frm_ArchivarPagos.aspx" />
     <Content Include="Formularios\frm_ClienteAgregar.aspx" />
     <Content Include="Formularios\frm_ClienteElimina.aspx" />
     <Content Include="Formularios\frm_ClienteLista.aspx" />
@@ -856,6 +857,13 @@
     </Compile>
     <Compile Include="Formularios\frm_AlquileresModifica.aspx.designer.cs">
       <DependentUpon>frm_AlquileresModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ArchivarPagos.aspx.cs">
+      <DependentUpon>frm_ArchivarPagos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ArchivarPagos.aspx.designer.cs">
+      <DependentUpon>frm_ArchivarPagos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_ClienteAgregar.aspx.cs">
       <DependentUpon>frm_ClienteAgregar.aspx</DependentUpon>
