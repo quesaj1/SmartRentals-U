@@ -79,6 +79,8 @@ namespace ProyectoSmartRentals.Formularios
             }
 
         }
+
+
         void CargaDatosAlquileres()
         {
             ///obtener el valor del parámetro que fue asignado al hidden

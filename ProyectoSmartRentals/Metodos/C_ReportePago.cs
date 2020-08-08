@@ -108,7 +108,7 @@ namespace ProyectoSmartRentals.Metodos
 
                 int registrosAfectados = 0;
                 registrosAfectados =
-                    this.modeloDB.sp_EliminarAlquiler(rpp_IDReportarPago, rpp_estadoDePago);
+                    this.modeloDB.sp_ArchivarPago(rpp_IDReportarPago, rpp_estadoDePago);
 
 
 

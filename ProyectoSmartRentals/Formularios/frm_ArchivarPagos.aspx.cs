@@ -125,7 +125,7 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListEmail.DataTextField = "cli_Email";
             DropDownListEmail.DataValueField = "cli_Cliente";
             DropDownListEmail.DataBind();
-            DropDownListEmail.Items.Insert(0, new ListItem("[Seleccione el mail del usuario]", "0"));
+            this.txtClienteEmail.Text = this.DropDownListEmail.SelectedItem.ToString();
 
         }
 
@@ -135,7 +135,7 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListCliente.DataTextField = "datosCliente";
             DropDownListCliente.DataValueField = "cli_Cliente";
             DropDownListCliente.DataBind();
-            DropDownListCliente.Items.Insert(0, new ListItem("[Seleccione un cliente]", "0"));
+            this.txtCliente.Text = this.DropDownListCliente.SelectedItem.ToString();
 
 
         }
@@ -146,7 +146,7 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListContrato.DataTextField = "ctr_numeroContrato";
             DropDownListContrato.DataValueField = "id_ctr_contrato";
             DropDownListContrato.DataBind();
-            DropDownListContrato.Items.Insert(0, new ListItem("[Seleccione el numero de contrato]", "0"));
+            this.txtContrato.Text = this.DropDownListContrato.SelectedItem.ToString();
 
         }
 

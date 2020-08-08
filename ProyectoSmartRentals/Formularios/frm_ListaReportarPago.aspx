@@ -52,7 +52,7 @@
 
       <div style= "margin-left: 10%">
         <p>
-                <asp:GridView ID="grdListaPagos" CssClass="table" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="90%" GridLines="Horizontal" OnPageIndexChanging="grdListaPagos_PageIndexChanging" OnSelectedIndexChanging="grdListaPagos_SelectedIndexChanging" >
+                <asp:GridView ID="grdListaPagos" CssClass="table" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="95%" GridLines="Horizontal" OnPageIndexChanging="grdListaPagos_PageIndexChanging" OnSelectedIndexChanging="grdListaPagos_SelectedIndexChanging" >
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
                         <asp:TemplateField HeaderText="Ítem">
@@ -68,7 +68,9 @@
                         <asp:BoundField DataField="ctr_monto" HeaderText="Valor mensual" />
                         <asp:BoundField DataField="rpp_FechaPagoRecibido" HeaderText="Fecha de Pago Recibido" />
                          <asp:BoundField DataField="rpp_DetallesDePago" HeaderText="Detalles del Pago" />
-                        <asp:HyperLinkField DataNavigateUrlFields="rpp_IDReportarPago" DataNavigateUrlFormatString="frm_ArchivarPagos?rpp_IDReportarPago={0}" HeaderText="Acciones" Text="&lt;i class=&quot;fa fa-archive&quot; style=&quot;font-size:24px&quot;&gt;&lt;/i&gt;" />
+                        <asp:HyperLinkField DataNavigateUrlFields="rpp_IDReportarPago"  DataNavigateUrlFormatString="frm_ArchivarPagos?rpp_IDReportarPago={0}" HeaderText="Acciones" Text="&lt;i class=&quot;fa fa-archive&quot; style=&quot;font-size:25px; color:e2d0a8&quot;&gt;&lt;/i&gt;"  >
+                  
+                        </asp:HyperLinkField>
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
