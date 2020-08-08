@@ -103,6 +103,12 @@
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
         <h1 style="text-align: center">Modificar Alquiler</h1>
 
+          <div style="margin-top: 5%; margin-left: 15%; margin-right: 15%; text-align:center" >
+               
+                   <asp:Image  runat="server" CssClass="rounded"  ID="image"  Width="220px"  Height="220px" BorderStyle="Solid" BorderWidth="2px"  />
+                    
+                 </div>
+
         <asp:HiddenField ID="hdldAlquiler" runat="server" />
 
         <div class="form-row" style="margin-top: 5%; margin-bottom: 5%">
@@ -148,21 +154,21 @@
                 <!-- Provincia -->
                 <label for="txtProvincia">Provincia</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorProv" runat="server" ControlToValidate="DropDownListProvincia" ErrorMessage="*Debe selecccionar una provincia*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                <asp:DropDownList ID="DropDownListProvincia" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaProvincia" ForeColor="Black"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListProvincia" ViewStateMode="Enabled" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="SeleccionaProvincia" ForeColor="Black"></asp:DropDownList>
                 <br />
             </div>
             <div class="form-group col-md-6">
                 <!--  Canton -->
                 <label for="txtCanton">Canton</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorCant" runat="server" ControlToValidate="DropDownListCanton" ErrorMessage="*Debe seleccionar un cantón*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                <asp:DropDownList ID="DropDownListCanton" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaCanton" ForeColor="Black"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListCanton" CssClass="form-control" ViewStateMode="Enabled" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaCanton" ForeColor="Black"></asp:DropDownList>
                 <br>
             </div>
             <div class="form-group col-md-6">
                 <!-- Distrito -->
                 <label for="txtDistrito">Distrito</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorDist" runat="server" ControlToValidate="DropDownListDistrito" ErrorMessage="*Debe seleccionar un distrito*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                <asp:DropDownList ID="DropDownListDistrito" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaDistrito" ForeColor="Black"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListDistrito" CssClass="form-control" ViewStateMode="Enabled" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaDistrito" ForeColor="Black"></asp:DropDownList>
                 <br>
             </div>
             <div class="form-group col-md-6">
@@ -170,8 +176,36 @@
                 <label for="txtImagen">Galería</label><br>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorImg" runat="server" ControlToValidate="fupImage" ErrorMessage="*Debe cargar una imagen*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
                 <asp:FileUpload ID="fupImage" CssClass="form-control" runat="server" ForeColor="Black" />
+
+              
+
                 <br>
             </div>
+            
+              
+
+             <%--test--%>
+            <div class="form-group col-md-6" runat="server" visible="false">
+                
+               
+                <asp:DropDownList ID="DropDownListProvincia1" DataTextField="nombre" DataValueField="id_provincia" CssClass="form-control" runat="server" Visible="true" AutoPostBack="True"  ForeColor="Black"></asp:DropDownList>
+                <br />
+            </div>
+            <div class="form-group col-md-6" runat="server" visible="false">
+                <!--  Canton -->
+                <label for="txtCanton">Canton</label><br>
+                
+                <asp:DropDownList ID="DropDownListCanton1" CssClass="form-control" DataTextField="nombre" DataValueField="id_canton" runat="server" AutoPostBack="True"  ForeColor="Black"></asp:DropDownList>
+                <br>
+            </div>
+            <div class="form-group col-md-6" runat="server" visible="false">
+                <!-- Distrito -->
+                <label for="txtDistrito">Distrito</label><br>
+                
+                <asp:DropDownList ID="DropDownListDistrito1" CssClass="form-control" DataTextField="nombre" DataValueField="id_distrito" runat="server" AutoPostBack="True"   ForeColor="Black"></asp:DropDownList>
+                <br>
+            </div>
+
        
          </div>
       
@@ -265,4 +299,4 @@
         }
     </script>
 
-</asp:Content>
+ </asp:Content>
