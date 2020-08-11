@@ -88,8 +88,7 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
-      
-
+       
 
         private void IniciarLlenadoDropDown()
         {
@@ -97,10 +96,33 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListProvincia.DataTextField = "Nombre";
             DropDownListProvincia.DataValueField = "Id_Provincia";
             DropDownListProvincia.DataBind();
-            DropDownListProvincia.Items.Insert(0, new ListItem(this.DropDownListProvincia1.SelectedItem.Text, "0"));
-            DropDownListCanton.Items.Insert(0, new ListItem(this.DropDownListCanton1.SelectedItem.Text, "0"));
-            DropDownListDistrito.Items.Insert(0, new ListItem(this.DropDownListDistrito1.SelectedItem.Text, "0"));
+
+            DropDownListCanton.DataSource = Consultar("Select * from dbo.C_Canton");
+            DropDownListCanton.DataTextField = "Nombre";
+            DropDownListCanton.DataValueField = "Id_Canton";
+            DropDownListCanton.DataBind();
+
+
+            DropDownListDistrito.DataSource = Consultar("Select * from dbo.C_Distrito");
+            DropDownListDistrito.DataTextField = "Nombre";
+            DropDownListDistrito.DataValueField = "Id_Distrito";
+            DropDownListDistrito.DataBind();
+
+            DropDownListProvincia.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
+            DropDownListCanton.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
+            DropDownListDistrito.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
+            string Provincia = DropDownListProvincia1.Text.ToString();
+            string Canton = DropDownListCanton1.Text.ToString();
+            string Distrito = DropDownListDistrito1.Text.ToString();
+            DropDownListProvincia.SelectedIndex=DropDownListProvincia.Items.IndexOf(DropDownListProvincia.Items.FindByValue(Provincia));
+            DropDownListCanton.SelectedIndex=DropDownListCanton.Items.IndexOf(DropDownListCanton.Items.FindByValue(Canton));
+            DropDownListDistrito.SelectedIndex=DropDownListDistrito.Items.IndexOf(DropDownListDistrito.Items.FindByValue(Distrito));
             
+            
+            //DropDownListProvincia.Items.Insert(0, new ListItem(this.DropDownListProvincia1.SelectedItem.Text, "0"));
+            //DropDownListCanton.Items.Insert(0, new ListItem(this.DropDownListCanton1.SelectedItem.Text, "0"));
+            //DropDownListDistrito.Items.Insert(0, new ListItem(this.DropDownListDistrito1.SelectedItem.Text, "0"));
+
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -205,6 +227,7 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListCanton.DataValueField = "Id_Canton";
             DropDownListCanton.DataBind();
             DropDownListCanton.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
+
            
         }
 
@@ -217,7 +240,7 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListDistrito.DataValueField = "Id_Distrito";
             DropDownListDistrito.DataBind();
             DropDownListDistrito.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
-            
+
 
         }
 
