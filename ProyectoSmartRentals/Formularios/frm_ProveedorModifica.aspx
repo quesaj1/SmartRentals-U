@@ -103,7 +103,7 @@
 
 
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
-        <h1 style="text-align: center">Modificar Alquiler</h1>
+        <h1 style="text-align: center">Modificar Proveedor</h1>
 
         <asp:HiddenField ID="hdldProveedor" runat="server" />
 
@@ -120,7 +120,7 @@
 
                 <!-- Nombre Variable -->
                 <div class="form-group col-md-6">
-                    <label for="txtNombreVariable">Nombre Variable del Proveedor<span style="color:red;">*</span></label>
+                    <label for="txtNombreVariable">Nombre Variable del Proveedor<span style="color: red;">*</span></label>
                     <br />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNombreVariable" ErrorMessage="*Ingrese un numero variable del proveedor*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="txtNombreVariable" ForeColor="Black" type="text" CssClass="form-control" placeholder="Nombre Variable" runat="server" MaxLength="50"></asp:TextBox>
@@ -128,7 +128,7 @@
 
                 <!-- Nombre Representante -->
                 <div class="form-group col-md-6">
-                    <label for="txtNombreRepresentante">Nombre Representante<span style="color:red;">*</span></label>
+                    <label for="txtNombreRepresentante">Nombre Representante<span style="color: red;">*</span></label>
                     <br />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNombreRepresentante" ErrorMessage="*Ingrese un numero nombre del representante*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="txtNombreRepresentante" ForeColor="Black" type="text" CssClass="form-control" placeholder="Nombre Representante" runat="server" MaxLength="50"></asp:TextBox>
@@ -137,7 +137,7 @@
 
                 <!--PrimerApellido-->
                 <div class="form-group col-md-6">
-                    <label for="txtPrimerApellido">Primer Apellido<span style="color:red;">*</span></label>
+                    <label for="txtPrimerApellido">Primer Apellido<span style="color: red;">*</span></label>
                     <br />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtPrimerApellido" ErrorMessage="*Ingrese un numero Primer Apellido*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="txtPrimerApellido" type="text" ForeColor="Black" CssClass="form-control" placeholder="Primer Apellido" runat="server" MaxLength="50"></asp:TextBox>
@@ -146,7 +146,7 @@
 
                 <!--SegundoApellido-->
                 <div class="form-group col-md-6">
-                    <label for="txtSegundoApellido">Segundo Apellido<span style="color:red;">*</span></label>
+                    <label for="txtSegundoApellido">Segundo Apellido<span style="color: red;">*</span></label>
                     <br />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtSegundoApellido" ErrorMessage="Ingrese un numero Segundo Apellido*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="txtSegundoApellido" type="text" ForeColor="Black" CssClass="form-control" placeholder="Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
@@ -154,7 +154,7 @@
 
                 <!--Cedula Representante-->
                 <div class="form-group col-md-6">
-                    <label for="txtCedulaRepresentante">Cedula Representante<span style="color:red;">*</span></label>
+                    <label for="txtCedulaRepresentante">Cedula Representante<span style="color: red;">*</span></label>
                     <br />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCedulaRepresentante" ErrorMessage="*Ingrese un numero Cedula*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCedulaRepresentante" ErrorMessage="Debe ingresar un cedula con el formato 0 0000 0000 (9 dígitos, sin cero al inicio ni guiones). " ValidationExpression="[0-9]{9}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
@@ -163,7 +163,7 @@
 
                 <!--Cedula Juridica-->
                 <div class="form-group col-md-6">
-                    <label for="txtCedulaJuridica">Cedula Juridica<span style="color:red;">*</span></label>
+                    <label for="txtCedulaJuridica">Cedula Juridica<span style="color: red;">*</span></label>
                     <br />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCedulaJuridica" ErrorMessage="*Ingrese un numero Cedula Juridica*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCedulaJuridica" ErrorMessage="Debe ingresar un cedula jurida con el formato 0000000000 (10 dígitos, sin cero al inicio ni guiones). " ValidationExpression="[0-9]{10}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
@@ -172,7 +172,7 @@
 
                 <!--Telefono-->
                 <div class="form-group col-md-6">
-                    <label for="txtTelefono">Telefono<span style="color:red;">*</span></label>
+                    <label for="txtTelefono">Telefono<span style="color: red;">*</span></label>
                     <br />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtTelefono" ErrorMessage="*Ingrese un numero telefonico*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator runat="server" ControlToValidate="txtTelefono" ErrorMessage="Debe ingresar un numero telefonico de 8 digitos " ValidationExpression="[0-9]{8}" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
@@ -181,7 +181,7 @@
 
                 <!--Email-->
                 <div class="form-group col-md-6">
-                    <label for="txtEmail">Correo Electronico<span style="color:red;">*</span></label>
+                    <label for="txtEmail">Correo Electronico<span style="color: red;">*</span></label>
                     <br />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtEmail" ErrorMessage="*Ingrese un correo electronico*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator" runat="server" ControlToValidate="txtEmail" ErrorMessage="Ingrese un correo electronico valido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
@@ -191,10 +191,10 @@
 
                 <!--TipoProveedor -->
                 <div class="form-group col-md-6">
-                    <label for="txtTipoProveedor">Tipo Proveedor<span style="color:red;">*</span></label>
+                    <label for="txtTipoProveedor">Tipo Proveedor<span style="color: red;">*</span></label>
                     <br />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorTipo"  runat="server" ErrorMessage="*Debe seleccionar un tipo de proveedor*" SetFocusOnError="True" Font-Size="Small" InitialValue="Seleccionar" ControlToValidate="txtTipoProveedor" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <select id="txtTipoProveedor" class="custom-select" runat="server" ForeColor="Black" cssclass="form-control">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorTipo" runat="server" ErrorMessage="*Debe seleccionar un tipo de proveedor*" SetFocusOnError="True" Font-Size="Small" InitialValue="Seleccionar" ControlToValidate="txtTipoProveedor" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <select id="txtTipoProveedor" class="custom-select" runat="server" forecolor="Black" cssclass="form-control">
                         <option style="font-size: small">Seleccionar</option>
                         <option style="font-size: small">Jardinero</option>
                         <option style="font-size: small">Electricidad</option>
@@ -204,24 +204,60 @@
                     </select>
                 </div>
 
-
                 <div class="form-group col-md-6">
                     <!-- Provincia -->
-                    <label for="txtProvincia">Provincia<span style="color:red;">*</span></label><br>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorProv" runat="server" ControlToValidate="DropDownListProvincia" ErrorMessage="*Debe seleccionar una provincia*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                    <asp:DropDownList ID="DropDownListProvincia" CssClass="form-control" ForeColor="Black"  runat="server" AutoPostBack="True"></asp:DropDownList>
+                    <label for="txtProvincia">Provincia</label><br>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorProv" runat="server" ControlToValidate="DropDownListProvincia" ErrorMessage="*Debe selecccionar una provincia*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="DropDownListProvincia" ViewStateMode="Enabled" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="SeleccionaProvincia" ForeColor="Black"></asp:DropDownList>
                     <br />
                 </div>
-   
+                <div class="form-group col-md-6">
+                    <!--  Canton -->
+                    <label for="txtCanton">Canton</label><br>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorCant" runat="server" ControlToValidate="DropDownListCanton" ErrorMessage="*Debe seleccionar un cantón*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="DropDownListCanton" CssClass="form-control" ViewStateMode="Enabled" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaCanton" ForeColor="Black"></asp:DropDownList>
+                    <br>
+                </div>
+                <div class="form-group col-md-6">
+                    <!-- Distrito -->
+                    <label for="txtDistrito">Distrito</label><br>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorDist" runat="server" ControlToValidate="DropDownListDistrito" ErrorMessage="*Debe seleccionar un distrito*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="DropDownListDistrito" CssClass="form-control" ViewStateMode="Enabled" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaDistrito" ForeColor="Black"></asp:DropDownList>
+                    <br>
+                </div>
+
                 <!--OtrasSenas-->
                 <div class="form-group col-md-6">
-                    <label for="txtOtrasSenas">Comentarios<span style="color:red;">*</span></label>
+                    <label for="txtOtrasSenas">Comentarios<span style="color: red;">*</span></label>
                     <br />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorSenas" runat="server" ControlToValidate="txtOtrasSenas" ErrorMessage="*Debe ingresar un comentario* " SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="txtOtrasSenas" type="text" ForeColor="Black" CssClass="form-control" placeholder="Otras Señas" runat="server" MaxLength="30"></asp:TextBox>
                 </div>
 
             </div>
+        </div>
+
+
+        <%--test--%>
+        <div class="form-group col-md-6" runat="server" visible="false">
+
+
+            <asp:DropDownList ID="DropDownListProvincia1" DataTextField="nombre" DataValueField="id_provincia" CssClass="form-control" runat="server" Visible="true" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
+            <br />
+        </div>
+        <div class="form-group col-md-6" runat="server" visible="false">
+            <!--  Canton -->
+            <label for="txtCanton">Canton</label><br>
+
+            <asp:DropDownList ID="DropDownListCanton1" CssClass="form-control" DataTextField="nombre" DataValueField="id_canton" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
+            <br>
+        </div>
+        <div class="form-group col-md-6" runat="server" visible="false">
+            <!-- Distrito -->
+            <label for="txtDistrito">Distrito</label><br>
+
+            <asp:DropDownList ID="DropDownListDistrito1" CssClass="form-control" DataTextField="nombre" DataValueField="id_distrito" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
+            <br>
         </div>
 
 
