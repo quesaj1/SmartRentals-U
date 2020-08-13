@@ -13,6 +13,15 @@ namespace ProyectoSmartRentals.Formularios {
     public partial class frm_ProveedorAgregar {
         
         /// <summary>
+        /// Control RequiredFieldValidatorID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorID;
+        
+        /// <summary>
         /// Control txtNombreVariable.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreVariable;
+        
+        /// <summary>
+        /// Control RequiredFieldValidatorNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorNombre;
         
         /// <summary>
         /// Control txtNombreRepresentante.
@@ -31,6 +49,15 @@ namespace ProyectoSmartRentals.Formularios {
         protected global::System.Web.UI.WebControls.TextBox txtNombreRepresentante;
         
         /// <summary>
+        /// Control RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// Control txtPrimerApellido.
         /// </summary>
         /// <remarks>
@@ -38,6 +65,15 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrimerApellido;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// Control txtSegundoApellido.
@@ -49,6 +85,15 @@ namespace ProyectoSmartRentals.Formularios {
         protected global::System.Web.UI.WebControls.TextBox txtSegundoApellido;
         
         /// <summary>
+        /// Control RequiredFieldValidator4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        
+        /// <summary>
         /// Control txtCedulaRepresentante.
         /// </summary>
         /// <remarks>
@@ -56,6 +101,15 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCedulaRepresentante;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// Control txtCedulaJuridica.
@@ -112,15 +166,6 @@ namespace ProyectoSmartRentals.Formularios {
         protected global::System.Web.UI.HtmlControls.HtmlSelect txtTipoProveedor;
         
         /// <summary>
-        /// Control RequiredFieldValidatorProv.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorProv;
-        
-        /// <summary>
         /// Control DropDownListProvincia.
         /// </summary>
         /// <remarks>
@@ -128,15 +173,6 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListProvincia;
-        
-        /// <summary>
-        /// Control RequiredFieldValidatorCant.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCant;
         
         /// <summary>
         /// Control DropDownListCanton.
@@ -148,15 +184,6 @@ namespace ProyectoSmartRentals.Formularios {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListCanton;
         
         /// <summary>
-        /// Control RequiredFieldValidatorDist.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDist;
-        
-        /// <summary>
         /// Control DropDownListDistrito.
         /// </summary>
         /// <remarks>
@@ -166,13 +193,13 @@ namespace ProyectoSmartRentals.Formularios {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListDistrito;
         
         /// <summary>
-        /// Control RequiredFieldValidatorSenas.
+        /// Control RequiredFieldValidator5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorSenas;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
         /// Control txtOtrasSenas.

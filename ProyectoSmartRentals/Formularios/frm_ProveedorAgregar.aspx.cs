@@ -178,7 +178,7 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void btnAtras_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Formularios/frm_ProveedorLista.aspx");
         }
     }
 }
