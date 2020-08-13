@@ -81,8 +81,11 @@
                         <h3>
 					¿Necesitas modificar el contrato? <br /><small> ¡Acá lo puedes solicitar!</small>
                             </h3><br />
-                       <asp:Button ID="btnModificar" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Solicitar"  Font-Size="Medium" Height="49px" Width="111px"  />
+                       <asp:Button ID="btnModificar" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Solicitar" CommandArgument='<%#Eval("ctr_numeroContrato")%>'   Font-Size="Medium" Height="49px" Width="111px"  PostBackUrl="~/Formularios/frm_EnvioModContrato.aspx" />
 				</div>
+
+
+
                        
 			</div>
 		</div><br /><br />

@@ -111,7 +111,35 @@
 .a6 {
   -webkit-animation-delay: 2.5s;
           animation-delay: 2.5s;
+          background:  #535c68;
+          box-shadow: inset 0px 0px 0px 0.01px rgba(255,255,255,0.6);
+          border-style:none;
+          color:white;
+          border-radius:25px;
+          padding: 9px 10px;
+          text-align: center;
+          font-size: 16px;
+          cursor: pointer;
+          -webkit-transition: box-shadow linear 0.5s,color linear 0.5s;
+          -moz-transition: box-shadow linear 0.5s,color linear 0.5s;    
+          transition: box-shadow linear 0.5s,color linear 0.5s;
+          outline:none;
+          
+          
 }
+
+
+.a6:hover {
+
+  box-shadow: inset 290px 0px 0px 0.01px #adc867;
+  border-style:none;
+  border-radius:25px;
+  color: white;
+  outline:none;
+
+}
+
+
 @keyframes move {
   0% {
     opacity: 0;
@@ -140,6 +168,9 @@
 
 }
 
+
+
+
 </style>
 
  
@@ -151,20 +182,22 @@
                 </div>
 
                 <div class="form1">
-                <label for="txtUsuario" >Usuario</label>
+                <label for="txtUsuario" style="font-weight:500" >Usuario</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*Debe ingresar su usuario*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtUsuario" type="text" class="form1-field animation a3" runat="server"  placeholder="Ingrese su usuario"></asp:TextBox>
+                <asp:TextBox ID="txtUsuario" type="text" class="form1-field animation a3" runat="server"   placeholder="Ingrese su usuario"></asp:TextBox>
                 <br/>           
-                <label for="txtContrasena"  >Contraseña</label>
+                <label for="txtContrasena" style="font-weight:500"   >Contraseña</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrasena" runat="server" ControlToValidate="txtContrasena" ErrorMessage="*Debe ingresar su contraseña*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtContrasena" type="password" class="form1-field animation a4" runat="server" placeholder="Ingrese su contraseña"></asp:TextBox>
                 
                 <br/><br />
                 
-                <asp:Button ID="btnLogin" runat="server" Style="border:0; color: #fff;  margin-top:10px;  border-radius:5px;background:linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673); box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75); letter-spacing:1px; padding:12px 10px"   Cssclass="animation a6"   Text="Iniciar Sesión"  OnClick="btnAgregar_Click"  Font-Bold="True"  Font-Size="Medium" />
+                <asp:Button ID="btnLogin" runat="server" Style="letter-spacing:1px;" Cssclass="animation a6"   Text="Iniciar Sesión"  OnClick="btnAgregar_Click"  Font-Bold="True"  Font-Size="Medium" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
+             
            </div>
           </div>
+           
           <div class="right-section"></div>
         </div>
      
