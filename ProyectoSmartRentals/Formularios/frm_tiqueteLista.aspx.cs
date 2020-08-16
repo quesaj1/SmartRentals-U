@@ -58,6 +58,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = false;
                 this.Page.Master.FindControl("menu_cliente_").Visible = true;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+                this.hplAgregar.Visible = true;
 
             }
             if (_rol.Equals("Proveedor"))

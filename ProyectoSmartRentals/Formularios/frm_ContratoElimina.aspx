@@ -86,12 +86,13 @@
                    <div class="form-group col-md-6">
                 
                 <label for="txtFechaPago">Fecha de Pago <span style="color:red;">*</span></label> <br />
-                <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control" ReadOnly="True" ForeColor="Black" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtFechaPago"  CssClass="form-control" ReadOnly="True" ForeColor="Black" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- URL Contrato -->
-                <label for="txtContrato">Contrato</label>
-                <asp:FileUpload ID="contrato" CssClass="form-control" ReadOnly="True" runat="server" />
+                <label for="txtContrato">Contrato</label><br />
+                  <asp:Image ID="imgFile" runat="server" CssClass="rounded" Width="20px" Height="20px" ImageUrl="../images/document.png" />
+                  <asp:HyperLink ID="HyperLink1" runat="server">Contrato</asp:HyperLink>
             </div>  
              
 

@@ -249,6 +249,7 @@
     <Content Include="images\contact_image.jpg" />
     <Content Include="images\contract.svg" />
     <Content Include="images\directions.svg" />
+    <Content Include="images\document.png" />
     <Content Include="images\duplex.svg" />
     <Content Include="images\envelope-2.svg" />
     <Content Include="images\envelope.svg" />

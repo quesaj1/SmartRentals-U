@@ -64,6 +64,8 @@ namespace ProyectoSmartRentals.Formularios
                     string date = Convert.ToString(resultadoSp.ctr_fechaPago);
                     string dia = date.Substring(0, date.IndexOf("/"));
                     this.txtFechaPago.Text = "Los días de pago son: " + dia;
+                    string link = resultadoSp.ctr_file;
+                    this.hypContrato.NavigateUrl = link;
 
 
 

@@ -184,9 +184,15 @@ namespace ProyectoSmartRentals.Formularios
                     //this.txtFechaFinaliacion.Text = StringFormat(resultadoSp.ctr_fechafinalizacion);
                     //this.txtFechaInicio.Text = resultadoSp.ctr_fechainicio;
                     this.txtMonto.Text = (resultadoSp.ctr_monto).ToString("N0");
-
+                    Nullable<DateTime> fecha = resultadoSp.ctr_fechafinalizacion;
+                    Nullable<DateTime> fecha2 = resultadoSp.ctr_fechainicio;
+                    Nullable<DateTime> fecha3 = resultadoSp.ctr_fechapago;
+                    this.txtFechaFinaliacion.Text = fecha.HasValue ? fecha.Value.ToString("dd/MM/yyyy"): "<not available>";
+                    this.txtFechaInicio.Text = fecha2.HasValue ? fecha2.Value.ToString("dd/MM/yyyy") : "<not available>";
+                    this.txtFechaPago.Text = fecha3.HasValue ? fecha3.Value.ToString("dd/MM/yyyy") : "<not available>";
                     this.DropDownListCliente.Text = resultadoSp.fk_cli_cliente.ToString();
                     this.DropDownPropiedad.Text = resultadoSp.fk_alq_id_propiedad.ToString();
+                    this.HyperLink1.NavigateUrl = resultadoSp.ctr_file;
 
 
 
