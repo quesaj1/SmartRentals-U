@@ -206,7 +206,14 @@ df-messenger {
                     </div>
 
                      
-                    <div id="art3" runat="server" visible="false">
+                   
+
+
+
+                </section><br /><br /><br />
+
+                <section class="info">
+                     <div id="art3" runat="server" visible="false">
                     <article  class="info_columna">
 
                           <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)"  ;>
@@ -240,9 +247,7 @@ df-messenger {
                     </div>
                     
 
-
-
-                </section><br /><br /><br />
+                    </section>
 
                </div>
 

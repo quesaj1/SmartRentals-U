@@ -46,7 +46,7 @@ namespace ProyectoSmartRentals.Formularios
         void menu()
         {
             //string _rol = Convert.ToString(Session["Tipo"]);
-            _rol = "Cliente";
+            _rol = Convert.ToString(Session["Tipo"]);
             if (_rol.Equals("Cliente"))
             {
                 _pk_cliente = Convert.ToInt16(Session["ID"]);
