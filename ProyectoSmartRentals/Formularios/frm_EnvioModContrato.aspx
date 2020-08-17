@@ -120,7 +120,7 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <!-- Comentarios-->
                 <label for="txtJustifica">Justificación : <span style="color:red;">*</span></label><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorJustifica" runat="server" ControlToValidate="txtJustifica" ErrorMessage="*Debe ingresar una justificacion*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
