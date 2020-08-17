@@ -1,4 +1,5 @@
-﻿using ProyectoSmartRentals.Metodos;
+﻿using Microsoft.ReportingServices.Interfaces;
+using ProyectoSmartRentals.Metodos;
 using ProyectoSmartRentals.Modelos;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace ProyectoSmartRentals.Formularios
                 DropDownAlquileres();
                 this.hdldContrato.Value = this.Request.QueryString["id_ctr_contrato"];
                 cargarDatos();
+                
+
             }
         }
 
@@ -82,9 +85,9 @@ namespace ProyectoSmartRentals.Formularios
 
                 ///obtener del hiddenField el valor de la llave primaria
                 id_contrato = Convert.ToInt16(this.hdldContrato.Value);
-                DateTime fechainicio = Convert.ToDateTime(this.txtFechaInicio.Text);
-                DateTime fechaFinalizacion = Convert.ToDateTime(this.txtFechaFinaliacion.Text);
-                DateTime fechapago = Convert.ToDateTime(this.txtFechaPago.Text);
+                DateTime fechainicio = Convert.ToDateTime(this.FechaInicio.Value);
+                DateTime fechaFinalizacion = Convert.ToDateTime(this.fechafinalizacion.Value);
+                DateTime fechapago = Convert.ToDateTime(this.datepago.Value);
                 int id_admin = Convert.ToInt32(this.txtAdmin.Text);
                 try
                 {
@@ -170,6 +173,18 @@ namespace ProyectoSmartRentals.Formularios
                     //this.txtFechaFinaliacion.Text = DateTime.;
                     //this.txtFechaInicio.Text = Convert.ToString(resultadoSp.ctr_fechainicio);
                     //this.txtFechaPago.Text = Convert.ToString(resultadoSp.ctr_fechapago);
+                    Nullable<DateTime> fecha = resultadoSp.ctr_fechafinalizacion;
+                    Nullable<DateTime> fecha2 = resultadoSp.ctr_fechainicio;
+                    Nullable<DateTime> fecha3 = resultadoSp.ctr_fechapago;
+                    
+                   
+                    //this.txtFechaPago.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+                    this.datepago.Value = fecha3.HasValue ? fecha3.Value.ToString("yyyy-MM-dd") : "<not available>";
+                    this.fechafinalizacion.Value = fecha.HasValue ? fecha.Value.ToString("yyyy-MM-dd") : "<not available>";
+                    this.FechaInicio.Value = fecha2.HasValue ? fecha2.Value.ToString("yyyy-MM-dd") : "<not available>";
+
+
                     this.txtMonto.Text = (resultadoSp.ctr_monto).ToString("N0");
                     this.txtAdmin.Text = Convert.ToString(resultadoSp.fk_adr_id_admin);
                  

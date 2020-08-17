@@ -148,6 +148,9 @@ input[type="date"], focus {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+
+ 
     
            <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
          <h1 style="text-align: center">Modificar Contrato</h1>
@@ -168,13 +171,15 @@ input[type="date"], focus {
               <div class="form-group col-md-6">
                 <!-- Fecha de inicio -->
                 <label for="txtFechaInicio">Fecha de inicio <span style="color:red;">*</span></label><br />
-                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaInicio" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtFechaInicio" type="date" ForeColor="Black" CssClass="form-control" placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox>             
+                  <%--<asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaInicio" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtFechaInicio" type="date" ForeColor="Black" CssClass="form-control" placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox> --%>  
+                  <input type="date" class="form-control" ForeColor="Black" id="FechaInicio" runat="server" style="color:black">
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de finalización -->
                 <label for="txtFechaFinaliacion">Fecha de finalización</label> <br />
-                <asp:TextBox ID="txtFechaFinaliacion" type="date" ForeColor="Black" CssClass="form-control" placeholder="Fecha de finalización" runat="server" MaxLength="50"></asp:TextBox>
+                <%--<asp:TextBox ID="txtFechaFinaliacion" type="date" ForeColor="Black" CssClass="form-control"   runat="server" MaxLength="50" TextMode="DateTime"></asp:TextBox>--%>
+                  <input type="date" class="form-control" ForeColor="Black" id="fechafinalizacion" runat="server" style="color:black">
             </div>
                  <div class="form-group col-md-6">
                 <!-- Propiedad -->
@@ -190,9 +195,10 @@ input[type="date"], focus {
              <div class="form-group col-md-6">
                 
                 <label for="txtFechaPago">Fecha de Pago <span style="color:red;">*</span></label><br />
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFechaPago" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtFechaPago" type="date" ForeColor="Black" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
-            </div>
+                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFechaPago" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>--%>
+                <%--<asp:TextBox ID="txtFechaPago" type="date" ForeColor="Black" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>--%>
+                <input type="date" class="form-control" ForeColor="Black" id="datepago" runat="server" style="color:black">
+                 </div>
               <div class="form-group col-md-6">
                 <!-- URL Contrato -->
                 <label for="txtContrato">Contrato <span style="color:red;">*</span></label><br />
@@ -248,4 +254,6 @@ input[type="date"], focus {
             });
         }
     </script>
+
+ 
 </asp:Content>
