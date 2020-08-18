@@ -109,12 +109,12 @@ input[type="date"], focus {
                            <div class="animated-title">
                              <div class="text-top">
                                <div>
-                                   <span>Smart</span>
-                                  <span>Rentals</span>
+                                   <span style="font-weight:600">Smart</span>
+                                  <span style="font-weight:600">Rentals</span>
                                </div>
                              </div>
                            <div class="text-bottom">
-                        <div>Reporte de Mantenimientos</div>
+                        <div style="font-weight:600">Reporte de Mantenimientos</div>
                         </div>
                    </div>
               

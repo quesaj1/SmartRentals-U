@@ -31,6 +31,11 @@ namespace ProyectoSmartRentals.Formularios
             string rutaReporte = "~/Reportes/R_Gastos.rdlc";
             ///construir la ruta física
             string rutaServidor = Server.MapPath(rutaReporte);
+
+            user.Value = Session["Nombre"].ToString();
+            ReportParameterCollection reportParameters = new ReportParameterCollection();
+            reportParameters.Add(new ReportParameter("ReportParameterUser", user.Value));
+
             ///Validar que la ruta física exista
             if (!File.Exists(rutaServidor))
             {
@@ -54,6 +59,7 @@ namespace ProyectoSmartRentals.Formularios
                 fuenteDatos.Value = datosReporte;
                 // agregar la fuente de datos al reporte
                 this.rpvGastos.LocalReport.DataSources.Add(fuenteDatos);
+                this.rpvGastos.LocalReport.SetParameters(reportParameters);
 
                 /// mostrar los datos en el reporte
                 this.rpvGastos.LocalReport.Refresh();

@@ -111,17 +111,19 @@ input[type="date"], focus {
 
    <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
 
+       <asp:HiddenField  runat="server" id="user" />
+
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
               
                            <div class="animated-title">
                              <div class="text-top">
                                <div>
-                                   <span>Smart</span>
-                                  <span>Rentals</span>
+                                   <span style="font-weight:600">Smart</span>
+                                  <span style="font-weight:600">Rentals</span>
                                </div>
                              </div>
                            <div class="text-bottom">
-                        <div>Reporte de Gastos</div>
+                        <div style="font-weight:600">Reporte de Gastos</div>
                         </div>
                    </div>
               
