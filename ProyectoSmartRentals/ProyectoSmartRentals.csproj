@@ -246,6 +246,7 @@
     <Content Include="images\blog_3.jpg" />
     <Content Include="images\calculo-calculadora-cuentas.jpg" />
     <Content Include="images\camera.svg" />
+    <Content Include="images\close.png" />
     <Content Include="images\contact_image.jpg" />
     <Content Include="images\contract.svg" />
     <Content Include="images\directions.svg" />
