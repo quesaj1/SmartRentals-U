@@ -174,7 +174,7 @@
             <div class="form-group col-md-6">
                 <!-- URL Imagen -->
                 <label for="txtImagen">Galería</label><br>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorImg" runat="server" ControlToValidate="fupImage" ErrorMessage="*Debe cargar una imagen*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
+                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidatorImg" runat="server" ControlToValidate="fupImage" ErrorMessage="*Debe cargar una imagen*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                 <asp:FileUpload ID="fupImage" CssClass="form-control" runat="server" ForeColor="Black" />
 
               

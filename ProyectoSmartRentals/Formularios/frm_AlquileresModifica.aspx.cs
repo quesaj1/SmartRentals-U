@@ -185,7 +185,49 @@ namespace ProyectoSmartRentals.Formularios
                     }
 
                 }
+
+                else
+                {
+
+
+                    try
+                    {
+
+
+                        string alq_ImagenURL = this.image.ImageUrl;
+
+                        C_Alquileres oAlquileres = new C_Alquileres();
+                        string alq_TipoPropiedad = this.txtTipoPropiedad.Value.ToString();
+                        if (oAlquileres.ModificaAlquiler(id_Alquiler, this.txtUbicacionExacta.Text,
+                             alq_TipoPropiedad, this.txtDetalles.Text, Convert.ToInt16(this.DropDownListDistrito.Text),
+                            Convert.ToInt16(this.DropDownListCanton.Text),
+                            Convert.ToInt16(this.DropDownListProvincia.Text), alq_ImagenURL, true)
+                        )
+                        {
+                            /// this.lblResultado.Text = "Registro Modificado";
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                        }
+                        else
+                        {
+                            //this.lblResultado.Text = "No se pudo modificar";
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                        }
+
+                    }
+                    catch (Exception error)
+                    {
+                        //this.lblResultado.Text = "No se pudo modificar: " + error;
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+
+                    }
+
+
+                }
+
             }
+
+
+            
         }
 
         protected void btnAtras_Click(object sender, EventArgs e)
@@ -223,12 +265,6 @@ namespace ProyectoSmartRentals.Formularios
                     _canton = Convert.ToInt32(resultadoSp.Id_Canton.ToString());
                     _distrito = Convert.ToInt32(resultadoSp.Id_Distrito.ToString());
                     _img = resultadoSp.alq_ImagenURL;
-
-                    if (!fupImage.HasFile)
-                    {
-                        string filePath = Server.MapPath(_img);
-                        this.fupImage.FindControl(filePath);
-                    }
                 }
 
             }
