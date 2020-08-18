@@ -61,6 +61,7 @@ namespace ProyectoSmartRentals.Formularios
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress("info.smartrentals@gmail.com", "Smart Rentals Clientes");
                 mail.To.Add(new MailAddress("info.smartrentals@gmail.com"));
+                mail.CC.Add(new MailAddress(txtOrigen.Text.ToString()));
                 mail.Subject = "Solicitud modificacion de Contrato" + " | " + DropDownContratos.SelectedItem.ToString();
                 mail.IsBodyHtml = true;
                 mail.Body = "NUMERO DE CONTRATO : " + DropDownContratos.SelectedItem.ToString() + "<br/>" + "<br/>" +

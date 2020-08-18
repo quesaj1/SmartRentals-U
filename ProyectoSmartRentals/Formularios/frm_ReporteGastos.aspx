@@ -107,9 +107,10 @@ input[type="date"], focus {
 
 </style>
 
-
+    
 
    <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
+
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
               
                            <div class="animated-title">

@@ -138,39 +138,49 @@ namespace ProyectoSmartRentals.Formularios
 
                 if (fupImage.HasFile)
                 {
-
+                    string extension = System.IO.Path.GetExtension(fupImage.FileName);
                     string URL = fupImage.PostedFile.FileName;
-                    string filePath = Server.MapPath(@"~/Propiedades/" + URL);
-                    fupImage.SaveAs(filePath);
 
-                    try
+                    if (extension == ".jpeg" || extension == ".png" || extension == ".jpg")
                     {
+                        string filePath = Server.MapPath(@"~/Propiedades/" + URL);
+                        fupImage.SaveAs(filePath);
 
-                        string alq_Imagen = this.fupImage.FileName.ToString();
-                        string alq_ImagenURL = "~/Propiedades/" + alq_Imagen;
-
-                        C_Alquileres oAlquileres = new C_Alquileres();
-                        string alq_TipoPropiedad = this.txtTipoPropiedad.Value.ToString();
-                        if (oAlquileres.ModificaAlquiler(id_Alquiler, this.txtUbicacionExacta.Text,
-                         alq_TipoPropiedad, this.txtDetalles.Text, Convert.ToInt16(this.DropDownListDistrito.Text),
-                          Convert.ToInt16(this.DropDownListCanton.Text),
-                          Convert.ToInt16(this.DropDownListProvincia.Text), alq_ImagenURL, true)
-                            )
+                        try
                         {
-                            /// this.lblResultado.Text = "Registro Modificado";
-                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+
+                            string alq_Imagen = this.fupImage.FileName.ToString();
+                            string alq_ImagenURL = "~/Propiedades/" + alq_Imagen;
+
+                            C_Alquileres oAlquileres = new C_Alquileres();
+                            string alq_TipoPropiedad = this.txtTipoPropiedad.Value.ToString();
+                            if (oAlquileres.ModificaAlquiler(id_Alquiler, this.txtUbicacionExacta.Text,
+                             alq_TipoPropiedad, this.txtDetalles.Text, Convert.ToInt16(this.DropDownListDistrito.Text),
+                              Convert.ToInt16(this.DropDownListCanton.Text),
+                              Convert.ToInt16(this.DropDownListProvincia.Text), alq_ImagenURL, true)
+                                )
+                            {
+                                /// this.lblResultado.Text = "Registro Modificado";
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                            }
+                            else
+                            {
+                                //this.lblResultado.Text = "No se pudo modificar";
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                            }
+
                         }
-                        else
+                        catch (Exception error)
                         {
-                            //this.lblResultado.Text = "No se pudo modificar";
+                            //this.lblResultado.Text = "No se pudo modificar: " + error;
                             ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
-                        }
 
+                        }
                     }
-                    catch (Exception error)
+
+                    else
                     {
-                        //this.lblResultado.Text = "No se pudo modificar: " + error;
-                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                        this.lblResultado.Text = "Solo se aceptan archivos de imagen .jpg .jpeg o .png";
 
                     }
 
@@ -214,6 +224,11 @@ namespace ProyectoSmartRentals.Formularios
                     _distrito = Convert.ToInt32(resultadoSp.Id_Distrito.ToString());
                     _img = resultadoSp.alq_ImagenURL;
 
+                    if (!fupImage.HasFile)
+                    {
+                        string filePath = Server.MapPath(_img);
+                        this.fupImage.FindControl(filePath);
+                    }
                 }
 
             }

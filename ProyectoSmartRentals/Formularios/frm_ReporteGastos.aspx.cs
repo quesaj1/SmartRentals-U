@@ -13,6 +13,8 @@ namespace ProyectoSmartRentals.Formularios
 {
     public partial class frm_ReporteGastos : System.Web.UI.Page
     {
+
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -20,6 +22,10 @@ namespace ProyectoSmartRentals.Formularios
 
         void construirReporte()
         {
+
+           
+
+           
 
             ///indicar la ruta del reporte
             string rutaReporte = "~/Reportes/R_Gastos.rdlc";

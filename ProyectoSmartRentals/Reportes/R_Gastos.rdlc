@@ -68,7 +68,7 @@
                   <Width>1.9875in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.34167in</Width>
+                  <Width>1.84167in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -379,7 +379,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!tqt_precio_reparacion.Value</Value>
+                                  <Value>="₡"&amp;Fields!tqt_precio_reparacion.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -453,7 +453,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!tqt_precio_reparacion.Value)</Value>
+                                  <Value>="₡"&amp;Sum(Fields!tqt_precio_reparacion.Value)</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -507,7 +507,7 @@
             <Top>0.42708in</Top>
             <Left>0.1875in</Left>
             <Height>0.75in</Height>
-            <Width>8.01042in</Width>
+            <Width>8.51042in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -518,7 +518,7 @@
         <Height>2.33208in</Height>
         <Style />
       </Body>
-      <Width>8.5625in</Width>
+      <Width>9.36458in</Width>
       <Page>
         <PageHeader>
           <Height>1.42583in</Height>
@@ -545,9 +545,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox10</rd:DefaultName>
+              <Top>0.01389in</Top>
               <Left>3.05083in</Left>
               <Height>0.46875in</Height>
-              <Width>5.14708in</Width>
+              <Width>5.64709in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -580,7 +581,11 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Usuario:</Value>
+                      <Value>Usuario:   </Value>
+                      <Style />
+                    </TextRun>
+                    <TextRun>
+                      <Value>=User!UserID</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -591,7 +596,7 @@
               <Top>0.52431in</Top>
               <Left>6.0625in</Left>
               <Height>0.25in</Height>
-              <Width>2.13542in</Width>
+              <Width>2.63542in</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -625,7 +630,7 @@
               <Top>0.89806in</Top>
               <Left>6.0625in</Left>
               <Height>0.25in</Height>
-              <Width>2.13542in</Width>
+              <Width>2.63542in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -641,7 +646,7 @@
               <Top>1.30083in</Top>
               <Left>0.01042in</Left>
               <Height>0in</Height>
-              <Width>8.55208in</Width>
+              <Width>8.6875in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -664,7 +669,7 @@
             <Line Name="Line4">
               <Top>0.15972in</Top>
               <Height>0in</Height>
-              <Width>8.5625in</Width>
+              <Width>8.69792in</Width>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -687,9 +692,9 @@
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
               <Top>0.22916in</Top>
-              <Left>2.81125in</Left>
+              <Left>3.71404in</Left>
               <Height>0.25in</Height>
-              <Width>1in</Width>
+              <Width>0.45833in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -716,10 +721,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>TotalPages</rd:DefaultName>
-              <Top>0.21528in</Top>
-              <Left>4.26959in</Left>
+              <Top>0.22916in</Top>
+              <Left>4.31126in</Left>
               <Height>0.25in</Height>
-              <Width>1in</Width>
+              <Width>0.38542in</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -738,7 +743,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>   /</Value>
+                      <Value>  /</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -746,10 +751,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.22916in</Top>
-              <Left>3.90848in</Left>
+              <Top>0.21528in</Top>
+              <Left>4.11682in</Left>
               <Height>0.23611in</Height>
-              <Width>0.29167in</Width>
+              <Width>0.25in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>

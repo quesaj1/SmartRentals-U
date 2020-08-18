@@ -160,7 +160,7 @@ label.error {
                 <label for="txtImagen">Galería <span style="color:red;">*</span></label><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorImg" runat="server" ControlToValidate="fupImage" ErrorMessage="*Debe cargar una imagen*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
 
-                <asp:FileUpload ID="fupImage" CssClass="form-control" runat="server" ForeColor="Black" />
+                <asp:FileUpload ID="fupImage" CssClass="form-control" runat="server" ForeColor="Black"  />
                 <br />
             </div>
         </div>
