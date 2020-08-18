@@ -13,13 +13,13 @@ namespace ProyectoSmartRentals.Formularios {
     public partial class frm_ProveedorAgregar {
         
         /// <summary>
-        /// Control RequiredFieldValidatorID.
+        /// Control RequiredFieldValidator6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorID;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
         /// Control txtNombreVariable.

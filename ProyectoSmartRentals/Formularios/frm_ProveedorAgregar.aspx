@@ -101,9 +101,8 @@
             <div class="form-group col-md-6">
                 <label for="txtNombreVariable">Nombre Variable del Proveedor<span style="color:red;">*</span></label>
                 <br />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorID" runat="server" ControlToValidate="txtNombreVariable" ErrorMessage="*Ingrese un nombre de la varable del proveedor*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"  ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator runat="server" ControlToValidate="txtNombreVariable" ErrorMessage="Debe ingresar un variable de proveedor " SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RegularExpressionValidator>
-                <asp:TextBox ID="txtNombreVariable" type="text" CssClass="form-control" placeholder="Nombre Variable" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtNombreVariable" ErrorMessage="*Debe ingresar un Nombre del Proveedor*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+               <asp:TextBox ID="txtNombreVariable"  ForeColor="Black" type="text" CssClass="form-control" placeholder="Nombre Variable" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
              <!-- Nombre Representante -->

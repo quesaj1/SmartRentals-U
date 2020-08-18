@@ -86,10 +86,11 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtSegundoNombre.Text = resultadoSp.cli_SegundoNombre;
                     this.txtPrimerApellido.Text = resultadoSp.cli_PrimerApelido;
                     this.txtSegundoApellido.Text = resultadoSp.cli_SegundoApellido;
-                    this.txtFechaNacimiento.Text = resultadoSp.cli_FechaNacimiento.ToString();
+                    Nullable<DateTime> fecha = resultadoSp.cli_FechaNacimiento;
                     this.txtTelefonoCasa.Text = resultadoSp.cli_TelefonoCasa;
                     this.txtTelefonoCelular.Text = resultadoSp.cli_TelefonoCelular;
                     this.txtEmail.Text = resultadoSp.cli_Email;
+                    this.fechanacimiento.Value = fecha.HasValue ? fecha.Value.ToString("yyyy-MM-dd") : "<not available>";
                 }
 
             }
@@ -167,7 +168,7 @@ namespace ProyectoSmartRentals.Formularios
                          "--------------------------------------------------------" + "<br/>" +
                            "Segundo Apellido :" + "&nbsp;&nbsp " + txtSegundoApellido.Text + "<br/>" +
                           "--------------------------------------------------------" + "<br/>" +
-                           "Fecha Nacimiento :" + "&nbsp;&nbsp " + txtFechaNacimiento.Text + "<br/>"+
+                           "Fecha Nacimiento :" + "&nbsp;&nbsp " + fechanacimiento.Value + "<br/>"+
                             "--------------------------------------------------------" + "<br/>" +
                             "Telefono Casa :" + "&nbsp;&nbsp " + txtTelefonoCasa.Text + "<br/>" +
                            "--------------------------------------------------------" + "<br/>" +

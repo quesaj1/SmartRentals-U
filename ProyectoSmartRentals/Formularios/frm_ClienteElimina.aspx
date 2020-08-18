@@ -84,42 +84,43 @@
                 <asp:TextBox ID="txtIdCliente" ForeColor="Black" runat="server"  ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
            </div>
              <div class="form-group col-md-6">
-                <!-- Nombre -->
+                <!-- txtCedula -->
                 <label for="txtCedula"></label>
                 <asp:TextBox ID="txtCedula" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Cédula" runat="server" MaxLength="25"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- txtNombre -->
                 <label for="txtNombre"></label>
                 <asp:TextBox ID="txtNombre" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Nombre" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- txtSegundoNombre -->
                 <label for="txtSegundoNombre"></label>
                 <asp:TextBox ID="txtSegundoNombre" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- txtPrimerApellido -->
                 <label for="txtPrimerApellido"></label>
                 <asp:TextBox ID="txtPrimerApellido" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Primer Apellido" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- txtSegundoApellido -->
                 <label for="txtSegundoApellido"></label>
                 <asp:TextBox ID="txtSegundoApellido" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- txtFechaNacimiento -->
                 <label for="txtFechaNacimiento"></label>
-                <asp:TextBox ID="txtFechaNacimiento" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Fecha Nacimiento" runat="server" MaxLength="50"></asp:TextBox>
+                 <input type="date" class="form-control" ForeColor="Black" id="fechanacimiento" runat="server" style="color:black">
+                <%--<asp:TextBox ID="txtFechaNacimiento" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Fecha Nacimiento" runat="server" MaxLength="50"></asp:TextBox>--%>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- txtTelefonoCasa -->
                 <label for="txtTelefonoCasa"></label>
                 <asp:TextBox ID="txtTelefonoCasa" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Telefono Casa" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
-                <!-- Correo -->
+                <!-- txtTelefonoCelular -->
                 <label for="txtTelefonoCelular"></label>
                 <asp:TextBox ID="txtTelefonoCelular" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Telefono Celular" runat="server" MaxLength="50"></asp:TextBox>
             </div>

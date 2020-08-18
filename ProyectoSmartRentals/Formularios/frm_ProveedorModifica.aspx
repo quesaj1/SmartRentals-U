@@ -122,8 +122,8 @@
                 <div class="form-group col-md-6">
                     <label for="txtNombreVariable">Nombre Variable del Proveedor<span style="color: red;">*</span></label>
                     <br />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNombreVariable" ErrorMessage="*Ingrese un numero variable del proveedor*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <asp:TextBox ID="txtNombreVariable" ForeColor="Black" type="text" CssClass="form-control" placeholder="Nombre Variable" runat="server" MaxLength="50"></asp:TextBox>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNombreVariable" ErrorMessage="*Ingrese un numero Variable de Proveedor*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtNombreVariable" ForeColor="Black" type="text" CssClass="form-control" placeholder="Variable de Proveedor" runat="server" MaxLength="50"></asp:TextBox>
                 </div>
 
                 <!-- Nombre Representante -->
@@ -193,7 +193,7 @@
                 <div class="form-group col-md-6">
                     <label for="txtTipoProveedor">Tipo Proveedor<span style="color: red;">*</span></label>
                     <br />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorTipo" runat="server" ErrorMessage="*Debe seleccionar un tipo de proveedor*" SetFocusOnError="True" Font-Size="Small" InitialValue="Seleccionar" ControlToValidate="txtTipoProveedor" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorTipo" ForeColor="Black" runat="server" ErrorMessage="*Debe seleccionar un tipo de proveedor*" SetFocusOnError="True" Font-Size="Small" InitialValue="Seleccionar" ControlToValidate="txtTipoProveedor"  Display="Dynamic"></asp:RequiredFieldValidator>
                     <select id="txtTipoProveedor" class="custom-select" runat="server" forecolor="Black" cssclass="form-control">
                         <option style="font-size: small">Seleccionar</option>
                         <option style="font-size: small">Jardinero</option>
@@ -215,7 +215,7 @@
                     <!--  Canton -->
                     <label for="txtCanton">Canton</label><br>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorCant" runat="server" ControlToValidate="DropDownListCanton" ErrorMessage="*Debe seleccionar un cantón*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                    <asp:DropDownList ID="DropDownListCanton" CssClass="form-control" ViewStateMode="Enabled" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaCanton" ForeColor="Black"></asp:DropDownList>
+                    <asp:DropDownList ID="DropDownListCanton"  CssClass="form-control" ViewStateMode="Enabled" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SeleccionaCanton" ForeColor="Black"></asp:DropDownList>
                     <br>
                 </div>
                 <div class="form-group col-md-6">

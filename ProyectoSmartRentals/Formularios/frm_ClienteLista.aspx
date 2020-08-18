@@ -69,12 +69,16 @@
                         <asp:BoundField DataField="cli_Nombre" HeaderText="Nombre del Cliente" />
                         <asp:BoundField DataField="cli_PrimerApelido" HeaderText="Primer Apellido" />
                         <asp:BoundField DataField="cli_SegundoApellido" HeaderText="Segundo Apellido" />
-                        <asp:BoundField DataField="cli_FechaNacimiento" HeaderText="Fecha Nacimiento" />
+                        <asp:BoundField DataField="cli_FechaNacimiento" HeaderText="Fecha Nacimiento" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="cli_TelefonoCasa" HeaderText="Telefono Casa" />
                         <asp:BoundField DataField="cli_TelefonoCelular" HeaderText="Telefono Celular" />
                         <asp:BoundField DataField="cli_Email" HeaderText="Email del Cliente" />
-                        <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteModifica?cli_Cliente={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>'   ItemStyle-Width="25px"/>
-                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteElimina?cli_Cliente={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red"></i>'  ItemStyle-Width="25px" />
+                        <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteModifica?cli_Cliente={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>'   ItemStyle-Width="25px">
+<ItemStyle Width="25px"></ItemStyle>
+                        </asp:HyperLinkField>
+                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteElimina?cli_Cliente={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red"></i>'  ItemStyle-Width="25px" >
+<ItemStyle Width="25px"></ItemStyle>
+                        </asp:HyperLinkField>
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
