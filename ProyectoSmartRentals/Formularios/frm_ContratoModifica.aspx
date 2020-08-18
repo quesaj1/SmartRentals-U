@@ -158,55 +158,53 @@ input[type="date"], focus {
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
             <div class="form-group col-md-6">
                 <!-- Numero de contrato -->
-                <label for="txtContratoNumero">Número de contrato <span style="color:red;">*</span></label> <br />
+                <label for="txtContratoNumero">Número de contrato </label> <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrato" runat="server" ControlToValidate="txtContratoNumero" ErrorMessage="*Debe ingresar un contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtContratoNumero" type="text" ForeColor="Black" CssClass="form-control" placeholder="Número de contrato" runat="server" MaxLength="10"></asp:TextBox>
             </div>
                <div class="form-group col-md-6">
                 <!-- Cliente -->
                    <asp:TextBox ID="txtAdmin" runat="server" Visible="false"></asp:TextBox>
-                <label for="txtCliente">Cliente <span style="color:red;">*</span></label><br />
+                <label for="txtCliente">Cliente </label><br />
                   <asp:DropDownList ID="DropDownListCliente" ForeColor="Black" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de inicio -->
-                <label for="txtFechaInicio">Fecha de inicio <span style="color:red;">*</span></label><br />
-                  <%--<asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaInicio" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtFechaInicio" type="date" ForeColor="Black" CssClass="form-control" placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox> --%>  
+                <label for="txtFechaInicio">Fecha de inicio </label><br />
+                   
                   <input type="date" class="form-control" ForeColor="Black" id="FechaInicio" runat="server" style="color:black">
             </div>
               <div class="form-group col-md-6">
                 <!-- Fecha de finalización -->
                 <label for="txtFechaFinaliacion">Fecha de finalización</label> <br />
-                <%--<asp:TextBox ID="txtFechaFinaliacion" type="date" ForeColor="Black" CssClass="form-control"   runat="server" MaxLength="50" TextMode="DateTime"></asp:TextBox>--%>
-                  <input type="date" class="form-control" ForeColor="Black" id="fechafinalizacion" runat="server" style="color:black">
+                 <input type="date" class="form-control" ForeColor="Black" id="fechafinalizacion" runat="server" style="color:black">
             </div>
                  <div class="form-group col-md-6">
                 <!-- Propiedad -->
-                <label for="txtPropiedad">Propiedad <span style="color:red;">*</span></label> <br />
+                <label for="txtPropiedad">Propiedad</label> <br />
                   <asp:DropDownList ID="DropDownPropiedad" ForeColor="Black" DataTextField="Propiedad" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
               <div class="form-group col-md-6">
                 <!-- Monto mensual -->
-                <label for="txtMonto">Monto Mensual<span style="color:red;">*</span></label><br />
+                <label for="txtMonto">Monto Mensual </label><br />
                   <asp:RequiredFieldValidator ID="RequiredFieldValidatorMonto" runat="server" ControlToValidate="txtMonto" ErrorMessage="*Debe ingresar un monto mensual*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtMonto" type="text" ForeColor="Black" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
             </div>
              <div class="form-group col-md-6">
                 
-                <label for="txtFechaPago">Fecha de Pago <span style="color:red;">*</span></label><br />
-                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFechaPago" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>--%>
-                <%--<asp:TextBox ID="txtFechaPago" type="date" ForeColor="Black" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>--%>
+                <label for="txtFechaPago">Fecha de Pago </label><br />
                 <input type="date" class="form-control" ForeColor="Black" id="datepago" runat="server" style="color:black">
                  </div>
               <div class="form-group col-md-6">
                 <!-- URL Contrato -->
-                <label for="txtContrato">Contrato <span style="color:red;">*</span></label><br />
-                <asp:FileUpload ID="contrato" ForeColor="Black" CssClass="form-control" runat="server" />
-            </div>  
-             
-
-            
+                <label for="txtContrato">Contrato  </label><br />
+                <asp:FileUpload ID="contrato" ForeColor="Black" CssClass="form-control" runat="server" Visible="false" />
+                <asp:Label ID="Label2" runat="server" Font-Bold="True" ForeColor="red"></asp:Label>
+                <br /><asp:Image ID="imgFile" runat="server" CssClass="rounded" Width="20px" Height="20px" ImageUrl="../images/document.png" />
+              <asp:HyperLink ID="hypContrato" runat="server">Contrato</asp:HyperLink>
+             <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="../images/close.png" Style="width:10px; height:10px;" OnClick="ImageButton1_Click"/>
+           
+             </div>
     </div>
         
         <div class="form-group" style="text-align:center">
@@ -219,6 +217,8 @@ input[type="date"], focus {
             <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
         </div>
         </div>
+    <asp:Label ID="ruta_archivo" runat="server" Text="Label" Visible="false"></asp:Label>
+    <asp:Label ID="bandera" runat="server" Text="Label" Visible="false"></asp:Label>
 
 
 <script>
