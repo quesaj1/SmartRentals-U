@@ -64,9 +64,9 @@
                         <asp:BoundField DataField="ctr_numeroContrato" HeaderText="Contrato" />
                         <asp:BoundField DataField="cli_Email" HeaderText="Email del Cliente" />
                         <asp:BoundField DataField="datosCliente" HeaderText="Datos del cliente " />
-                        <asp:BoundField DataField="ctr_fechaPago" HeaderText="Fecha de pago" />
+                        <asp:BoundField DataField="ctr_fechaPago" HeaderText="Fecha de pago" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="ctr_monto" HeaderText="Valor mensual" />
-                        <asp:BoundField DataField="rpp_FechaPagoRecibido" HeaderText="Fecha de Pago Recibido" />
+                        <asp:BoundField DataField="rpp_FechaPagoRecibido" HeaderText="Fecha de Pago Recibido" DataFormatString="{0:d}" />
                          <asp:BoundField DataField="rpp_DetallesDePago" HeaderText="Detalles del Pago" />
                         <asp:HyperLinkField DataNavigateUrlFields="rpp_IDReportarPago"  DataNavigateUrlFormatString="frm_ArchivarPagos?rpp_IDReportarPago={0}" HeaderText="Acciones" Text="&lt;i class=&quot;fa fa-archive&quot; style=&quot;font-size:25px; color:e2d0a8&quot;&gt;&lt;/i&gt;"  >
                   
