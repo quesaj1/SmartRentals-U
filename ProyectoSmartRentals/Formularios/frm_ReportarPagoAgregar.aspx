@@ -4,19 +4,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        .boton_personalizado {
-            font-weight: 600;
-            font-size: 20px;
-            color: #ffffff;
-            background-color: #adc867;
-            border-radius: 5px;
-        }
-
-            .boton_personalizado:hover {
-                color: #ffffff;
-                background-color: #55407d;
-                border-radius: 5px;
-            }
+        .boton_personalizado{
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #adc867;
+    border-width:thin;
+    border-radius:8px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #55407d;
+    border-radius:8px;
+  }
 
         input.error {
             border: 1px dotted red;
@@ -273,9 +273,9 @@
 
                 <!-- Submit Button -->
                 <div class="container-contact100-form-btn">
-                    <asp:Button ID="btnAgregarPago" runat="server" CssClass="boton_personalizado" Text="Notificar Pago" Font-Size="Medium" Height="49px" Width="145px" OnClick="btnAgregarPago_Click" />
+                    <asp:Button ID="btnAgregarPago" runat="server" CssClass="boton_personalizado" Text="Notificar Pago" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregarPago_Click" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" Font-Size="Medium" Height="49px" Width="145px" PostBackUrl="~/Formularios/frm_ListaReportarPago.aspx" />
+                     <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ListaReportarPago.aspx" />
                     <br />
                     <br />
                     <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900" CssClass="alert-success" Font-Size="Large"></asp:Label>

@@ -3,6 +3,25 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+
+      <style>
+.boton_personalizado{
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #adc867;
+    border-width:thin;
+    border-radius:8px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #55407d;
+    
+    border-radius:8px;
+  }
+
+    </style>
+
     <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
          <h1 style="text-align: center">Modificar Administrador</h1>
 
@@ -60,9 +79,9 @@
         
         <div class="form-group" style="text-align:center">
             <!-- Submit Button -->
-            <asp:Button ID="btnModificar" runat="server" CssClass="btn btn-primary" Text="Modificar" OnClick="btnAgregar_Click" />
+            <asp:Button ID="btnModificar" runat="server" CssClass="boton_personalizado" Font-Size="Medium" Height="49px" Width="111px" Text="Modificar" OnClick="btnAgregar_Click" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnAtras" CssClass="btn btn-danger" runat="server" Text="Atras" OnClick="btnAtras_Click" PostBackUrl="~/Formularios/frm_AdminRentalsLista.aspx" />
+            <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" Text="Atras" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAtras_Click"  PostBackUrl="~/Formularios/frm_AdminRentalsLista.aspx" />
             <br />
             <br />
             <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>

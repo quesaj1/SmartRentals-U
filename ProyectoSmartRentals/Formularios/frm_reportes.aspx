@@ -145,15 +145,19 @@ df-messenger {
          }
 
 
-  .boton_personalizado{
-     font-weight: 500;
-     font-size: 15px;
-     color: #ffffff;
-     background-color: #2ECC71;
+   .boton_personalizado{
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    padding: 8px 17px;
+    border-width:thin;
+   background-color: #adc867;
+    border-radius:10px;
   }
   .boton_personalizado:hover{
-    color: #1883ba;
-    background-color: #ffffff;
+    color: #ffffff;
+     background-color: #55407d;
+    border-radius:10px;
   }
      }
 

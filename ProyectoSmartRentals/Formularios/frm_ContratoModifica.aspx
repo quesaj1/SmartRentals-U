@@ -4,16 +4,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
           .boton_personalizado{
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 18px;
     color: #ffffff;
     background-color: #adc867;
-    border-radius:5px;
+    border-width:thin;
+    border-radius:8px;
   }
   .boton_personalizado:hover{
     color: #ffffff;
     background-color: #55407d;
-    border-radius:5px;
+    
+    border-radius:8px;
   }
 
   /*Agregar esto para el diseño del select2 de los dropdownlists*/

@@ -76,18 +76,7 @@ namespace ProyectoSmartRentals.Formularios
 
         public void CargaDatosGrid()
         {
-            
-            C_Alquileres oAlquileres = new C_Alquileres();
-            ///Asignarle la fuente de datos al grid
-            this.grdListaAlquileres.DataSource =
-                oAlquileres.RetornarAlquilerDataGrid(true);
-            ///indicar al grid que se muestre
-            this.grdListaAlquileres.DataBind();
-        }
 
-      
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
             string texto = this.DropDownList1.SelectedItem.ToString();
             C_Alquileres oAlquileres = new C_Alquileres();
             ///Asignarle la fuente de datos al grid
@@ -111,6 +100,12 @@ namespace ProyectoSmartRentals.Formularios
                 this.grdListaAlquileres.DataBind();
             }
 
+        }
+
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.CargaDatosGrid();
 
         }
 

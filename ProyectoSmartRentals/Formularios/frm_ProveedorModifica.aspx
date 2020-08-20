@@ -17,19 +17,20 @@
 
 
     <style>
-        .boton_personalizado {
-            font-weight: 600;
-            font-size: 20px;
-            color: #ffffff;
-            background-color: #adc867;
-            border-radius: 5px;
-        }
-
-            .boton_personalizado:hover {
-                color: #ffffff;
-                background-color: #55407d;
-                border-radius: 5px;
-            }
+        .boton_personalizado{
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffff;
+     background-color: #adc867;
+    border-width:thin;
+    border-radius:8px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #55407d;
+   
+    border-radius:8px;
+  }
         /*Agregar esto para el diseño del select2 de los dropdownlists*/
         .select2-selection__rendered {
             line-height: 23px !important;

@@ -16,12 +16,12 @@
     color: #ffffff;
     padding: 8px 17px;
     border-width:thin;
-    background-color: #55407d;
+    background-color: #adc867;
     border-radius:10px;
   }
   .boton_personalizado:hover{
     color: #ffffff;
-    background-color: #adc867;
+    background-color: #55407d;
     border-radius:10px;
   }
 
