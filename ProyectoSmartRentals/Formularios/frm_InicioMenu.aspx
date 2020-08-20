@@ -15,6 +15,9 @@ df-messenger {
    --df-messenger-font-color: white;
    --df-messenger-send-icon: #adc867;
    --df-messenger-user-message: #adc867;
+   --df-messenger-chat-icon-max-width: 90%;
+   --df-messenger-chat-icon-max-height: 90%;
+    
   }
 
 /*ESTILOS DE TITULO ANIMADO*/
@@ -389,7 +392,7 @@ df-messenger {
   
     <df-messenger
 
-  chat-icon="../images/smartRound.png"
+  chat-icon="../images/Chatbot.png"
   intent="WELCOME"
   chat-title="Smart Rentals"
   agent-id="7c0a6021-3969-47b5-8900-f4f08a44ce4c"

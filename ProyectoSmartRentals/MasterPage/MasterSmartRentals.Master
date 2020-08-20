@@ -68,9 +68,9 @@
 				<div class="social">
 					<ul class="d-flex flex-row align-items-center justify-content-start">
 						
-						<li><a href="https://www.facebook.com/Smart-Rentals-CR-113666893717464/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="https://twitter.com/Smart_RentalsCR"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+						<li><a href="https://www.facebook.com/Smart-Rentals-CR-113666893717464/"><i class="fa fa-facebook" aria-hidden="true" style="font-size:16px"></i></a></li>
+						<li><a href="https://twitter.com/Smart_RentalsCR"><i class="fa fa-twitter" aria-hidden="true" style="font-size:16px"></i></a></li>
+						<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size:16px"></i></a></li>
 					</ul>
 				</div>&nbsp&nbsp&nbsp&nbsp
 
@@ -187,7 +187,7 @@
 	<footer class="footer">
 		
 						
-	<div class="copyright order-md-1 order-2"  style="font-weight:400; padding-left:38%; padding-right: 38%;padding-top:16px; padding-bottom:16px; background-color:#55407d; color: #a2b0bf">Smart Rentals - Copyright &copy;&nbsp<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados</div>
+	<div class="copyright order-md-1 order-2"  style="font-weight:400; padding-left:38%; padding-right: 38%;padding-top:16px; padding-bottom:16px; background-color:#55407d; color: white">Smart Rentals - Copyright &copy;&nbsp<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados</div>
 			
 	</footer>
 	
