@@ -6,6 +6,21 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <style>
 
+    .boton_personalizado{
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    padding: 8px 17px;
+    border-width:thin;
+    background-color: #55407d;
+    border-radius:10px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #adc867;
+    border-radius:10px;
+  }
+
     
 @keyframes showTopText {
   0% { transform: translate3d(0, 100%, 0); }
@@ -127,7 +142,7 @@ input[type="date"], focus {
                 <!-- Tipo Propiedad -->
                 <label for="txtTipoPropiedad">Contratos</label>
               
-                <asp:DropDownList ID="DropDownContratos" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True">
+                <asp:DropDownList ID="DropDownContratos" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black">
                 
                 </asp:DropDownList>
                 </div>
@@ -136,7 +151,7 @@ input[type="date"], focus {
                 <!-- Tipo Propiedad -->
                 <label for="txtTipoPropiedad">Administrador</label>
               
-                <asp:DropDownList ID="DropDownAdministrador" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True">
+                <asp:DropDownList ID="DropDownAdministrador" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black">
                 
                 </asp:DropDownList>
                 </div>
@@ -145,7 +160,7 @@ input[type="date"], focus {
                 <!-- Tipo Propiedad -->
                 <label for="txtTipoPropiedad">Clientes</label>
               
-                <asp:DropDownList ID="DropDownListClientes" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True">
+                <asp:DropDownList ID="DropDownListClientes" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black">
                 
                 </asp:DropDownList>
                 </div>
@@ -153,7 +168,7 @@ input[type="date"], focus {
                 <!-- Tipo Propiedad -->
                 <label for="txtTipoPropiedad">Proveedores</label>
               
-                <asp:DropDownList ID="DropDownproveedores" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True">
+                <asp:DropDownList ID="DropDownproveedores" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black">
                 
                 </asp:DropDownList>
                 </div>
@@ -162,7 +177,7 @@ input[type="date"], focus {
                 <!-- Tipo Propiedad -->
                 <label for="txtTipoPropiedad">Estado</label>
               
-                <asp:DropDownList ID="DropDownTipoReportes" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True">
+                <asp:DropDownList ID="DropDownTipoReportes" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black">
                     <asp:ListItem Value="0">Seleccione estado</asp:ListItem>
                     <asp:ListItem Value="1">Completado</asp:ListItem>
                     <asp:ListItem Value="2">Pendiente</asp:ListItem>
@@ -174,13 +189,13 @@ input[type="date"], focus {
                     <div class="form-group col-sm-4">
                 <!-- Ubicacion -->
                 <label for="txtUbicacionExacta">Fecha de inicio </label>
-                   <asp:TextBox ID="fechainicio1"  CssClass="form-control"  type="date"  runat="server"></asp:TextBox>
+                   <asp:TextBox ID="fechainicio1"  CssClass="form-control"  type="date"  runat="server" ForeColor="Black"></asp:TextBox>
             </div>
 
                        <div class="form-group col-sm-4">
                 <!-- Ubicacion -->
                 <label for="txtUbicacionExacta">Fecha de finalización </label>
-                   <asp:TextBox ID="fechafinalizacion"  CssClass="form-control"  type="date"  runat="server"></asp:TextBox>
+                   <asp:TextBox ID="fechafinalizacion"  CssClass="form-control"  type="date"  runat="server"  ForeColor="Black"></asp:TextBox>
             </div>
                 </div>
                 
@@ -192,7 +207,7 @@ input[type="date"], focus {
       
    
             <div style="text-align:center">   
-           <asp:Button  ID="Button2"  runat="server" Text="Generar Reporte" class="btn btn-primary" OnClick="Button2_Click"  />
+           <asp:Button  ID="Button2"  runat="server" Text="Generar Reporte" CssClass="boton_personalizado" OnClick="Button2_Click"  />
                 <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             </div><br /><br /><br />
 

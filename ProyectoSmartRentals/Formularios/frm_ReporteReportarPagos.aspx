@@ -5,17 +5,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <style type="text/css">
-  .boton_personalizado{
-    font-weight: 600;
-    font-size: 20px;
+   .boton_personalizado{
+    font-weight: 500;
+    font-size: 15px;
     color: #ffffff;
-    background-color: #adc867;
-    border-radius:5px;
+    padding: 8px 17px;
+    border-width:thin;
+    background-color: #55407d;
+    border-radius:10px;
   }
   .boton_personalizado:hover{
     color: #ffffff;
-    background-color: #55407d;
-    border-radius:5px;
+    background-color: #adc867;
+    border-radius:10px;
   }
     
 @keyframes showTopText {
@@ -182,12 +184,12 @@ input[type="date"], focus {
                            <div class="animated-title">
                              <div class="text-top">
                                <div>
-                                   <span>Smart</span>
-                                  <span>Rentals</span>
+                                   <span style="font-weight:600">Smart</span>
+                                  <span style="font-weight:600">Rentals</span>
                                </div>
                              </div>
                            <div class="text-bottom">
-                        <div>Reporte de Pagos realizados</div>
+                        <div style="font-weight:600">Reporte de Pagos realizados</div>
                         </div>
                    </div>
        <br /> <br />
@@ -197,14 +199,14 @@ input[type="date"], focus {
 
          
                <!-- Numero de Contrato -->
-                <div id="ddcontratos" class="form-group col-sm-4" runat="server" visible="true">
+                <div id="ddcontratos" class="form-group col-sm-4" runat="server" >
                 <label for="txtcontraros">Contratos</label>
                 <asp:DropDownList ID="DropDownContratos" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True"> 
                 </asp:DropDownList>
                 </div>
                              
                 <!-- Cliente -->
-                  <div id="ddclientes" class="form-group col-sm-4" runat="server" visible="true">
+                  <div id="ddclientes" class="form-group col-sm-4" runat="server">
                 <label for="txtCliente">Clientes</label>
                 <asp:DropDownList ID="DropDownCliente" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True">
                 </asp:DropDownList>
@@ -222,9 +224,9 @@ input[type="date"], focus {
                 
               <div class="container-contact100-form-btn">
 
-            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado"  Text="Generar Reporte" Font-Size="Medium" Height="49px" Width="145px" OnClick="Button2_Click1" />
+            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado"  Text="Generar Reporte"  OnClick="Button2_Click1" />
                      &nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Button ID="Button2" runat="server" CssClass="boton_personalizado"  Text="Generar Grafico" Font-Size="Medium" Height="49px" Width="145px" OnClick="Button1_Click" />
+                  <asp:Button ID="Button2" runat="server" CssClass="boton_personalizado"  Text="Generar Grafico"  OnClick="Button1_Click" />
             <br />
             <br />
             <asp:Label ID="Label1" runat="server" Text="Label" Visible="false"></asp:Label>

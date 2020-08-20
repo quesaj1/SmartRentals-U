@@ -10,6 +10,21 @@
     <%-- ESTILOS DE LA ANIMACION --%>
 <style>
 
+  .boton_personalizado{
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    padding: 8px 17px;
+    border-width:thin;
+    background-color: #55407d;
+    border-radius:10px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #adc867;
+    border-radius:10px;
+  }
+
     
 @keyframes showTopText {
   0% { transform: translate3d(0, 100%, 0); }
@@ -145,7 +160,7 @@ input[type="date"], focus {
             </div><br /><br /><br />
  
        <div style="text-align:center">
-       <asp:Button ID="Button1"  runat="server" Text="Generar Reporte" class="btn btn-primary" OnClick="Button2_Click" />
+       <asp:Button ID="Button1"  runat="server" CssClass="boton_personalizado" Text="Generar Reporte"  OnClick="Button2_Click" />
            </div><br /><br /><br /><br />
            
        <div style="text-align:center">
@@ -172,7 +187,7 @@ input[type="date"], focus {
           </div><br />
    
             <div style="text-align:center">   
-           <asp:Button  ID="Button2"  runat="server" Text="Generar Reporte" class="btn btn-primary" OnClick="Button1_Click" />
+           <asp:Button  ID="Button2" CssClass="boton_personalizado"  runat="server" Text="Generar Reporte"  OnClick="Button1_Click" />
             </div><br /><br /><br />
 
 
