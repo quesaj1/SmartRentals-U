@@ -1084,6 +1084,7 @@
     <Compile Include="Metodos\C_Contrato.cs" />
     <Compile Include="Metodos\C_Proveedor.cs" />
     <Compile Include="Metodos\C_ReportePago.cs" />
+    <Compile Include="Metodos\C_SendGrid.cs" />
     <Compile Include="Metodos\C_Tiquetes.cs" />
     <Compile Include="Metodos\C_Usuario.cs" />
     <Compile Include="Modelos\C_Admin_Rentals.cs">

@@ -1,4 +1,5 @@
 ﻿using ProyectoSmartRentals.Metodos;
+using ProyectoSmartRentals.Modelos;
 using System;
 
 namespace ProyectoSmartRentals.Formularios
@@ -38,25 +39,33 @@ namespace ProyectoSmartRentals.Formularios
                 string adr_TelefonoCelular = this.txtTelefonoCelular.Text.ToString();
                 string adr_Email = this.txtEmail.Text.ToString();
 
-
-                C_AdminRentals oAdminRentals = new C_AdminRentals();
-                bool AdminRentalsInsertar =
-                    oAdminRentals.InsertaAdminRentals(adr_Cedula, adr_Nombre, adr_SegundoNombre, adr_PrimerApellido, adr_SegundoApellido, adr_FechaNacimiento, adr_TelefonoCasa, adr_TelefonoCelular, adr_Email);
-
-
-                if (AdminRentalsInsertar)
+                if (!existe(adr_Email))
                 {
-                    this.lblResultado.Text = "Administrador agregado";
 
-                    C_Usuario oUsuario = new C_Usuario();
-                    int id = oUsuario.obtiene_id_principal(adr_Email, 1);
-                    oUsuario.InsertaUsuario(adr_Email, 1, id);
+                    C_AdminRentals oAdminRentals = new C_AdminRentals();
+                    bool AdminRentalsInsertar =
+                        oAdminRentals.InsertaAdminRentals(adr_Cedula, adr_Nombre, adr_SegundoNombre, adr_PrimerApellido, adr_SegundoApellido, adr_FechaNacimiento, adr_TelefonoCasa, adr_TelefonoCelular, adr_Email);
 
+
+                    if (AdminRentalsInsertar)
+                    {
+                        this.lblResultado.Text = "Administrador agregado";
+
+                        Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
+                        int id = oUsuario.obtiene_id_principal(adr_Email, 1);
+                        oUsuario.InsertaUsuario(adr_Email, 1, id);
+
+
+                    }
+                    else
+                    {
+                        this.lblResultado.Text = "No se pudo agregar el administrador";
+                    }
 
                 }
                 else
                 {
-                    this.lblResultado.Text = "No se pudo agregar el administrador";
+                    this.lblResultado.Text = "Ya hay un usuario registrador con este correo electrónico";
                 }
             }
             catch (Exception error)
@@ -64,6 +73,36 @@ namespace ProyectoSmartRentals.Formularios
 
                 this.lblResultado.
                     Text = "Ocurrió un error:" + error.Message;
+            }
+        }
+
+
+        bool existe(string user)
+        {
+
+            string llavePrimaria = this.txtEmail.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaUsuarioUserID_Result resultadoSp = oUsuario.RetornaUsuarioUserID_Result(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
             }
         }
 
