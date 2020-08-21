@@ -997,7 +997,6 @@
     </Compile>
     <Compile Include="Formularios\frm_ReportarPagoAgregar.aspx.cs">
       <DependentUpon>frm_ReportarPagoAgregar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_ReportarPagoAgregar.aspx.designer.cs">
       <DependentUpon>frm_ReportarPagoAgregar.aspx</DependentUpon>
