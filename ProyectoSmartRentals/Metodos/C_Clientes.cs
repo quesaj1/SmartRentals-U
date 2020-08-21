@@ -11,6 +11,27 @@ namespace ProyectoSmartRentals.Metodos
     {
         SmartRentalsEntities1 modeloDB = new SmartRentalsEntities1();
 
+        #region Metodo Eliminar Cliente
+        public bool EliminarCliente(int cli_Cliente, bool? alq_Activo)
+        {
+            try
+            {
+                int registroAfectados = 0;
+                registroAfectados = this.modeloDB.sp_EliminarCliente(cli_Cliente, alq_Activo);
+
+                if (registroAfectados > 0)
+                    return true;
+            }
+            catch (Exception error)
+            {
+
+                throw error;
+            }
+            return false;
+        }
+        #endregion
+
+
         #region Metodo Insertar Cliente
         public bool InsertaCliente(string cli_Cedula, string cli_Nombre, string cli_SegundoNombre, string cli_PrimerApelido, string cli_SegundoApellido, Nullable<System.DateTime> cli_FechaNacimiento, string cli_TelefonoCasa, string cli_TelefonoCelular, string cli_Email, Nullable<bool> prv_Activo)
         {

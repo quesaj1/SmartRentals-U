@@ -96,14 +96,15 @@ namespace ProyectoSmartRentals.Formularios
         {
             if (fupImage.HasFile)
             {
+                string extension = System.IO.Path.GetExtension(fupImage.FileName);
+
 
                 string URL = fupImage.PostedFile.FileName;
-                string filePath = Server.MapPath(@"~/Propiedades/" +URL);
-                fupImage.SaveAs(filePath);
 
-          
+                if (extension == ".jpeg" || extension == ".png" || extension == ".jpg") { 
 
-                {
+                    string filePath = Server.MapPath(@"~/Propiedades/" +URL);
+                    fupImage.SaveAs(filePath);
 
                     try
                     {
@@ -148,8 +149,15 @@ namespace ProyectoSmartRentals.Formularios
                         ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
 
                     }
-                
+
                 }
+                else
+                {
+                    this.lblResultado.Text = "Solo se aceptan archivos de imagen .jpg .jpeg o .png";
+
+                }
+
+
             }
         }
 

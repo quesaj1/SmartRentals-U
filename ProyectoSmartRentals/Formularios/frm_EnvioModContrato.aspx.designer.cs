@@ -42,13 +42,13 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorContrato;
 
         /// <summary>
-        /// txtContrato control.
+        /// DropDownContratos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContrato;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownContratos;
 
         /// <summary>
         /// txtTelefono control.

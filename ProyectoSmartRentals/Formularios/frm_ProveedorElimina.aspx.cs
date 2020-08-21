@@ -96,7 +96,7 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtNombreRepresentante.Text = resultadoSp.prv_NombreRepresentante;
                     this.txtPrimerApellido.Text = resultadoSp.prv_PrimerApellido;
                     this.txtSegundoApellido.Text = resultadoSp.prv_SegundoApellido;
-                    this.txtCedulaRepresentante.Text = resultadoSp.prv_SegundoApellido;
+                    this.txtCedulaRepresentante.Text = resultadoSp.prv_CedulaRepresentante;
                     this.txtCedulaJuridica.Text = resultadoSp.prv_CedulaJuridica;
                     this.txtTelefono.Text = resultadoSp.prv_Telefono;
                     this.txtEmail.Text = resultadoSp.prv_Email;
@@ -115,7 +115,32 @@ namespace ProyectoSmartRentals.Formularios
         protected void ShowPopup(object sender, EventArgs e)
         {
             string title = "Eliminar registro";
-            string body = "Esta seguro de eliminar este registro?";
+            string body =
+                         "Esta seguro de eliminar este alquiler?" + "<br/>" + "<br/>" +
+                         "No. Proveedor :" + "&nbsp" + txtIDProveedor.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                         "Variable de Proveedor :" + "&nbsp;&nbsp " + txtNombreVariable.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                         "Nombre Representante :" + "&nbsp;&nbsp " + txtNombreRepresentante.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                          "Primer Apellido :" + "&nbsp;&nbsp " + txtPrimerApellido.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                           "Segundo Apellido  :" + "&nbsp;&nbsp " + txtSegundoApellido.Text + "<br/>" +
+                         "--------------------------------------------------------" + "<br/>" +
+                           "Cedula Representante:" + "&nbsp;&nbsp " + txtCedulaRepresentante.Text + "<br/>" +
+                          "--------------------------------------------------------" + "<br/>" +
+                           "Cedula Juridica:" + "&nbsp;&nbsp " + txtCedulaJuridica.Text + "<br/>" +
+                            "--------------------------------------------------------" + "<br/>" +
+                            "Correo Electronico :" + "&nbsp;&nbsp " + txtEmail.Text + "<br/>" +
+                           "--------------------------------------------------------" + "<br/>" +
+                            "Tipo Proveedor :" + "&nbsp;&nbsp " + txtTipoProveedor.Text + "<br/>" +
+                             "--------------------------------------------------------" + "<br/>" +
+                            "Provincia :" + " &nbsp;&nbsp;&nbsp;&nbsp" + this.DropDownListProvincia.SelectedItem.ToString() ;
+
+
+
+
             ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + body + "');", true);
         }
 
@@ -124,27 +149,25 @@ namespace ProyectoSmartRentals.Formularios
             if (this.IsValid)
             {
 
-                int id_contrato = 0;
+                int id_proveedor = 0;
 
-                id_contrato = Convert.ToInt16(this.hdldProveedor.Value);
+                id_proveedor = Convert.ToInt16(this.hdldProveedor.Value);
 
                 try
                 {
                     C_Proveedor oProveedor = new C_Proveedor();
 
 
-                    if (oProveedor.ModificarEliminaProveedor(id_contrato, txtNombreVariable.Text, txtNombreRepresentante.Text,
-                       txtPrimerApellido.Text, txtSegundoApellido.Text, txtCedulaRepresentante.Text, txtCedulaJuridica.Text, txtTelefono.Text,txtEmail.Text, txtTipoProveedor.Text,
-                       Convert.ToInt16(DropDownListProvincia.Text), txtOtrasSenas.Text, false))
+                    if (oProveedor.EliminarProveedor(id_proveedor,  false))
 
-                        this.lblResultado.Text = "Registro eliminado";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
 
                     else
-                        this.lblResultado.Text = "No fue posible eliminar";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
                 catch (Exception error)
                 {
-                    this.lblResultado.Text = "Ocurrió un error:" + error.Message;
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
 
             }
@@ -186,8 +209,6 @@ namespace ProyectoSmartRentals.Formularios
         }
 
 
-
-
         public void cargarDatos()
         {
             ///obtener el valor del parámetro que fue asignado al hidden
@@ -211,6 +232,10 @@ namespace ProyectoSmartRentals.Formularios
 
             }
         }
+
+
+
+
 
 
     }

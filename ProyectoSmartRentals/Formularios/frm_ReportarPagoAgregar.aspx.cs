@@ -121,7 +121,7 @@ namespace ProyectoSmartRentals.Formularios
 
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
-                    this.limpiardatos();
+                    
 
                 }
                 else
@@ -151,16 +151,7 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
-        public void limpiardatos()
-        {
-            ////this.DropDownListEmail.Text = null;
-            //this.DropDownListCliente.Text = null;
-            //this.DropDownListContrato.Text = null;
-            //this.txtFechaPago.Text = null;
-            //this.txtDetallesDePago.Value = null;
-
-
-        }
+  
 
         public void enviarNotficacionPago()
         {

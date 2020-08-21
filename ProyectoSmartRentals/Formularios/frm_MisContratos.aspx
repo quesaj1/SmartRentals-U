@@ -71,9 +71,12 @@
 		<div id="img" class="col-md-4">
             <div class="col text-center">
 			<asp:Image ID="imgImagen" runat="server" CssClass="rounded" ImageUrl="~/Propiedades/IMG_5568.JPG" AlternateText="kyocode"  /> <br /> <br />
+               
             <h4>Contratos:</h4>
              <asp:DropDownList ID="DropDownContratos" ForeColor="Black" DataTextField="Cliente" CssClass="form-control" Width="600" runat="server" Enabled="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownContratos_SelectedIndexChanged"></asp:DropDownList>
-		</div> </div> <br /><br />
+             <br /> <asp:Image ID="imgFile" runat="server" CssClass="rounded" Width="20px" Height="20px" ImageUrl="../images/document.png" />
+              <asp:HyperLink ID="hypContrato" runat="server">Contrato</asp:HyperLink>
+            </div> </div> <br /><br />
 		<div class="col-md-4" style="margin-top:21px;">
 			<div class="page-header">
 				
@@ -81,8 +84,11 @@
                         <h3>
 					¿Necesitas modificar el contrato? <br /><small> ¡Acá lo puedes solicitar!</small>
                             </h3><br />
-                       <asp:Button ID="btnModificar" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Solicitar"  Font-Size="Medium" Height="49px" Width="111px"  />
+                       <asp:Button ID="btnModificar" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Solicitar" CommandArgument='<%#Eval("ctr_numeroContrato")%>'   Font-Size="Medium" Height="49px" Width="111px"  PostBackUrl="~/Formularios/frm_EnvioModContrato.aspx" />
 				</div>
+
+
+
                        
 			</div>
 		</div><br /><br />

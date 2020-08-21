@@ -76,7 +76,7 @@ namespace ProyectoSmartRentals.Formularios
                 string adr_SegundoNombre = this.txtSegundoNombre.Text.ToString();
                 string adr_PrimerApellido = this.txtPrimerApellido.Text.ToString();
                 string adr_SegundoApellido = this.txtSegundoApellido.Text.ToString();
-                Nullable<System.DateTime> adr_FechaNacimiento = null;
+                Nullable<System.DateTime> adr_FechaNacimiento = Convert.ToDateTime(this.txtFechaNacimiento.Text);
                 string adr_TelefonoCasa = this.txtTelefonoCasa.Text.ToString();
                 string adr_TelefonoCelular = this.txtTelefonoCelular.Text.ToString();
                 string adr_Email = this.txtEmail.Text.ToString();

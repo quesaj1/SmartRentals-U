@@ -18,6 +18,10 @@ namespace ProyectoSmartRentals.Formularios
         int _pk_admin = 0;
         int _pk_cliente = 0;
         int _pk_proveedor = 0;
+        int _provincia;
+        int _canton = 2;
+        int _distrito = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -25,8 +29,11 @@ namespace ProyectoSmartRentals.Formularios
                 IniciarLlenadoDropDown();
                 this.hdldProveedor.Value = this.Request.QueryString["prv_IDProveedor"];
                 CargaDatosProveedor();
-                IniciarLlenadoDropDown();
                 menu();
+                provincia();
+                canton();
+                distrito();
+                IniciarLlenadoDropDown();
             }
         }
 
@@ -79,9 +86,27 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListProvincia.DataTextField = "Nombre";
             DropDownListProvincia.DataValueField = "Id_Provincia";
             DropDownListProvincia.DataBind();
+
+            DropDownListCanton.DataSource = Consultar("Select * from dbo.C_Canton");
+            DropDownListCanton.DataTextField = "Nombre";
+            DropDownListCanton.DataValueField = "Id_Canton";
+            DropDownListCanton.DataBind();
+
+
+            DropDownListDistrito.DataSource = Consultar("Select * from dbo.C_Distrito");
+            DropDownListDistrito.DataTextField = "Nombre";
+            DropDownListDistrito.DataValueField = "Id_Distrito";
+            DropDownListDistrito.DataBind();
+
             DropDownListProvincia.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
             DropDownListCanton.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
             DropDownListDistrito.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
+            string Provincia = DropDownListProvincia1.Text.ToString();
+            string Canton = DropDownListCanton1.Text.ToString();
+            string Distrito = DropDownListDistrito1.Text.ToString();
+            DropDownListProvincia.SelectedIndex = DropDownListProvincia.Items.IndexOf(DropDownListProvincia.Items.FindByValue(Provincia));
+            DropDownListCanton.SelectedIndex = DropDownListCanton.Items.IndexOf(DropDownListCanton.Items.FindByValue(Canton));
+            DropDownListDistrito.SelectedIndex = DropDownListDistrito.Items.IndexOf(DropDownListDistrito.Items.FindByValue(Distrito));
         }
 
 
@@ -94,33 +119,32 @@ namespace ProyectoSmartRentals.Formularios
             ///satisfactorias
             if (this.IsValid)
             {
-                int id_contrato = 0;
+                int id_proveedor = 0;
 
                 ///obtener del hiddenField el valor de la llave primaria
-                id_contrato = Convert.ToInt16(this.hdldProveedor.Value);
+                id_proveedor = Convert.ToInt16(this.hdldProveedor.Value);
 
                 try
                 {
 
                     C_Proveedor oProveedor = new C_Proveedor();
-                    DateTime now = DateTime.Now;
-                    if (oProveedor.ModificarProveedor(id_contrato, txtNombreVariable.Text, txtNombreRepresentante.Text,
-                       txtPrimerApellido.Text, txtSegundoApellido.Text, txtCedulaRepresentante.Text, txtCedulaJuridica.Text, txtTelefono.Text, txtEmail.Text, txtTipoProveedor.Value.ToString(),
-                    Convert.ToInt16(this.DropDownListDistrito.Text), Convert.ToInt16(this.DropDownListCanton.Text),
-                       Convert.ToInt16(DropDownListProvincia.Text), txtOtrasSenas.Text, true)
+                    string TipoProveedor = this.txtTipoProveedor.Value.ToString();
+                    if (oProveedor.ModificarProveedor(id_proveedor, txtNombreVariable.Text, txtNombreRepresentante.Text,
+                       txtPrimerApellido.Text, txtSegundoApellido.Text, txtCedulaRepresentante.Text, txtCedulaJuridica.Text, txtTelefono.Text, txtEmail.Text, TipoProveedor, Convert.ToInt16(this.DropDownListDistrito.Text),
+                          Convert.ToInt16(this.DropDownListCanton.Text),Convert.ToInt16(this.DropDownListProvincia.Text), txtOtrasSenas.Text, true)
                         )
                     {
-                        this.lblResultado.Text = "Registro Modificado";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
                     }
                     else
                     {
-                        this.lblResultado.Text = "No se pudo modificar";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                     }
 
                 }
                 catch (Exception error)
                 {
-                    this.lblResultado.Text = "No se pudo modificar: " + error;
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
             }
         }
@@ -154,14 +178,14 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtNombreRepresentante.Text = resultadoSp.prv_NombreRepresentante;
                     this.txtPrimerApellido.Text = resultadoSp.prv_PrimerApellido;
                     this.txtSegundoApellido.Text = resultadoSp.prv_SegundoApellido;
-                    this.txtCedulaRepresentante.Text = resultadoSp.prv_SegundoApellido;
+                    this.txtCedulaRepresentante.Text = resultadoSp.prv_CedulaRepresentante;
                     this.txtCedulaJuridica.Text = resultadoSp.prv_CedulaJuridica;
                     this.txtTelefono.Text = resultadoSp.prv_Telefono;
                     this.txtEmail.Text = resultadoSp.prv_Email;
                     this.txtTipoProveedor.Value = resultadoSp.prv_TipoProveedor;
-                    this.DropDownListDistrito.Text = resultadoSp.Id_Distrito.ToString();
-                    this.DropDownListCanton.Text = resultadoSp.Id_Canton.ToString();
-                    this.DropDownListProvincia.Text = resultadoSp.Id_Provincia.ToString();
+                    _provincia = Convert.ToInt32(resultadoSp.Id_Provincia.ToString());
+                    _canton = Convert.ToInt32(resultadoSp.Id_Canton.ToString());
+                    _distrito = Convert.ToInt32(resultadoSp.Id_Distrito.ToString());
                     this.txtOtrasSenas.Text = resultadoSp.prv_OtrasSenas;
 
 
@@ -178,6 +202,8 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListCanton.DataValueField = "Id_Canton";
             DropDownListCanton.DataBind();
             DropDownListCanton.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
+
+
         }
 
         protected void SeleccionaCanton(object sender, EventArgs e)
@@ -190,12 +216,15 @@ namespace ProyectoSmartRentals.Formularios
             DropDownListDistrito.DataBind();
             DropDownListDistrito.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
 
+
         }
 
         protected void SeleccionaDistrito(object sender, EventArgs e)
         {
 
         }
+
+
 
 
         public DataSet Consultar(string strSQL)
@@ -209,6 +238,35 @@ namespace ProyectoSmartRentals.Formularios
             da.Fill(ds);
             con.Close();
             return ds;
+
+        }
+
+        public void provincia()
+        {
+            DropDownListProvincia1.DataSource = Consultar("select * from C_Provincia where Id_provincia = " + _provincia);
+            DropDownListProvincia1.DataTextField = "nombre";
+            DropDownListProvincia1.DataValueField = "id_provincia";
+            DropDownListProvincia1.DataBind();
+            this.DropDownListProvincia1.SelectedItem.ToString();
+        }
+
+        public void canton()
+        {
+            DropDownListCanton1.DataSource = Consultar(" select * from C_Canton where Id_Canton= " + _canton);
+            DropDownListProvincia1.DataTextField = "nombre";
+            DropDownListProvincia1.DataValueField = "Id_Canton";
+            DropDownListCanton1.DataBind();
+            this.DropDownListCanton1.SelectedItem.ToString();
+        }
+
+        public void distrito()
+        {
+            DropDownListDistrito1.DataSource = Consultar("select * from C_Distrito where Id_Distrito = " + _distrito);
+            DropDownListProvincia1.DataTextField = "nombre";
+            DropDownListProvincia1.DataValueField = "C_Distrito";
+            DropDownListDistrito1.DataBind();
+            this.DropDownListDistrito1.SelectedItem.ToString();
+
 
         }
 

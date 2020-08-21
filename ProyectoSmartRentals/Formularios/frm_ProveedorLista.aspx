@@ -79,8 +79,8 @@
                     <asp:BoundField DataField="prv_Email" HeaderText="Email del Proveedor" />
                     <asp:BoundField DataField="prv_TipoProveedor" HeaderText="Tipo de Proveedor" />
                     <asp:BoundField DataField="Provincia" HeaderText="Provincia" />
-                     <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="prv_IDProveedor" DataNavigateUrlFormatString="frm_ProveedorElimina?prv_IDProveedor={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>' ItemStyle-Width="25px" />
-                    <asp:HyperLinkField DataNavigateUrlFields="prv_IDProveedor" DataNavigateUrlFormatString="frm_ProveedorModifica?prv_IDProveedor={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red"></i>' ItemStyle-Width="25px" />
+                     <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="prv_IDProveedor" DataNavigateUrlFormatString="frm_ProveedorModifica?prv_IDProveedor={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>' ItemStyle-Width="25px" />
+                    <asp:HyperLinkField DataNavigateUrlFields="prv_IDProveedor" DataNavigateUrlFormatString="frm_ProveedorElimina?prv_IDProveedor={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red"></i>' ItemStyle-Width="25px" />
 
 
                 </Columns>

@@ -17,7 +17,7 @@
 
         <h2 style="text-align:center">Lista de Alquileres</h2>
 
-        <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:25%;padding-right:20%; text-align:center">
+        <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:33%;padding-right:20%; text-align:center">
 
             <div  style="text-align:center; padding:1em ;float:left"  >
 
@@ -64,7 +64,7 @@
                         </asp:TemplateField>
                     <asp:TemplateField HeaderText="Galería">
                         <ItemTemplate>
-                            <asp:Image DataField="alq_ImagenURL" runat="server" CssClass="rounded" ID="ImagenURL" ImageUrl='<%# Eval("alq_ImagenURL") %>' Width="150px" Height="140px" />
+                            <asp:Image DataField="alq_ImagenURL" runat="server" CssClass="rounded" ID="ImagenURL" ImageUrl='<%# Eval("alq_ImagenURL") %>' max-width="270px" Width="150" Height="150" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="alq_id_Propiedad" visible=False />

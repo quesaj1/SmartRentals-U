@@ -12,7 +12,7 @@
           
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%" overflow:hidden; padding-left:25%;padding-right:20%; text-align:center">
+    <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
 
         <h2 style="text-align:center">Lista de Clientes</h2>
 
@@ -29,7 +29,7 @@
                 <!-- Estado -->
                 <label for="txtEstado">Estado</label>
                   <br/>
-                <asp:DropDownList ID="DropDownList1" class="custom-select"  CssClass="form-control" runat="server"  AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" ForeColor="Black" >
+                    <asp:DropDownList ID="DropDownList1" Height="35px" Width="195px"  CssClass="form-control"  runat="server"  AppendDataBoundItems="true" AutoPostBack="True"  ForeColor="Black" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                       <asp:ListItem Value="0">Activos</asp:ListItem>
                        <asp:ListItem Value="1">Desactivados</asp:ListItem>
                    
@@ -57,7 +57,7 @@
     <div style= "margin-left: 10%">
         <p>
                 
-                <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" CssClass="table" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="94%" GridLines="Horizontal" OnPageIndexChanging="grdListaClientes_PageIndexChanging" >
+                <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" CssClass="table" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" PageSize="6" Width="94%" GridLines="Horizontal" OnPageIndexChanging="grdListaClientes_PageIndexChanging" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" >
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
                      <asp:TemplateField HeaderText="Ítem">
@@ -69,12 +69,16 @@
                         <asp:BoundField DataField="cli_Nombre" HeaderText="Nombre del Cliente" />
                         <asp:BoundField DataField="cli_PrimerApelido" HeaderText="Primer Apellido" />
                         <asp:BoundField DataField="cli_SegundoApellido" HeaderText="Segundo Apellido" />
-                        <asp:BoundField DataField="cli_FechaNacimiento" HeaderText="Fecha Nacimiento" />
+                        <asp:BoundField DataField="cli_FechaNacimiento" HeaderText="Fecha Nacimiento" DataFormatString="{0:d}" />
                         <asp:BoundField DataField="cli_TelefonoCasa" HeaderText="Telefono Casa" />
                         <asp:BoundField DataField="cli_TelefonoCelular" HeaderText="Telefono Celular" />
                         <asp:BoundField DataField="cli_Email" HeaderText="Email del Cliente" />
-                        <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteModifica?cli_Cliente={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>'   ItemStyle-Width="25px"/>
-                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteElimina?cli_Cliente={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red"></i>'  ItemStyle-Width="25px" />
+                        <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteModifica?cli_Cliente={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>'   ItemStyle-Width="25px">
+<ItemStyle Width="25px"></ItemStyle>
+                        </asp:HyperLinkField>
+                        <asp:HyperLinkField DataNavigateUrlFields="cli_Cliente" DataNavigateUrlFormatString="frm_ClienteElimina?cli_Cliente={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red"></i>'  ItemStyle-Width="25px" >
+<ItemStyle Width="25px"></ItemStyle>
+                        </asp:HyperLinkField>
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

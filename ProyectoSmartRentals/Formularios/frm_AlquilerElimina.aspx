@@ -18,16 +18,18 @@
 
    <style>
      .boton_personalizado{
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 18px;
     color: #ffffff;
     background-color: #adc867;
-    border-radius:5px;
+    border-width:thin;
+    border-radius:8px;
   }
   .boton_personalizado:hover{
     color: #ffffff;
     background-color: #55407d;
-    border-radius:5px;
+    
+    border-radius:8px;
   }
   </style> 
 
@@ -64,8 +66,14 @@
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
         <h1 style="text-align: center">Eliminar Alquiler</h1>
 
-        <asp:HiddenField ID="hdldAlquiler" runat="server" />
+         <div style="margin-top: 5%; margin-left: 15%; margin-right: 15%; text-align:center" >
+               
+                   <asp:Image  runat="server" CssClass="rounded"  ID="image"  Width="220px"  Height="220px" BorderStyle="Solid" BorderWidth="2px"   />
+                    
+             </div>
 
+        
+        <asp:HiddenField ID="hdldAlquiler" runat="server" />
 
 
         <div class="form-row" style="margin-top: 5%; margin-bottom: 5%">
@@ -115,6 +123,11 @@
                 <asp:TextBox ID="txtImagen" type="text" CssClass="form-control" ReadOnly="true" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
+            <br /><br /><br /><br /><br /><br />
+
+           
+
+
             <%--test--%>
             <div class="form-group col-md-6" runat="server" visible="false">
                 
@@ -137,7 +150,10 @@
                 <br>
             </div>
        </div>
+ 
     </div>
+
+     
 
 
 

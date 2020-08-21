@@ -11,7 +11,7 @@
         <div  style="text-align: center;">
              
                 <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" Visible="false" NavigateUrl="frm_ContratoAgrega.aspx" >Agregar Nuevo Contrato</asp:HyperLink>
+                <asp:HyperLink ID="hplAgregar" runat="server" Visible="false" NavigateUrl="frm_ContratoAgregar.aspx" >Agregar Nuevo Contrato</asp:HyperLink>
                 </strong>
 
            
@@ -60,11 +60,13 @@
                         <asp:BoundField DataField="id_ctr_contrato" HeaderText="ID" Visible="False" />
                         <asp:BoundField DataField="ctr_numeroContrato" HeaderText="Contrato" />
                         <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="ctr_fechainicio" HeaderText="Fecha de inicio" />
-                        <asp:BoundField DataField="ctr_fechafinalizacion" HeaderText="Fecha de finalización" />
+                        <asp:BoundField DataField="ctr_fechainicio" dataformatstring="{0:d}" HeaderText="Fecha de inicio" />
+                        <asp:BoundField DataField="ctr_fechafinalizacion"  dataformatstring="{0:d}" HeaderText="Fecha de finalización" />
+                        <asp:BoundField DataField="ctr_fechaPago"  dataformatstring="{0:d}" HeaderText="Fecha de pagos" />
                         <asp:BoundField DataField="ctr_monto" HeaderText="Valor mensual" />
-                        <asp:BoundField DataField="ctr_file" HeaderText="Contrato" />
-                        <asp:BoundField DataField="alq_ubicacionExacta" HeaderText="Ubicación" />
+                       
+                        <asp:BoundField DataField="alq_ubicacionExacta" HeaderText="Ubicación"  />
+                         <asp:HyperLinkField  DataNavigateUrlFields="ctr_file" Text="Contrato" HeaderText="Contrato"  />
                         <asp:HyperLinkField  HeaderText="Acciones" DataNavigateUrlFields="id_ctr_contrato" DataNavigateUrlFormatString="frm_ContratoModifica?id_ctr_contrato={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>' ItemStyle-Width="25px" />
                         <asp:HyperLinkField  DataNavigateUrlFields="id_ctr_contrato" DataNavigateUrlFormatString="frm_ContratoElimina?id_ctr_contrato={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red;"></i>' ItemStyle-Width="25px" />
                            

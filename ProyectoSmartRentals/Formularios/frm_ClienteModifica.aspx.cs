@@ -94,10 +94,12 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtSegundoNombre.Text = resultadoSp.cli_SegundoNombre;
                     this.txtPrimerApellido.Text = resultadoSp.cli_PrimerApelido;
                     this.txtSegundoApellido.Text = resultadoSp.cli_SegundoApellido;
-                    this.txtFechaNacimiento.Text = resultadoSp.cli_FechaNacimiento.ToString();
+                    Nullable<DateTime> fecha = resultadoSp.cli_FechaNacimiento;
                     this.txtTelefonoCasa.Text = resultadoSp.cli_TelefonoCasa;
                     this.txtTelefonoCelular.Text = resultadoSp.cli_TelefonoCelular;
                     this.txtEmail.Text = resultadoSp.cli_Email;
+
+                    this.fechafinalizacion.Value = fecha.HasValue ? fecha.Value.ToString("yyyy-MM-dd") : "<not available>";
                 }
 
             }
@@ -129,9 +131,9 @@ namespace ProyectoSmartRentals.Formularios
                 {
 
                     C_Clientes oCliente = new C_Clientes();
-                    DateTime fechanacimiento = Convert.ToDateTime(this.txtFechaNacimiento.Text);
+                    DateTime fechanacimiento = Convert.ToDateTime(this.fechafinalizacion.Value);
                     DateTime now = DateTime.Now;
-                    if (oCliente.ModificarCliente(id_cliente, txtCedula.Text, txtNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text,
+                    if (oCliente.ModificarCliente(id_cliente, txtIdCliente.Text, txtNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text,
                         txtSegundoApellido.Text, fechanacimiento, txtTelefonoCasa.Text, txtTelefonoCelular.Text, txtEmail.Text, true)
                         )
                     {
@@ -154,7 +156,7 @@ namespace ProyectoSmartRentals.Formularios
 
         public void limpiardatos()
         {
-            this.txtCedula.Text = null;
+            this.txtIdCliente.Text = null;
             this.txtNombre.Text = null;
             this.txtSegundoNombre.Text = null;
             this.txtPrimerApellido.Text = null;

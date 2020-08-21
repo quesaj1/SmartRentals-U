@@ -145,15 +145,19 @@ df-messenger {
          }
 
 
-  .boton_personalizado{
-     font-weight: 500;
-     font-size: 15px;
-     color: #ffffff;
-     background-color: #2ECC71;
+   .boton_personalizado{
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    padding: 8px 17px;
+    border-width:thin;
+   background-color: #adc867;
+    border-radius:10px;
   }
   .boton_personalizado:hover{
-    color: #1883ba;
-    background-color: #ffffff;
+    color: #ffffff;
+     background-color: #55407d;
+    border-radius:10px;
   }
      }
 
@@ -206,7 +210,14 @@ df-messenger {
                     </div>
 
                      
-                    <div id="art3" runat="server" visible="false">
+                   
+
+
+
+                </section><br /><br /><br />
+
+                <section class="info">
+                     <div id="art3" runat="server" visible="false">
                     <article  class="info_columna">
 
                           <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)"  ;>
@@ -240,9 +251,7 @@ df-messenger {
                     </div>
                     
 
-
-
-                </section><br /><br /><br />
+                    </section>
 
                </div>
 

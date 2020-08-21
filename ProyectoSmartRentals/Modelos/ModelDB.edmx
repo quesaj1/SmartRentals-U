@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SmartRentalsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SmartRentalsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="C_Admin_Rentals">
           <Key>
             <PropertyRef Name="adr_id_admin" />
@@ -346,6 +346,10 @@
           <Parameter Name="version" Type="int" Mode="In" />
           <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
         </Function>
+        <Function Name="sp_ArchivarPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_rpp_IDReportarPago" Type="int" Mode="In" />
+          <Parameter Name="v_Activo" Type="bit" Mode="In" />
+        </Function>
         <Function Name="sp_BuscaContratoDataGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_ctr_numeroContrato" Type="varchar" Mode="In" />
         </Function>
@@ -375,9 +379,17 @@
           <Parameter Name="v_id_Propiedad" Type="int" Mode="In" />
           <Parameter Name="v_Activo" Type="bit" Mode="In" />
         </Function>
+        <Function Name="sp_EliminarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_cli_Cliente" Type="int" Mode="In" />
+          <Parameter Name="v_Activo" Type="bit" Mode="In" />
+        </Function>
         <Function Name="sp_EliminarContrato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id_ctr_contrato" Type="int" Mode="In" />
           <Parameter Name="v_ctr_activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_EliminarProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_prv_IDProveedor" Type="int" Mode="In" />
+          <Parameter Name="v_Activo" Type="bit" Mode="In" />
         </Function>
         <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -801,8 +813,7 @@
             <End Role="C_Tiquete" EntitySet="C_Tiquete" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SmartRentalsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1250,16 +1261,16 @@
             <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
           <FunctionImport Name="sp_BuscaContratoDataGrid" ReturnType="Collection(SmartRentalsModel.sp_BuscaContratoDataGrid_Result)">
-            <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="String" />
+          <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_BuscaMisContratos" ReturnType="Collection(SmartRentalsModel.sp_BuscaMisContratos_Result)">
-            <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="String" />
+          <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_BuscaMisContratos2" ReturnType="Collection(SmartRentalsModel.sp_BuscaMisContratos2_Result)">
-            <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="Int32" />
+          <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_BuscaMisContratos3" ReturnType="Collection(SmartRentalsModel.sp_BuscaMisContratos3_Result)">
-            <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="Int32" />
+          <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_creatediagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -1272,7 +1283,7 @@
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_EliminarAdminRental">
-            <Parameter Name="v_id" Mode="In" Type="Int32" />
+          <Parameter Name="v_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_EliminarAlquiler">
             <Parameter Name="v_id_Propiedad" Mode="In" Type="Int32" />
@@ -1510,7 +1521,7 @@
             <Parameter Name="v_email" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaAdminRentalID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRentalID_Result)">
-            <Parameter Name="id_admin" Mode="In" Type="Int32" />
+          <Parameter Name="id_admin" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaAlquiler" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquiler_Result)">
             <Parameter Name="v_alq_id_Propiedad" Mode="In" Type="Int32" />
@@ -1519,10 +1530,10 @@
             <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaAlquilerDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquilerDataGrid_Result)">
-            <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
+          <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaAlquilerID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAlquilerID_Result)">
-            <Parameter Name="id_Propiedad" Mode="In" Type="Int32" />
+          <Parameter Name="id_Propiedad" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaCantidadContratos" ReturnType="Collection(Int32)">
             <Parameter Name="ctr_activo" Mode="In" Type="Boolean" />
@@ -1540,10 +1551,10 @@
             <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaClienteDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaClienteDataGrid_Result)">
-            <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
+          <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaClienteID" ReturnType="Collection(SmartRentalsModel.sp_RetornaClienteID_Result)">
-            <Parameter Name="id_IDCliente" Mode="In" Type="Int32" />
+          <Parameter Name="id_IDCliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaContrato" ReturnType="Collection(SmartRentalsModel.sp_RetornaContrato_Result)">
             <Parameter Name="v_id_ctr_contrato" Mode="In" Type="Int32" />
@@ -1557,26 +1568,26 @@
             <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaContratoID" ReturnType="Collection(SmartRentalsModel.sp_RetornaContratoID_Result)">
-            <Parameter Name="v_id_contrato" Mode="In" Type="Int32" />
+          <Parameter Name="v_id_contrato" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaGastosCalend" ReturnType="Collection(SmartRentalsModel.sp_RetornaGastosCalend_Result)">
             <Parameter Name="v_inicio" Mode="In" Type="DateTime" />
             <Parameter Name="v_final" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaGastosCat" ReturnType="Collection(SmartRentalsModel.sp_RetornaGastosCat_Result)">
-            <Parameter Name="v_cat" Mode="In" Type="String" />
+          <Parameter Name="v_cat" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaPagoID" ReturnType="Collection(SmartRentalsModel.sp_RetornaPagoID_Result)">
-            <Parameter Name="v_rpp_IDReportarPago" Mode="In" Type="Int32" />
+          <Parameter Name="v_rpp_IDReportarPago" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaPagosRealizadosDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaPagosRealizadosDataGrid_Result)">
-            <Parameter Name="v_rpp_estadoDePago" Mode="In" Type="Boolean" />
+          <Parameter Name="v_rpp_estadoDePago" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaProveedorDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorDataGrid_Result)">
-            <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
+          <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaProveedorID" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorID_Result)">
-            <Parameter Name="prv_IDProveedor" Mode="In" Type="Int32" />
+          <Parameter Name="prv_IDProveedor" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaReportarPago" ReturnType="Collection(SmartRentalsModel.sp_RetornaReportarPago_Result)">
             <Parameter Name="v_rpp_IDReportarPago" Mode="In" Type="Int32" />
@@ -1617,7 +1628,7 @@
             <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaTiqueteID" ReturnType="Collection(SmartRentalsModel.sp_RetornaTiqueteID_Result)">
-            <Parameter Name="v_tqt_id" Mode="In" Type="Int32" />
+          <Parameter Name="v_tqt_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaTiquetesDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaTiquetesDataGrid_Result)">
             <Parameter Name="v_tqr_activo" Mode="In" Type="Boolean" />
@@ -1627,9 +1638,21 @@
             <Parameter Name="v_tqt_estado" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaUsuarioUserID" ReturnType="Collection(SmartRentalsModel.sp_RetornaUsuarioUserID_Result)">
-            <Parameter Name="v_usuario" Mode="In" Type="String" />
+          <Parameter Name="v_usuario" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="sp_EliminarCliente">
+            <Parameter Name="v_cli_Cliente" Mode="In" Type="Int32" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_EliminarProveedor">
+            <Parameter Name="v_prv_IDProveedor" Mode="In" Type="Int32" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ArchivarPago">
+            <Parameter Name="v_rpp_IDReportarPago" Mode="In" Type="Int32" />
+            <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
           <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
@@ -2662,6 +2685,9 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SmartRentalsModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_EliminarCliente" FunctionName="SmartRentalsModel.Store.sp_EliminarCliente" />
+          <FunctionImportMapping FunctionImportName="sp_EliminarProveedor" FunctionName="SmartRentalsModel.Store.sp_EliminarProveedor" />
+          <FunctionImportMapping FunctionImportName="sp_ArchivarPago" FunctionName="SmartRentalsModel.Store.sp_ArchivarPago" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -205,6 +205,7 @@
     <Content Include="Formularios\frm_AlquilerElimina.aspx" />
     <Content Include="Formularios\frm_AlquileresLista.aspx" />
     <Content Include="Formularios\frm_AlquileresModifica.aspx" />
+    <Content Include="Formularios\frm_ArchivarPagos.aspx" />
     <Content Include="Formularios\frm_ClienteAgregar.aspx" />
     <Content Include="Formularios\frm_ClienteElimina.aspx" />
     <Content Include="Formularios\frm_ClienteLista.aspx" />
@@ -214,7 +215,6 @@
     <Content Include="Formularios\frm_contratoLista.aspx" />
     <Content Include="Formularios\frm_ContratoModifica.aspx" />
     <Content Include="Formularios\frm_crearTiquete.aspx" />
-    <Content Include="Formularios\frm_DudaClienteAgrega.aspx" />
     <Content Include="Formularios\frm_EnvioModContrato.aspx" />
     <Content Include="Formularios\frm_InicioMenu.aspx" />
     <Content Include="Formularios\frm_ListaReportarPago.aspx" />
@@ -230,7 +230,6 @@
     <Content Include="Formularios\frm_ReporteMantenimiento.aspx" />
     <Content Include="Formularios\frm_ReporteReportarPagos.aspx" />
     <Content Include="Formularios\frm_reportes.aspx" />
-    <Content Include="Formularios\frm_SolicitudModContrato.aspx" />
     <Content Include="Formularios\frm_tiqueteLista.aspx" />
     <Content Include="Formularios\frm_TiqueteModifica.aspx" />
     <Content Include="Global.asax" />
@@ -246,9 +245,13 @@
     <Content Include="images\blog_3.jpg" />
     <Content Include="images\calculo-calculadora-cuentas.jpg" />
     <Content Include="images\camera.svg" />
+    <Content Include="images\Chatbot.png" />
+    <Content Include="images\Chatbot1.png" />
+    <Content Include="images\close.png" />
     <Content Include="images\contact_image.jpg" />
     <Content Include="images\contract.svg" />
     <Content Include="images\directions.svg" />
+    <Content Include="images\document.png" />
     <Content Include="images\duplex.svg" />
     <Content Include="images\envelope-2.svg" />
     <Content Include="images\envelope.svg" />
@@ -308,6 +311,7 @@
     <Content Include="images\smart_elipse.png" />
     <Content Include="images\testimonials.jpg" />
     <Content Include="images\video.jpg" />
+    <Content Include="images\Whatsapp.png" />
     <Content Include="js\about.js" />
     <Content Include="js\blog.js" />
     <Content Include="js\contact.js" />
@@ -857,6 +861,13 @@
     <Compile Include="Formularios\frm_AlquileresModifica.aspx.designer.cs">
       <DependentUpon>frm_AlquileresModifica.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_ArchivarPagos.aspx.cs">
+      <DependentUpon>frm_ArchivarPagos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ArchivarPagos.aspx.designer.cs">
+      <DependentUpon>frm_ArchivarPagos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_ClienteAgregar.aspx.cs">
       <DependentUpon>frm_ClienteAgregar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -919,13 +930,6 @@
     </Compile>
     <Compile Include="Formularios\frm_crearTiquete.aspx.designer.cs">
       <DependentUpon>frm_crearTiquete.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_DudaClienteAgrega.aspx.cs">
-      <DependentUpon>frm_DudaClienteAgrega.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Formularios\frm_DudaClienteAgrega.aspx.designer.cs">
-      <DependentUpon>frm_DudaClienteAgrega.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_EnvioModContrato.aspx.cs">
       <DependentUpon>frm_EnvioModContrato.aspx</DependentUpon>
@@ -1031,13 +1035,6 @@
     </Compile>
     <Compile Include="Formularios\frm_reportes.aspx.designer.cs">
       <DependentUpon>frm_reportes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frm_SolicitudModContrato.aspx.cs">
-      <DependentUpon>frm_SolicitudModContrato.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Formularios\frm_SolicitudModContrato.aspx.designer.cs">
-      <DependentUpon>frm_SolicitudModContrato.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_tiqueteLista.aspx.cs">
       <DependentUpon>frm_tiqueteLista.aspx</DependentUpon>

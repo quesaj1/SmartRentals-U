@@ -11,7 +11,7 @@ namespace ProyectoSmartRentals.Formularios
     public partial class frm_contratoLista : System.Web.UI.Page
     {
         //acá hay que tomar el admin rental de la variable de sesión
-        int _fk_admin_rental = 7;
+        //int _fk_admin_rental = 7;
         int _pk_admin = 0;
         int _pk_cliente = 0;
         int _pk_proveedor = 0;
@@ -35,7 +35,7 @@ namespace ProyectoSmartRentals.Formularios
             string _rol = Convert.ToString(Session["Tipo"]);
             if (_rol.Equals("Cliente"))
             {
-                _pk_cliente = 4;
+                _pk_cliente = Convert.ToInt16(Session["ID"]);
                 _pk_admin = 0;
                 _pk_proveedor = 0;
                 this.Page.Master.FindControl("menu_admin").Visible = false;
@@ -50,7 +50,7 @@ namespace ProyectoSmartRentals.Formularios
             {
                 _pk_cliente = 0;
                 _pk_admin = 0;
-                _pk_proveedor = 1;
+                _pk_proveedor = Convert.ToInt16(Session["ID"]);
                 this.Page.Master.FindControl("menu_admin").Visible = false;
                 this.Page.Master.FindControl("menu_cliente").Visible = false;
                 this.Page.Master.FindControl("menu_proveedor").Visible = true;
@@ -61,7 +61,7 @@ namespace ProyectoSmartRentals.Formularios
             if (_rol.Equals("Administrador"))
             {
                 _pk_cliente = 0;
-                _pk_admin = 7;
+                _pk_admin = Convert.ToInt16(Session["ID"]);
                 _pk_proveedor = 0;
                 this.Page.Master.FindControl("menu_admin").Visible = true;
                 this.Page.Master.FindControl("menu_cliente").Visible = false;
@@ -69,6 +69,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = true;
                 this.Page.Master.FindControl("menu_cliente_").Visible = false;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+                this.hplAgregar.Visible = true;
             }
 
         }
@@ -79,7 +80,7 @@ namespace ProyectoSmartRentals.Formularios
           
           
             this.grdListaContratos.DataSource =
-                oContratos.RetornarContratoDataGrid(true, _fk_admin_rental);
+                oContratos.RetornarContratoDataGrid(true, _pk_admin);
             ///indicar al grid que se muestre
             this.grdListaContratos.DataBind();
           
@@ -87,16 +88,34 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.carga();
+        }
+
+        protected void grdListaContratos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.carga();
+        }
+
+        protected void grdListaContratos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ///asignar al grid el nuevo índice de la página del grid
+            this.grdListaContratos.PageIndex = e.NewPageIndex;
+            ///asignar nuevamente la fuente de datos al grid
+            this.carga();
+        }
+
+        public void carga()
+        {
             string texto = this.DropDownList1.SelectedItem.ToString();
             C_Contrato oContratos = new C_Contrato();
             ///Asignarle la fuente de datos al grid
-
+            int test = Convert.ToInt16(Session["ID"]); 
             if (texto.Equals("Activos"))
             {
                 this.grdListaContratos.Columns[9].Visible = true;
                 this.grdListaContratos.Columns[10].Visible = true;
                 this.grdListaContratos.DataSource =
-                    oContratos.RetornarContratoDataGrid(true, _fk_admin_rental);
+                    oContratos.RetornarContratoDataGrid(true, test);
                 ///indicar al grid que se muestre
                 this.grdListaContratos.DataBind();
             }
@@ -105,24 +124,11 @@ namespace ProyectoSmartRentals.Formularios
                 this.grdListaContratos.Columns[9].Visible = false;
                 this.grdListaContratos.Columns[10].Visible = false;
                 this.grdListaContratos.DataSource =
-              oContratos.RetornarContratoDataGrid(false, _fk_admin_rental);
+              oContratos.RetornarContratoDataGrid(false, test);
                 ///indicar al grid que se muestre
                 this.grdListaContratos.DataBind();
-             
+
             }
-        }
-
-        protected void grdListaContratos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void grdListaContratos_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            ///asignar al grid el nuevo índice de la página del grid
-            this.grdListaContratos.PageIndex = e.NewPageIndex;
-            ///asignar nuevamente la fuente de datos al grid
-            this.cargardatosGrid();
         }
     }
 }

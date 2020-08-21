@@ -31,6 +31,10 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = false;
                 this.Page.Master.FindControl("menu_cliente_").Visible = true;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+                this.menuTiquetes.Visible = true;
+                this.menuReportes.Visible = true;
+                this.menuMisContratos.Visible = true;
+                this.menuDesocupar.Visible = true;
 
             }
             if (_rol.Equals("Proveedor"))
@@ -44,6 +48,8 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = false;
                 this.Page.Master.FindControl("menu_cliente_").Visible = false;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = true;
+                this.menuReportes.Visible = true;
+                this.menuTiquetes.Visible = true;
             }
             if (_rol.Equals("Administrador"))
             {
@@ -56,6 +62,12 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = true;
                 this.Page.Master.FindControl("menu_cliente_").Visible = false;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+                this.menuCliente.Visible = true;
+                this.menuProveedor.Visible = true;
+                this.menu_contratos.Visible = true;
+                this.menuTiquetes.Visible = true;
+                this.menuReportes.Visible = true;
+                this.menuAdministradores.Visible = true;
             }
 
         }

@@ -1,10 +1,12 @@
-﻿using ProyectoSmartRentals.Metodos;
+﻿using Microsoft.ReportingServices.Interfaces;
+using ProyectoSmartRentals.Metodos;
 using ProyectoSmartRentals.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +20,8 @@ namespace ProyectoSmartRentals.Formularios
         int _pk_admin = 0;
         int _pk_cliente = 0;
         int _pk_proveedor = 0;
+        string ruta_file;
+        bool flag = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -27,6 +31,8 @@ namespace ProyectoSmartRentals.Formularios
                 DropDownAlquileres();
                 this.hdldContrato.Value = this.Request.QueryString["id_ctr_contrato"];
                 cargarDatos();
+                
+
             }
         }
 
@@ -74,6 +80,84 @@ namespace ProyectoSmartRentals.Formularios
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+
+            if (bandera.Text.Equals("true"))
+            {
+                ///En caso de que vaya a elegir otro contrato
+                if (this.IsValid)
+                {
+                    this.Label2.Text = "";
+                    string extension = System.IO.Path.GetExtension(contrato.FileName);
+                    string file_name = System.IO.Path.GetFileNameWithoutExtension(contrato.FileName);
+                    string ctr_path = "";
+                    if (this.contrato.HasFile)
+                    {
+
+                        if (extension == ".pdf" || extension == ".docx")
+                        {
+                            if (!File.Exists(Server.MapPath("~/Contratos/" + contrato.FileName)))
+                            {
+                                contrato.SaveAs(Server.MapPath("~/Contratos/" + contrato.FileName));
+                                ctr_path = "~/Contratos/" + contrato.FileName;
+                            }
+                            else
+                            {
+                                contrato.SaveAs(Server.MapPath("~/Contratos/" + file_name + "-Copia" + extension));
+                                ctr_path = "~/Contratos/" + file_name + "-Copia" + extension;
+                            }
+
+                        int id_contrato = 0;
+
+                        ///obtener del hiddenField el valor de la llave primaria
+                        id_contrato = Convert.ToInt16(this.hdldContrato.Value);
+                        DateTime fechainicio = Convert.ToDateTime(this.FechaInicio.Value);
+                        DateTime fechaFinalizacion = Convert.ToDateTime(this.fechafinalizacion.Value);
+                        DateTime fechapago = Convert.ToDateTime(this.datepago.Value);
+                        int id_admin = Convert.ToInt32(this.txtAdmin.Text);
+                        try
+                        {
+
+                            C_Contrato oContratos = new C_Contrato();
+                            DateTime now = DateTime.Now;
+                            if (oContratos.ModificarCliente(id_contrato, Convert.ToInt16(this.DropDownListCliente.Text), this.txtContratoNumero.Text,
+                               fechainicio, fechaFinalizacion, Convert.ToDecimal(this.txtMonto.Text), true, ctr_path,
+                               Convert.ToInt16(this.DropDownPropiedad.Text), id_admin, fechapago)
+                                )
+                            {
+                                //this.lblResultado.Text = "Registro Modificado";
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                            }
+                            else
+                            {
+                                //this.lblResultado.Text = "No se pudo modificar";
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                            }
+
+                        }
+                        catch (Exception error)
+                        {
+                            //this.lblResultado.Text = "No se pudo modificar: " + error;
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                        }
+
+                        //termina el link  de si hay archivo
+                    }
+                        else
+                        {
+                            this.Label2.Text = "Solo se aceptan archivos .pdf o .docx";
+                        }
+
+                    }
+                    else
+                    {
+                        this.Label2.Text = "Debe de subir un archivo";
+                    }
+                    //Termina el link si es valido
+                }
+
+                ///termina el link del flag
+                 }
+            else { 
             ///Verificar que todas las validaciones hayan sido
             ///satisfactorias
             if (this.IsValid)
@@ -82,9 +166,9 @@ namespace ProyectoSmartRentals.Formularios
 
                 ///obtener del hiddenField el valor de la llave primaria
                 id_contrato = Convert.ToInt16(this.hdldContrato.Value);
-                DateTime fechainicio = Convert.ToDateTime(this.txtFechaInicio.Text);
-                DateTime fechaFinalizacion = Convert.ToDateTime(this.txtFechaFinaliacion.Text);
-                DateTime fechapago = Convert.ToDateTime(this.txtFechaPago.Text);
+                DateTime fechainicio = Convert.ToDateTime(this.FechaInicio.Value);
+                DateTime fechaFinalizacion = Convert.ToDateTime(this.fechafinalizacion.Value);
+                DateTime fechapago = Convert.ToDateTime(this.datepago.Value);
                 int id_admin = Convert.ToInt32(this.txtAdmin.Text);
                 try
                 {
@@ -92,7 +176,7 @@ namespace ProyectoSmartRentals.Formularios
                     C_Contrato oContratos = new C_Contrato();
                     DateTime now = DateTime.Now;
                     if (oContratos.ModificarCliente(id_contrato, Convert.ToInt16(this.DropDownListCliente.Text), this.txtContratoNumero.Text,
-                       fechainicio, fechaFinalizacion, Convert.ToDecimal(this.txtMonto.Text),true,"aun nada",
+                       fechainicio, fechaFinalizacion, Convert.ToDecimal(this.txtMonto.Text),true,this.ruta_archivo.Text,
                        Convert.ToInt16(this.DropDownPropiedad.Text), id_admin, fechapago)
                         )
                     {
@@ -111,6 +195,7 @@ namespace ProyectoSmartRentals.Formularios
                     //this.lblResultado.Text = "No se pudo modificar: " + error;
                     ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
+            }
             }
         }
 
@@ -170,11 +255,28 @@ namespace ProyectoSmartRentals.Formularios
                     //this.txtFechaFinaliacion.Text = DateTime.;
                     //this.txtFechaInicio.Text = Convert.ToString(resultadoSp.ctr_fechainicio);
                     //this.txtFechaPago.Text = Convert.ToString(resultadoSp.ctr_fechapago);
+                    Nullable<DateTime> fecha = resultadoSp.ctr_fechafinalizacion;
+                    Nullable<DateTime> fecha2 = resultadoSp.ctr_fechainicio;
+                    Nullable<DateTime> fecha3 = resultadoSp.ctr_fechapago;
+                    
+                   
+                    
+                    this.datepago.Value = fecha3.HasValue ? fecha3.Value.ToString("yyyy-MM-dd") : "<not available>";
+                    this.fechafinalizacion.Value = fecha.HasValue ? fecha.Value.ToString("yyyy-MM-dd") : "<not available>";
+                    this.FechaInicio.Value = fecha2.HasValue ? fecha2.Value.ToString("yyyy-MM-dd") : "<not available>";
+
+
                     this.txtMonto.Text = (resultadoSp.ctr_monto).ToString("N0");
                     this.txtAdmin.Text = Convert.ToString(resultadoSp.fk_adr_id_admin);
                  
                     this.DropDownListCliente.Text = resultadoSp.fk_cli_cliente.ToString();
                     this.DropDownPropiedad.Text = resultadoSp.fk_alq_id_propiedad.ToString();
+                   
+
+                    string link = resultadoSp.ctr_file;
+                    this.hypContrato.NavigateUrl = link;
+                    this.ruta_file = link;
+                    this.ruta_archivo.Text = link;
 
 
 
@@ -184,5 +286,15 @@ namespace ProyectoSmartRentals.Formularios
             }
         }
 
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            
+            this.contrato.Visible = true;
+            this.imgFile.Visible = false;
+            this.hypContrato.Visible = false;
+            this.ImageButton1.Visible = false;
+            this.flag = true;
+            this.bandera.Text = "true";
+        }
     }
 }

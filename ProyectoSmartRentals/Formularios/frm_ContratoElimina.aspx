@@ -11,17 +11,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
        <style type="text/css">
-  .boton_personalizado{
-    font-weight: 600;
-    font-size: 20px;
+   .boton_personalizado{
+    font-weight: 500;
+    font-size: 18px;
     color: #ffffff;
     background-color: #adc867;
-    border-radius:5px;
+    border-width:thin;
+    border-radius:8px;
   }
   .boton_personalizado:hover{
     color: #ffffff;
     background-color: #55407d;
-    border-radius:5px;
+   
+    border-radius:8px;
   }
   </style>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
@@ -86,12 +88,13 @@
                    <div class="form-group col-md-6">
                 
                 <label for="txtFechaPago">Fecha de Pago <span style="color:red;">*</span></label> <br />
-                <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control" ReadOnly="True" ForeColor="Black" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtFechaPago"  CssClass="form-control" ReadOnly="True" ForeColor="Black" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- URL Contrato -->
-                <label for="txtContrato">Contrato</label>
-                <asp:FileUpload ID="contrato" CssClass="form-control" ReadOnly="True" runat="server" />
+                <label for="txtContrato">Contrato</label><br />
+                  <asp:Image ID="imgFile" runat="server" CssClass="rounded" Width="20px" Height="20px" ImageUrl="../images/document.png" />
+                  <asp:HyperLink ID="HyperLink1" runat="server">Contrato</asp:HyperLink>
             </div>  
              
 

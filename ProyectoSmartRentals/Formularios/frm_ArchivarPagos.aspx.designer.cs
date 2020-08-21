@@ -11,125 +11,80 @@ namespace ProyectoSmartRentals.Formularios
 {
 
 
-    public partial class frm_DudaClienteAgrega
+    public partial class frm_ArchivarPagos
     {
 
         /// <summary>
-        /// RequiredFieldValidatorNombre control.
+        /// hdldPago control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorNombre;
+        protected global::System.Web.UI.WebControls.HiddenField hdldPago;
 
         /// <summary>
-        /// txtNombre control.
+        /// TexIDPago control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.TextBox TexIDPago;
 
         /// <summary>
-        /// RequiredFieldValidatorApellido1 control.
+        /// txtClienteEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorApellido1;
+        protected global::System.Web.UI.WebControls.TextBox txtClienteEmail;
 
         /// <summary>
-        /// txtApellido1 control.
+        /// txtCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellido1;
+        protected global::System.Web.UI.WebControls.TextBox txtCliente;
 
         /// <summary>
-        /// RequiredFieldValidatorApellido2 control.
+        /// txtContrato control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorApellido2;
+        protected global::System.Web.UI.WebControls.TextBox txtContrato;
 
         /// <summary>
-        /// txtApellido2 control.
+        /// txtFechaPago control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellido2;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaPago;
 
         /// <summary>
-        /// RequiredFieldValidatorTelefono control.
+        /// txtDetallesDePago control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorTelefono;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDetallesDePago;
 
         /// <summary>
-        /// txtTelefono control.
+        /// btnArchivarPago control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
-
-        /// <summary>
-        /// RequiredFieldValidatorEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorEmail;
-
-        /// <summary>
-        /// txtEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
-
-        /// <summary>
-        /// RequiredFieldValidatorComentario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorComentario;
-
-        /// <summary>
-        /// txtComentario control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComentario;
-
-        /// <summary>
-        /// btnAgregar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregar;
+        protected global::System.Web.UI.WebControls.Button btnArchivarPago;
 
         /// <summary>
         /// btnAtras control.
@@ -148,5 +103,32 @@ namespace ProyectoSmartRentals.Formularios
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultado;
+
+        /// <summary>
+        /// DropDownListEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEmail;
+
+        /// <summary>
+        /// DropDownListCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCliente;
+
+        /// <summary>
+        /// DropDownListContrato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListContrato;
     }
 }

@@ -5,16 +5,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <style type="text/css">
   .boton_personalizado{
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 18px;
     color: #ffffff;
     background-color: #adc867;
-    border-radius:5px;
+    border-width:thin;
+    border-radius:8px;
   }
   .boton_personalizado:hover{
     color: #ffffff;
     background-color: #55407d;
-    border-radius:5px;
+    
+    border-radius:8px;
   }
     
 /*@keyframes showTopText {
@@ -237,7 +239,7 @@ input[type="date"], focus {
             <!-- Submit Button -->
             <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado"  Text="Agregar" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click"  ValidationGroup="Save" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnAtras" runat="server" CssClass="boton_personalizado"  Text="Atras"  Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ClienteLista.aspx" />
+            <asp:Button ID="btnAtras" runat="server" CssClass="boton_personalizado"  Text="Atras"  Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ContratoLista.aspx" />
             <br />
             <br />
 

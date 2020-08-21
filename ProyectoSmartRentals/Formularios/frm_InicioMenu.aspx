@@ -15,6 +15,9 @@ df-messenger {
    --df-messenger-font-color: white;
    --df-messenger-send-icon: #adc867;
    --df-messenger-user-message: #adc867;
+   --df-messenger-chat-icon-max-width: 90%;
+   --df-messenger-chat-icon-max-height: 90%;
+    
   }
 
 /*ESTILOS DE TITULO ANIMADO*/
@@ -170,7 +173,8 @@ df-messenger {
           <main class="main">
             <div >
                 <section class="info">
-                    <article class="info_columna">
+                    <div runat="server" id="menuCliente" visible="false">
+                    <article class="info_columna" >
 
                         <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)" >
  
@@ -183,8 +187,9 @@ df-messenger {
                         </figure>
 
                     </article>
+                        </div>
 
-
+                    <div runat="server" id="menuProveedor"  visible="false">
                     <article class="info_columna">
 
 
@@ -200,9 +205,10 @@ df-messenger {
 
 
                     </article>
+                        </div>
 
                      
-
+                    <div runat="server" id="menuAlquileres"  visible="false">
                     <article class="info_columna">
 
                           <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.2)"  ;>
@@ -216,13 +222,27 @@ df-messenger {
                         </figure>
 
                     </article>
+                        </div>
+                         <div runat="server" id="menuAdministradores"  visible="false">
+                    <article class="info_columna">
+                        <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)" >
+ 
+                         <img src="../Imagenes/img_AdminRental.png" alt="" class="info_img" width="500" height="330"/>
+                        <figcaption>
+                        <h3>ADMIN RENTALS</h3><br>
+                        <p>Este módulo permite realizar todo el mantenimiento de Administradores del sistema de Smart Rentals</p>
+                        </figcaption>
+                        <a href="frm_AdminRentalsLista.aspx"></a>
+                        </figure>
 
+                    </article>
+                         </div>
 
 
                 </section><br /><br /><br />
 
                     <section class="info">
-
+                        <div runat="server" id="menu_contratos"  visible="false">
                     <article class="info_columna">
                           <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)" >
  
@@ -235,8 +255,9 @@ df-messenger {
                         </figure>
 
                     </article>
+                            </div>
 
-
+                        <div runat="server" id="menuTiquetes"  visible="false">
                     <article class="info_columna">
                          <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)" >
  
@@ -249,7 +270,9 @@ df-messenger {
                         </figure>   
 
                     </article>
+                            </div>
 
+                        <div runat="server" id="menuReportes"  visible="false">
 
                     <article class="info_columna">
 
@@ -265,37 +288,30 @@ df-messenger {
 
                     </article>
 
+                            </div>
+
 
                 </section><br /><br /><br />
 
                  <section class="info">
 
-                    <article class="info_columna">
-                        <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)" >
- 
-                         <img src="../Imagenes/img_AdminRental.png" alt="" class="info_img" width="500" height="330"/>
-                        <figcaption>
-                        <h3>ADMIN RENTALS</h3><br>
-                        <p>Este módulo permite realizar todo el mantenimiento de Administradores del sistema de Smart Rentals</p>
-                        </figcaption>
-                        <a href="frm_AdminRentalsLista.aspx"></a>
-                        </figure>
+                
 
-                    </article>
-
+                     <div runat="server" id="menuMisContratos"  visible="false">
 
                     <article class="info_columna">
                         <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)" >
  
-                          <img src= "../Imagenes/img_Dudas.png" alt="" class="info_img"  width="500" height="330"/>
+                          <img src= "../Imagenes/img_Contratos.png" alt="" class="info_img"  width="500" height="330"/>
                         <figcaption>
-                        <h3>DUDAS DE SERVICIO</h3><br>
-                        <p>Este módulo permite llevar el seguimiento y control de las dudas de servicio al cliente del sistema de Smart Rentals</p>
+                        <h3>Mis contratos</h3><br>
+                        <p>Este módulo permite ver los contratos que tienes actualmente.</p>
                         </figcaption>
-                        <a href="../frm_ClienteLista"></a>
+                        <a href="../frm_MisContratos"></a>
                         </figure>
                     </article>
-
+                        </div>
+                     <div runat="server" id="menuDesocupar"  visible="false">
                     <article class="info_columna">
 
                         <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)" >
@@ -308,7 +324,7 @@ df-messenger {
                         <a href="../frm_ClienteLista"></a>
                         </figure>
                     </article>
-
+                         </div>
 
                 </section><br /><br /><br />
 
@@ -376,7 +392,7 @@ df-messenger {
   
     <df-messenger
 
-  chat-icon="../images/smartRound.png"
+  chat-icon="../images/Chatbot.png"
   intent="WELCOME"
   chat-title="Smart Rentals"
   agent-id="7c0a6021-3969-47b5-8900-f4f08a44ce4c"

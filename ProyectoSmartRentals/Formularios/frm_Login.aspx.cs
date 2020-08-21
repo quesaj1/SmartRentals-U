@@ -16,6 +16,7 @@ namespace ProyectoSmartRentals.Formularios
             this.Page.Master.FindControl("menu_horizontal").Visible = false;
             this.Page.Master.FindControl("logout").Visible = false;
             this.Page.Master.FindControl("logout_").Visible = false;
+            this.Page.Master.FindControl("info_user").Visible = false;
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

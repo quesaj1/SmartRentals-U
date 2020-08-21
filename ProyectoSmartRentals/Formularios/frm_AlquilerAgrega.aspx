@@ -11,17 +11,19 @@
     <style type="text/css">
 
        
-  .boton_personalizado{
-    font-weight: 600;
-    font-size: 20px;
+   .boton_personalizado{
+    font-weight: 500;
+    font-size: 18px;
     color: #ffffff;
-    background-color: #adc867;
-    border-radius:5px;
+     background-color: #adc867;
+    border-width:thin;
+    border-radius:8px;
   }
   .boton_personalizado:hover{
     color: #ffffff;
     background-color: #55407d;
-    border-radius:5px;
+   
+    border-radius:8px;
   }
 
 input.error {
@@ -160,7 +162,7 @@ label.error {
                 <label for="txtImagen">Galería <span style="color:red;">*</span></label><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorImg" runat="server" ControlToValidate="fupImage" ErrorMessage="*Debe cargar una imagen*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
 
-                <asp:FileUpload ID="fupImage" CssClass="form-control" runat="server" ForeColor="Black" />
+                <asp:FileUpload ID="fupImage" CssClass="form-control" runat="server" ForeColor="Black"  />
                 <br />
             </div>
         </div>

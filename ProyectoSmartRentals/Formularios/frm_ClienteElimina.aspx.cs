@@ -86,10 +86,11 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtSegundoNombre.Text = resultadoSp.cli_SegundoNombre;
                     this.txtPrimerApellido.Text = resultadoSp.cli_PrimerApelido;
                     this.txtSegundoApellido.Text = resultadoSp.cli_SegundoApellido;
-                    this.txtFechaNacimiento.Text = resultadoSp.cli_FechaNacimiento.ToString();
+                    Nullable<DateTime> fecha = resultadoSp.cli_FechaNacimiento;
                     this.txtTelefonoCasa.Text = resultadoSp.cli_TelefonoCasa;
                     this.txtTelefonoCelular.Text = resultadoSp.cli_TelefonoCelular;
                     this.txtEmail.Text = resultadoSp.cli_Email;
+                    this.fechanacimiento.Value = fecha.HasValue ? fecha.Value.ToString("yyyy-MM-dd") : "<not available>";
                 }
 
             }
@@ -107,36 +108,32 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+        
             if (this.IsValid)
             {
 
                 int id_cliente = 0;
 
                 id_cliente = Convert.ToInt16(this.hdlCliente.Value);
-                DateTime now = DateTime.Now;
 
                 try
                 {
                     C_Clientes oClientes = new C_Clientes();
 
 
-                    if (oClientes.ModificarCliente(id_cliente,txtCedula.Text,txtNombre.Text,txtSegundoNombre.Text,txtPrimerApellido.Text,
-                        txtSegundoApellido.Text, now, txtTelefonoCasa.Text,txtTelefonoCelular.Text,txtEmail.Text,false))
-                    {
+                    if (oClientes.EliminarCliente(id_cliente, false))
 
-
+                        
                         ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                  
 
-                        this.limpiardatos();
-
-
-                    }
                     else
-
+                       
                         ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
                 catch (Exception error)
                 {
+                    
                     ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
 
@@ -171,7 +168,7 @@ namespace ProyectoSmartRentals.Formularios
                          "--------------------------------------------------------" + "<br/>" +
                            "Segundo Apellido :" + "&nbsp;&nbsp " + txtSegundoApellido.Text + "<br/>" +
                           "--------------------------------------------------------" + "<br/>" +
-                           "Fecha Nacimiento :" + "&nbsp;&nbsp " + txtFechaNacimiento.Text + "<br/>"+
+                           "Fecha Nacimiento :" + "&nbsp;&nbsp " + fechanacimiento.Value + "<br/>"+
                             "--------------------------------------------------------" + "<br/>" +
                             "Telefono Casa :" + "&nbsp;&nbsp " + txtTelefonoCasa.Text + "<br/>" +
                            "--------------------------------------------------------" + "<br/>" +
