@@ -736,6 +736,7 @@
     <Content Include="styles\bootstrap-4.1.2\popper.js" />
     <Content Include="styles\contact.css" />
     <Content Include="styles\contact_responsive.css" />
+    <Content Include="styles\EstilosPagos.css" />
     <Content Include="styles\listings.css" />
     <Content Include="styles\listings_responsive.css" />
     <Content Include="styles\main_styles.css" />

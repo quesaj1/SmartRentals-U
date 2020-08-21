@@ -4,11 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        .boton_personalizado{
+ 
+       
+   .boton_personalizado{
     font-weight: 500;
     font-size: 18px;
     color: #ffffff;
-    background-color: #adc867;
+     background-color: #adc867;
     border-width:thin;
     border-radius:8px;
   }
@@ -18,11 +20,10 @@
     border-radius:8px;
   }
 
-        input.error {
+input.error {
             border: 1px dotted red;
         }
-
-        label.error {
+label.error {
             position: static;
             background: url('images/unchecked.gif') no-repeat;
             padding-left: 20px;
@@ -204,24 +205,12 @@
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="../images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../styles/RepotarPagoutil.css">
-    <link rel="stylesheet" type="text/css" href="../styles/ReportarPago.css">
+    <link rel="stylesheet" type="text/css" href="../styles/EstilosPagos.css">
     <!--===============================================================================================-->
 
 
@@ -232,14 +221,14 @@
             <div class="contact100-form validate-form" style="margin-top: 5%; margin-bottom: 5%">
                 <span class="contact100-form-title">Pago del Cliente de Smart Rentals
                 </span>
-
-                <!-- Email Cliente -->
-                <label class="label-input100" for="first-name">Correo del Cliente</label>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="DropDownListEmail" ErrorMessage="*Debe seleccionar una correo*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                    <asp:DropDownList ID="DropDownListEmail" placeholder="Correo del Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+                   <!-- Contrato -->
+                <label class="label-input100" for="first-name">Contrato Relacionado</label>
+                <div class="wrap-input100 rs2-wrap-input100 validate-input">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownListContrato" ErrorMessage="*Debe seleccionar una contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="DropDownListContrato" DataTextField="Contratto" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
+         
 
                 <!-- Cliente -->
                 <label class="label-input100" for="first-name">Informacion del Cliente a Pagar</label>
@@ -248,13 +237,24 @@
                     <asp:DropDownList ID="DropDownListCliente" placeholder="Informacion del Cliente a Pagar" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
-                <!-- Contrato -->
-                <label class="label-input100" for="first-name">Contrato Relacionado</label>
-                <div class="wrap-input100 rs2-wrap-input100 validate-input">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DropDownListContrato" ErrorMessage="*Debe seleccionar una contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                    <asp:DropDownList ID="DropDownListContrato" DataTextField="Contratto" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+
+                      
+                <!-- Email Cliente -->
+                <label class="label-input100" for="first-name">Correo del Cliente</label>
+                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="DropDownListEmail" ErrorMessage="*Debe seleccionar una correo*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="DropDownListEmail" placeholder="Correo del Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
+
+                 <!-- Monto mensual -->
+                <label class="label-input100" for="first-name">Monto a Pagar</label>
+                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtMonto" ErrorMessage="*Debe seleccionar una Monto a Pagar*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" ForeColor="Black" placeholder="0,0" runat="server" MaxLength="18"></asp:TextBox>
+                <span class="focus-input100"></span>
+            </div>
+          
                 <!-- Fecha Pago mensual -->
                 <label class="label-input100" for="email">Fecha de Pago realizado</label>
                 <div class="wrap-input100 validate-input">
@@ -270,12 +270,15 @@
                     <textarea id="txtDetallesDePago" cssclass="form-control" placeholder="Monto" runat="server" maxlength="50"></textarea>
                     <span class="focus-input100"></span>
                 </div>
+                 <br>
+                 <br>
+                 <br>
 
                 <!-- Submit Button -->
                 <div class="container-contact100-form-btn">
-                    <asp:Button ID="btnAgregarPago" runat="server" CssClass="boton_personalizado" Text="Notificar Pago" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregarPago_Click" />
+                    <asp:Button ID="btnAgregarPago" runat="server" CssClass="boton_personalizado" Text="Notificar Pago" Font-Size="Medium" Height="49px" Width="120px" OnClick="btnAgregarPago_Click" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_ListaReportarPago.aspx" />
+                     <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" Font-Size="Medium" Height="49px" Width="120px" PostBackUrl="~/Formularios/frm_ListaReportarPago.aspx" />
                     <br />
                     <br />
                     <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900" CssClass="alert-success" Font-Size="Large"></asp:Label>
@@ -338,22 +341,7 @@
     <br>
     <div id="dropDownSelect1"></div>
 
-    <!--===============================================================================================-->
-    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="../vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="../vendor/bootstrap/js/popper.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="Fvendor/select2/select2.min.js"></script>
 
-    <!--===============================================================================================-->
-    <script src="../vendor/daterangepicker/moment.min.js"></script>
-    <script src="../vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="../vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
     <script src="../js/main.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
