@@ -161,7 +161,6 @@ label.error {
 
         .select2-selection__arrow {
             height: 35px !important;
-             display:none !important;
         }
 
         .select2-selection {
@@ -226,7 +225,7 @@ label.error {
                 <label class="label-input100" for="first-name">Contrato Relacionado</label>
                 <div class="wrap-input100 rs2-wrap-input100 validate-input">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownListContrato" ErrorMessage="*Debe seleccionar una contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                    <asp:DropDownList ID="DropDownListContrato" DataTextField="Contratto" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownListContrato_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ForeColor="Black" ID="DropDownListContrato" DataTextField="Contratto" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
          
@@ -235,8 +234,7 @@ label.error {
                 <label class="label-input100" for="first-name">Informacion del Cliente a Pagar</label>
                 <div class="wrap-input100 rs1-wrap-input100 validate-input">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownListCliente" ErrorMessage="*Debe seleccionar un cliente*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                    <asp:DropDownList ID="DropDownListCliente" placeholder="Informacion del Cliente a Pagar" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True" Visible="true" Enabled="false"></asp:DropDownList>
-             
+                    <asp:DropDownList ForeColor="Black" ID="DropDownListCliente" placeholder="Informacion del Cliente a Pagar" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
 
@@ -245,16 +243,15 @@ label.error {
                 <label class="label-input100" for="first-name">Correo del Cliente</label>
                 <div class="wrap-input100 rs1-wrap-input100 validate-input">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="DropDownListEmail" ErrorMessage="*Debe seleccionar una correo*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
-                    <asp:DropDownList ID="DropDownListEmail" placeholder="Correo del Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True" Enabled="false"></asp:DropDownList>
+                    <asp:DropDownList ForeColor="Black" ID="DropDownListEmail" placeholder="Correo del Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
 
                  <!-- Monto mensual -->
                 <label class="label-input100" for="first-name">Monto a Pagar</label>
                 <div class="wrap-input100 rs1-wrap-input100 validate-input">
-                  <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtMonto" ErrorMessage="*Debe seleccionar una Monto a Pagar*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>--%>
-                <%--<asp:TextBox ID="txtMonto" type="text" CssClass="form-control" ForeColor="Black" placeholder="0,0" runat="server" MaxLength="18"></asp:TextBox>--%>
-                     <asp:DropDownList ID="ddMonto"    CssClass="form-control" runat="server" AutoPostBack="True" Enabled="false"></asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtMonto" ErrorMessage="*Debe seleccionar una Monto a Pagar*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
+                <asp:TextBox  ID="txtMonto" type="text" CssClass="form-control" ForeColor="Black" placeholder="0,0" runat="server" MaxLength="18"></asp:TextBox>
                 <span class="focus-input100"></span>
             </div>
           
@@ -262,7 +259,7 @@ label.error {
                 <label class="label-input100" for="email">Fecha de Pago realizado</label>
                 <div class="wrap-input100 validate-input">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaPago" ErrorMessage="*Debe seleccionar una Fecha de Pago*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
-                    <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
+                    <asp:TextBox ID="txtFechaPago" type="date" ForeColor="Black" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
                     <span class="focus-input100"></span>
                 </div>
 
@@ -270,7 +267,7 @@ label.error {
                 <!-- Detalles Del Pago -->
                 <label class="label-input100" for="email">Detalles de Pago realizado</label>
                 <div class="wrap-input100 validate-input">
-                    <textarea id="txtDetallesDePago" cssclass="form-control" placeholder="" runat="server" maxlength="50"></textarea>
+                    <textarea id="txtDetallesDePago" ForeColor="Black" cssclass="form-control" placeholder="Monto" runat="server" maxlength="50"></textarea>
                     <span class="focus-input100"></span>
                 </div>
                  <br>
