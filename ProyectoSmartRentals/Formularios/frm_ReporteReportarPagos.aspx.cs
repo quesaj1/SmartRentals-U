@@ -48,11 +48,11 @@ namespace ProyectoSmartRentals.Formularios
 
         private void DropDownContrato()
         {
-            DropDownContratos.DataSource = Consultar("select * from C_Contratos");
+            DropDownContratos.DataSource = Consultar("select * from C_Contratos where ctr_activo = 1");
             DropDownContratos.DataTextField = "ctr_numeroContrato";
             DropDownContratos.DataValueField = "id_ctr_contrato";
             DropDownContratos.DataBind();
-            DropDownContratos.Items.Insert(0, new ListItem("[Seleccione el numero de contrato]", "0"));
+            DropDownContratos.Items.Insert(0, new ListItem("[Seleccione un contrato]", "0"));
 
         }
 
@@ -94,7 +94,7 @@ namespace ProyectoSmartRentals.Formularios
 
                 int fk_cli_cliente = Convert.ToInt32(this.DropDownCliente.Text.ToString());
                 int fk_ctr_IDContrato = Convert.ToInt32(this.DropDownContratos.Text.ToString());
-
+               
                 DateTime now = DateTime.Now;
                 prvReportarPagos.Visible = true;
                 prvReportarPagos.LocalReport.ReportPath = rutaServidor;
