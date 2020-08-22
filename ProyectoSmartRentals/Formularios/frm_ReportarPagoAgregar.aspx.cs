@@ -44,9 +44,9 @@ namespace ProyectoSmartRentals.Formularios
         private void DropDownClientes()
         {
             int c = this.DropDownListContrato.SelectedIndex;
-            DropDownListCliente.DataSource = Consultar("select id_ctr_contrato, b.cli_PrimerApelido +', '+ b.cli_nombre as Nombre from c_contratos a inner join C_Cliente b on a.fk_cli_cliente = b.cli_Cliente where a.id_ctr_contrato = " + c);
+            DropDownListCliente.DataSource = Consultar("select b.cli_cliente, b.cli_PrimerApelido +', '+ b.cli_nombre as Nombre from c_contratos a inner join C_Cliente b on a.fk_cli_cliente = b.cli_Cliente where a.id_ctr_contrato = " + c);
             DropDownListCliente.DataTextField = "Nombre";
-            DropDownListCliente.DataValueField = "id_ctr_contrato";
+            DropDownListCliente.DataValueField = "cli_cliente";
             DropDownListCliente.DataBind();
            
 

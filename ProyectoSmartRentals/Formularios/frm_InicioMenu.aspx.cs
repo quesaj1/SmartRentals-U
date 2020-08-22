@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Reporting.WebForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,6 +17,7 @@ namespace ProyectoSmartRentals.Formularios
         protected void Page_Load(object sender, EventArgs e)
         {
             menu();
+            esError();
         }
 
         void menu()
@@ -68,6 +71,19 @@ namespace ProyectoSmartRentals.Formularios
                 this.menuTiquetes.Visible = true;
                 this.menuReportes.Visible = true;
                 this.menuAdministradores.Visible = true;
+            }
+
+          
+
+        }
+
+        public void esError()
+        {
+            this.hddError.Value = this.Request.QueryString["error"];
+            string valor = Convert.ToString(this.hddError.Value);
+            if (valor.Equals("zW2aqP")){ 
+            this.banner_error.Visible = true;
+                this.espacio.Visible = false;
             }
 
         }

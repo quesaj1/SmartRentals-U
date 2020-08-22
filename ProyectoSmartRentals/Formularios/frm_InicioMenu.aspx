@@ -161,10 +161,17 @@ df-messenger {
 
 
 </style>
-
-
-    <div style="margin-top: 10%; margin-bottom:5%;margin-left: 5%; margin-right: 5%" >
-
+    <asp:HiddenField ID="hddError" runat="server" />
+    <br />
+        <div class="page-header" style="background-color:red; margin-top:10%;" runat="server" id="banner_error" visible="false">
+         <h3>Parece que no tienes acceso a ingresar a esa página, por eso te hemos redireccionado a la página principal.</h3> 
+              <h4>En caso de que creas que es un error, favor contactá al administrador del sistema.</h4>
+         </div>
+    <div runat="server" id="espacio" style="margin-top:10%;"></div>
+    <div style="margin-top: 0%; margin-bottom:5%;margin-left: 5%; margin-right: 5%" >
+      
+    
+        </div>
         <h1 style="text-align: center" class="ml12";  >Smart Rentals</h1><br/><br/><br/><br/>
 
         <div>
