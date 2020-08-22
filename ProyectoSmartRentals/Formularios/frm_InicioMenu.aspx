@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <style>
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Quattrocento');
@@ -19,6 +20,23 @@ df-messenger {
    --df-messenger-chat-icon-max-height: 90%;
     
   }
+
+
+ .error {
+       
+         background-color: #df4759;
+         /*background-color: #FFBABA;*/
+         background-image: url('https://i.imgur.com/GnyDvKN.png');
+         border: 1px solid;
+         box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.31);
+         margin: 10px 0px;
+		 padding: 15px 10px 15px 50px;
+         border-style:none;
+         border-radius:15px;
+		 background-repeat: no-repeat;
+		 background-position: 1% 3%;
+         text-align:center;
+     }
 
 /*ESTILOS DE TITULO ANIMADO*/
 
@@ -163,20 +181,21 @@ df-messenger {
 </style>
     <asp:HiddenField ID="hddError" runat="server" />
     <br />
-        <div class="page-header" style="background-color:red; margin-top:10%;" runat="server" id="banner_error" visible="false">
-         <h3>Parece que no tienes acceso a ingresar a esa página, por eso te hemos redireccionado a la página principal.</h3> 
-              <h4>En caso de que creas que es un error, favor contactá al administrador del sistema.</h4>
+        <div class="error" style="margin-top:10%; margin-right:18%; margin-left:18%" runat="server" id="banner_error" visible="false">
+         <h3 style="color:white"><strong>ALERTA!</strong>&nbsp; Parece que no tienes acceso a esa página, por eso te hemos redireccionado al menú principal.</h3><br /> 
+              <h4 style="color:white">Si consideras que es un error, favor contactá al administrador del sistema.</h4> <br />
+                  <a class="btn btn-sm"  href="../Formularios/frm_InicioMenu.aspx"><i class="fa fa-sign-out" style="font-size:34px; color:white" aria-hidden="true"></i></a>
          </div>
     <div runat="server" id="espacio" style="margin-top:10%;"></div>
+
     <div style="margin-top: 0%; margin-bottom:5%;margin-left: 5%; margin-right: 5%" >
       
     
         </div>
+
         <h1 style="text-align: center" class="ml12";  >Smart Rentals</h1><br/><br/><br/><br/>
 
         <div>
-
-
           <main class="main">
             <div >
                 <section class="info">
@@ -342,7 +361,7 @@ df-messenger {
 
 
     </div>
- </div>
+
 
     <%-- SCRIPTS DE ANIMACION --%>
 
@@ -377,6 +396,17 @@ df-messenger {
                 delay: (el, i) => 100 + 30 * i
             });
 
+
+    </script>
+
+    <script>
+        function disappear(x) {
+            document.getElementById(x).style.display = "none";
+        }
+
+        document.getElementById("banner_error").onclick = function () {
+            disappear("banner_error")
+        };
 
     </script>
 
