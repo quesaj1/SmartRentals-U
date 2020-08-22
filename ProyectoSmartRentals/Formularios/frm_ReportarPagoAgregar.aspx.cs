@@ -27,40 +27,7 @@ namespace ProyectoSmartRentals.Formularios
             }
         }
 
-        //private void IniciarLlenadoDropDown()
-        //{
-        //    DropDownListCliente.DataSource = Consultar("Select * from dbo.C_Cliente");
-        //    DropDownListCliente.DataTextField = "cli_Cliente";
-        //    DropDownListCliente.DataValueField = "cli_Cliente";
-        //    DropDownListCliente.DataBind();
-        //    DropDownListCliente.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
-        //    DropDownListContrato.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
-        //}
-
-
-        //protected void ContratoSeleccion(object sender, EventArgs e)
-        //{
-        //    int cli_Cliente = Convert.ToInt32(DropDownListCliente.SelectedValue);
-        //    DropDownListContrato.DataSource = Consultar("Select * from dbo.C_Contratos where fk_cli_cliente=" + cli_Cliente);
-        //    DropDownListContrato.DataTextField = "ctr_numeroContrato";
-        //    DropDownListContrato.DataValueField = "id_ctr_contrato";
-        //    DropDownListContrato.DataBind();
-        //    DropDownListContrato.Items.Insert(0, new ListItem("[Seleccionar]", "0"));
-        //}
-
-
-
-        //private void DropDownClienteEmail()
-        //{
-
-        //    DropDownListEmail.DataSource = Consultar("select  * from C_Cliente");
-        //    DropDownListEmail.DataTextField = "cli_Email";
-        //    DropDownListEmail.DataValueField = "cli_Cliente";
-        //    DropDownListEmail.DataBind();
-        //    DropDownListEmail.Items.Insert(0, new ListItem("[Seleccione el mail del usuario]", "0"));
-
-
-        //}
+       
 
 
         private void DropDownClientesEmail()
