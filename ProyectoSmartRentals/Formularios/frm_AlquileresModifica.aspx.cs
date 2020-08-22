@@ -182,6 +182,7 @@ namespace ProyectoSmartRentals.Formularios
 
                     else
                     {
+                        this.lblResultado.Visible = true;
                         this.lblResultado.Text = "Solo se aceptan archivos de imagen .jpg .jpeg o .png";
 
                     }

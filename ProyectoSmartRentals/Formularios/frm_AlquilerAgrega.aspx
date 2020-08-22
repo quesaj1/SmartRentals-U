@@ -10,6 +10,26 @@
 
     <style type="text/css">
 
+
+   
+     .errorLbl {
+       
+         background-color: #df4759;
+         /*background-color: #FFBABA;*/
+         background-image: url('https://i.imgur.com/GnyDvKN.png');
+         font-family:'Montserrat', sans-serif;
+         border: 1px solid;
+         box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.31);
+         margin: 10px 0px;
+		 padding: 15px 10px 15px 50px;
+         border-style:none;
+         border-radius:20px;
+		 background-repeat: no-repeat;
+		 background-position: 1% 3%;
+         text-align:center;
+     }
+
+
        
    .boton_personalizado{
     font-weight: 500;
@@ -177,7 +197,8 @@ label.error {
 
             <br />
             <br />
-            <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900" CssClass="alert-success" Font-Size="Large"></asp:Label>
+            <br />
+            <asp:Label ID="lblResultado" runat="server"  CssClass="errorLbl" Font-Bold="true"  Visible="False" ForeColor="White" Font-Size="Large"></asp:Label>
         </div>
         <br>
         <br>

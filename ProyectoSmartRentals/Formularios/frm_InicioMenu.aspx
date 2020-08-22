@@ -22,17 +22,51 @@ df-messenger {
   }
 
 
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  50% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+header{
+animation: 1s linear 0s 1 slideInFromLeft;
+}
+
  .error {
        
          background-color: #df4759;
          /*background-color: #FFBABA;*/
          background-image: url('https://i.imgur.com/GnyDvKN.png');
+         font-family:'Montserrat', sans-serif;
+         animation: 1s linear 0s 1 slideInFromTop;
          border: 1px solid;
          box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.31);
          margin: 10px 0px;
 		 padding: 15px 10px 15px 50px;
          border-style:none;
-         border-radius:15px;
+         border-radius:20px;
 		 background-repeat: no-repeat;
 		 background-position: 1% 3%;
          text-align:center;
