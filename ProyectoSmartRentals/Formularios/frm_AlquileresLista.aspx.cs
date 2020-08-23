@@ -29,7 +29,7 @@ namespace ProyectoSmartRentals.Formularios
             //Codigo para validar que hay sesion si no lo redirecciona al login//
 
             if (Session["UserName"] == null)
-            Response.Redirect("frm_Login.aspx", true);
+                Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
             else { 
 
             menu();

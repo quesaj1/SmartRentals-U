@@ -168,21 +168,53 @@
 
 }
 
+.error {
+       
+         background-color: #df4759;
+         /*background-color: #FFBABA;*/
+         background-image: url('https://i.imgur.com/GnyDvKN.png');
+         font-family:'Montserrat', sans-serif;
+         animation: 1s linear 0s 1 slideInFromTop;
+         border: 1px solid;
+         box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.31);
+         margin: 10px 0px;
+		 padding: 15px 10px 15px 20px;
+         border-style:none;
+         border-radius:20px;
+		 background-repeat: no-repeat;
+		 background-position: 1% 3%;
+         text-align:center;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  50% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 
 
 
 </style>
      <asp:HiddenField ID="hddError" runat="server" />
+
+     <div class="error" style="margin-top:10%; margin-right:38%; margin-left:38%" runat="server" id="banner_error" visible="false">
+         <h3 style="color:white"><strong>¡ALERTA!</strong>&nbsp; La sesión ha expirado</h3><br /> 
+              <h4 style="color:white">Favor ingrese nuevamente</h4> <br />
+                  <%--<a class="btn btn-sm"  href="../Formularios/frm_InicioMenu.aspx"><i class="fa fa-sign-out" style="font-size:34px; color:red" aria-hidden="true"></i></a>--%>
+                       </div>
  
         <div class="container">
 
             <div class="left-section">
                 <div class="header1">
-                        <div class="error" style="margin-top:2%;" runat="server" id="banner_error" visible="false">
-         <h3 style="color:red"><strong>¡ALERTA!</strong>&nbsp; La sesión ha expirado</h3><br /> 
-              <h4 style="color:red">Favor ingrese nuevamente</h4> <br />
-                  <%--<a class="btn btn-sm"  href="../Formularios/frm_InicioMenu.aspx"><i class="fa fa-sign-out" style="font-size:34px; color:red" aria-hidden="true"></i></a>--%>
-         </div>
                 <h1 class="animation a1">¡Bienvenido!</h1><br/>
                 <h4 class="animation a2">Inicie sesión para ingresar al perfil</h4><br/>
                 </div>

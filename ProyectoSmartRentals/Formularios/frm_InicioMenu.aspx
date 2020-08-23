@@ -64,7 +64,7 @@ animation: 1s linear 0s 1 slideInFromLeft;
          border: 1px solid;
          box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.31);
          margin: 10px 0px;
-		 padding: 15px 10px 15px 50px;
+		 padding: 15px 10px 15px 10px;
          border-style:none;
          border-radius:20px;
 		 background-repeat: no-repeat;
@@ -215,7 +215,7 @@ animation: 1s linear 0s 1 slideInFromLeft;
 </style>
     <asp:HiddenField ID="hddError" runat="server" />
     <br />
-        <div class="error" style="margin-top:10%; margin-right:18%; margin-left:18%" runat="server" id="banner_error" visible="false">
+        <div class="error" style="margin-top:10%; margin-right:25%; margin-left:25%" runat="server" id="banner_error" visible="false">
          <h3 style="color:white"><strong>ALERTA!</strong>&nbsp; Parece que no tienes acceso a esa página, por eso te hemos redireccionado al menú principal.</h3><br /> 
               <h4 style="color:white">Si consideras que es un error, favor contactá al administrador del sistema.</h4> <br />
                   <a class="btn btn-sm"  href="../Formularios/frm_InicioMenu.aspx"><i class="fa fa-sign-out" style="font-size:34px; color:white" aria-hidden="true"></i></a>

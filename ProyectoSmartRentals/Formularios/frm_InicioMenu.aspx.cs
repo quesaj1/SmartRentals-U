@@ -17,7 +17,7 @@ namespace ProyectoSmartRentals.Formularios
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserName"] == null)
-                Response.Redirect("frm_Login.aspx", true);
+                Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
             else
             {
 

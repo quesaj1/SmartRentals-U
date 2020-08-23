@@ -24,18 +24,24 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] == null)
+                Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+            else { 
 
-            _pk_cliente = Convert.ToInt16(Session["ID"]);
-            if (!IsPostBack)
-            {
 
-                DropDownContrato(_pk_cliente);
-                this.Page.Master.FindControl("menu_admin").Visible = false;
-                this.Page.Master.FindControl("menu_cliente").Visible = true;
-                this.Page.Master.FindControl("menu_proveedor").Visible = false;
-                this.Page.Master.FindControl("menu_admin_").Visible = false;
-                this.Page.Master.FindControl("menu_cliente_").Visible = true;
-                this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+                _pk_cliente = Convert.ToInt16(Session["ID"]);
+                  if (!IsPostBack)
+                  {
+
+                  DropDownContrato(_pk_cliente);
+                  this.Page.Master.FindControl("menu_admin").Visible = false;
+                  this.Page.Master.FindControl("menu_cliente").Visible = true;
+                  this.Page.Master.FindControl("menu_proveedor").Visible = false;
+                  this.Page.Master.FindControl("menu_admin_").Visible = false;
+                  this.Page.Master.FindControl("menu_cliente_").Visible = true;
+                  this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+
+                  }
 
             }
 
