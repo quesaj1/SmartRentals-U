@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -43,6 +44,9 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = false;
                 this.Page.Master.FindControl("menu_cliente_").Visible = true;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+                this.DropDownEstado.Enabled = false;
+                this.txtPrecio.ReadOnly = true;
+                this.txtNota.Disabled = true;
 
             }
             if (_rol.Equals("Proveedor"))
@@ -68,6 +72,10 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = true;
                 this.Page.Master.FindControl("menu_cliente_").Visible = false;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+                this.DropDownEstado.Enabled = false;
+                this.txtPrecio.ReadOnly = true;
+                this.txtNota.Disabled = true;
+
             }
 
         }
@@ -87,12 +95,13 @@ namespace ProyectoSmartRentals.Formularios
                 ///validar que el procedimiento retorne un valor
                 if (resultadoSp != null)
                 {
-                    
-                    this.DropDownTipo.Text = resultadoSp.tqt_tipo_problema;
+                    this.num_t.InnerText = Convert.ToString(resultadoSp.tqt_id);
+                    //this.DropDownTipo.Text = resultadoSp.tqt_tipo_problema;
+                    this.DropDownTipo.SelectedIndex = retornaTipoProblema(resultadoSp.tqt_tipo_problema);
                     this.txtTitulo.Text = resultadoSp.tqt_titulo;
                     this.txtDescrip.InnerText = resultadoSp.tqt_descripcion;
                     this.txtNota.InnerText = resultadoSp.tqt_nota_reparacion;
-                    this.DropDownEstado.Text = resultadoSp.tqt_estado;
+                    this.DropDownEstado.SelectedIndex = retornaEstado(resultadoSp.tqt_estado);
                     this.txtFechaInicio.Text = Convert.ToString(resultadoSp.tqt_fecha_inicio);
                     this.txtPrecio.Text = Convert.ToString(resultadoSp.tqt_precio_reparacion);
                     this.txtContrato.Text = resultadoSp.ctr_numeroContrato;
@@ -101,6 +110,45 @@ namespace ProyectoSmartRentals.Formularios
                 }
 
             }
+        }
+
+
+        public int retornaTipoProblema(String txt)
+        {
+            int res = 0;
+            if (txt.Equals("Eléctrico"))
+            {
+                res = 1;
+            }
+            if (txt.Equals("Fontaneria"))
+            {
+                res = 2;
+            }
+            if (txt.Equals("Cerrajeria"))
+            {
+                res = 3;
+            }
+            return res;
+
+        }
+
+        public int retornaEstado(String txt)
+        {
+            int res = 0;
+            if (txt.Equals("Pendiente"))
+            {
+                res = 0;
+            }
+            if (txt.Equals("En progreso"))
+            {
+                res = 1;
+            }
+            if (txt.Equals("Completado"))
+            {
+                res = 2;
+            }
+            return res;
+
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

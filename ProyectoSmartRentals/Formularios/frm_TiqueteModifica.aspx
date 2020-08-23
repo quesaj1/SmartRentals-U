@@ -47,7 +47,7 @@
     
 
            <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
-         <h1 id="ticketnum" style="text-align: center">Tiquete: </h1>
+         <h1 id="ticketnum" style="text-align: center">Tiquete: <span runat="server" id="num_t"></span></h1>   
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
               <asp:HiddenField ID="hdlTiquete" runat="server" />
        
