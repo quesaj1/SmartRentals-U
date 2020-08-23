@@ -21,8 +21,8 @@ namespace ProyectoSmartRentals.Formularios
             if (!IsPostBack)
             {
 
-                DropDownClientes();
                 DropDownContrato();
+
             }
         }
 
@@ -46,27 +46,50 @@ namespace ProyectoSmartRentals.Formularios
         }
 
 
-        private void DropDownContrato()
-        {
-            DropDownContratos.DataSource = Consultar("select * from C_Contratos where ctr_activo = 1");
-            DropDownContratos.DataTextField = "ctr_numeroContrato";
-            DropDownContratos.DataValueField = "id_ctr_contrato";
-            DropDownContratos.DataBind();
-            DropDownContratos.Items.Insert(0, new ListItem("[Seleccione un contrato]", "0"));
+        //private void DropDownContrato()
+        //{
+        //    DropDownContratos.DataSource = Consultar("select * from C_Contratos where ctr_activo = 1");
+        //    DropDownContratos.DataTextField = "ctr_numeroContrato";
+        //    DropDownContratos.DataValueField = "id_ctr_contrato";
+        //    DropDownContratos.DataBind();
+        //    DropDownContratos.Items.Insert(0, new ListItem("[Seleccione un contrato]", "0"));
 
-        }
+        //}
+
+        //private void DropDownClientes()
+        //{
+
+
+        //    DropDownCliente.DataSource = Consultar("select cli_cliente,cli_Cedula +', '+ cli_PrimerApelido+', '+ cli_SegundoApellido + ', '+ cli_nombre as datosCliente from C_Cliente where alq_Activo = 1");
+        //    DropDownCliente.DataTextField = "datosCliente";
+        //    DropDownCliente.DataValueField = "cli_cliente";
+        //    DropDownCliente.DataBind();
+        //    DropDownCliente.Items.Insert(0, new ListItem("[Seleccione un cliente]", "0"));
+
+        //}
 
         private void DropDownClientes()
         {
-
-
-            DropDownCliente.DataSource = Consultar("select cli_cliente,cli_Cedula +', '+ cli_PrimerApelido+', '+ cli_SegundoApellido + ', '+ cli_nombre as datosCliente from C_Cliente where alq_Activo = 1");
+            DropDownCliente.DataSource = Consultar(" select cli_cliente, cli_PrimerApelido+', '+ cli_SegundoApellido+ ', ' + cli_nombre as datosCliente from C_Cliente");
             DropDownCliente.DataTextField = "datosCliente";
             DropDownCliente.DataValueField = "cli_cliente";
             DropDownCliente.DataBind();
             DropDownCliente.Items.Insert(0, new ListItem("[Seleccione un cliente]", "0"));
 
         }
+
+        private void DropDownContrato()
+        {
+            int c = this.DropDownCliente.SelectedIndex;
+            DropDownContratos.DataSource = Consultar("select a.id_ctr_contrato, a.ctr_numerocontrato from C_Contratos a inner join C_Cliente b on a.fk_cli_cliente = b.cli_Cliente where fk_cli_cliente = " + c);
+            DropDownContratos.DataTextField = "ctr_numeroContrato";
+            DropDownContratos.DataValueField = "id_ctr_contrato";
+            DropDownContratos.DataBind();
+
+
+
+        }
+
 
 
 
@@ -92,9 +115,9 @@ namespace ProyectoSmartRentals.Formularios
             else
             {
 
-                int fk_cli_cliente = Convert.ToInt32(this.DropDownCliente.Text.ToString());
-                int fk_ctr_IDContrato = Convert.ToInt32(this.DropDownContratos.Text.ToString());
-               
+                int fk_cli_cliente = Convert.ToInt16(this.DropDownCliente.Text.ToString());
+                int fk_ctr_IDContrato = Convert.ToInt16(this.DropDownCliente.Text.ToString());
+
                 DateTime now = DateTime.Now;
                 prvReportarPagos.Visible = true;
                 prvReportarPagos.LocalReport.ReportPath = rutaServidor;
@@ -188,6 +211,11 @@ namespace ProyectoSmartRentals.Formularios
         protected void Button1_Click(object sender, EventArgs e)
         {
             contruirReporteGrafico();
+        }
+
+        protected void DropDownCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.DropDownContrato();
         }
     }
 }

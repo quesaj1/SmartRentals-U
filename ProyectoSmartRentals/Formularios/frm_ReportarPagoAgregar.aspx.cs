@@ -85,14 +85,14 @@ namespace ProyectoSmartRentals.Formularios
                 int fk_ctr_IDContrato = Convert.ToInt16(this.DropDownListContrato.Text.ToString());
                 string rpp_FechaPagoRecibido = this.txtFechaPago.Text.ToString();
                 string DetallesDePago = txtDetallesDePago.Value.ToString();
-                DateTime now = DateTime.Now;
+                DateTime fechapago = Convert.ToDateTime(this.txtFechaPago.Text);
 
                 //Hay que tomar la fecha con el datepicker
 
 
                 C_ReportePago oReportePago = new C_ReportePago();
                 bool ContratoInsertar =
-                    oReportePago.InsertarPago(fk_cli_cliente, fk_ctr_IDContrato, now, true, DetallesDePago);
+                    oReportePago.InsertarPago(fk_cli_cliente, fk_ctr_IDContrato, fechapago, true, DetallesDePago);
 
 
 

@@ -140,23 +140,25 @@ input[type="date"], focus {
             <div style="text-align:center"  width:30%>
                    <div class="form-row" style="margin-top:5%; margin-bottom:5%">
 
-                <!-- Contratos -->
-                <div id="ddcontratos" class="form-group col-sm-4" runat="server" >
-                <label for="txtcontrato">Contratos</label>
-              
-                <asp:DropDownList ID="DropDownContratos" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black">
-                
-                </asp:DropDownList>
-                </div>
-
+                       
                 <!-- Cliente -->
                 <div id="ddcliente" class="form-group col-sm-4" runat="server" >
                 <label for="txtcliente">Clientes</label>
               
-                <asp:DropDownList ID="DropDownCliente" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black">
+                <asp:DropDownList ID="DropDownCliente" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black"  OnSelectedIndexChanged="DropDownCliente_SelectedIndexChanged">
                 
                 </asp:DropDownList>
                 </div>
+
+                <!-- Contratos -->
+                <div id="ddcontratos" class="form-group col-sm-4" runat="server" >
+                <label for="txtcontrato">Contratos</label>
+              
+                <asp:DropDownList ID="DropDownContratos" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black" Visible="true" Enabled="false" >
+                
+                </asp:DropDownList>
+                </div>
+
                 
             
        
