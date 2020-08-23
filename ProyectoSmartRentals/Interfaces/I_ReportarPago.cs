@@ -47,7 +47,7 @@ namespace ProyectoSmartRentals.Interfaces
 
 
         #region Metodo  Retornar Reportar Pago DataGrid
-        List<sp_RetornaPagosRealizadosDataGrid_Result> RetornaPagosRealizadosDataGrid(bool rpp_estadoDePago);
+        List<sp_RetornaPagosRealizadosDataGrid_Result> RetornaPagosRealizadosDataGrid(bool rpp_estadoDePago, Nullable<int> v_fk_adr_id_admin);
         #endregion
 
 

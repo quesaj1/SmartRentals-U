@@ -66,10 +66,11 @@ namespace ProyectoSmartRentals.Metodos
         #endregion
 
         #region Metodo PagosRealizadosDataGrid Reportar Pago del Cliente
-        public List<sp_RetornaPagosRealizadosDataGrid_Result> RetornaPagosRealizadosDataGrid(bool rpp_estadoDePago)
+
+        public List<sp_RetornaPagosRealizadosDataGrid_Result> RetornaPagosRealizadosDataGrid(bool rpp_estadoDePago, int? v_fk_adr_id_admin)
         {
             List<sp_RetornaPagosRealizadosDataGrid_Result> resultado = new List<sp_RetornaPagosRealizadosDataGrid_Result>();
-            resultado = this.modeloDB.sp_RetornaPagosRealizadosDataGrid(rpp_estadoDePago).ToList();
+            resultado = this.modeloDB.sp_RetornaPagosRealizadosDataGrid(rpp_estadoDePago, v_fk_adr_id_admin).ToList();
             return resultado;
         }
         #endregion
@@ -121,6 +122,7 @@ namespace ProyectoSmartRentals.Metodos
             }
             return false;
         }
+
 
         #endregion
     }

@@ -610,6 +610,11 @@
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="sp_ReporteDashboard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_fk_adr_id_admin" Type="int" Mode="In" />
+          <Parameter Name="v_fk_cli_client" Type="int" Mode="In" />
+          <Parameter Name="v_fk_prv_proveedor" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_RetornaAdminRental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_cedula" Type="varchar" Mode="In" />
           <Parameter Name="v_nombre" Type="varchar" Mode="In" />
@@ -680,6 +685,7 @@
         </Function>
         <Function Name="sp_RetornaPagosRealizadosDataGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_rpp_estadoDePago" Type="bit" Mode="In" />
+          <Parameter Name="v_fk_adr_id_admin" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_RetornaProveedorDataGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_alq_activo" Type="bit" Mode="In" />
@@ -1582,6 +1588,7 @@
           </FunctionImport>
           <FunctionImport Name="sp_RetornaPagosRealizadosDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaPagosRealizadosDataGrid_Result)">
           <Parameter Name="v_rpp_estadoDePago" Mode="In" Type="Boolean" />
+            <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaProveedorDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorDataGrid_Result)">
           <Parameter Name="v_alq_activo" Mode="In" Type="Boolean" />
@@ -1652,6 +1659,11 @@
           <FunctionImport Name="sp_ArchivarPago">
             <Parameter Name="v_rpp_IDReportarPago" Mode="In" Type="Int32" />
             <Parameter Name="v_Activo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ReporteDashboard" ReturnType="Collection(SmartRentalsModel.sp_ReporteDashboard_Result)">
+            <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
+            <Parameter Name="v_fk_cli_client" Mode="In" Type="Int32" />
+            <Parameter Name="v_fk_prv_proveedor" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
@@ -2009,6 +2021,10 @@
           <Property Type="Int32" Name="id_principal" Nullable="false" />
           <Property Type="DateTime" Name="ult_inicio_sesion" Nullable="true" Precision="23" />
           <Property Type="Boolean" Name="sesion_activa" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_ReporteDashboard_Result">
+          <Property Type="String" Name="tqt_estado" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2688,6 +2704,14 @@
           <FunctionImportMapping FunctionImportName="sp_EliminarCliente" FunctionName="SmartRentalsModel.Store.sp_EliminarCliente" />
           <FunctionImportMapping FunctionImportName="sp_EliminarProveedor" FunctionName="SmartRentalsModel.Store.sp_EliminarProveedor" />
           <FunctionImportMapping FunctionImportName="sp_ArchivarPago" FunctionName="SmartRentalsModel.Store.sp_ArchivarPago" />
+          <FunctionImportMapping FunctionImportName="sp_ReporteDashboard" FunctionName="SmartRentalsModel.Store.sp_ReporteDashboard">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_ReporteDashboard_Result">
+                <ScalarProperty Name="tqt_estado" ColumnName="tqt_estado" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

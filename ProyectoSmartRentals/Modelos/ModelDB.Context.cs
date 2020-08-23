@@ -1207,13 +1207,17 @@ namespace ProyectoSmartRentals.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaPagoID_Result>("sp_RetornaPagoID", v_rpp_IDReportarPagoParameter);
         }
     
-        public virtual ObjectResult<sp_RetornaPagosRealizadosDataGrid_Result> sp_RetornaPagosRealizadosDataGrid(Nullable<bool> v_rpp_estadoDePago)
+        public virtual ObjectResult<sp_RetornaPagosRealizadosDataGrid_Result> sp_RetornaPagosRealizadosDataGrid(Nullable<bool> v_rpp_estadoDePago, Nullable<int> v_fk_adr_id_admin)
         {
             var v_rpp_estadoDePagoParameter = v_rpp_estadoDePago.HasValue ?
                 new ObjectParameter("v_rpp_estadoDePago", v_rpp_estadoDePago) :
                 new ObjectParameter("v_rpp_estadoDePago", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaPagosRealizadosDataGrid_Result>("sp_RetornaPagosRealizadosDataGrid", v_rpp_estadoDePagoParameter);
+            var v_fk_adr_id_adminParameter = v_fk_adr_id_admin.HasValue ?
+                new ObjectParameter("v_fk_adr_id_admin", v_fk_adr_id_admin) :
+                new ObjectParameter("v_fk_adr_id_admin", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaPagosRealizadosDataGrid_Result>("sp_RetornaPagosRealizadosDataGrid", v_rpp_estadoDePagoParameter, v_fk_adr_id_adminParameter);
         }
     
         public virtual ObjectResult<sp_RetornaProveedorDataGrid_Result> sp_RetornaProveedorDataGrid(Nullable<bool> v_alq_activo)
@@ -1459,6 +1463,23 @@ namespace ProyectoSmartRentals.Modelos
                 new ObjectParameter("v_Activo", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ArchivarPago", v_rpp_IDReportarPagoParameter, v_ActivoParameter);
+        }
+    
+        public virtual ObjectResult<sp_ReporteDashboard_Result> sp_ReporteDashboard(Nullable<int> v_fk_adr_id_admin, Nullable<int> v_fk_cli_client, Nullable<int> v_fk_prv_proveedor)
+        {
+            var v_fk_adr_id_adminParameter = v_fk_adr_id_admin.HasValue ?
+                new ObjectParameter("v_fk_adr_id_admin", v_fk_adr_id_admin) :
+                new ObjectParameter("v_fk_adr_id_admin", typeof(int));
+    
+            var v_fk_cli_clientParameter = v_fk_cli_client.HasValue ?
+                new ObjectParameter("v_fk_cli_client", v_fk_cli_client) :
+                new ObjectParameter("v_fk_cli_client", typeof(int));
+    
+            var v_fk_prv_proveedorParameter = v_fk_prv_proveedor.HasValue ?
+                new ObjectParameter("v_fk_prv_proveedor", v_fk_prv_proveedor) :
+                new ObjectParameter("v_fk_prv_proveedor", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ReporteDashboard_Result>("sp_ReporteDashboard", v_fk_adr_id_adminParameter, v_fk_cli_clientParameter, v_fk_prv_proveedorParameter);
         }
     }
 }
