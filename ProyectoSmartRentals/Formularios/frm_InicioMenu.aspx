@@ -6,156 +6,162 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <style>
-@import url('https://fonts.googleapis.com/css?family=Oswald');
-@import url('https://fonts.googleapis.com/css?family=Quattrocento');
+     @import url('https://fonts.googleapis.com/css?family=Oswald');
+     @import url('https://fonts.googleapis.com/css?family=Quattrocento');
 
-df-messenger {
-   --df-messenger-bot-message: #55407d;
-   --df-messenger-button-titlebar-color: #adc867;
-   --df-messenger-chat-background-color: #fafafa;
-   --df-messenger-font-color: white;
-   --df-messenger-send-icon: #adc867;
-   --df-messenger-user-message: #adc867;
-   --df-messenger-chat-icon-max-width: 90%;
-   --df-messenger-chat-icon-max-height: 90%;
-    
-  }
-
+     df-messenger {
+         --df-messenger-bot-message: #55407d;
+         --df-messenger-button-titlebar-color: #adc867;
+         --df-messenger-chat-background-color: #fafafa;
+         --df-messenger-font-color: white;
+         --df-messenger-send-icon: #adc867;
+         --df-messenger-user-message: #adc867;
+         --df-messenger-chat-icon-max-width: 90%;
+         --df-messenger-chat-icon-max-height: 90%;
+     }
 
 
-@keyframes slideInFromTop {
-  0% {
-    transform: translateY(-100%);
-  }
 
-  50% {
-    transform: translateY(-50%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
+     @keyframes slideInFromTop {
+         0% {
+             transform: translateY(-100%);
+         }
+
+         50% {
+             transform: translateY(-50%);
+         }
+
+         100% {
+             transform: translateY(0);
+         }
+     }
 
 
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
+     @keyframes slideInFromLeft {
+         0% {
+             transform: translateX(-100%);
+         }
 
-  50% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
+         50% {
+             transform: translateX(-50%);
+         }
 
-header{
-animation: 1s linear 0s 1 slideInFromLeft;
-}
+         100% {
+             transform: translateX(0);
+         }
+     }
 
- .error {
-       
+     header {
+         animation: 1s linear 0s 1 slideInFromLeft;
+     }
+
+     .error {
          background-color: #df4759;
          /*background-color: #FFBABA;*/
          background-image: url('https://i.imgur.com/GnyDvKN.png');
-         font-family:'Montserrat', sans-serif;
+         font-family: 'Montserrat', sans-serif;
          animation: 1s linear 0s 1 slideInFromTop;
          border: 1px solid;
          box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.31);
          margin: 10px 0px;
-		 padding: 15px 10px 15px 10px;
-         border-style:none;
-         border-radius:20px;
-		 background-repeat: no-repeat;
-		 background-position: 1% 3%;
-         text-align:center;
+         padding: 15px 10px 15px 10px;
+         border-style: none;
+         border-radius: 20px;
+         background-repeat: no-repeat;
+         background-position: 1% 3%;
+         text-align: center;
      }
 
-/*ESTILOS DE TITULO ANIMADO*/
+     /*ESTILOS DE TITULO ANIMADO*/
 
 
-.ml12 .letter {
-  display: inline-block;
-  line-height: 1em;
-}
+     .ml12 .letter {
+         display: inline-block;
+         line-height: 1em;
+     }
 
-/*ESTILOS DE IMAGENES Y HOVER*/
+     /*ESTILOS DE IMAGENES Y HOVER*/
 
      .snip1361 {
-  font-family: 'Quattrocento', Arial, sans-serif;
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-  min-width: 330px;
-  max-width: 480px;
-  width: 100%;
-  color: #141414;
-  text-align: left;
-  line-height: 1.4em;
-  font-size: 16px;
-}
-.snip1361 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-}
-.snip1361 img {
-  max-width: 100%;
-  vertical-align: top;
- 
- 
-}
-.snip1361 figcaption {
-  position: absolute;
-  top: calc(77%);
-  width: 100%;
-  background-color: #ffffff;
-  opacity:0.95;
-  padding: 15px 25px 65px;
+         font-family: 'Quattrocento', Arial, sans-serif;
+         position: relative;
+         overflow: hidden;
+         margin: 10px;
+         min-width: 330px;
+         max-width: 480px;
+         width: 100%;
+         color: #141414;
+         text-align: left;
+         line-height: 1.4em;
+         font-size: 16px;
+     }
 
-}
-.snip1361 figcaption:before {
-  position: absolute;
-  content: '';
-  z-index: 2;
-  bottom: 100%;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background-image: -webkit-linear-gradient(top, transparent 0%,  100% );
-  background-image: linear-gradient(to bottom, transparent 0%,  100%);
-}
-.snip1361 h3,
-.snip1361 p {
-  margin: 0 0 10px;
-}
-.snip1361 h3 {
-  font-weight: 300;
-  font-size: 1.6em;
-  line-height: 1.2em;
-  font-family: 'Oswald', Arial, sans-serif;
-  text-transform: uppercase;
-}
-.snip1361 p {
-  font-size: 0.9em;
-  letter-spacing: 1px;
-  opacity: 1;
-  color: black ; 
-}
-.snip1361 a {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-}
-.snip1361:hover figcaption,
-.snip1361.hover figcaption {
-  top: 130px;
-}
+         .snip1361 * {
+             -webkit-box-sizing: border-box;
+             box-sizing: border-box;
+             -webkit-transition: all 0.35s ease;
+             transition: all 0.35s ease;
+         }
+
+         .snip1361 img {
+             max-width: 100%;
+             vertical-align: top;
+         }
+
+         .snip1361 figcaption {
+             position: absolute;
+             top: calc(77%);
+             width: 100%;
+             background-color: #ffffff;
+             opacity: 0.95;
+             padding: 15px 25px 65px;
+         }
+
+             .snip1361 figcaption:before {
+                 position: absolute;
+                 content: '';
+                 z-index: 2;
+                 bottom: 100%;
+                 left: 0;
+                 width: 100%;
+                 height: 80px;
+                 background-image: -webkit-linear-gradient(top, transparent 0%, 100% );
+                 background-image: linear-gradient(to bottom, transparent 0%, 100%);
+             }
+
+         .snip1361 h3,
+         .snip1361 p {
+             margin: 0 0 10px;
+         }
+
+         .snip1361 h3 {
+             font-weight: 300;
+             font-size: 1.6em;
+             line-height: 1.2em;
+             font-family: 'Oswald', Arial, sans-serif;
+             text-transform: uppercase;
+         }
+
+         .snip1361 p {
+             font-size: 0.9em;
+             letter-spacing: 1px;
+             opacity: 1;
+             color: black;
+         }
+
+         .snip1361 a {
+             position: absolute;
+             top: 0;
+             bottom: 0;
+             left: 0;
+             right: 0;
+             z-index: 2;
+         }
+
+         .snip1361:hover figcaption,
+         .snip1361.hover figcaption {
+             top: 130px;
+         }
 
 
 
@@ -199,20 +205,19 @@ animation: 1s linear 0s 1 slideInFromLeft;
          }
 
 
-  .boton_personalizado{
-     font-weight: 500;
-     font-size: 15px;
-     color: #ffffff;
-     background-color: #2ECC71;
-  }
-  .boton_personalizado:hover{
-    color: #1883ba;
-    background-color: #ffffff;
-  }
+         .boton_personalizado {
+             font-weight: 500;
+             font-size: 15px;
+             color: #ffffff;
+             background-color: #2ECC71;
+         }
+
+             .boton_personalizado:hover {
+                 color: #1883ba;
+                 background-color: #ffffff;
+             }
      }
-
-
-</style>
+ </style>
     <asp:HiddenField ID="hddError" runat="server" />
     <br />
         <div class="error" style="margin-top:10%; margin-right:25%; margin-left:25%" runat="server" id="banner_error" visible="false">
