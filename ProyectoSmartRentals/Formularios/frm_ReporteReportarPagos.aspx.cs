@@ -21,7 +21,7 @@ namespace ProyectoSmartRentals.Formularios
             if (!IsPostBack)
             {
 
-                DropDownContrato();
+                DropDownClientes();
 
             }
         }
