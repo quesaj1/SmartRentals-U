@@ -1149,6 +1149,9 @@
     <Compile Include="Modelos\sp_helpdiagrams_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\sp_ReporteDashboard_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\sp_RetornaAdminRentalID_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>

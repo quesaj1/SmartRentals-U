@@ -32,7 +32,7 @@ namespace ProyectoSmartRentals.Formularios
 
         private void DropDownClientesEmail()
         {
-            int c = this.DropDownListContrato.SelectedIndex;
+            string c = this.DropDownListContrato.SelectedValue;
             DropDownListEmail.DataSource = Consultar("select id_ctr_contrato, b.cli_Email as Nombre from c_contratos a inner  join C_Cliente b on a.fk_cli_cliente = b.cli_Cliente where a.id_ctr_contrato = " + c);
             DropDownListEmail.DataTextField = "Nombre";
             DropDownListEmail.DataValueField = "id_ctr_contrato";
@@ -43,7 +43,7 @@ namespace ProyectoSmartRentals.Formularios
 
         private void DropDownClientes()
         {
-            int c = this.DropDownListContrato.SelectedIndex;
+            string c = this.DropDownListContrato.SelectedValue;
             DropDownListCliente.DataSource = Consultar("select b.cli_cliente, b.cli_PrimerApelido +', '+ b.cli_nombre as Nombre from c_contratos a inner join C_Cliente b on a.fk_cli_cliente = b.cli_Cliente where a.id_ctr_contrato = " + c);
             DropDownListCliente.DataTextField = "Nombre";
             DropDownListCliente.DataValueField = "cli_cliente";
@@ -54,7 +54,7 @@ namespace ProyectoSmartRentals.Formularios
         }
         private void DropDownMonto()
         {
-            int c = this.DropDownListContrato.SelectedIndex;
+            string c = this.DropDownListContrato.SelectedValue;
             ddMonto.DataSource = Consultar("select id_ctr_contrato, ctr_monto from C_Contratos where id_ctr_contrato =" + c);
             ddMonto.DataTextField = "ctr_monto";
             ddMonto.DataValueField = "id_ctr_contrato";

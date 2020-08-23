@@ -46,27 +46,7 @@ namespace ProyectoSmartRentals.Formularios
         }
 
 
-        //private void DropDownContrato()
-        //{
-        //    DropDownContratos.DataSource = Consultar("select * from C_Contratos where ctr_activo = 1");
-        //    DropDownContratos.DataTextField = "ctr_numeroContrato";
-        //    DropDownContratos.DataValueField = "id_ctr_contrato";
-        //    DropDownContratos.DataBind();
-        //    DropDownContratos.Items.Insert(0, new ListItem("[Seleccione un contrato]", "0"));
-
-        //}
-
-        //private void DropDownClientes()
-        //{
-
-
-        //    DropDownCliente.DataSource = Consultar("select cli_cliente,cli_Cedula +', '+ cli_PrimerApelido+', '+ cli_SegundoApellido + ', '+ cli_nombre as datosCliente from C_Cliente where alq_Activo = 1");
-        //    DropDownCliente.DataTextField = "datosCliente";
-        //    DropDownCliente.DataValueField = "cli_cliente";
-        //    DropDownCliente.DataBind();
-        //    DropDownCliente.Items.Insert(0, new ListItem("[Seleccione un cliente]", "0"));
-
-        //}
+    
 
         private void DropDownClientes()
         {
