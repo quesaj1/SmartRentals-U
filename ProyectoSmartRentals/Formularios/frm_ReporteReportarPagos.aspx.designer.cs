@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoSmartRentals.Formularios {
-    
-    
-    public partial class frm_ReporteReportarPagos {
-        
+namespace ProyectoSmartRentals.Formularios
+{
+
+
+    public partial class frm_ReporteReportarPagos
+    {
+
         /// <summary>
         /// Control ScriptManager1.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// Control ddcliente.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddcliente;
-        
+
         /// <summary>
         /// Control DropDownCliente.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownCliente;
-        
+
         /// <summary>
         /// Control ddcontratos.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddcontratos;
-        
+
         /// <summary>
         /// Control DropDownContratos.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownContratos;
-        
+
         /// <summary>
         /// Control btnAgregar.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregar;
-        
+
         /// <summary>
         /// Control btnGrafico.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGrafico;
-        
+
         /// <summary>
         /// Control Label1.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Control prvReportarPagos.
         /// </summary>

@@ -21,7 +21,7 @@ namespace ProyectoSmartRentals.Formularios
             if (!IsPostBack)
             {
 
-                DropDownContrato();
+                DropDownClientes();
 
             }
         }
@@ -80,7 +80,7 @@ namespace ProyectoSmartRentals.Formularios
 
         private void DropDownContrato()
         {
-            int c = this.DropDownCliente.SelectedIndex;
+            string c = this.DropDownCliente.SelectedValue;
             DropDownContratos.DataSource = Consultar("select a.id_ctr_contrato, a.ctr_numerocontrato from C_Contratos a inner join C_Cliente b on a.fk_cli_cliente = b.cli_Cliente where fk_cli_cliente = " + c);
             DropDownContratos.DataTextField = "ctr_numeroContrato";
             DropDownContratos.DataValueField = "id_ctr_contrato";
@@ -216,6 +216,7 @@ namespace ProyectoSmartRentals.Formularios
         protected void DropDownCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.DropDownContrato();
+ 
         }
     }
 }
