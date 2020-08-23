@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -125,6 +126,8 @@ namespace ProyectoSmartRentals.Formularios
             string extension = System.IO.Path.GetExtension(up_Contrato.FileName);
             string file_name = System.IO.Path.GetFileNameWithoutExtension(up_Contrato.FileName);
             string ctr_path = "";
+
+            //Verifica que haya un archivo
             if (this.up_Contrato.HasFile) {
 
                 if (extension == ".pdf" || extension == ".docx") {
@@ -138,9 +141,20 @@ namespace ProyectoSmartRentals.Formularios
                         up_Contrato.SaveAs(Server.MapPath("~/Contratos/" + file_name + "-Copia" + extension));
                         ctr_path = "~/Contratos/" + file_name + "-Copia"+extension;
                     }
-                
+                    DateTime fechainicio = Convert.ToDateTime(this.txtFechaInicio.Text);
+                    DateTime fechaFinalizacion = Convert.ToDateTime(this.txtFechaFinaliacion.Text);
+                    DateTime fechapago = Convert.ToDateTime(this.txtFechaPago.Text);
 
-            try
+                    
+                    //Compara las fechas de los contratos, para asegurarse que la fecha de inicio no es mayor a la de finalización
+                     
+                    if (DateTime.Compare(fechainicio,fechaFinalizacion)<=0){
+                        if (DateTime.Compare(fechainicio, fechapago) <= 0)
+                        {
+
+
+                
+                            try
             {
                 string contrato = this.txtContratoNumero.Text.ToString();
                 //string fechainicio = this.txtFechaInicio.Text.ToString();
@@ -150,17 +164,18 @@ namespace ProyectoSmartRentals.Formularios
                 int Id_propiedades = Convert.ToInt16(this.DropDownPropiedad.Text.ToString());
                 string ctr_name = this.up_Contrato.FileName.ToString();
                 
-                DateTime fechainicio = Convert.ToDateTime(this.txtFechaInicio.Text);
-                DateTime fechaFinalizacion = Convert.ToDateTime(this.txtFechaFinaliacion.Text);
-                DateTime fechapago = Convert.ToDateTime(this.txtFechaPago.Text);
+               
+               
 
                 //Hay que tomar la fecha con el datepicker
 
                 int admin_id = Convert.ToInt16(Session["ID"]); 
                         C_Contrato oContrato = new C_Contrato();
+
+                if(fechaFinalizacion == null) { 
                 bool ContratoInsertar =
                     oContrato.InsertaContrato(Id_Ciente, contrato, fechainicio,
-                    fechaFinalizacion, monto, true, ctr_path, Id_propiedades, admin_id, fechapago);
+                    null, monto, true, ctr_path, Id_propiedades, admin_id, fechapago);
 
 
                         
@@ -176,18 +191,61 @@ namespace ProyectoSmartRentals.Formularios
                             
                         }
                     }
-            catch (Exception error)
+                                else
+                                {
+                                    bool ContratoInsertar =
+                  oContrato.InsertaContrato(Id_Ciente, contrato, fechainicio,
+                  fechaFinalizacion, monto, true, ctr_path, Id_propiedades, admin_id, fechapago);
+
+
+
+
+
+                                    if (ContratoInsertar)
+                                    {
+                                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+
+                                        this.limpiardatos();
+                                    }
+                                    else
+                                    {
+                                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+
+                                    }
+                                }
+                            }
+
+                            catch (Exception error)
             {
                         ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                        
                     }
                 }
+                    else
+                    {
+                       
+                        this.Label3.Text = "La fecha de inicio es mayor a la fecha de días de pago";
+                        this.Label1.Text = "La fecha de inicio es menor a la fecha de días de pago";
+                        this.Label5.Text = ".";
+                        this.Label4.Text = ".";
+                        this.Label4.ForeColor = Color.White;
+                    }
+                        }
+                    else
+                    {
+                        this.Label3.Text = "La fecha de inicio es mayor a la fecha de finalización";
+                        this.Label4.Text = "La fecha de inicio es menor a la fecha de inicio";
+                       
+                    }
+                     }
 
                 else
                 {
                     this.Label2.Text = "Solo se aceptan archivos .pdf o .docx";
-                }    
+                }
+            //Finaliaz el if Verifica que haya un archivo
             }
+            //El else de verificar que haya un archivo
             else
             {
                 this.Label2.Text = "Debe de subir un archivo";
