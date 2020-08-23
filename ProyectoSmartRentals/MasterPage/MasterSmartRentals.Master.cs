@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading;
+using System.Web;
 using System.Web.Security;
 
 namespace ProyectoSmartRentals.MasterPage
@@ -21,9 +22,11 @@ namespace ProyectoSmartRentals.MasterPage
 
         protected void LogOut_Link(object sender, EventArgs e)
         {
-            
-            Session.Clear();
-            Session.Abandon();
+
+
+            FormsAuthentication.SignOut();
+            HttpContext.Current.Session.Clear();
+            HttpContext.Current.Session.Abandon();
             Response.Redirect("../Formularios/frm_Login.aspx");
 
         }

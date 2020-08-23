@@ -28,17 +28,24 @@ namespace ProyectoSmartRentals.Formularios
 
             if (!this.IsPostBack)
             {
-                
-                ///obtener el valor del parámetro envíado desde la lista
-                ///debe llamarse igual a lo envíado desde el grid
-                this.hdldAlquiler.Value = this.Request.QueryString["alq_id_Propiedad"];
-                CargaDatosAlquileres();
-                menu();
-                provincia();
-                canton();
-                distrito();
-                img();
-                IniciarLlenadoDropDown();
+
+                if (Session["UserName"] == null)
+                    Response.Redirect("frm_Login.aspx", true);
+                else
+                {
+
+                    ///obtener el valor del parámetro envíado desde la lista
+                    ///debe llamarse igual a lo envíado desde el grid
+                    this.hdldAlquiler.Value = this.Request.QueryString["alq_id_Propiedad"];
+                    CargaDatosAlquileres();
+                    menu();
+                    provincia();
+                    canton();
+                    distrito();
+                    img();
+                    IniciarLlenadoDropDown();
+
+                }
 
             }
         }
