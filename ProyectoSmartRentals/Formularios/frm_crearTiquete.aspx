@@ -117,7 +117,7 @@ input[type="date"], focus {
     line-height: 23px !important;
     font-family: Montserrat, sans-serif; 
     font-size: 16px;
-    color: #6c757d !important;
+    color: black !important;
 }
 .select2-container .select2-selection--single {
     height: 38px !important;
@@ -159,14 +159,17 @@ input[type="date"], focus {
              <div class="form-group col-md-6">
                 <!-- Cliente -->
                 <label for="txtCliente">Contrato</label> <br />
-                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="DropDownContratos" ErrorMessage="*Debe seleccionar un contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"  InitialValue="0" ErrorMessage="*" ControlToValidate="DropDownTipo" SetFocusOnError="True" Font-Size="Small" ForeColor="white" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" InitialValue="0" ErrorMessage="*Debe de seleccionar un contrato*" ControlToValidate="DropDownContratos" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                   <asp:DropDownList ID="DropDownContratos" ForeColor="Black" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
             <div class="form-group col-md-6">
                 <!-- Cliente -->
-                <label for="txtCliente">Tipo de problema</label>
+                <label for="txtCliente">Tipo de problema</label> <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" InitialValue="0" ErrorMessage="." ControlToValidate="DropDownContratos" SetFocusOnError="True" Font-Size="Small" ForeColor="white" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"  InitialValue="0" ErrorMessage="*Debe de seleccionar una categoria*" ControlToValidate="DropDownTipo" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                   <asp:DropDownList ID="DropDownTipo" ForeColor="Black" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True">
-                    <asp:ListItem Value="0">Seleccione un tipo de problema</asp:ListItem>
+                    <asp:ListItem Value="0">[Seleccione un tipo de problema]</asp:ListItem>
                      <asp:ListItem Value="1">Eléctrico</asp:ListItem>
                       <asp:ListItem Value="2">Fontaneria</asp:ListItem>
                       <asp:ListItem Value="3">Cerrajeria</asp:ListItem>
@@ -194,7 +197,7 @@ input[type="date"], focus {
         
         <div class="form-group" style="text-align:center">
             <!-- Submit Button -->
-            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado"  Text="Crear" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click"  />
+            <asp:Button ID="btnAgregar" runat="server" CssClass="boton_personalizado"  Text="Crear" Font-Size="Medium" Height="49px" Width="111px" OnClick="btnAgregar_Click" ValidationGroup="Save"  />
             &nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnAtras" runat="server" CssClass="boton_personalizado"  Text="Atrás"  Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_TiqueteLista.aspx" />
             <br />

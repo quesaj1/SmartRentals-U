@@ -10,7 +10,7 @@
         <div  style="text-align: center;">
              
                 <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" Visible="false" NavigateUrl="frm_ContratoAgrega.aspx" >Agregar Nuevo Tiquete</asp:HyperLink>
+                <asp:HyperLink ID="hplAgregar" runat="server" Visible="false" NavigateUrl="frm_crearTiquete.aspx" >Agregar Nuevo Tiquete</asp:HyperLink>
                 </strong>
 
            
