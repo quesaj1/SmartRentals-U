@@ -29,6 +29,7 @@ namespace ProyectoSmartRentals.Formularios
             DropDownClientes();
             DropDownContrato();
             DropDownClientesEmail();
+            DropDownMonto();
 
         }
 
@@ -100,55 +101,73 @@ namespace ProyectoSmartRentals.Formularios
 
                 ///validar que el procedimiento retorne un valor
                 if (resultadoSp != null)
+                   
                 {
+                    Nullable<DateTime> FechaPagoRecibido = resultadoSp.rpp_FechaPagoRecibido;
                     this.TexIDPago.Text = resultadoSp.rpp_IDReportarPago.ToString();
-                    this.txtClienteEmail.Text = resultadoSp.fk_cli_cliente.ToString();
-                    this.txtCliente.Text = resultadoSp.fk_cli_cliente.ToString();
-                    this.txtContrato.Text = resultadoSp.fk_ctr_IDContrato.ToString();
-                    this.txtFechaPago.Text = resultadoSp.rpp_FechaPagoRecibido.ToString();
+
+                    this.DropDownListCliente.Text = resultadoSp.fk_cli_cliente.ToString();
+                    this.DropDownListEmail.Text = resultadoSp.fk_cli_cliente.ToString();
+                    this.DropDownListContrato.Text = resultadoSp.fk_ctr_IDContrato.ToString();
+                    this.DropDownListMonto.Text = resultadoSp.fk_ctr_IDContrato.ToString();
+
+                    this.FechaPago.Value = FechaPagoRecibido.HasValue ? FechaPagoRecibido.Value.ToString("yyyy-MM-dd") : "<not available>";
                     this.txtDetallesDePago.Value = resultadoSp.rpp_DetallesDePago.ToString();
-                    ClientesEmail = Convert.ToInt32(this.txtClienteEmail.Text);
-                    Clientes = Convert.ToInt32(this.txtCliente.Text);
-                    Contrato = Convert.ToInt32(this.txtContrato.Text);
+                    
                 }
 
             }
         }
 
-
-
-
-
-        private void DropDownClientesEmail()
-        {
-            DropDownListEmail.DataSource = Consultar("select  * from C_Cliente");
-            DropDownListEmail.DataTextField = "cli_Email";
-            DropDownListEmail.DataValueField = "cli_Cliente";
-            DropDownListEmail.DataBind();
-            this.txtClienteEmail.Text = this.DropDownListEmail.SelectedItem.ToString();
-
-        }
-
         private void DropDownClientes()
         {
-            DropDownListCliente.DataSource = Consultar("select cli_cliente,cli_Cedula +', '+ cli_PrimerApelido+', '+ cli_SegundoApellido + ', '+ cli_nombre as datosCliente from C_Cliente");
+            DropDownListCliente.DataSource = Consultar(" select cli_cliente,cli_Cedula +', '+ cli_PrimerApelido+', '+ cli_SegundoApellido+ ', ' + cli_nombre as datosCliente from C_Cliente");
             DropDownListCliente.DataTextField = "datosCliente";
-            DropDownListCliente.DataValueField = "cli_Cliente";
+            DropDownListCliente.DataValueField = "cli_cliente";
             DropDownListCliente.DataBind();
-            this.txtCliente.Text = this.DropDownListCliente.SelectedItem.ToString();
-
+         
 
         }
+
 
         private void DropDownContrato()
         {
-            DropDownListContrato.DataSource = Consultar("select * from C_Contratos");
+
+            DropDownListContrato.DataSource = Consultar("select id_ctr_contrato, ctr_numerocontrato from C_Contratos");
             DropDownListContrato.DataTextField = "ctr_numeroContrato";
             DropDownListContrato.DataValueField = "id_ctr_contrato";
             DropDownListContrato.DataBind();
-            this.txtContrato.Text = this.DropDownListContrato.SelectedItem.ToString();
+
+
 
         }
+
+        private void DropDownClientesEmail()
+        {
+            string c = this.DropDownListContrato.SelectedValue;
+            DropDownListEmail.DataSource = Consultar("select cli_cliente,cli_Email  from C_Cliente ");
+            DropDownListEmail.DataTextField = "cli_Email";
+            DropDownListEmail.DataValueField = "cli_cliente";
+            DropDownListEmail.DataBind();
+
+
+        }
+
+        private void DropDownMonto()
+        {
+
+            DropDownListMonto.DataSource = Consultar("select id_ctr_contrato, ctr_monto from C_Contratos");
+            DropDownListMonto.DataTextField = "ctr_monto";
+            DropDownListMonto.DataValueField = "id_ctr_contrato";
+            DropDownListMonto.DataBind();
+
+
+
+        }
+
+
+
+
 
         public DataSet Consultar(string strSQL)
         {

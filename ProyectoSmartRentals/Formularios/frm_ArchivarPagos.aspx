@@ -13,86 +13,20 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-      <style>
-     .boton_personalizado{
-    font-weight: 500;
-    font-size: 18px;
-    color: #ffffff;
-    background-color: #adc867;
-    border-width:thin;
-    border-radius:8px;
-  }
-  .boton_personalizado:hover{
-    color: #ffffff;
-    background-color: #55407d;
-    
-    border-radius:8px;
-  }
-  </style> 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <%--Agregar estas librerias para el select 2--%>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
-    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
-    <link href="../Content/css/select2.min.css" rel="stylesheet" />
-    <script src="../Scripts/select2.min.js"></script>
-    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-
-    <%--Finaliza las librerias--%>
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="../images/icons/favicon.ico" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="../styles/RepotarPagoutil.css">
-    <link rel="stylesheet" type="text/css" href="../styles/ReportarPago.css">
-    <!--===============================================================================================-->
     <style>
         .boton_personalizado {
-            font-weight: 600;
-            font-size: 20px;
+            font-weight: 500;
+            font-size: 18px;
             color: #ffffff;
             background-color: #adc867;
-            border-radius: 5px;
+            border-width: thin;
+            border-radius: 8px;
         }
 
             .boton_personalizado:hover {
                 color: #ffffff;
                 background-color: #55407d;
-                border-radius: 5px;
+                border-radius: 8px;
             }
 
         input.error {
@@ -237,6 +171,7 @@
 
         .select2-selection__arrow {
             height: 35px !important;
+            display: none !important;
         }
 
         .select2-selection {
@@ -250,6 +185,46 @@
 
         /*Finaliza el estilo del select2 dropdownlist */
     </style>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <%--Agregar estas librerias para el select 2--%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+    <link href="../Content/css/select2.min.css" rel="stylesheet" />
+    <script src="../Scripts/select2.min.js"></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+    <%--Finaliza las librerias--%>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="../images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../styles/RepotarPagoutil.css">
+    <link rel="stylesheet" type="text/css" href="../styles/EstilosPagos.css">
+    <!--===============================================================================================-->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <!-- Modal Popup -->
@@ -290,32 +265,43 @@
                 <!-- ID -->
                 <label class="label-input100" for="first-name">Item del Pago</label>
                 <div class="wrap-input100 rs1-wrap-input100 validate-input">
-                    <asp:TextBox ID="TexIDPago" type="text" CssClass="form-control" ReadOnly="true"  runat="server" MaxLength="50"></asp:TextBox>
+                    <asp:TextBox ID="TexIDPago" type="text" CssClass="form-control" ReadOnly="true" runat="server" MaxLength="50" ForeColor="Black"></asp:TextBox>
                     <span class="focus-input100"></span>
                 </div>
-                <!-- Email Cliente -->
-                <label class="label-input100" for="first-name">Correo del Cliente</label>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input">
-                    <asp:TextBox ID="txtClienteEmail" type="text" CssClass="form-control" ReadOnly="true" placeholder="Canton" runat="server" MaxLength="50"></asp:TextBox>
+
+                <!-- Contrato -->
+                <label class="label-input100" for="first-name">Contrato Relacionado</label>
+                <div class="wrap-input100 rs2-wrap-input100 validate-input">
+                 <asp:DropDownList ID="DropDownListContrato" CssClass="form-control" Enabled="false" ReadOnly="true" DataTextField="nombre" DataValueField="id_distrito" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
 
                 <!-- Cliente -->
                 <label class="label-input100" for="first-name">Informacion del Cliente a Pagar</label>
                 <div class="wrap-input100 rs1-wrap-input100 validate-input">
-                    <asp:TextBox ID="txtCliente" type="text" CssClass="form-control" ReadOnly="true" placeholder="Canton" runat="server" MaxLength="50"></asp:TextBox>
+              <asp:DropDownList ID="DropDownListCliente" CssClass="form-control" Enabled="false" ReadOnly="true" DataTextField="nombre" DataValueField="id_distrito" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
-                <!-- Contrato -->
-                <label class="label-input100" for="first-name">Contrato Relacionado</label>
-                <div class="wrap-input100 rs2-wrap-input100 validate-input">
-                    <asp:TextBox ID="txtContrato" type="text" CssClass="form-control" ReadOnly="true" placeholder="Canton" runat="server" MaxLength="50"></asp:TextBox>
+
+
+                <!-- Email Cliente -->
+                <label class="label-input100" for="first-name">Correo del Cliente</label>
+                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                <asp:DropDownList ID="DropDownListEmail" CssClass="form-control" DataTextField="nombre" Enabled="false" ReadOnly="true" DataValueField="id_distrito" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
+
+                <!-- Monto mensual -->
+                <label class="label-input100" for="first-name">Monto a Pagar</label>
+                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                <asp:DropDownList ID="DropDownListMonto" CssClass="form-control" DataTextField="nombre" Enabled="false" ReadOnly="true" DataValueField="id_distrito" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
+                    <span class="focus-input100"></span>
+                </div>
+
                 <!-- Fecha Pago mensual -->
                 <label class="label-input100" for="email">Fecha de Pago realizado</label>
                 <div class="wrap-input100 validate-input">
-                    <asp:TextBox ID="txtFechaPago" type="date" CssClass="form-control" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
+                 <input type="date" class="form-control" ForeColor="Black" Enabled="false" ReadOnly="true"  id="FechaPago" runat="server" style="color:black" >
                     <span class="focus-input100"></span>
                 </div>
 
@@ -323,12 +309,12 @@
                 <!-- Detalles Del Pago -->
                 <label class="label-input100" for="email">Detalles de Pago realizado</label>
                 <div class="wrap-input100 validate-input">
-                    <textarea id="txtDetallesDePago" cssclass="form-control" placeholder="Monto" runat="server" maxlength="50"></textarea>
+                    <textarea id="txtDetallesDePago" ForeColor="Black"  Enabled="false" ReadOnly="true" cssclass="form-control" placeholder="Monto" runat="server" maxlength="50"></textarea>
                     <span class="focus-input100"></span>
                 </div>
                 <!-- Submit Button -->
                 <div class="container-contact100-form-btn">
-                    <asp:Button ID="btnArchivarPago" runat="server" CssClass="boton_personalizado" Text="Archivar Pago" Font-Size="Medium" Height="49px" Width="145px" OnClick="btnArchivarPago_Click"/>
+                    <asp:Button ID="btnArchivarPago" runat="server" CssClass="boton_personalizado" Text="Archivar Pago" Font-Size="Medium" Height="49px" Width="145px" OnClick="btnArchivarPago_Click" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
                      <asp:Button ID="btnAtras" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Atras" Font-Size="Medium" Height="49px" Width="145px" PostBackUrl="~/Formularios/frm_ListaReportarPago.aspx" OnClick="btnAtras_Click" />
                     <br />
@@ -383,27 +369,7 @@
         </div>
     </div>
 
-    <%--test--%>
-    <div class="form-group col-md-6" runat="server" visible="false">
-        <asp:DropDownList ID="DropDownListEmail" DataTextField="nombre" DataValueField="id_provincia" CssClass="form-control" runat="server" Visible="true" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
-        <br />
-    </div>
-    <div class="form-group col-md-6" runat="server" visible="false">
-        <!--  Canton -->
-        <label for="txtCanton">Canton</label><br>
-
-        <asp:DropDownList ID="DropDownListCliente" CssClass="form-control" DataTextField="nombre" DataValueField="id_canton" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
-        <br>
-    </div>
-    <div class="form-group col-md-6" runat="server" visible="false">
-        <!-- Distrito -->
-        <label for="txtDistrito">Distrito</label><br>
-
-        <asp:DropDownList ID="DropDownListContrato" CssClass="form-control" DataTextField="nombre" DataValueField="id_distrito" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
-        <br>
-    </div>
-
-
+ 
 
 
     <br>
@@ -414,22 +380,6 @@
     <br>
     <div id="dropDownSelect1"></div>
 
-    <!--===============================================================================================-->
-    <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="../vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="../vendor/bootstrap/js/popper.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="Fvendor/select2/select2.min.js"></script>
-
-    <!--===============================================================================================-->
-    <script src="../vendor/daterangepicker/moment.min.js"></script>
-    <script src="../vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="../vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
     <script src="../js/main.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
