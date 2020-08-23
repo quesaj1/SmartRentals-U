@@ -61,6 +61,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = false;
                 this.Page.Master.FindControl("menu_cliente_").Visible = true;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+                Response.Redirect("frm_inicioMenu.aspx?error=zW2aqP", false);
 
             }
             if (_rol.Equals("Proveedor"))
@@ -74,6 +75,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = false;
                 this.Page.Master.FindControl("menu_cliente_").Visible = false;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = true;
+                Response.Redirect("frm_inicioMenu.aspx?error=zW2aqP", false);
             }
             if (_rol.Equals("Administrador"))
             {

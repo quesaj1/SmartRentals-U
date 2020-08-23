@@ -115,7 +115,7 @@
                 <div class="form-group col-md-6">
 
                     <label for="txtIDProveedor">Item del Proveedor</label><br>
-                    <asp:TextBox ID="txtIDProveedor" runat="server" ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
+                    <asp:TextBox ID="txtIDProveedor" runat="server" ForeColor="Black" ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
                 </div>
 
 
