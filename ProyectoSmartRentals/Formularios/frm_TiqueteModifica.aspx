@@ -77,7 +77,7 @@
              <div class="form-group col-md-12">
                 <!-- Fecha de finalización -->
                 <label for="txtDescrip">Detalles</label>
-                <textarea id="txtDescrip" runat="server" placeholder="Descripción" ForeColor="Black" class="form-control"  rows="3" readonly="readonly" ></textarea>
+                <textarea id="txtDescrip" runat="server" placeholder="Descripción" ForeColor="Black" class="form-control" style="color:black"  rows="3" readonly="readonly" ></textarea>
             </div>
                <div class="form-group col-md-6">
                 <!-- Cliente -->
@@ -98,7 +98,7 @@
              <div class="form-group col-md-12">
                 <!-- Fecha de finalización -->
                 <label for="txtNota">Notas</label>
-                <textarea id="txtNota" runat="server" placeholder="" class="form-control" ForeColor="Black" rows="3"></textarea>
+                <textarea id="txtNota" runat="server" placeholder="" class="form-control" ForeColor="Black" rows="3" style="color:black "></textarea>
             </div>
 
               <div class="form-group col-md-12">
