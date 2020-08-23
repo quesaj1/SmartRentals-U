@@ -15,6 +15,24 @@ namespace ProyectoSmartRentals.Formularios
     {
 
         /// <summary>
+        /// Control hddError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hddError;
+
+        /// <summary>
+        /// Control banner_error.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl banner_error;
+
+        /// <summary>
         /// Control RequiredFieldValidatorUsuario.
         /// </summary>
         /// <remarks>

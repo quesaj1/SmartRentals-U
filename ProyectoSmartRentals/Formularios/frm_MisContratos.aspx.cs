@@ -21,10 +21,20 @@ namespace ProyectoSmartRentals.Formularios
         {
             _pk_cliente = Convert.ToInt16(Session["ID"]);
             string _rol = Convert.ToString(Session["Tipo"]);
+
+            if (Session["UserName"] == null){
+                Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+                 }
+
+            else 
+            { 
             if (!_rol.Equals("Cliente"))
             {
                 Response.Redirect("frm_inicioMenu.aspx?error=zW2aqP", false);
             }
+            }
+
+
             if (!IsPostBack)
             {               
                 

@@ -17,6 +17,7 @@ namespace ProyectoSmartRentals.Formularios
             this.Page.Master.FindControl("logout").Visible = false;
             this.Page.Master.FindControl("logout_").Visible = false;
             this.Page.Master.FindControl("info_user").Visible = false;
+            esError();
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -78,6 +79,18 @@ namespace ProyectoSmartRentals.Formularios
             {
                 this.lblResultado.Text = "Usuario ingresado no existe";
             }
+        }
+
+        public void esError()
+        {
+            this.hddError.Value = this.Request.QueryString["error"];
+            string valor = Convert.ToString(this.hddError.Value);
+            if (valor.Equals("jwP46Q"))
+            {
+                this.banner_error.Visible = true;
+               
+            }
+
         }
 
         string retornaencpass(string user)

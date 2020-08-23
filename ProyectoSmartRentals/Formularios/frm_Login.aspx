@@ -172,16 +172,25 @@
 
 
 </style>
-
+     <asp:HiddenField ID="hddError" runat="server" />
  
         <div class="container">
+
             <div class="left-section">
                 <div class="header1">
+                        <div class="error" style="margin-top:2%;" runat="server" id="banner_error" visible="false">
+         <h3 style="color:red"><strong>¡ALERTA!</strong>&nbsp; La sesión ha expirado</h3><br /> 
+              <h4 style="color:red">Favor ingrese nuevamente</h4> <br />
+                  <%--<a class="btn btn-sm"  href="../Formularios/frm_InicioMenu.aspx"><i class="fa fa-sign-out" style="font-size:34px; color:red" aria-hidden="true"></i></a>--%>
+         </div>
                 <h1 class="animation a1">¡Bienvenido!</h1><br/>
                 <h4 class="animation a2">Inicie sesión para ingresar al perfil</h4><br/>
                 </div>
 
                 <div class="form1">
+                 
+                <br />
+    
                 <label for="txtUsuario" style="font-weight:500" >Usuario</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*Debe ingresar su usuario*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtUsuario" type="text" class="form1-field animation a3" runat="server"   placeholder="Ingrese su usuario"></asp:TextBox>
