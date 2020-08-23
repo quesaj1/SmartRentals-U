@@ -25,15 +25,20 @@ namespace ProyectoSmartRentals.Formularios
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            this.hdldAlquiler.Value = this.Request.QueryString["alq_id_Propiedad"];
-            CargaDatosAlquileres();
-            menu();
-            provincia();
-            canton();
-            distrito();
-            img();
+            if (Session["UserName"] == null)
+                Response.Redirect("frm_Login.aspx", true);
+            else
+            {
 
+                this.hdldAlquiler.Value = this.Request.QueryString["alq_id_Propiedad"];
+                CargaDatosAlquileres();
+                menu();
+                provincia();
+                canton();
+                distrito();
+                img();
 
+            }
 
         }
 

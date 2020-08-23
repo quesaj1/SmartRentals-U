@@ -20,9 +20,15 @@ namespace ProyectoSmartRentals.Formularios
         {
             if (!IsPostBack)
             {
-               
-                IniciarLlenadoDropDown();
-                menu();
+
+                if (Session["UserName"] == null)
+                    Response.Redirect("frm_Login.aspx", true);
+                else
+                {
+
+                    IniciarLlenadoDropDown();
+                    menu();
+                }
             }
         }
 
