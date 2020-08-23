@@ -348,7 +348,7 @@
                         <h3>REPORTES</h3><br>
                         <p>Este módulo permite realizar todo el manejo de la reportería del sistema de Smart Rentals</p>
                         </figcaption>
-                        <a href="frm_reporteMantenimiento"></a>
+                        <a href="frm_reportes"></a>
                         </figure>
 
                     </article>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_ReportarPagoAgregar.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_ReportarPagoAgregar" %>
+﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_ReportarPagoAgregar.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_ReportarPagoAgregar" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

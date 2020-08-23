@@ -19,12 +19,15 @@ namespace ProyectoSmartRentals.Formularios
         int _pk_proveedor = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserName"] == null)
-                Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
 
-             else{ 
+            if (Session["UserName"] == null) { 
+                Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+           
+            }
+            else
+            { 
                 menu();
-              }
+            }
         }
 
         void menu()
@@ -198,6 +201,7 @@ namespace ProyectoSmartRentals.Formularios
             protected void Button2_Click(object sender, EventArgs e)
         {
             construirReporte();
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
