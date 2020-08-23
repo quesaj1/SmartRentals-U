@@ -32,7 +32,11 @@ namespace ProyectoSmartRentals.Formularios
         {
             //if (!IsPostBack)
             //{
-                cargaDropDown();
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+            }
+            cargaDropDown();
              
                  //}
         }
