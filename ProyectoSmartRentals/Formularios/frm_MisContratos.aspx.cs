@@ -20,6 +20,11 @@ namespace ProyectoSmartRentals.Formularios
         protected void Page_Load(object sender, EventArgs e)
         {
             _pk_cliente = Convert.ToInt16(Session["ID"]);
+            string _rol = Convert.ToString(Session["Tipo"]);
+            if (!_rol.Equals("Cliente"))
+            {
+                Response.Redirect("frm_inicioMenu.aspx?error=zW2aqP", false);
+            }
             if (!IsPostBack)
             {               
                 
@@ -32,6 +37,8 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = false;
                 this.Page.Master.FindControl("menu_cliente_").Visible = true;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+
+             
 
             }
         }
