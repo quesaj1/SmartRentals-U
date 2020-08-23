@@ -264,21 +264,21 @@
                 </span>
                 <!-- ID -->
                 <label class="label-input100" for="first-name">Item del Pago</label>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input">
                     <asp:TextBox ID="TexIDPago" type="text" CssClass="form-control" ReadOnly="true" runat="server" MaxLength="50" ForeColor="Black"></asp:TextBox>
                     <span class="focus-input100"></span>
                 </div>
 
                 <!-- Contrato -->
                 <label class="label-input100" for="first-name">Contrato Relacionado</label>
-                <div class="wrap-input100 rs2-wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input">
                  <asp:DropDownList ID="DropDownListContrato" CssClass="form-control" Enabled="false" ReadOnly="true" DataTextField="nombre" DataValueField="id_distrito" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
 
                 <!-- Cliente -->
                 <label class="label-input100" for="first-name">Informacion del Cliente a Pagar</label>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input">
               <asp:DropDownList ID="DropDownListCliente" CssClass="form-control" Enabled="false" ReadOnly="true" DataTextField="nombre" DataValueField="id_distrito" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
@@ -286,14 +286,14 @@
 
                 <!-- Email Cliente -->
                 <label class="label-input100" for="first-name">Correo del Cliente</label>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input">
                 <asp:DropDownList ID="DropDownListEmail" CssClass="form-control" DataTextField="nombre" Enabled="false" ReadOnly="true" DataValueField="id_distrito" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
 
                 <!-- Monto mensual -->
                 <label class="label-input100" for="first-name">Monto a Pagar</label>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input">
                 <asp:DropDownList ID="DropDownListMonto" CssClass="form-control" DataTextField="nombre" Enabled="false" ReadOnly="true" DataValueField="id_distrito" runat="server" AutoPostBack="True" ForeColor="Black"></asp:DropDownList>
                     <span class="focus-input100"></span>
                 </div>
@@ -309,7 +309,7 @@
                 <!-- Detalles Del Pago -->
                 <label class="label-input100" for="email">Detalles de Pago realizado</label>
                 <div class="wrap-input100 validate-input">
-                    <textarea id="txtDetallesDePago" ForeColor="Black"  Enabled="false" ReadOnly="true" cssclass="form-control" placeholder="Monto" runat="server" maxlength="50"></textarea>
+                    <textarea id="txtDetallesDePago" ForeColor="Black"  Enabled="false" ReadOnly="true" cssclass="form-control" placeholder="Monto" runat="server" maxlength="50" style="margin-top: 0px;margin-bottom: 0px;width: 430px;"></textarea>
                     <span class="focus-input100"></span>
                 </div>
                 <!-- Submit Button -->
@@ -391,7 +391,48 @@
         gtag('config', 'UA-23581568-13');
     </script>
 
+     <script>
+        $(function () {
+            $("#<%=DropDownListContrato.ClientID%>").select2({
+                selectOnClose: true,
+                theme: 'bootstrap',
+                height: '100%',
+                width: '100%'
+            }
+            );
+        })
+        $(function () {
+            $("#<%=DropDownListCliente.ClientID%>").select2({
+                selectOnClose: true,
+                theme: 'bootstrap',
+                height: '100%',
+                width: '100%'
+            }
+            );
+        })
 
+
+        $(function () {
+            $("#<%=DropDownListEmail.ClientID%>").select2({
+                selectOnClose: true,
+                theme: 'bootstrap',
+                height: '100%',
+                width: '100%'
+            }
+            );
+        })
+
+        $(function () {
+            $("#<%=DropDownListMonto.ClientID%>").select2({
+                selectOnClose: true,
+                theme: 'bootstrap',
+                height: '100%',
+                width: '100%'
+            }
+            );
+        })
+
+    </script>
 
 
 

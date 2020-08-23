@@ -739,7 +739,6 @@
     <Content Include="styles\listings.css" />
     <Content Include="styles\listings_responsive.css" />
     <Content Include="styles\main_styles.css" />
-    <Content Include="styles\ReportarPago.css" />
     <Content Include="styles\RepotarPagoutil.css" />
     <Content Include="styles\responsive.css" />
     <Content Include="styles\single.css" />

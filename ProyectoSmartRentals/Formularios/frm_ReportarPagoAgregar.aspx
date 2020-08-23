@@ -224,7 +224,7 @@ label.error {
                 </span>
                    <!-- Contrato -->
                 <label class="label-input100" for="first-name">Contrato Relacionado</label>
-                <div class="wrap-input100 rs2-wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownListContrato" ErrorMessage="*Debe seleccionar una contrato*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
  
                     <asp:DropDownList ID="DropDownListContrato" ForeColor="Black" DataTextField="Contratto" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownListContrato_SelectedIndexChanged"></asp:DropDownList>
@@ -235,7 +235,7 @@ label.error {
 
                 <!-- Cliente -->
                 <label class="label-input100" for="first-name">Informacion del Cliente a Pagar</label>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input">
  
                     <asp:DropDownList ID="DropDownListCliente" ForeColor="Black" placeholder="Informacion del Cliente a Pagar" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True" Visible="true" Enabled="false"></asp:DropDownList>
              
@@ -247,7 +247,7 @@ label.error {
                       
                 <!-- Email Cliente -->
                 <label class="label-input100" for="first-name">Correo del Cliente</label>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input">
  
                     <asp:DropDownList ID="DropDownListEmail" ForeColor="Black" placeholder="Correo del Cliente" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True" Enabled="false"></asp:DropDownList>
  
@@ -256,7 +256,7 @@ label.error {
 
                  <!-- Monto mensual -->
                 <label class="label-input100" for="first-name">Monto a Pagar</label>
-                <div class="wrap-input100 rs1-wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input"">
                      <asp:DropDownList ID="ddMonto" DataTextField="Monto Mensual" ForeColor="Black" CssClass="form-control" runat="server" AutoPostBack="True" Enabled="false"></asp:DropDownList>
                 <span class="focus-input100"></span>
             </div>
@@ -274,8 +274,10 @@ label.error {
                 <label class="label-input100" for="email">Detalles de Pago realizado</label>
                 <div class="wrap-input100 validate-input">
  
-                    <textarea id="txtDetallesDePago" cssclass="form-control" placeholder="" runat="server" maxlength="50"></textarea>
- 
+                    <textarea id="txtDetallesDePago" cssclass="form-control" ForeColor="Black" placeholder="" runat="server" style="margin-top: 0px;margin-bottom: 0px;width: 430px;"></textarea>
+           
+
+
                     <span class="focus-input100"></span>
                 </div>
                  <br>
