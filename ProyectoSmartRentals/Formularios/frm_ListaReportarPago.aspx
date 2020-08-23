@@ -18,13 +18,13 @@
 
        <h2 style="text-align: center">Lista de Reportes de Pagos realizados</h2>
 
-        <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:25%;padding-right:20%; text-align:center">
+       <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:33%;padding-right:20%; text-align:center">
 
             <div  style="text-align:center; padding:1em ;float:left"  >
 
                 <!-- Id-->
                 <label for="txt_Id">Buscar: &nbsp <i class="fa fa-search" style="font-size:17px"></i></label><br />
-                 <asp:TextBox ID="txtSearch"  CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaPagos')"  runat="server" Height="31px" Width="195px" ></asp:TextBox>
+                 <asp:TextBox ID="txtSearch"  CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaPagos')"  runat="server" Height="35px" Width="195px" ></asp:TextBox>
             </div> &nbsp&nbsp
 
             <!-- Estado -->

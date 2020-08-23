@@ -154,7 +154,7 @@ input[type="date"], focus {
                 <div id="ddcontratos" class="form-group col-sm-4" runat="server" >
                 <label for="txtcontrato">Contratos</label>
               
-                <asp:DropDownList ID="DropDownContratos" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black" Visible="true" Enabled="true" >
+                <asp:DropDownList ID="DropDownContratos" class="custom-select"  CssClass="form-control" runat="server" AutoPostBack="True" ForeColor="Black"  Enabled="true" >
                 
                 </asp:DropDownList>
 

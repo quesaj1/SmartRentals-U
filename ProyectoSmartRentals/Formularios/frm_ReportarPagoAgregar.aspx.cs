@@ -19,9 +19,19 @@ namespace ProyectoSmartRentals.Formularios
         {
             if (!IsPostBack)
             {
-                int contr = Convert.ToInt16(Session["ID"]);
-              
-                DropDownContrato(contr);
+
+                if (Session["UserName"] == null)
+                {
+                    Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+                }
+                else
+                {
+                    int contr = Convert.ToInt16(Session["ID"]);
+
+                    DropDownContrato(contr);
+
+                }
+               
              
 
             }

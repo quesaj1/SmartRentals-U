@@ -26,14 +26,24 @@ namespace ProyectoSmartRentals.Formularios
         {
             if (!this.IsPostBack)
             {
-                IniciarLlenadoDropDown();
-                this.hdldProveedor.Value = this.Request.QueryString["prv_IDProveedor"];
-                CargaDatosProveedor();
-                menu();
-                provincia();
-                canton();
-                distrito();
-                IniciarLlenadoDropDown();
+
+                if (Session["UserName"] == null)
+                {
+                    Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+                }
+                else
+                {
+                    IniciarLlenadoDropDown();
+                    this.hdldProveedor.Value = this.Request.QueryString["prv_IDProveedor"];
+                    CargaDatosProveedor();
+                    menu();
+                    provincia();
+                    canton();
+                    distrito();
+                    IniciarLlenadoDropDown();
+
+                }
+                
             }
         }
 

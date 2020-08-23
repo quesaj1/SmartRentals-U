@@ -23,13 +23,23 @@ namespace ProyectoSmartRentals.Formularios
         int Contrato ;
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.hdldPago.Value = this.Request.QueryString["rpp_IDReportarPago"];
-            menu();
-            CargaDatosPagos();
-            DropDownClientes();
-            DropDownContrato();
-            DropDownClientesEmail();
-            DropDownMonto();
+
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+            }
+            else
+            {
+                this.hdldPago.Value = this.Request.QueryString["rpp_IDReportarPago"];
+                menu();
+                CargaDatosPagos();
+                DropDownClientes();
+                DropDownContrato();
+                DropDownClientesEmail();
+                DropDownMonto();
+
+            }
+           
 
         }
 

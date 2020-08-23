@@ -20,8 +20,16 @@ namespace ProyectoSmartRentals.Formularios
         {
             if (!IsPostBack)
             {
+                if (Session["UserName"] == null)
+                {
+                    Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+                }
+                else
+                {
+                    DropDownClientes();
 
-                DropDownClientes();
+                }
+              
 
             }
         }
@@ -157,8 +165,8 @@ namespace ProyectoSmartRentals.Formularios
                 ///
 
 
-                int fk_cli_cliente = Convert.ToInt32(this.DropDownCliente.Text.ToString());
-                int fk_ctr_IDContrato = Convert.ToInt32(this.DropDownContratos.Text.ToString());
+                int fk_cli_cliente = Convert.ToInt16(this.DropDownCliente.Text.ToString());
+                int fk_ctr_IDContrato = Convert.ToInt16(this.DropDownCliente.Text.ToString());
                 List<sp_RetornaReportarPago_Result> datosReporte =
                     this.retornaDatosReportePagosGF(0, fk_cli_cliente, fk_ctr_IDContrato, now, true, "");
                 ///crear la fuente de datos

@@ -21,10 +21,18 @@ namespace ProyectoSmartRentals.Formularios
         {
             if (!IsPostBack)
             {
+                if (Session["UserName"] == null)
+                {
+                    Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+                }
+                else
+                {
+                    IniciarLlenadoDropDown();
 
-                IniciarLlenadoDropDown();
+                    menu();
 
-                menu();
+                }
+                
             }
         }
 

@@ -12,21 +12,21 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
+       <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
 
         <h2 style="text-align: center">Lista de Proveedores</h2>
 
 
 
 
-        <div class="form-row" style="margin-top: 5%; margin-bottom: 5%; overflow: hidden; padding-left: 25%; padding-right: 20%; text-align: center">
+         <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:33%;padding-right:20%; text-align:center">
 
             <div style="text-align: center; padding: 1em; float: left">
 
                 <!-- Id-->
                 <label for="txt_Id">Buscar: &nbsp <i class="fa fa-search" style="font-size: 17px"></i></label>
                 <br />
-                <asp:TextBox ID="txtSearch" CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdProveedor')" runat="server" Height="31px" Width="195px"></asp:TextBox>
+                <asp:TextBox ID="txtSearch" CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdProveedor')" runat="server" Height="35px" Width="195px"></asp:TextBox>
             </div>
             &nbsp&nbsp&nbsp&nbsp&nbsp
             

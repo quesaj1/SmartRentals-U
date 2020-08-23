@@ -16,9 +16,18 @@ namespace ProyectoSmartRentals.Formularios
         int _pk_proveedor = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.hdlCliente.Value = this.Request.QueryString["cli_Cliente"];
-            CargaDatosCliente();
-            menu();
+
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+            }
+            else
+            {
+                this.hdlCliente.Value = this.Request.QueryString["cli_Cliente"];
+                CargaDatosCliente();
+                menu();
+            }
+
         }
 
         void menu()

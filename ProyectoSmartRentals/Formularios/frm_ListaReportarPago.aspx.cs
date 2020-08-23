@@ -17,8 +17,19 @@ namespace ProyectoSmartRentals.Formularios
         {
             if (!IsPostBack)
             {
-                cargardatosGrid(_pk_admin);
-                menu();
+
+
+                if (Session["UserName"] == null)
+                {
+                    Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+                }
+                else
+                {
+                    cargardatosGrid(_pk_admin);
+                    menu();
+
+                }
+               
             }
 
         }
