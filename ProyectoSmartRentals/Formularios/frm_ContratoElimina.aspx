@@ -59,38 +59,38 @@
             <div class="form-group col-md-6">
                 <!-- Numero de contrato -->
                 <label for="txtContratoNumero">Número de contrato</label>
-                <asp:TextBox ID="txtContratoNumero" type="text" ReadOnly="True" CssClass="form-control" ForeColor="Black" placeholder="Número de contrato" runat="server" MaxLength="25"></asp:TextBox>
+                <asp:TextBox ID="txtContratoNumero" type="text" ReadOnly="True" CssClass="form-control"   placeholder="Número de contrato" runat="server" MaxLength="25"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!-- Cliente -->
                 <label for="txtCliente">Cliente</label>
-                <asp:DropDownList ID="DropDownListCliente" ReadOnly="True" placeholder="Cliente" ForeColor="Black" DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownListCliente" ReadOnly="True" placeholder="Cliente"   DataTextField="Cliente" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
             <div class="form-group col-md-6">
                 <!-- Fecha de inicio -->
                 <label for="txtFechaInicio">Fecha de Inicio</label>
-                <asp:TextBox ID="txtFechaInicio" type="text" ReadOnly="True" CssClass="form-control" ForeColor="Black" placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtFechaInicio" type="text" ReadOnly="True" CssClass="form-control"   placeholder="Fecha de Inicio" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!-- Fecha de finalización -->
                 <label for="txtFechaFinaliacion">Fecha de finalización</label>
-                <asp:TextBox ID="txtFechaFinaliacion" type="text" ReadOnly="True" CssClass="form-control" ForeColor="Black" placeholder="Fecha de finalización" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtFechaFinaliacion" type="text" ReadOnly="True" CssClass="form-control"  placeholder="Fecha de finalización" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!-- Propiedad -->
                 <label for="txtPropiedad">Propiedad</label>
-                <asp:DropDownList ID="DropDownPropiedad" DataTextField="Propiedad" ReadOnly="True" ForeColor="Black" CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
+                <asp:DropDownList ID="DropDownPropiedad" DataTextField="Propiedad" ReadOnly="True"   CssClass="form-control" runat="server" AutoPostBack="True"></asp:DropDownList>
             </div>
             <div class="form-group col-md-6">
                 <!-- Monto mensual -->
                 <label for="txtMonto">Monto</label>
-                <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" ReadOnly="True" ForeColor="Black" placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" ReadOnly="True"   placeholder="Monto" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
 
                 <label for="txtFechaPago">Fecha de Pago <span style="color: red;">*</span></label>
                 <br />
-                <asp:TextBox ID="txtFechaPago" CssClass="form-control" ReadOnly="True" ForeColor="Black" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:TextBox ID="txtFechaPago" CssClass="form-control" ReadOnly="True"  runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!-- URL Contrato -->
