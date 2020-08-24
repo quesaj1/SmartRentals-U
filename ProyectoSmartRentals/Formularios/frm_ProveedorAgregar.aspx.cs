@@ -116,8 +116,10 @@ namespace ProyectoSmartRentals.Formularios
                 int Id_Distrito = Convert.ToInt16(this.DropDownListDistrito.Text.ToString());
                 string prv_OtrasSenas = this.txtOtrasSenas.Text.ToString();
 
+                if (!existe(prv_Email))
+                {
 
-                C_Proveedor oProveedor = new C_Proveedor();
+                    C_Proveedor oProveedor = new C_Proveedor();
                 bool ProveedorInsertar =
                     oProveedor.InsertaProveedor(prv_NombreVariable, prv_NombreRepresentante, prv_PrimerApellido, prv_SegundoApellido, prv_CedulaRepresentante,
                     prv_CedulaJuridica, prv_Telefono, prv_Email, prv_TipoProveedor, Id_Distrito, Id_Canton, Id_Provincia, prv_OtrasSenas,true);
@@ -136,11 +138,47 @@ namespace ProyectoSmartRentals.Formularios
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
+
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                }
+
             }
             catch (Exception error)
             {
 
                     ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+            }
+        }
+
+        bool existe(string user)
+        {
+
+            string llavePrimaria = this.txtEmail.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaUsuarioUserID_Result resultadoSp = oUsuario.RetornaUsuarioUserID_Result(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
             }
         }
 

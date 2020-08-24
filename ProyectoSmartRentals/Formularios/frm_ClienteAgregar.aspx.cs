@@ -97,8 +97,10 @@ namespace ProyectoSmartRentals.Formularios
                 string adr_TelefonoCelular = this.txtTelefonoCelular.Text.ToString();
                 string adr_Email = this.txtEmail.Text.ToString();
 
+                if (!existe(adr_Email))
+                {
 
-                C_Clientes oCliente = new C_Clientes();
+                    C_Clientes oCliente = new C_Clientes();
                 bool ClienteInsertar =
                     oCliente.InsertaCliente(adr_Cedula, adr_Nombre, adr_SegundoNombre, adr_PrimerApellido, adr_SegundoApellido, adr_FechaNacimiento, adr_TelefonoCasa, adr_TelefonoCelular, adr_Email,true);
 
@@ -120,11 +122,47 @@ namespace ProyectoSmartRentals.Formularios
                     ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
 
                 }
+
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                }
+
             }
             catch (Exception error)
             {
 
                 ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+            }
+        }
+
+        bool existe(string user)
+        {
+
+            string llavePrimaria = this.txtEmail.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaUsuarioUserID_Result resultadoSp = oUsuario.RetornaUsuarioUserID_Result(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
             }
         }
 
