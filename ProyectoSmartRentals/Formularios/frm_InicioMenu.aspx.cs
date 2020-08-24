@@ -79,6 +79,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.menuReportes.Visible = true;
                 this.menuAdministradores.Visible = true;
                 this.menuDesocupar.Visible = true;
+                this.menuAlquileres.Visible = true;
             }
 
           

@@ -1,4 +1,5 @@
-﻿using ProyectoSmartRentals.Metodos;
+﻿using Microsoft.ReportingServices.ReportProcessing.ExprHostObjectModel;
+using ProyectoSmartRentals.Metodos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -353,8 +354,13 @@ namespace ProyectoSmartRentals.Formularios
             }
         }
 
-     
+        protected void txtMonto_TextChanged(object sender, EventArgs e)
+        {
+            string a = this.txtMonto.Text;
+            decimal preciodecimal = Convert.ToDecimal(a);
 
-   
+            string precio = string.Format("{0:c}", preciodecimal);
+            this.txtMonto.Text = precio;
+        }
     }
 }
