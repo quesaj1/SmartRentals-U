@@ -46,6 +46,8 @@ namespace ProyectoSmartRentals.Formularios
                 this.menuMisContratos.Visible = true;
                 this.menuDesocupar.Visible = true;
 
+
+
             }
             if (_rol.Equals("Proveedor"))
             {

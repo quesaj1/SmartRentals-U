@@ -82,54 +82,54 @@
                 <asp:HiddenField ID="hdlCliente" runat="server" />
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
                  <div class="form-group col-md-6">
-                <label for="txtIdCliente"></label><br>
-                <asp:TextBox ID="txtIdCliente" ForeColor="Black" runat="server"  ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
+                <label for="txtIdCliente">Item del Cliente</label><br>
+                <asp:TextBox ID="txtIdCliente"  runat="server"  ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
            </div>
              <div class="form-group col-md-6">
                 <!-- txtCedula -->
-                <label for="txtCedula"></label>
-                <asp:TextBox ID="txtCedula" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Cédula" runat="server" MaxLength="25"></asp:TextBox>
+                <label for="txtCedula">Cedula</label>
+                <asp:TextBox ID="txtCedula" type="text"  ReadOnly="true" CssClass="form-control" placeholder="Cédula" runat="server" MaxLength="25"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- txtNombre -->
-                <label for="txtNombre"></label>
-                <asp:TextBox ID="txtNombre" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Nombre" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtNombre">Nombre de Cliente</label>
+                <asp:TextBox ID="txtNombre" type="text"  ReadOnly="true" CssClass="form-control" placeholder="Nombre" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- txtSegundoNombre -->
-                <label for="txtSegundoNombre"></label>
-                <asp:TextBox ID="txtSegundoNombre" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
+                <label for="txtSegundoNombre">Segundo Nombre</label>
+                <asp:TextBox ID="txtSegundoNombre" type="text"  ReadOnly="true" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
                 <!-- txtPrimerApellido -->
-                <label for="txtPrimerApellido"></label>
-                <asp:TextBox ID="txtPrimerApellido" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Primer Apellido" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtPrimerApellido">Primer Apellido</label>
+                <asp:TextBox ID="txtPrimerApellido" type="text"  ReadOnly="true" CssClass="form-control" placeholder="Primer Apellido" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- txtSegundoApellido -->
-                <label for="txtSegundoApellido"></label>
-                <asp:TextBox ID="txtSegundoApellido" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtSegundoApellido">Segundo Apellido</label>
+                <asp:TextBox ID="txtSegundoApellido" type="text"  ReadOnly="true" CssClass="form-control" placeholder="Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- txtFechaNacimiento -->
-                <label for="txtFechaNacimiento"></label>
-                 <input type="date" class="form-control" ForeColor="Black" id="fechanacimiento" runat="server" style="color:black">
+                <label for="txtFechaNacimiento">Fecha Nacimiento</label>
+                 <input type="date" class="form-control"   ReadOnly="true" id="fechanacimiento" runat="server" >
                 <%--<asp:TextBox ID="txtFechaNacimiento" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Fecha Nacimiento" runat="server" MaxLength="50"></asp:TextBox>--%>
             </div>
               <div class="form-group col-md-6">
                 <!-- txtTelefonoCasa -->
-                <label for="txtTelefonoCasa"></label>
-                <asp:TextBox ID="txtTelefonoCasa" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Telefono Casa" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtTelefonoCasa">Telefono Casa</label>
+                <asp:TextBox ID="txtTelefonoCasa" type="text"  ReadOnly="true" CssClass="form-control" placeholder="Telefono Casa" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- txtTelefonoCelular -->
-                <label for="txtTelefonoCelular"></label>
-                <asp:TextBox ID="txtTelefonoCelular" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Telefono Celular" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtTelefonoCelular">Telefono Celular</label>
+                <asp:TextBox ID="txtTelefonoCelular" type="text"  ReadOnly="true" CssClass="form-control" placeholder="Telefono Celular" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- Correo -->
-                <label for="txtEmail"></label>
-                <asp:TextBox ID="txtEmail" type="text" ForeColor="Black" ReadOnly="true" CssClass="form-control" placeholder="Email" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtEmail">Correo Electronico</label>
+                <asp:TextBox ID="txtEmail" type="text"  ReadOnly="true" CssClass="form-control" placeholder="Email" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             </div>
             

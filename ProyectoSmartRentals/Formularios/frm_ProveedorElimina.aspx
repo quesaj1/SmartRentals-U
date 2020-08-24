@@ -122,65 +122,65 @@
         <div class="form-row" style="margin-top: 5%; margin-bottom: 5%">
             <div class="form-group col-md-6">
 
-                <label for="txtIDProveedor"></label><br>
+                <label for="txtIDProveedor">Item del Proveedor</label><br>
                 <asp:TextBox ID="txtIDProveedor" runat="server"  ReadOnly="true" CssClass="form-control" MaxLength="25"></asp:TextBox>
            </div>
             <div class="form-group col-md-6">
                 <!-- NombreVariable -->
-                <label for="txtNombreVariable"></label><br />
-                <asp:TextBox ID="txtNombreVariable" type="text" ForeColor="Black" CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtNombreVariable">Nombre Variable del Proveedor</label><br />
+                <asp:TextBox ID="txtNombreVariable" type="text"  CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
             </div>
              <div class="form-group col-md-6">
                 <!-- Ubicacion -->
-                <label for="txtNombreRepresentante"></label><br />
-                <asp:TextBox ID="txtNombreRepresentante" type="text" ForeColor="Black" CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtNombreRepresentante">Nombre Representante</label><br />
+                <asp:TextBox ID="txtNombreRepresentante" type="text" CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
             </div>
              <div class="form-group col-md-6">
                 <!-- Ubicacion -->
-                <label for="txtPrimerApellido"></label><br />
-                <asp:TextBox ID="txtPrimerApellido" type="text" ForeColor="Black" CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtPrimerApellido">Primer Apellido</label><br />
+                <asp:TextBox ID="txtPrimerApellido" type="text"  CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
             </div>
                 <div class="form-group col-md-6">
                 <!-- Ubicacion -->
-                <label for="txtSegundoApellido"></label><br />
-                <asp:TextBox ID="txtSegundoApellido" type="text" ForeColor="Black" CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtSegundoApellido">Segundo Apellido</label><br />
+                <asp:TextBox ID="txtSegundoApellido" type="text"  CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
             </div>
              <div class="form-group col-md-6">
                 <!-- Ubicacion -->
-                <label for="txtCedulaRepresentante"></label><br />
-                <asp:TextBox ID="txtCedulaRepresentante" type="text" ForeColor="Black" CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtCedulaRepresentante">Cedula Representante</label><br />
+                <asp:TextBox ID="txtCedulaRepresentante" type="text"  CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
             </div>
              <div class="form-group col-md-6">
                 <!-- txtCedulaJuridica -->
-                <label for="txtCedulaJuridica"></label><br />
-                <asp:TextBox ID="txtCedulaJuridica" type="text" ForeColor="Black" CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtCedulaJuridica">Cedula Juridica</label><br />
+                <asp:TextBox ID="txtCedulaJuridica" type="text"  CssClass="form-control" ReadOnly="true" placeholder="Ubicacion" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!-- txtTelefono -->
-                <label for="txtTelefono"></label><br />
+                <label for="txtTelefono">Telefono</label><br />
                 <asp:TextBox ID="txtTelefono" type="text" CssClass="form-control" ReadOnly="true" placeholder="Tipo Propiedad" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
                 <!-- txtEmail-->
-                <label for="txtEmail"></label><br />
-                <asp:TextBox ID="txtEmail" type="text" ForeColor="Black" CssClass="form-control" ReadOnly="true" placeholder="Detalles" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtEmail">Correo  Electronico</label><br />
+                <asp:TextBox ID="txtEmail" type="text"  CssClass="form-control" ReadOnly="true" placeholder="Detalles" runat="server" MaxLength="50"></asp:TextBox>
             </div>
              <div class="form-group col-md-6">
                 <!-- txtTipoProveedor-->
-                <label for="txtTipoProveedor"></label><br />
-                <asp:TextBox ID="txtTipoProveedor" type="text" ForeColor="Black" CssClass="form-control" ReadOnly="true" placeholder="Detalles" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtTipoProveedor">Tipo Proveedor</label><br />
+                <asp:TextBox ID="txtTipoProveedor" type="text" CssClass="form-control" ReadOnly="true" placeholder="Detalles" runat="server" MaxLength="50"></asp:TextBox>
             </div>
 
             <div class="form-group col-md-6">
                 <!--  Provincia -->
-                <label for="DropDownListProvincia">Canton</label><br />
-                <asp:DropDownList ID="DropDownListProvincia" ForeColor="Black" type="text" CssClass="form-control" ReadOnly="true" placeholder="Canton" runat="server" MaxLength="50"></asp:DropDownList>
+                <label for="DropDownListProvincia">Provincia</label><br />
+                <asp:DropDownList ID="DropDownListProvincia"  type="text" CssClass="form-control" ReadOnly="true" placeholder="Canton" runat="server" MaxLength="50"></asp:DropDownList>
 
             </div>
             <div class="form-group col-md-6">
                 <!-- txtOtrasSenas -->
-                <label for="txtOtrasSenas"></label><br />
-                <asp:TextBox ID="txtOtrasSenas" type="text" ForeColor="Black" CssClass="form-control" ReadOnly="true" placeholder="Distrito" runat="server" MaxLength="50"></asp:TextBox>
+                <label for="txtOtrasSenas">Otros comentarios</label><br />
+                <asp:TextBox ID="txtOtrasSenas" type="text"  CssClass="form-control" ReadOnly="true" placeholder="Distrito" runat="server" MaxLength="50"></asp:TextBox>
 
             </div>
             

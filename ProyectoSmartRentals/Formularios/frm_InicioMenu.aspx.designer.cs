@@ -69,15 +69,6 @@ namespace ProyectoSmartRentals.Formularios
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuAlquileres;
 
         /// <summary>
-        /// menuAdministradores control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuAdministradores;
-
-        /// <summary>
         /// menu_contratos control.
         /// </summary>
         /// <remarks>
@@ -121,5 +112,14 @@ namespace ProyectoSmartRentals.Formularios
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuDesocupar;
+
+        /// <summary>
+        /// menuAdministradores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuAdministradores;
     }
 }

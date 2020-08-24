@@ -238,7 +238,7 @@
           <main class="main">
             <div >
                 <section class="info">
-                    <div runat="server" id="menuCliente" visible="false">
+                    <div runat="server" id="menuCliente" visible="false" >
                     <article class="info_columna" >
 
                         <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)" >
@@ -288,21 +288,7 @@
 
                     </article>
                         </div>
-                         <div runat="server" id="menuAdministradores"  visible="false">
-                    <article class="info_columna">
-                        <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)" >
- 
-                         <img src="../Imagenes/img_AdminRental.png" alt="" class="info_img" width="500" height="330"/>
-                        <figcaption>
-                        <h3>ADMIN RENTALS</h3><br>
-                        <p>Este módulo permite realizar todo el mantenimiento de Administradores del sistema de Smart Rentals</p>
-                        </figcaption>
-                        <a href="frm_AdminRentalsLista.aspx"></a>
-                        </figure>
-
-                    </article>
-                         </div>
-
+                        
 
                 </section><br /><br /><br />
 
@@ -388,6 +374,20 @@
                         </figcaption>
                         <a href="frm_SolicitudDesocuparCliente"></a>
                         </figure>
+                    </article>
+                         </div>
+                      <div runat="server" id="menuAdministradores"  visible="false">
+                    <article class="info_columna">
+                        <figure class="snip1361" style="box-shadow: 10px 10px 5px  rgba(0,0,0,0.6)" >
+ 
+                         <img src="../Imagenes/img_AdminRental.png" alt="" class="info_img" width="500" height="330"/>
+                        <figcaption>
+                        <h3>ADMIN RENTALS</h3><br>
+                        <p>Este módulo permite realizar todo el mantenimiento de Administradores del sistema de Smart Rentals</p>
+                        </figcaption>
+                        <a href="frm_AdminRentalsLista.aspx"></a>
+                        </figure>
+
                     </article>
                          </div>
 
