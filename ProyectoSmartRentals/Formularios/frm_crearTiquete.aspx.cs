@@ -26,8 +26,16 @@ namespace ProyectoSmartRentals.Formularios
             {
                 menu();
                 //acá debemos de tomar la variable de sesión del cliente para que solo filtre por ellas.
-                int v_fk_cliente = Convert.ToInt16(Session["ID"]); 
-                DropDownContrato(v_fk_cliente);
+                int v_fk_cliente = Convert.ToInt16(Session["ID"]);
+                string _rol = Convert.ToString(Session["Tipo"]);
+                if (_rol.Equals("Administrador"))
+                {
+                    DropDownContratoAdmin(v_fk_cliente);
+                }
+                else
+                {
+                    DropDownContrato(v_fk_cliente);
+                }
                
             }
             }
@@ -86,7 +94,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_admin_").Visible = true;
                 this.Page.Master.FindControl("menu_cliente_").Visible = false;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
-                Response.Redirect("frm_inicioMenu.aspx?error=zW2aqP", false);
+                //Response.Redirect("frm_inicioMenu.aspx?error=zW2aqP", false);
             }
 
         }
@@ -96,6 +104,19 @@ namespace ProyectoSmartRentals.Formularios
          
             DropDownContratos.DataSource = Consultar("select id_ctr_contrato, ctr_numeroContrato " +
                  " from C_Contratos where ctr_activo = 1 and fk_cli_cliente = " + fk_cliente );
+            DropDownContratos.DataTextField = "ctr_numeroContrato";
+            DropDownContratos.DataValueField = "id_ctr_contrato";
+            DropDownContratos.DataBind();
+            DropDownContratos.Items.Insert(0, new ListItem("[Seleccione un contrato]", "0"));
+
+        }
+
+        private void DropDownContratoAdmin(int fk_cliente)
+        {
+
+
+            DropDownContratos.DataSource = Consultar("select id_ctr_contrato, ctr_numeroContrato " +
+                 " from C_Contratos where ctr_activo = 1 and fk_adr_id_admin = " + fk_cliente);
             DropDownContratos.DataTextField = "ctr_numeroContrato";
             DropDownContratos.DataValueField = "id_ctr_contrato";
             DropDownContratos.DataBind();

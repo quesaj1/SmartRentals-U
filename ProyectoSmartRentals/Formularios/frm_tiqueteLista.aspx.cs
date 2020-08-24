@@ -34,7 +34,7 @@ namespace ProyectoSmartRentals.Formularios
 
         public void cargardatosGrid(int pk_admin, int pk_cliente, int pk_proveedor, string estado, string rol)
         {
-            if (rol.Equals("Cliente"))
+            if (!rol.Equals("Proveedor"))
             {
                 this.hplAgregar.Visible = true;
             }
