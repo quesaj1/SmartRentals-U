@@ -132,6 +132,14 @@ namespace ProyectoSmartRentals.Formularios
             {
                 res = 3;
             }
+            if (txt.Equals("Jardineria"))
+            {
+                res = 4;
+            }
+            if (txt.Equals("Otros"))
+            {
+                res = 5;
+            }
             return res;
 
         }

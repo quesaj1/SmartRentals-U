@@ -26,7 +26,7 @@ namespace ProyectoSmartRentals.Formularios
             {
                 menu();
                 //acá debemos de tomar la variable de sesión del cliente para que solo filtre por ellas.
-                int v_fk_cliente = 4;
+                int v_fk_cliente = Convert.ToInt16(Session["ID"]); 
                 DropDownContrato(v_fk_cliente);
                
             }
