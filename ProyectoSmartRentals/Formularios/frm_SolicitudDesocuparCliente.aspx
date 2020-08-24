@@ -73,7 +73,7 @@
 
     <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
 
-        <h1 style="text-align: center">Envío de Solicitud de Modificación
+        <h1 style="text-align: center">Envío de Solicitud de Desalojo
         </h1><br />
         <p style="text-align:center; color: #000000; font-weight: bold;" margin-left: 15%; margin-right: 15%;">Por favor ingrese la información del contrato que desea modificar para su revisión</p>
      
