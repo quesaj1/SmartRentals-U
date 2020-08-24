@@ -247,5 +247,9 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
+        protected void button_X(object sender, ImageClickEventArgs e)
+        {
+            this.banner_error.Visible = false;
+        }
     }
 }
