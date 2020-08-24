@@ -356,11 +356,11 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void txtMonto_TextChanged(object sender, EventArgs e)
         {
-            string a = this.txtMonto.Text;
-            decimal preciodecimal = Convert.ToDecimal(a);
+            //string a = this.txtMonto.Text;
+            //decimal preciodecimal = Convert.ToDecimal(a);
 
-            string precio = string.Format("{0:c}", preciodecimal);
-            this.txtMonto.Text = precio;
+            //string precio = string.Format("{0:c}", preciodecimal);
+            //this.txtMonto.Text = precio;
         }
     }
 }
