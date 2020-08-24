@@ -110,7 +110,7 @@ label.error {
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUbicacion" runat="server" ControlToValidate="txtUbicacionExacta" ErrorMessage="*Debe ingresar una ubicación*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
 
-                <asp:TextBox ID="txtUbicacionExacta" type="text" CssClass="form-control" runat="server" MaxLength="100" placeholder="Ingrese una ubicación" ForeColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtUbicacionExacta" type="text" CssClass="form-control" runat="server" MaxLength="30" placeholder="Ingrese una ubicación" ForeColor="Black"></asp:TextBox>
                 <br />
             </div>
 
@@ -141,7 +141,7 @@ label.error {
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorDetalle" runat="server" ControlToValidate="txtDetalles" ErrorMessage="*Debe ingresar los detalles*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
 
-                <asp:TextBox ID="txtDetalles" type="text" CssClass="form-control" runat="server" MaxLength="50" placeholder="Ingrese el detalle" ForeColor="Black"></asp:TextBox>
+                <asp:TextBox ID="txtDetalles" type="text" CssClass="form-control" runat="server" MaxLength="30" placeholder="Ingrese el detalle" ForeColor="Black"></asp:TextBox>
                 <br />
             </div>
 

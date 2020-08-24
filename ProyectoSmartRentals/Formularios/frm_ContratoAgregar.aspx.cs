@@ -1,4 +1,5 @@
-﻿using ProyectoSmartRentals.Metodos;
+﻿using Microsoft.ReportingServices.ReportProcessing.ExprHostObjectModel;
+using ProyectoSmartRentals.Metodos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -103,8 +104,8 @@ namespace ProyectoSmartRentals.Formularios
 
         private void DropDownAlquileres()
         {
-            DropDownPropiedad.DataSource = Consultar("select * from C_Alquiler");
-            DropDownPropiedad.DataTextField = "alq_UbicacionExacta";
+            DropDownPropiedad.DataSource = Consultar("select a.alq_id_propiedad, a.alq_ubicacionexacta + ', ' + b.Nombre + ', ' + c.Nombre as ubicacion from C_alquiler a inner join C_Canton b on a.Id_Canton = b.Id_Canton inner join C_Provincia c on c.Id_Provincia = a.Id_Provincia");
+            DropDownPropiedad.DataTextField = "ubicacion";
             DropDownPropiedad.DataValueField = "alq_id_Propiedad";
             DropDownPropiedad.DataBind();
             DropDownPropiedad.Items.Insert(0, new ListItem("[Seleccione una propiedad]", "0"));
@@ -353,8 +354,13 @@ namespace ProyectoSmartRentals.Formularios
             }
         }
 
-     
+        protected void txtMonto_TextChanged(object sender, EventArgs e)
+        {
+            //string a = this.txtMonto.Text;
+            //decimal preciodecimal = Convert.ToDecimal(a);
 
-   
+            //string precio = string.Format("{0:c}", preciodecimal);
+            //this.txtMonto.Text = precio;
+        }
     }
 }

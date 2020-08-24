@@ -235,7 +235,7 @@ input[type="date"], focus {
                 <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" InitialValue="0" ErrorMessage="*" ControlToValidate="DropDownPropiedad" SetFocusOnError="True" Font-Size="Small" ForeColor="white" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorMonto" runat="server" ControlToValidate="txtMonto" ErrorMessage="*Debe ingresar un monto mensual*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" ForeColor="Black" placeholder="0,0" runat="server" MaxLength="18"></asp:TextBox>
+                <asp:TextBox ID="txtMonto" type="text" CssClass="form-control" ForeColor="Black" placeholder="0,0" runat="server" MaxLength="18" OnTextChanged="txtMonto_TextChanged"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
 
