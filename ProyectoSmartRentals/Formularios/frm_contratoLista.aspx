@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="divForm" style="margin-top: 7%;">
+
+    <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
         <%--     <h2 style="text-align: center">Lista de contratos</h2>
 
   
@@ -48,7 +49,7 @@
 
         <h2 style="text-align: center">Lista de Contratos</h2>
 
-        <div class="form-row" style="margin-top: 5%; margin-bottom: 5%; overflow: hidden; padding-left: 33%; padding-right: 20%; text-align: center">
+          <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:33%;padding-right:20%; text-align:center">
 
             <div style="text-align: center; padding: 1em; float: left">
 

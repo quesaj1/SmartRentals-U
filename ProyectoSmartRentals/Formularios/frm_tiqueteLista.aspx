@@ -3,61 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="divForm" style="margin-top: 7%;">
-        <%--<%--            <h2 style="text-align: center">Lista de tiquetes</h2>
-
-  
- 
-<%--        <div  style="text-align: center;">
-             
-                <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" Visible="false" NavigateUrl="frm_crearTiquete.aspx" >Agregar Nuevo Tiquete</asp:HyperLink>
-                </strong>
-
-           
-         </div>--%>
-
-        <%--<%--<%--<%--<%--<%--<%--                   <div class="form-row" style="margin-top:5%; margin-bottom:5%">--%>
-        <%-- <div class="form-row" style="margin-top: 5%; margin-bottom: 5%; overflow: hidden; padding-left: 33%; padding-right: 20%; text-align: center">
-        </div>--%>
-        <%--        <div style="text-align: center; padding: 1em; float: left">--%>
-        <!-- Ubicacion -->
-        <%-- <label for="txtUbicacionExacta">Buscar: &nbsp <i class="fa fa-search" style="font-size: 17px"></i></label>
-            <br />
-            <asp:TextBox ID="txtSearch" CssClass="form-control" ForeColor="Black" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaTiquetes')" runat="server" Height="35px" Width="195px"></asp:TextBox>
-        </div>--%>
-        <%--      <div style="text-align: center; padding: 1em; float: left">
-            <!-- Tipo Propiedad -->
-            <label for="txtTipoPropiedad">Estado</label>
-            <br /--%>>
+   <div id="divForm" style="margin-top: 12%; margin-left: 15%; margin-right: 15%">
+      
 
 
-        <%--            <asp:DropDownList ID="DropDownList1" class="custom-select" ForeColor="Black" CssClass="form-control" runat="server" AppendDataBoundItems="true" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                <asp:ListItem Value="0">Todos</asp:ListItem>
-                <asp:ListItem Value="1">Pendiente</asp:ListItem>
-                <asp:ListItem Value="2">En progreso</asp:ListItem>
-                <asp:ListItem Value="3">Completado</asp:ListItem>
-            </asp:DropDownList>--%>
+        <h2 style="text-align: center">Lista de Tiquetes</h2>
 
-        <%--     </div>
-        <br>
-        <div style="text-align: center">
-
-            <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_crearTiquete.aspx" Font-Size="Medium">Agregar Nuevo Alquiler &nbsp <i class="fa fa-plus-circle" style="font-size:19px"></i></asp:HyperLink>
-            </strong>
-        </div>--%>
-
-
-
-
-        <%--   </div>
-    <br>--%>
-
-
-        <h2 style="text-align: center">Lista de Alquileres</h2>
-
-        <div class="form-row" style="margin-top: 5%; margin-bottom: 5%; overflow: hidden; padding-left: 33%; padding-right: 20%; text-align: center">
+         <div class="form-row" style="margin-top:5%; margin-bottom:5%;overflow:hidden; padding-left:33%;padding-right:20%; text-align:center">
 
             <div style="text-align: center; padding: 1em; float: left">
 
