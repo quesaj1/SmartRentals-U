@@ -30,6 +30,9 @@
                    <asp:ListItem Value="1">Pendiente</asp:ListItem>
                    <asp:ListItem Value="2">En progreso</asp:ListItem>
                    <asp:ListItem Value="3">Completado</asp:ListItem>
+                   <asp:ListItem Value="4">Sin Asignar</asp:ListItem>
+
+       
 
                </asp:DropDownList>
            </div>
@@ -74,6 +77,8 @@
                     <%--<asp:HyperLinkField DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteModifica?tqt_id={0}" Text="Modificar" />--%>
                     <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteModifica?tqt_id={0}" Text='<i class="fa fa-info-circle" style="font-size:24px"></i>' ItemStyle-Width="25px" />
                     <asp:HyperLinkField HeaderText="Acciones" DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteModifica?tqt_id={0}" Text='<i class="fa fa-pencil-square" style="font-size:24px"></i>' ItemStyle-Width="25px" />
+                    <asp:HyperLinkField HeaderText="Asignar" DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_TiqueteAsigna?tqt_id={0}" Text='<i class="fa fa-handshake-o" style="font-size:24px"></i>' ItemStyle-Width="25px" />
+                   
                     <%--<asp:HyperLinkField  DataNavigateUrlFields="tqt_id" DataNavigateUrlFormatString="frm_ContratoElimina?id_ctr_contrato={0}" Text='<i class="fa fa-trash" style="font-size:25px; color:red;"></i>' ItemStyle-Width="25px" />--%>
                 </Columns>
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />

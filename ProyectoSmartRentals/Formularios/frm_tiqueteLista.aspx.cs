@@ -23,6 +23,16 @@ namespace ProyectoSmartRentals.Formularios
             {
                 Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
             }
+
+            menu();
+
+            if (!Session["Tipo"].Equals("Proveedor"))
+            {
+                DropDownList1.Items.FindByText("Sin Asignar").Enabled = false;
+              
+            }
+                
+
             if (!IsPostBack)
             {
 
@@ -34,14 +44,16 @@ namespace ProyectoSmartRentals.Formularios
 
         public void cargardatosGrid(int pk_admin, int pk_cliente, int pk_proveedor, string estado, string rol)
         {
-            if (!rol.Equals("Proveedor"))
+            if (rol.Equals("Proveedor"))
             {
-                this.hplAgregar.Visible = true;
+                this.hplAgregar.Visible = false;
+                
             }
             C_Tiquetes oTiquetes = new C_Tiquetes();
             ///Asignarle la fuente de datos al grid
             this.grdListaTiquetes.DataSource =
-                oTiquetes.RetornarTiqueteDataGrid(true,pk_admin,pk_cliente,pk_proveedor,estado);
+              oTiquetes.RetornarTiqueteDataGrid(true,pk_admin,pk_cliente,pk_proveedor,estado);
+           
             ///indicar al grid que se muestre
             this.grdListaTiquetes.DataBind();
 
@@ -49,8 +61,19 @@ namespace ProyectoSmartRentals.Formularios
 
         void menu()
         {
+
+              
+
             //string _rol = Convert.ToString(Session["Tipo"]);
             _rol = Convert.ToString(Session["Tipo"]);
+
+            if (_rol.Equals("Proveedor"))
+            {
+                this.hplAgregar.Visible = false;
+
+            }
+
+
             if (_rol.Equals("Cliente"))
             {
                 _pk_cliente = Convert.ToInt16(Session["ID"]);
@@ -64,6 +87,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
                 this.hplAgregar.Visible = true;
                 this.grdListaTiquetes.Columns[12].Visible = false;
+                this.grdListaTiquetes.Columns[13].Visible = false;
 
             }
             if (_rol.Equals("Proveedor"))
@@ -91,6 +115,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.Page.Master.FindControl("menu_cliente_").Visible = false;
                 this.Page.Master.FindControl("menu_proveedor_").Visible = false;
                 this.grdListaTiquetes.Columns[12].Visible = false;
+                this.grdListaTiquetes.Columns[13].Visible = false;
             }
 
         }
@@ -98,6 +123,7 @@ namespace ProyectoSmartRentals.Formularios
         {
             string texto = this.DropDownList1.SelectedItem.ToString();
        
+
 
             if (texto.Equals("Todos"))
             {
@@ -118,6 +144,11 @@ namespace ProyectoSmartRentals.Formularios
             {
                 _estado = "En progreso";
                 cargardatosGrid(_pk_admin, _pk_cliente, _pk_proveedor, "En progreso", _rol);
+            }
+            if (texto.Equals("Sin Asignar"))
+            {
+                _estado = "Pendiente";
+                cargardatosGrid(0, 0, 25, "Pendiente", _rol);
             }
 
 

@@ -40,8 +40,10 @@ namespace ProyectoSmartRentals.Interfaces
         sp_RetornaTiqueteID_Result RetornaTiqueteID(int id_tiquete);
         #endregion
 
+        #region Método para asignar tiquete
+        bool asignaTiquete(Nullable<int> v_tqt_id, Nullable<int> v_id_proveedor);
+        #endregion
 
-        
 
         #region Método para obtener la info del Reporte de Gastos por Date Picker
         List<sp_RetornaGastosCalend_Result> RetornarGastosCalend(DateTime fecha_Inicio, DateTime fecha_Final);

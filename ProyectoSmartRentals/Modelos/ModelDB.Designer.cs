@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\pedro_000\Documents\GitHub\SmartRentals-U\ProyectoSmartRentals\Modelos\ModelDB.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\Randall\Documents\GitHub\SmartRentals-U4\ProyectoSmartRentals\Modelos\ModelDB.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

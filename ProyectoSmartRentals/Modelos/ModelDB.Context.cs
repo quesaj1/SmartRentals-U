@@ -1481,5 +1481,18 @@ namespace ProyectoSmartRentals.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ReporteDashboard_Result>("sp_ReporteDashboard", v_fk_adr_id_adminParameter, v_fk_cli_clientParameter, v_fk_prv_proveedorParameter);
         }
+    
+        public virtual int sp_AsignaTiqueteProveedor(Nullable<int> v_tqt_id, Nullable<int> id_proveedor)
+        {
+            var v_tqt_idParameter = v_tqt_id.HasValue ?
+                new ObjectParameter("v_tqt_id", v_tqt_id) :
+                new ObjectParameter("v_tqt_id", typeof(int));
+    
+            var id_proveedorParameter = id_proveedor.HasValue ?
+                new ObjectParameter("id_proveedor", id_proveedor) :
+                new ObjectParameter("id_proveedor", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_AsignaTiqueteProveedor", v_tqt_idParameter, id_proveedorParameter);
+        }
     }
 }

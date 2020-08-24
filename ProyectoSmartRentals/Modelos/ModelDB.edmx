@@ -350,6 +350,10 @@
           <Parameter Name="v_rpp_IDReportarPago" Type="int" Mode="In" />
           <Parameter Name="v_Activo" Type="bit" Mode="In" />
         </Function>
+        <Function Name="sp_AsignaTiqueteProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_tqt_id" Type="int" Mode="In" />
+          <Parameter Name="id_proveedor" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_BuscaContratoDataGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_ctr_numeroContrato" Type="varchar" Mode="In" />
         </Function>
@@ -1587,7 +1591,7 @@
           <Parameter Name="v_rpp_IDReportarPago" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaPagosRealizadosDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaPagosRealizadosDataGrid_Result)">
-          <Parameter Name="v_rpp_estadoDePago" Mode="In" Type="Boolean" />
+            <Parameter Name="v_rpp_estadoDePago" Mode="In" Type="Boolean" />
             <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaProveedorDataGrid" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorDataGrid_Result)">
@@ -1664,6 +1668,10 @@
             <Parameter Name="v_fk_adr_id_admin" Mode="In" Type="Int32" />
             <Parameter Name="v_fk_cli_client" Mode="In" Type="Int32" />
             <Parameter Name="v_fk_prv_proveedor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_AsignaTiqueteProveedor">
+            <Parameter Name="v_tqt_id" Mode="In" Type="Int32" />
+            <Parameter Name="id_proveedor" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
@@ -2712,6 +2720,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_AsignaTiqueteProveedor" FunctionName="SmartRentalsModel.Store.sp_AsignaTiqueteProveedor" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

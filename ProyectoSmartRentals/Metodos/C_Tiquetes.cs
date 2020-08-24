@@ -60,7 +60,26 @@ namespace ProyectoSmartRentals.Metodos
             return false;
         }
 
-        
+        #region Método para asignar un tiquete
+        public bool asignaTiquete(int? v_tqt_id, int? v_id_proveedor)
+        {
+            try
+            {
+                int registroAfectados = 0;
+             registroAfectados = this.modeloDB.sp_AsignaTiqueteProveedor(v_tqt_id, v_id_proveedor);
+
+                if (registroAfectados > 0)
+                    return true;
+            }
+            catch (Exception error)
+            {
+
+                throw error;
+            }
+            return false;
+        }
+        #endregion
+
         public bool ModificaTiqueteProveedor(int? v_tqt_id, string v_tqt_nota_reparacion, DateTime? v_tqt_fechafinalizacion, decimal? v_tqt_monto, string v_tqt_estado)
         {
 

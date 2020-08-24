@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoSmartRentals.Formularios
-{
-
-
-    public partial class frm_tiqueteLista
-    {
-
+namespace ProyectoSmartRentals.Formularios {
+    
+    
+    public partial class frm_tiqueteLista {
+        
         /// <summary>
         /// Control txtSearch.
         /// </summary>
@@ -22,7 +20,7 @@ namespace ProyectoSmartRentals.Formularios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSearch;
-
+        
         /// <summary>
         /// Control DropDownList1.
         /// </summary>
@@ -31,7 +29,7 @@ namespace ProyectoSmartRentals.Formularios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-
+        
         /// <summary>
         /// Control hplAgregar.
         /// </summary>
@@ -40,7 +38,7 @@ namespace ProyectoSmartRentals.Formularios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hplAgregar;
-
+        
         /// <summary>
         /// Control grdListaTiquetes.
         /// </summary>
