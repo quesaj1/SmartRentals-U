@@ -7,135 +7,108 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoSmartRentals.MasterPage {
+namespace ProyectoSmartRentals.Formularios {
     
     
-    public partial class MasterSmartRentals {
+    public partial class frm_SolicitudDesocuparCliente {
         
         /// <summary>
-        /// Control head.
+        /// Control RegularExpressionValidator.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator;
         
         /// <summary>
-        /// Control info_user.
+        /// Control txtOrigen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl info_user;
+        protected global::System.Web.UI.WebControls.TextBox txtOrigen;
         
         /// <summary>
-        /// Control DateDisplay.
+        /// Control RequiredFieldValidatorContrato.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DateDisplay;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorContrato;
         
         /// <summary>
-        /// Control logout.
+        /// Control DropDownContratos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logout;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownContratos;
         
         /// <summary>
-        /// Control menu_horizontal.
+        /// Control txtTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_horizontal;
+        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
         
         /// <summary>
-        /// Control menu_admin.
+        /// Control Label3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_admin;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control menu_proveedor.
+        /// Control RequiredFieldValidatorFechaIni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_proveedor;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFechaIni;
         
         /// <summary>
-        /// Control menu_cliente.
+        /// Control txtFechaInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_cliente;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaInicio;
         
         /// <summary>
-        /// Control logout_.
+        /// Control btnAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logout_;
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
         
         /// <summary>
-        /// Control menu_admin_.
+        /// Control btnAtras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_admin_;
+        protected global::System.Web.UI.WebControls.Button btnAtras;
         
         /// <summary>
-        /// Control menu_proveedor_.
+        /// Control lblResultado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_proveedor_;
-        
-        /// <summary>
-        /// Control menu_cliente_.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_cliente_;
-        
-        /// <summary>
-        /// Control form1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// Control ContentPlaceHolder1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Label lblResultado;
     }
 }

@@ -230,6 +230,7 @@
     <Content Include="Formularios\frm_ReporteMantenimiento.aspx" />
     <Content Include="Formularios\frm_ReporteReportarPagos.aspx" />
     <Content Include="Formularios\frm_reportes.aspx" />
+    <Content Include="Formularios\frm_SolicitudDesocuparCliente.aspx" />
     <Content Include="Formularios\frm_tiqueteLista.aspx" />
     <Content Include="Formularios\frm_TiqueteModifica.aspx" />
     <Content Include="Global.asax" />
@@ -996,6 +997,7 @@
     </Compile>
     <Compile Include="Formularios\frm_ReportarPagoAgregar.aspx.cs">
       <DependentUpon>frm_ReportarPagoAgregar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Formularios\frm_ReportarPagoAgregar.aspx.designer.cs">
       <DependentUpon>frm_ReportarPagoAgregar.aspx</DependentUpon>
@@ -1034,6 +1036,13 @@
     </Compile>
     <Compile Include="Formularios\frm_reportes.aspx.designer.cs">
       <DependentUpon>frm_reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_SolicitudDesocuparCliente.aspx.cs">
+      <DependentUpon>frm_SolicitudDesocuparCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_SolicitudDesocuparCliente.aspx.designer.cs">
+      <DependentUpon>frm_SolicitudDesocuparCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_tiqueteLista.aspx.cs">
       <DependentUpon>frm_tiqueteLista.aspx</DependentUpon>

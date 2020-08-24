@@ -372,7 +372,7 @@
                         <h3>Mis contratos</h3><br>
                         <p>Este módulo permite ver los contratos que tienes actualmente.</p>
                         </figcaption>
-                        <a href="../frm_MisContratos"></a>
+                        <a href="frm_MisContratos"></a>
                         </figure>
                     </article>
                         </div>
@@ -386,7 +386,7 @@
                         <h3>SOLICITUD DE DESOCUPAR</h3><br>
                         <p>Este módulo permite llevar el seguimiento y control de las solicitudes de desocupar del sistema de Smart Rentals</p>
                         </figcaption>
-                        <a href="../frm_ClienteLista"></a>
+                        <a href="frm_SolicitudDesocuparCliente"></a>
                         </figure>
                     </article>
                          </div>
