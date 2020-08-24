@@ -12,7 +12,7 @@ namespace ProyectoSmartRentals.Formularios
     {
         //acá hay que obtener el nombre
         int _pk_admin = 0;
-        int _pk_cliente = 4;
+        int _pk_cliente = 0;
         int _pk_proveedor = 0;
         string _estado = null;
         string _rol = "";
@@ -26,9 +26,9 @@ namespace ProyectoSmartRentals.Formularios
             if (!IsPostBack)
             {
 
-               
-                cargardatosGrid(_pk_admin,_pk_cliente, _pk_proveedor,_estado,_rol);
                 menu();
+                cargardatosGrid(_pk_admin,_pk_cliente, _pk_proveedor,_estado,_rol);
+             
             }
         }
 

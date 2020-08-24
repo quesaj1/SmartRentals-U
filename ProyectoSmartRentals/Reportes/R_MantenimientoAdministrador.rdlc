@@ -597,7 +597,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!tqt_precio_reparacion.Value</Value>
+                              <Value>="₡"&amp;Fields!tqt_precio_reparacion.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>

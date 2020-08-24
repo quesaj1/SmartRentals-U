@@ -368,7 +368,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -655,7 +654,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!tqt_precio_reparacion.Value</Value>
+                              <Value>="₡"&amp;Fields!tqt_precio_reparacion.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
