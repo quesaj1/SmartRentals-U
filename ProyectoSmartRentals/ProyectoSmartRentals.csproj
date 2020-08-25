@@ -314,6 +314,7 @@
     <Content Include="images\testimonials.jpg" />
     <Content Include="images\video.jpg" />
     <Content Include="images\Whatsapp.png" />
+    <Content Include="images\x_button.png" />
     <Content Include="js\about.js" />
     <Content Include="js\blog.js" />
     <Content Include="js\contact.js" />
