@@ -55,6 +55,7 @@ namespace ProyectoSmartRentals.Formularios
                 mail.Body = "Se ha creado una nueva contraseña temporal, inicie sesión para configurar su nueva contraseña:" + "<br/>" + "<br/>" +
                             "NOMBRE DE USUARIO : " + this.txtUsuario.Text + "<br/>" + "<br/>" +
                             "CONTRASEÑA TEMPORAL : " + randompass + "<br/>" + "<br/>" +
+                            "ENLACE: http://smartrentalscr.com/" +
 
                             "<img style='padding: 0; display: block' src='cid:imagen' >";
                 AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mail.Body, Encoding.UTF8, MediaTypeNames.Text.Html);
