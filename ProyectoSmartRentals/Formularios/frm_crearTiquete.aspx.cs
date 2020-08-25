@@ -30,7 +30,7 @@ namespace ProyectoSmartRentals.Formularios
                 string _rol = Convert.ToString(Session["Tipo"]);
                 if (_rol.Equals("Administrador"))
                 {
-                    DropDownContratoAdmin(v_fk_cliente);
+                    DropDownContratoAdmin(0);
                 }
                 else
                 {

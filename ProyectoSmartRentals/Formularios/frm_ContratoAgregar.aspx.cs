@@ -133,7 +133,7 @@ namespace ProyectoSmartRentals.Formularios
             //Verifica que haya un archivo
             if (this.up_Contrato.HasFile) {
 
-                if (extension == ".pdf" || extension == ".docx") {
+                if (extension == ".pdf" || extension == ".docx" || extension == ".docx") {
                     if (!File.Exists(Server.MapPath("~/Contratos/" + up_Contrato.FileName)))
                     {
                         up_Contrato.SaveAs(Server.MapPath("~/Contratos/" + up_Contrato.FileName));
@@ -245,7 +245,7 @@ namespace ProyectoSmartRentals.Formularios
             if (this.up_Contrato.HasFile)
             {
 
-                if (extension == ".pdf" || extension == ".docx")
+                if (extension == ".pdf" || extension == ".docx" || extension == ".docx")
                 {
                     if (!File.Exists(Server.MapPath("~/Contratos/" + up_Contrato.FileName)))
                     {

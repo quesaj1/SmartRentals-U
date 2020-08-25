@@ -99,7 +99,7 @@ namespace ProyectoSmartRentals.Formularios
                     if (this.contrato.HasFile)
                     {
 
-                        if (extension == ".pdf" || extension == ".docx")
+                        if (extension == ".pdf" || extension == ".docx" || extension == ".docx")
                         {
                             if (!File.Exists(Server.MapPath("~/Contratos/" + contrato.FileName)))
                             {

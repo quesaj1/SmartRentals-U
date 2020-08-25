@@ -187,6 +187,7 @@ input[type="date"], focus {
                 <!-- Fecha de inicio -->
                 <label for="txtFechaInicio">Fecha de inicio </label>
                 <br />
+                <asp:Label ID="Label3" runat="server" Font-Bold="True"   CssClass="alert-light" Font-Size="Small" ForeColor="#FF0066"></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="FechaInicio" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <input type="date" class="form-control" forecolor="Black" id="FechaInicio" runat="server" style="color: black" required="required">
             </div>
@@ -194,6 +195,7 @@ input[type="date"], focus {
                 <!-- Fecha de finalización -->
                 <label for="txtFechaFinaliacion">Fecha de finalización</label>
                 <br />
+                <asp:Label ID="Label4" runat="server" Font-Bold="True"   CssClass="alert-light" Font-Size="Small" ForeColor="#FF0066"></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="FechaInicio" ErrorMessage="*" SetFocusOnError="True" Font-Size="Small" ForeColor="white" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <input type="date" class="form-control" forecolor="Black" id="fechafinalizacion" runat="server" style="color: black">
             </div>
@@ -217,6 +219,7 @@ input[type="date"], focus {
 
                 <label for="txtFechaPago">Fecha de Pago </label>
                 <br />
+                <asp:Label ID="Label1" runat="server" Font-Bold="True"   CssClass="alert-light" Font-Size="Small" ForeColor="#FF0066"></asp:Label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="up_Contrato" ErrorMessage="*" SetFocusOnError="True" Font-Size="Small" ForeColor="white" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>--%>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="datepago" ErrorMessage="*Debe seleccionar una fecha*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <input type="date" class="form-control" forecolor="Black" id="datepago" runat="server" style="color: black">
