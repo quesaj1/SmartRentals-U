@@ -124,6 +124,15 @@ namespace ProyectoSmartRentals.Metodos
         }
 
 
+
         #endregion
+
+        public List<sp_RetornaTotalPagosReporte1_Result> RetornaTotalPagosReporte1(int id_contrato, float montomensual, string numcontrato)
+        {
+            List<sp_RetornaTotalPagosReporte1_Result> resultado = new List<sp_RetornaTotalPagosReporte1_Result>();
+            resultado = this.modeloDB.sp_RetornaTotalPagosReporte1(id_contrato, 0 , "").ToList();
+            return resultado;
+        }
+
     }
 }

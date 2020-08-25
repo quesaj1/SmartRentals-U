@@ -232,7 +232,7 @@
                         <h3>Ganancias vs Perdidas</h3><br>
                         <p>Este reporte permite ver los gastos contra las ganancias</p>
                         </figcaption>
-                        <a href="frm_alquilereslista.aspx"></a>
+                        <a href="frm_ReporteGananciasPerdidas.aspx"></a>
                         </figure>
 
                     </article>

@@ -1,11 +1,10 @@
-﻿<%@ Page Title="" Language="C#" EnableEventValidation="false" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_ReporteGastos.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_ReporteGastos" %>
-<%@ Register Assembly="Microsoft.ReportViewer.WebForms" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_ReporteGananciasPerdidas.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_ReporteGananciasPerdidas" %>
+<%@ Register assembly="Microsoft.ReportViewer.WebForms" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  
 
+    
     <%-- ESTILOS DE LA ANIMACION --%>
 <style>
 
@@ -129,61 +128,42 @@ input[type="date"], focus {
 
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
               
-                           <div class="animated-title">
-                             <div class="text-top">
-                               <div>
-                                   <span style="font-weight:600">Smart</span>
-                                  <span style="font-weight:600">Rentals</span>
-                               </div>
-                             </div>
-                           <div class="text-bottom">
-                        <div style="font-weight:600">Reporte de Gastos</div>
-                        </div>
-                   </div>
-              
+       <h1 style="text-align: center">Reporte de Ganancias y Pérdidas
+        </h1><br />
+                
             <%--<h1 style="text-align: center">Reporte de Gastos</h1><br />--%>
-            <p style="text-align: center">Buscar por</p><br />
-       <br />
-            <div style="text-align:center"  width:30%>
-                <!-- Categoria-->
-                <label for="txtCategoria" style="font-weight:bold">Reporte por categoría</label><br /><br />
-                <div style="text-align:center"><i class="fa fa-wrench" style="font-size:24px"></i></div><br />
 
-                <select id="txtCategoria" class="custom-select" runat="server" style="max-width:40%" >
-                    <option style="font-size: small">Seleccione una categoría</option>
-                    <option style="font-size: small">Eléctrico</option>
-                    <option style="font-size: small">Fontaneria</option>
-                    <option style="font-size: small">Cerrajeria</option>
-                   
-                </select>
+
+                 <div style="margin-left:33%" class="form-group col-md-4">
+                <!-- Contrato-->
+                <label for="DropDownContratos" style="margin-left:32%">Contrato: <span style="color:red;">*</span></label><br />
+             <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrato" runat="server" ErrorMessage="*Debe seleccionar un contrato*" SetFocusOnError="True" Font-Size="Small"  ControlToValidate="DropDownContratos" ForeColor="#FF0066" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+             <asp:DropDownList ID="DropDownContratos" ForeColor="Black" DataTextField="Cliente" CssClass="form-control" runat="server" Enabled="true" ></asp:DropDownList>
+               
+            </div>
             </div><br /><br /><br />
  
-       <div style="text-align:center">
-       <asp:Button ID="Button1"  runat="server" CssClass="boton_personalizado" Text="Generar Reporte"  OnClick="Button2_Click" />
-           </div><br /><br /><br /><br />
-           
-       <div style="text-align:center">
-           <label for="txtFecha"  style="font-weight:bold; text-align:center">Reporte por fechas</label><br /><br />
-           <i class="fa fa-calendar" style="font-size:22px"></i>
-       </div>
+     
+
+ 
       
+
+      <script>
+         $(function () {
+             $("#<%=DropDownContratos.ClientID%>").select2({
+               selectOnClose: true,
+               theme: 'bootstrap',
+               height: '100%',
+               width: '100%'
+           }
+           );
+       })
+     </script>
 
            <div style="overflow:hidden; padding-left:34%;padding-right:34%; text-align:center">
 
-            <div style="text-align:center; padding:1em ;float:left"  >
-                 
-                <!-- Fecha Inicial -->
-                <label for="txtFechaInicio">Fecha Inicial</label><br /><br />
-                <asp:TextBox runat="server" ID="Inicio" type="date" ></asp:TextBox>
-                <br /><br /><br /><br />
-           </div>
 
-         <div style="text-align:center;  padding:1em ;float:left">
-              <!-- Fecha Final -->
-                 <label for="txtFechaFinal">Fecha Final</label><br /><br />
-               <asp:TextBox runat="server" ID="Final" type="date"  ></asp:TextBox>
-        </div>
-          </div><br />
+
    
             <div style="text-align:center">   
            <asp:Button  ID="Button2" CssClass="boton_personalizado"  runat="server" Text="Generar Reporte"  OnClick="Button1_Click" />
@@ -199,7 +179,7 @@ input[type="date"], focus {
         <br />
         
     <div style="text-align:center" id="VisibleReportContent">
-        <rsweb:ReportViewer ID="rpvGastos" runat="server" Width="100%" RightToLeft="YES" CssClass="auto-style1" >
+        <rsweb:ReportViewer ID="rpvBalance"  runat="server" Width="100%" RightToLeft="YES" CssClass="auto-style1" style="left: 0px; top: 68px; height: 178px">
         </rsweb:ReportViewer>
 
         </div>
@@ -208,9 +188,5 @@ input[type="date"], focus {
         <br />
         <br />
         <br />
-    
-
-
-
 
 </asp:Content>

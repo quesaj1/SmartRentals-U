@@ -1494,5 +1494,155 @@ namespace ProyectoSmartRentals.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_AsignaTiqueteProveedor", v_tqt_idParameter, id_proveedorParameter);
         }
+    
+        public virtual ObjectResult<sp_RetornaGananciasPerdidas_Result> sp_RetornaGananciasPerdidas(Nullable<int> v_contrato, Nullable<decimal> montoreparaciones, Nullable<decimal> montopagos, string num_contrato, Nullable<decimal> montomensual, Nullable<decimal> balance, string resultado, Nullable<int> totaltiquetes)
+        {
+            var v_contratoParameter = v_contrato.HasValue ?
+                new ObjectParameter("v_contrato", v_contrato) :
+                new ObjectParameter("v_contrato", typeof(int));
+    
+            var montoreparacionesParameter = montoreparaciones.HasValue ?
+                new ObjectParameter("montoreparaciones", montoreparaciones) :
+                new ObjectParameter("montoreparaciones", typeof(decimal));
+    
+            var montopagosParameter = montopagos.HasValue ?
+                new ObjectParameter("montopagos", montopagos) :
+                new ObjectParameter("montopagos", typeof(decimal));
+    
+            var num_contratoParameter = num_contrato != null ?
+                new ObjectParameter("num_contrato", num_contrato) :
+                new ObjectParameter("num_contrato", typeof(string));
+    
+            var montomensualParameter = montomensual.HasValue ?
+                new ObjectParameter("montomensual", montomensual) :
+                new ObjectParameter("montomensual", typeof(decimal));
+    
+            var balanceParameter = balance.HasValue ?
+                new ObjectParameter("balance", balance) :
+                new ObjectParameter("balance", typeof(decimal));
+    
+            var resultadoParameter = resultado != null ?
+                new ObjectParameter("resultado", resultado) :
+                new ObjectParameter("resultado", typeof(string));
+    
+            var totaltiquetesParameter = totaltiquetes.HasValue ?
+                new ObjectParameter("totaltiquetes", totaltiquetes) :
+                new ObjectParameter("totaltiquetes", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaGananciasPerdidas_Result>("sp_RetornaGananciasPerdidas", v_contratoParameter, montoreparacionesParameter, montopagosParameter, num_contratoParameter, montomensualParameter, balanceParameter, resultadoParameter, totaltiquetesParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaTotalGastosTiquetes_Result> sp_RetornaTotalGastosTiquetes(Nullable<int> v_contrato, Nullable<decimal> montoreparaciones, string num_contrato, Nullable<int> totaltiquetes)
+        {
+            var v_contratoParameter = v_contrato.HasValue ?
+                new ObjectParameter("v_contrato", v_contrato) :
+                new ObjectParameter("v_contrato", typeof(int));
+    
+            var montoreparacionesParameter = montoreparaciones.HasValue ?
+                new ObjectParameter("montoreparaciones", montoreparaciones) :
+                new ObjectParameter("montoreparaciones", typeof(decimal));
+    
+            var num_contratoParameter = num_contrato != null ?
+                new ObjectParameter("num_contrato", num_contrato) :
+                new ObjectParameter("num_contrato", typeof(string));
+    
+            var totaltiquetesParameter = totaltiquetes.HasValue ?
+                new ObjectParameter("totaltiquetes", totaltiquetes) :
+                new ObjectParameter("totaltiquetes", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTotalGastosTiquetes_Result>("sp_RetornaTotalGastosTiquetes", v_contratoParameter, montoreparacionesParameter, num_contratoParameter, totaltiquetesParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaTotalPagosReporte_Result> sp_RetornaTotalPagosReporte(Nullable<int> v_contrato, Nullable<decimal> montomensual, string num_contrato)
+        {
+            var v_contratoParameter = v_contrato.HasValue ?
+                new ObjectParameter("v_contrato", v_contrato) :
+                new ObjectParameter("v_contrato", typeof(int));
+    
+            var montomensualParameter = montomensual.HasValue ?
+                new ObjectParameter("montomensual", montomensual) :
+                new ObjectParameter("montomensual", typeof(decimal));
+    
+            var num_contratoParameter = num_contrato != null ?
+                new ObjectParameter("num_contrato", num_contrato) :
+                new ObjectParameter("num_contrato", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTotalPagosReporte_Result>("sp_RetornaTotalPagosReporte", v_contratoParameter, montomensualParameter, num_contratoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaTotalPagosReporte1_Result> sp_RetornaTotalPagosReporte1(Nullable<int> v_contrato, Nullable<decimal> montomensual, string num_contrato)
+        {
+            var v_contratoParameter = v_contrato.HasValue ?
+                new ObjectParameter("v_contrato", v_contrato) :
+                new ObjectParameter("v_contrato", typeof(int));
+    
+            var montomensualParameter = montomensual.HasValue ?
+                new ObjectParameter("montomensual", montomensual) :
+                new ObjectParameter("montomensual", typeof(decimal));
+    
+            var num_contratoParameter = num_contrato != null ?
+                new ObjectParameter("num_contrato", num_contrato) :
+                new ObjectParameter("num_contrato", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTotalPagosReporte1_Result>("sp_RetornaTotalPagosReporte1", v_contratoParameter, montomensualParameter, num_contratoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaTotalGastosTiquetes1_Result> sp_RetornaTotalGastosTiquetes1(Nullable<int> v_contrato, Nullable<decimal> montoreparaciones, string num_contrato, Nullable<int> totaltiquetes)
+        {
+            var v_contratoParameter = v_contrato.HasValue ?
+                new ObjectParameter("v_contrato", v_contrato) :
+                new ObjectParameter("v_contrato", typeof(int));
+    
+            var montoreparacionesParameter = montoreparaciones.HasValue ?
+                new ObjectParameter("montoreparaciones", montoreparaciones) :
+                new ObjectParameter("montoreparaciones", typeof(decimal));
+    
+            var num_contratoParameter = num_contrato != null ?
+                new ObjectParameter("num_contrato", num_contrato) :
+                new ObjectParameter("num_contrato", typeof(string));
+    
+            var totaltiquetesParameter = totaltiquetes.HasValue ?
+                new ObjectParameter("totaltiquetes", totaltiquetes) :
+                new ObjectParameter("totaltiquetes", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTotalGastosTiquetes1_Result>("sp_RetornaTotalGastosTiquetes1", v_contratoParameter, montoreparacionesParameter, num_contratoParameter, totaltiquetesParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaGananciasPerdidas1_Result> sp_RetornaGananciasPerdidas1(Nullable<int> v_contrato, Nullable<decimal> montoreparaciones, Nullable<decimal> montopagos, string num_contrato, Nullable<decimal> montomensual, Nullable<decimal> balance, string resultado, Nullable<int> totaltiquetes)
+        {
+            var v_contratoParameter = v_contrato.HasValue ?
+                new ObjectParameter("v_contrato", v_contrato) :
+                new ObjectParameter("v_contrato", typeof(int));
+    
+            var montoreparacionesParameter = montoreparaciones.HasValue ?
+                new ObjectParameter("montoreparaciones", montoreparaciones) :
+                new ObjectParameter("montoreparaciones", typeof(decimal));
+    
+            var montopagosParameter = montopagos.HasValue ?
+                new ObjectParameter("montopagos", montopagos) :
+                new ObjectParameter("montopagos", typeof(decimal));
+    
+            var num_contratoParameter = num_contrato != null ?
+                new ObjectParameter("num_contrato", num_contrato) :
+                new ObjectParameter("num_contrato", typeof(string));
+    
+            var montomensualParameter = montomensual.HasValue ?
+                new ObjectParameter("montomensual", montomensual) :
+                new ObjectParameter("montomensual", typeof(decimal));
+    
+            var balanceParameter = balance.HasValue ?
+                new ObjectParameter("balance", balance) :
+                new ObjectParameter("balance", typeof(decimal));
+    
+            var resultadoParameter = resultado != null ?
+                new ObjectParameter("resultado", resultado) :
+                new ObjectParameter("resultado", typeof(string));
+    
+            var totaltiquetesParameter = totaltiquetes.HasValue ?
+                new ObjectParameter("totaltiquetes", totaltiquetes) :
+                new ObjectParameter("totaltiquetes", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaGananciasPerdidas1_Result>("sp_RetornaGananciasPerdidas1", v_contratoParameter, montoreparacionesParameter, montopagosParameter, num_contratoParameter, montomensualParameter, balanceParameter, resultadoParameter, totaltiquetesParameter);
+        }
     }
 }

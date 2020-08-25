@@ -67,5 +67,12 @@ namespace ProyectoSmartRentals.Interfaces
 
         #endregion
 
+        #region Metodo  Retornar Reportar Balance
+        List<sp_RetornaTotalPagosReporte1_Result> RetornaTotalPagosReporte1(
+             int id_contrato,
+             float montomensual,
+             string numcontrato);
+        #endregion
+
     }
 }

@@ -151,5 +151,19 @@ namespace ProyectoSmartRentals.Metodos
             v_estado,v_fecha_inicio1,v_fecha_inicio2,v_fecha_finalizacion1, v_fecha_finalizacion2,v_ctr_contrato).ToList();
             return resultado;
         }
+
+        public List<sp_RetornaTotalGastosTiquetes1_Result> RetornaGastosTiquetes1(int id_contrato, float montorep, string numcont, int tottiq)
+        {
+            List<sp_RetornaTotalGastosTiquetes1_Result> resultado = new List<sp_RetornaTotalGastosTiquetes1_Result>();
+            resultado = this.modeloDB.sp_RetornaTotalGastosTiquetes1(id_contrato,0,"",0).ToList();
+            return resultado;
+        }
+
+        public List<sp_RetornaGananciasPerdidas1_Result> RetornaGananciasPerdidas1(int id_contrato, float montorep, float montopagos, string numcont, float montomens, float balance, string res, int tottiq)
+        {
+            List<sp_RetornaGananciasPerdidas1_Result> resultado = new List<sp_RetornaGananciasPerdidas1_Result>();
+            resultado = this.modeloDB.sp_RetornaGananciasPerdidas1(id_contrato, 0, 0, "",0,0,"",0).ToList();
+            return resultado;
+        }
     }
 }

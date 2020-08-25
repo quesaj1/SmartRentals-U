@@ -61,5 +61,9 @@ namespace ProyectoSmartRentals.Interfaces
             Nullable<int> v_ctr_contrato);
         #endregion
 
+        List<sp_RetornaTotalGastosTiquetes1_Result> RetornaGastosTiquetes1(int id_contrato, float montorep, string numcont, int tottiq);
+
+        List<sp_RetornaGananciasPerdidas1_Result> RetornaGananciasPerdidas1(int id_contrato, float montorep, float montopagos, string numcont, float montomens, float balance, string res, int tottiq);
+
     }
 }

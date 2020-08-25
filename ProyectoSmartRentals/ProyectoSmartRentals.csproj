@@ -226,6 +226,7 @@
     <Content Include="Formularios\frm_ProveedorModifica.aspx" />
     <Content Include="Formularios\frm_ReportarPagoAgregar.aspx" />
     <Content Include="Formularios\frm_ReporteAdminRentals.aspx" />
+    <Content Include="Formularios\frm_ReporteGananciasPerdidas.aspx" />
     <Content Include="Formularios\frm_ReporteGastos.aspx" />
     <Content Include="Formularios\frm_ReporteMantenimiento.aspx" />
     <Content Include="Formularios\frm_ReporteReportarPagos.aspx" />
@@ -630,6 +631,17 @@
     <Content Include="Content\sweetalert\sweet-alert-animations.less" />
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="ReporteGananciasPerdidasDS.xsc">
+      <DependentUpon>ReporteGananciasPerdidasDS.xsd</DependentUpon>
+    </Content>
+    <None Include="ReporteGananciasPerdidasDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteGananciasPerdidasDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ReporteGananciasPerdidasDS.xss">
+      <DependentUpon>ReporteGananciasPerdidasDS.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1009,6 +1021,13 @@
     <Compile Include="Formularios\frm_ReporteAdminRentals.aspx.designer.cs">
       <DependentUpon>frm_ReporteAdminRentals.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_ReporteGananciasPerdidas.aspx.cs">
+      <DependentUpon>frm_ReporteGananciasPerdidas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ReporteGananciasPerdidas.aspx.designer.cs">
+      <DependentUpon>frm_ReporteGananciasPerdidas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_ReporteGastos.aspx.cs">
       <DependentUpon>frm_ReporteGastos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1201,6 +1220,12 @@
     <Compile Include="Modelos\sp_RetornaContrato_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\sp_RetornaGananciasPerdidas1_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaGananciasPerdidas_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\sp_RetornaGastosCalend_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -1237,6 +1262,18 @@
     <Compile Include="Modelos\sp_RetornaTiquetesDataGrid_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\sp_RetornaTotalGastosTiquetes1_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaTotalGastosTiquetes_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaTotalPagosReporte1_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sp_RetornaTotalPagosReporte_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\sp_RetornaUsuarioUserID_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -1244,6 +1281,11 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteGananciasPerdidasDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteGananciasPerdidasDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
@@ -1262,7 +1304,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SmartRentalsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SmartRentalsRepPagos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartRentalsRepPagos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SmartRentalsRepPagos1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartRentalsRepPagos1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="TotalGastosReporte.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalGastosReporte.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1299,6 +1356,39 @@
     <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Views\Sweet\Alert.cshtml" />
+    <Content Include="SmartRentalsRepPagos.xsc">
+      <DependentUpon>SmartRentalsRepPagos.xsd</DependentUpon>
+    </Content>
+    <None Include="SmartRentalsRepPagos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SmartRentalsRepPagos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="SmartRentalsRepPagos.xss">
+      <DependentUpon>SmartRentalsRepPagos.xsd</DependentUpon>
+    </Content>
+    <Content Include="SmartRentalsRepPagos1.xsc">
+      <DependentUpon>SmartRentalsRepPagos1.xsd</DependentUpon>
+    </Content>
+    <None Include="SmartRentalsRepPagos1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SmartRentalsRepPagos1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="SmartRentalsRepPagos1.xss">
+      <DependentUpon>SmartRentalsRepPagos1.xsd</DependentUpon>
+    </Content>
+    <Content Include="TotalGastosReporte.xsc">
+      <DependentUpon>TotalGastosReporte.xsd</DependentUpon>
+    </Content>
+    <None Include="TotalGastosReporte.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TotalGastosReporte.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="TotalGastosReporte.xss">
+      <DependentUpon>TotalGastosReporte.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1315,6 +1405,7 @@
     <EmbeddedResource Include="Reportes\R_MantenimientoAdministrador.rdlc" />
     <EmbeddedResource Include="Reportes\R_MantenimientoCliente.rdlc" />
     <EmbeddedResource Include="Reportes\R_MantenimientoProveedor.rdlc" />
+    <EmbeddedResource Include="Reportes\R_ReporteIngresosvsGastos.rdlc" />
     <EmbeddedResource Include="Reportes\R_ReportarPagosClientes.rdlc" />
     <EmbeddedResource Include="Reportes\R_RepotarPagosGrafico.rdlc" />
   </ItemGroup>

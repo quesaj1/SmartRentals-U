@@ -10,7 +10,7 @@
 namespace ProyectoSmartRentals.Formularios {
     
     
-    public partial class frm_ReporteGastos {
+    public partial class frm_ReporteGananciasPerdidas {
         
         /// <summary>
         /// Control user.
@@ -31,40 +31,22 @@ namespace ProyectoSmartRentals.Formularios {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// Control txtCategoria.
+        /// Control RequiredFieldValidatorContrato.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect txtCategoria;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorContrato;
         
         /// <summary>
-        /// Control Button1.
+        /// Control DropDownContratos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// Control Inicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Inicio;
-        
-        /// <summary>
-        /// Control Final.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Final;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownContratos;
         
         /// <summary>
         /// Control Button2.
@@ -85,12 +67,12 @@ namespace ProyectoSmartRentals.Formularios {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control rpvGastos.
+        /// Control rpvBalance.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer rpvGastos;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer rpvBalance;
     }
 }
