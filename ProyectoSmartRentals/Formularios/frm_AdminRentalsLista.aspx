@@ -15,6 +15,12 @@
                <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaAdminRentals')"  runat="server" Height="35px" Width="195px"></asp:TextBox>    
             </div> &nbsp&nbsp&nbsp&nbsp&nbsp
         
+        <div style="text-align:center">
+
+            <strong>
+                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_AdminRentalsLista.aspx" Font-Size="Medium">Agregar Nuevo Alquiler &nbsp <i class="fa fa-plus-circle" style="font-size:19px"></i></asp:HyperLink>
+            </strong>
+        </div>
         </div>
     <br />
     <div style= "margin-left: 10%">
