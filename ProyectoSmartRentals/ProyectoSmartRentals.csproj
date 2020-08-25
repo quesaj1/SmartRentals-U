@@ -1276,6 +1276,9 @@
     <Compile Include="Modelos\sp_RetornaTotalPagosReporte_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\sp_RetornaUsuarioID_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\sp_RetornaUsuarioUserID_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>

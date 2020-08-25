@@ -500,6 +500,14 @@
           <Parameter Name="v_ImagenURL" Type="varchar" Mode="In" />
           <Parameter Name="v_Activo" Type="bit" Mode="In" />
         </Function>
+        <Function Name="sp_ModificaInicioSesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_id_usuario" Type="varchar" Mode="In" />
+          <Parameter Name="fecha" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_ModificaInicioSesion1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_id_usuario" Type="varchar" Mode="In" />
+          <Parameter Name="fecha" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="sp_ModificarAdminRental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id_admin" Type="int" Mode="In" />
           <Parameter Name="v_cedula" Type="varchar" Mode="In" />
@@ -786,6 +794,18 @@
           <Parameter Name="v_contrato" Type="int" Mode="In" />
           <Parameter Name="montomensual" Type="decimal" Mode="In" />
           <Parameter Name="num_contrato" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaUltSesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaUltSesion1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaUltSesion2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaUsuarioID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_RetornaUsuarioUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_usuario" Type="varchar" Mode="In" />
@@ -1757,6 +1777,26 @@
             <Parameter Name="resultado" Mode="In" Type="String" />
             <Parameter Name="totaltiquetes" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="sp_ModificaInicioSesion">
+            <Parameter Name="v_id_usuario" Mode="In" Type="String" />
+            <Parameter Name="fecha" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificaInicioSesion1">
+            <Parameter Name="v_id_usuario" Mode="In" Type="String" />
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaUltSesion" ReturnType="Collection(DateTime)">
+          <Parameter Name="user" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaUltSesion1" ReturnType="Collection(DateTime)">
+          <Parameter Name="user" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaUltSesion2" ReturnType="Collection(DateTime)">
+          <Parameter Name="user" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaUsuarioID" ReturnType="Collection(SmartRentalsModel.sp_RetornaUsuarioID_Result)">
+            <Parameter Name="usuario" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
           <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
@@ -2153,6 +2193,14 @@
           <Property Type="Decimal" Name="MontodeGastos" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="Balance" Nullable="true" Precision="18" Scale="0" />
           <Property Type="String" Name="Resultado" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaUsuarioID_Result">
+          <Property Type="String" Name="enc_password" Nullable="false" MaxLength="200" />
+          <Property Type="Boolean" Name="activo" Nullable="false" />
+          <Property Type="Int32" Name="tipo" Nullable="false" />
+          <Property Type="Int32" Name="id_principal" Nullable="false" />
+          <Property Type="DateTime" Name="ult_inicio_sesion" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="sesion_activa" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2898,6 +2946,23 @@
                 <ScalarProperty Name="MontodeGastos" ColumnName="MontodeGastos" />
                 <ScalarProperty Name="Balance" ColumnName="Balance" />
                 <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_ModificaInicioSesion" FunctionName="SmartRentalsModel.Store.sp_ModificaInicioSesion" />
+          <FunctionImportMapping FunctionImportName="sp_ModificaInicioSesion1" FunctionName="SmartRentalsModel.Store.sp_ModificaInicioSesion1" />
+          <FunctionImportMapping FunctionImportName="sp_RetornaUltSesion" FunctionName="SmartRentalsModel.Store.sp_RetornaUltSesion" />
+          <FunctionImportMapping FunctionImportName="sp_RetornaUltSesion1" FunctionName="SmartRentalsModel.Store.sp_RetornaUltSesion1" />
+          <FunctionImportMapping FunctionImportName="sp_RetornaUltSesion2" FunctionName="SmartRentalsModel.Store.sp_RetornaUltSesion2" />
+          <FunctionImportMapping FunctionImportName="sp_RetornaUsuarioID" FunctionName="SmartRentalsModel.Store.sp_RetornaUsuarioID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaUsuarioID_Result">
+                <ScalarProperty Name="enc_password" ColumnName="enc_password" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="id_principal" ColumnName="id_principal" />
+                <ScalarProperty Name="ult_inicio_sesion" ColumnName="ult_inicio_sesion" />
+                <ScalarProperty Name="sesion_activa" ColumnName="sesion_activa" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

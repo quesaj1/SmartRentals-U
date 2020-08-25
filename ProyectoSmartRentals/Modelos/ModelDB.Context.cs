@@ -1644,5 +1644,67 @@ namespace ProyectoSmartRentals.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaGananciasPerdidas1_Result>("sp_RetornaGananciasPerdidas1", v_contratoParameter, montoreparacionesParameter, montopagosParameter, num_contratoParameter, montomensualParameter, balanceParameter, resultadoParameter, totaltiquetesParameter);
         }
+    
+        public virtual int sp_ModificaInicioSesion(string v_id_usuario, Nullable<int> fecha)
+        {
+            var v_id_usuarioParameter = v_id_usuario != null ?
+                new ObjectParameter("v_id_usuario", v_id_usuario) :
+                new ObjectParameter("v_id_usuario", typeof(string));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaInicioSesion", v_id_usuarioParameter, fechaParameter);
+        }
+    
+        public virtual int sp_ModificaInicioSesion1(string v_id_usuario, Nullable<System.DateTime> fecha)
+        {
+            var v_id_usuarioParameter = v_id_usuario != null ?
+                new ObjectParameter("v_id_usuario", v_id_usuario) :
+                new ObjectParameter("v_id_usuario", typeof(string));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaInicioSesion1", v_id_usuarioParameter, fechaParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<System.DateTime>> sp_RetornaUltSesion(string user)
+        {
+            var userParameter = user != null ?
+                new ObjectParameter("user", user) :
+                new ObjectParameter("user", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.DateTime>>("sp_RetornaUltSesion", userParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<System.DateTime>> sp_RetornaUltSesion1(string user)
+        {
+            var userParameter = user != null ?
+                new ObjectParameter("user", user) :
+                new ObjectParameter("user", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.DateTime>>("sp_RetornaUltSesion1", userParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<System.DateTime>> sp_RetornaUltSesion2(string user)
+        {
+            var userParameter = user != null ?
+                new ObjectParameter("user", user) :
+                new ObjectParameter("user", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.DateTime>>("sp_RetornaUltSesion2", userParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaUsuarioID_Result> sp_RetornaUsuarioID(string usuario)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaUsuarioID_Result>("sp_RetornaUsuarioID", usuarioParameter);
+        }
     }
 }

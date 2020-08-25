@@ -29,6 +29,34 @@ namespace ProyectoSmartRentals.Metodos
             return false;
         }
 
+        public bool ModificaInicioSesion(string usuario, DateTime tipo)
+        {
+            try
+            {
+                int registroAfectados = 0;
+                registroAfectados = this.modeloDB.sp_ModificaInicioSesion1(usuario, tipo);
+                if (registroAfectados > 0)
+                    return true;
+            }
+            catch (Exception error)
+            {
+
+                throw error;
+            }
+            return false;
+        }
+
+        public string obtieneultimoiniciosesion(string usuario)
+        {
+            sp_RetornaUsuarioUserID_Result resultado =
+                                 new sp_RetornaUsuarioUserID_Result();
+
+            resultado = modeloDB.
+               sp_RetornaUsuarioUserID(usuario).
+                FirstOrDefault();
+            return resultado.ult_inicio_sesion.ToString();
+        }
+
         public int obtiene_id_principal(string usuario, int tipo)
         {
 

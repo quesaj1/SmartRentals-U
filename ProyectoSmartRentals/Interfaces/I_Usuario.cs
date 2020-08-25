@@ -11,8 +11,7 @@ namespace ProyectoSmartRentals.Interfaces
     {
 
 
-        sp_RetornaUsuarioUserID_Result RetornaUsuarioUserID_Result
-                    (string adr_id_admin);
+        string obtieneultimoiniciosesion(string usuario);
 
         #region Metodo Insertar Usuario
         bool InsertaUsuario(
@@ -22,6 +21,15 @@ namespace ProyectoSmartRentals.Interfaces
         #endregion
 
         int obtiene_id_principal(string usuario, int tipo);
+
+        #region Metodo Actualiza Ultimo Inicio de Sesion
+        bool ModificaInicioSesion(
+             string usuario,
+             DateTime tipo);
+        #endregion
+
+        
+
     }
 
 }

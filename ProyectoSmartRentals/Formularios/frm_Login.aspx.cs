@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ProyectoSmartRentals.Metodos;
 using ProyectoSmartRentals.Modelos;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ProyectoSmartRentals.Formularios
 {
@@ -38,10 +40,14 @@ namespace ProyectoSmartRentals.Formularios
                 {
                     if (status)
                     {
+               
+                    
+                        
 
                         Session["UserName"] = this.txtUsuario.Text;
                         Session["ID"] = retornaidprincipal(this.txtUsuario.Text);
                         Session["Nombre"] = retornanombre(tipo, retornaidprincipal(this.txtUsuario.Text));
+                        Session["LastLogin"] = ultsesion(this.txtUsuario.Text);
 
                         Session["Tipo"] = "";
 
@@ -62,6 +68,12 @@ namespace ProyectoSmartRentals.Formularios
                             Session["Tipo"] = "Unknown";
                         }
 
+
+                        Metodos.C_Usuario fecha = new Metodos.C_Usuario();
+                        fecha.ModificaInicioSesion(this.txtUsuario.Text, DateTime.Now);
+
+                       
+
                         Response.Redirect("frm_InicioMenu.aspx");
 
                     }
@@ -81,6 +93,8 @@ namespace ProyectoSmartRentals.Formularios
             }
         }
 
+      
+
         public void esError()
         {
             this.hddError.Value = this.Request.QueryString["error"];
@@ -91,6 +105,38 @@ namespace ProyectoSmartRentals.Formularios
                
             }
 
+        }
+
+        string ultsesion(string user)
+        {
+
+            string llavePrimaria = this.txtUsuario.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                ///
+
+                string ultinicio = oUsuario.obtieneultimoiniciosesion(user);
+
+                if (!string.IsNullOrEmpty(ultinicio))
+                {
+                    return ultinicio;
+                }
+                else
+                {
+                    return "Primer Inicio de Sesión";
+                }
+
+               
+
+            }
+            else
+            {
+                return null;
+            }
         }
 
         string retornaencpass(string user)
