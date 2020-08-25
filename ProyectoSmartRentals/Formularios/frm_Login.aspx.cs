@@ -76,11 +76,11 @@ namespace ProyectoSmartRentals.Formularios
 
                         if (sesionactiva(this.txtUsuario.Text))
                         {
-                            Response.Redirect("frm_InicioMenu.aspx");
+                            Response.Redirect("~/Formularios/frm_InicioMenu.aspx");
                         }
                         else
                         {
-                            Response.Redirect("frm_ConfContrasena.aspx");
+                            Response.Redirect("~/Formularios/frm_ConfContrasena.aspx");
                         }
 
                         
