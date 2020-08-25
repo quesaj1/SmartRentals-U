@@ -196,7 +196,7 @@ namespace ProyectoSmartRentals.Formularios
                     }
                     else
                     {
-                        monto = Convert.ToDecimal(this.txtPrecio);
+                        monto = Convert.ToDecimal(this.txtPrecio.Text);
                     }
                     if (oTiquetes.ModificaTiqueteProveedor(id_tiquete,nota,now,monto, _estado))
                     {
@@ -239,14 +239,14 @@ namespace ProyectoSmartRentals.Formularios
             //}
         }
 
-        public string retornaMonto()
-        {
-            string monto = "";
+        //public string retornaMonto()
+        //{
+        //    string monto = "";
 
-            monto = txtPrecio.Text.Remove(0, 1);
-            return monto;
+        //    monto = txtPrecio.Text.Remove(0, 1);
+        //    return monto;
 
 
-        }
+        //}
     }
 }
