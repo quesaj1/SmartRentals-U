@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_Login.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_Login" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_ConfContrasena.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_ConfContrasena" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    
     <%--/** ESTILOS DEL LOGIN **/--%>
 
 
@@ -207,24 +207,44 @@
             }
         }
     </style>
+
+     <!-- Modal Popup -->
+    <div id="MyPopup" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!-- Modal content-->
+
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #55407d">
+                    <h4 class="modal-title" style="color: white"></h4>
+                 <%--   <button type="button" class="close" aria-label="Cancelar" style="color: white" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>--%>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color:#ADC867;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Popup -->
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
     <asp:HiddenField ID="hddError" runat="server" />
 
-    <div class="error" style="margin-top: 10%; margin-right: 30%; margin-left: 30%" runat="server" id="banner_error" visible="false">
-        <asp:ImageButton ID="ImageButton" runat="server" OnClick="button_X" ImageUrl="~/images/x_button.png" ImageAlign="Left" />
-        <h3 style="color: white"><strong>¡ALERTA!</strong>&nbsp; La sesión ha expirado</h3>
-        <br />
-        <h4 style="color: white">Favor ingrese nuevamente</h4>
-        <br />
-      
-    </div>
+
 
     <div class="container">
 
         <div class="left-section">
             <div class="header1">
                 <h1 class="animation a1">¡Bienvenido!</h1>
-                <br />
-                <h4 class="animation a2">Inicie sesión para ingresar al perfil</h4>
+                <br /><br /><br /><br />
+                <h4 class="animation a2">Ingrese su nueva contraseña</h4>
                 <br />
             </div>
 
@@ -232,26 +252,19 @@
 
                 <br />
 
-                <label for="txtUsuario" style="font-weight: 500">Usuario</label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*Debe ingresar su usuario*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtUsuario" type="text" class="form1-field animation a3" runat="server" placeholder="Ingrese su usuario"></asp:TextBox>
+                <label for="txtUsuario" style="font-weight: 500">Contraseña</label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*Debe ingresar su contraseña*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtUsuario" type="password" class="form1-field animation a3" runat="server" placeholder="Ingrese su contraseña"></asp:TextBox>
                 <br />
-                <label for="txtContrasena" style="font-weight: 500">Contraseña</label>
+                <label for="txtContrasena" style="font-weight: 500">Ingrese nuevamente</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrasena" runat="server" ControlToValidate="txtContrasena" ErrorMessage="*Debe ingresar su contraseña*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtContrasena" type="password" class="form1-field animation a4" runat="server" placeholder="Ingrese su contraseña"></asp:TextBox>
+                <asp:TextBox ID="txtContrasena" type="password" class="form1-field animation a4" runat="server" placeholder="Ingrese nuevamente"></asp:TextBox>
 
                 <br />
                 <br />
 
-                <asp:Button ID="btnLogin" runat="server" Style="letter-spacing: 1px;" CssClass="animation a6" Text="Iniciar Sesión" OnClick="btnAgregar_Click" Font-Bold="True" Font-Size="Medium" />
+                <asp:Button ID="btnLogin" runat="server" Style="letter-spacing: 1px;" CssClass="animation a6" Text="Configurar Nueva Contraseña" OnClick="btnAgregar_Click" Font-Bold="True" Font-Size="Medium" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-
-                 <div style="text-align: center">
-
-            <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_ContratoAgregar.aspx" Font-Size="Small">Restablecer contraseña &nbsp</asp:HyperLink>
-            </strong>
-        </div>
              
             </div>
         </div>
@@ -264,4 +277,27 @@
     <br>
     <br>
     <br>
+
+     <script>
+        function alertmeError(){
+            swal({
+                title: "Error",
+                text: "Las contraseñas deben coincidir",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+       });
+        }
+
+        function alertmeSuccess() {
+            swal({
+                title: "Exito",
+                text: "Contraseña actualizada correctamente",
+                type: "success",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#55407D"
+            });
+        }
+    </script>
+
 </asp:Content>

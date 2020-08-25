@@ -1,6 +1,10 @@
 ﻿using ProyectoSmartRentals.Metodos;
 using ProyectoSmartRentals.Modelos;
 using System;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
+using System.Text;
 
 namespace ProyectoSmartRentals.Formularios
 {
@@ -53,7 +57,47 @@ namespace ProyectoSmartRentals.Formularios
 
                         Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
                         int id = oUsuario.obtiene_id_principal(adr_Email, 1);
-                        oUsuario.InsertaUsuario(adr_Email, 1, id);
+
+                        C_PasswordClass m = new C_PasswordClass();
+
+                        string randompass = m.randompass();
+
+                        oUsuario.InsertaUsuario(adr_Email, 1, id, m.encryptpass(randompass));
+
+                        ///////
+
+                        string stImagen;
+
+
+                        SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtp.EnableSsl = true;
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new NetworkCredential("info.smartrentals@gmail.com", "Clover20*");
+
+                        MailMessage mail = new MailMessage();
+                        mail.From = new MailAddress("info.smartrentals@gmail.com", "Smart Rentals Clientes");
+                        mail.To.Add(new MailAddress(adr_Email));
+                        mail.Subject = "Usuario Nuevo Creado - Smart Rentals";
+                        mail.IsBodyHtml = true;
+                        mail.Body = "Se ha creado un nuevo usuario y contraseña, inicie sesión por primera vez para configurar su contraseña:" + "<br/>" + "<br/>" +
+                                    "NOMBRE DE USUARIO : " + adr_Email + "<br/>" + "<br/>" +
+                                    "CONTRASEÑA TEMPORAL : " +randompass + "<br/>" + "<br/>" +
+                 
+                                    "<img style='padding: 0; display: block' src='cid:imagen' >";
+                        AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mail.Body, Encoding.UTF8, MediaTypeNames.Text.Html);
+                        stImagen = Server.MapPath("~") + @"\images\Logo_SRCR.png";
+                        LinkedResource img = new LinkedResource(stImagen, MediaTypeNames.Image.Jpeg); img.ContentId = "imagen";
+                        htmlView.LinkedResources.Add(img);
+                        mail.AlternateViews.Add(htmlView);
+
+                        smtp.Send(mail);
+
+
+
+
+
+                        //////////
 
 
                     }

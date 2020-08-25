@@ -1706,5 +1706,39 @@ namespace ProyectoSmartRentals.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaUsuarioID_Result>("sp_RetornaUsuarioID", usuarioParameter);
         }
+    
+        public virtual int sp_InsertarUsuario1(string v_usuario, Nullable<int> tipo, Nullable<int> id_principal, string password)
+        {
+            var v_usuarioParameter = v_usuario != null ?
+                new ObjectParameter("v_usuario", v_usuario) :
+                new ObjectParameter("v_usuario", typeof(string));
+    
+            var tipoParameter = tipo.HasValue ?
+                new ObjectParameter("tipo", tipo) :
+                new ObjectParameter("tipo", typeof(int));
+    
+            var id_principalParameter = id_principal.HasValue ?
+                new ObjectParameter("id_principal", id_principal) :
+                new ObjectParameter("id_principal", typeof(int));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarUsuario1", v_usuarioParameter, tipoParameter, id_principalParameter, passwordParameter);
+        }
+    
+        public virtual int sp_ModificarContraseña(string usuario, string password)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarContraseña", usuarioParameter, passwordParameter);
+        }
     }
 }

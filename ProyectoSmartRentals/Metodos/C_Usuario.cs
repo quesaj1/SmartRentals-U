@@ -12,12 +12,12 @@ namespace ProyectoSmartRentals.Metodos
 
         SmartRentalsEntities1 modeloDB = new SmartRentalsEntities1();
 
-        public bool InsertaUsuario(string usuario, int tipo, int id_principal)
+        public bool InsertaUsuario(string usuario, int tipo, int id_principal,string password)
         {
             try
             {
                 int registroAfectados = 0;
-                registroAfectados = this.modeloDB.sp_InsertarUsuario(usuario, tipo, id_principal);
+                registroAfectados = this.modeloDB.sp_InsertarUsuario1(usuario, tipo, id_principal, password);
                 if (registroAfectados > 0)
                     return true;
             }
@@ -55,6 +55,17 @@ namespace ProyectoSmartRentals.Metodos
                sp_RetornaUsuarioUserID(usuario).
                 FirstOrDefault();
             return resultado.ult_inicio_sesion.ToString();
+        }
+
+        public bool obtienesesactiva(string usuario)
+        {
+            sp_RetornaUsuarioUserID_Result resultado =
+                                 new sp_RetornaUsuarioUserID_Result();
+
+            resultado = modeloDB.
+               sp_RetornaUsuarioUserID(usuario).
+                FirstOrDefault();
+            return resultado.sesion_activa;
         }
 
         public int obtiene_id_principal(string usuario, int tipo)
@@ -110,7 +121,21 @@ namespace ProyectoSmartRentals.Metodos
             return resultado;
         }
 
+        public bool ActualizaPassword(string usuario, string password)
+        {
+            try
+            {
+                int registroAfectados = 0;
+                registroAfectados = this.modeloDB.sp_ModificarContraseña(usuario, password);
+                if (registroAfectados > 0)
+                    return true;
+            }
+            catch (Exception error)
+            {
 
-
+                throw error;
+            }
+            return false;
+        }
     }
 }

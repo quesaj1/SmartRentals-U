@@ -30,13 +30,15 @@ namespace ProyectoSmartRentals.Formularios
         void validacredenciales()
         {
 
+            C_PasswordClass m = new C_PasswordClass();
+
             string pass = retornaencpass(this.txtUsuario.Text);
             bool status = retornastatus(this.txtUsuario.Text);
             int tipo = retornatipousuario(this.txtUsuario.Text);
 
             if (pass != null)
             {
-                if (pass == this.txtContrasena.Text)
+                if (pass == m.encryptpass(this.txtContrasena.Text))
                 {
                     if (status)
                     {
@@ -72,9 +74,16 @@ namespace ProyectoSmartRentals.Formularios
                         Metodos.C_Usuario fecha = new Metodos.C_Usuario();
                         fecha.ModificaInicioSesion(this.txtUsuario.Text, DateTime.Now);
 
-                       
+                        if (sesionactiva(this.txtUsuario.Text))
+                        {
+                            Response.Redirect("frm_InicioMenu.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("frm_ConfContrasena.aspx");
+                        }
 
-                        Response.Redirect("frm_InicioMenu.aspx");
+                        
 
                     }
                     else
@@ -105,6 +114,30 @@ namespace ProyectoSmartRentals.Formularios
                
             }
 
+        }
+
+        bool sesionactiva(string user)
+        {
+
+            string llavePrimaria = this.txtUsuario.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                ///
+
+                bool sesactiva = oUsuario.obtienesesactiva(user);
+
+
+                return sesactiva;
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
         string ultsesion(string user)

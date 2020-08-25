@@ -9,6 +9,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ProyectoSmartRentals.Modelos;
 using C_Proveedor = ProyectoSmartRentals.Metodos.C_Proveedor;
+using System;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
+using System.Text;
 
 namespace ProyectoSmartRentals.Formularios
 {
@@ -131,8 +136,51 @@ namespace ProyectoSmartRentals.Formularios
 
                     Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
                     int id = oUsuario.obtiene_id_principal(prv_Email, 3);
-                    oUsuario.InsertaUsuario(prv_Email, 3, id);
-                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+
+                        C_PasswordClass m = new C_PasswordClass();
+
+                        string randompass = m.randompass();
+
+                        oUsuario.InsertaUsuario(prv_Email, 3, id, m.encryptpass(randompass));
+
+
+                        ///////
+
+                        string stImagen;
+
+
+                        SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtp.EnableSsl = true;
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new NetworkCredential("info.smartrentals@gmail.com", "Clover20*");
+
+                        MailMessage mail = new MailMessage();
+                        mail.From = new MailAddress("info.smartrentals@gmail.com", "Smart Rentals Clientes");
+                        mail.To.Add(new MailAddress(prv_Email));
+                        mail.Subject = "Usuario Nuevo Creado - Smart Rentals";
+                        mail.IsBodyHtml = true;
+                        mail.Body = "Se ha creado un nuevo usuario y contraseña, inicie sesión por primera vez para configurar su contraseña:" + "<br/>" + "<br/>" +
+                                    "NOMBRE DE USUARIO : " + prv_Email + "<br/>" + "<br/>" +
+                                    "CONTRASEÑA TEMPORAL : " + randompass + "<br/>" + "<br/>" +
+
+                                    "<img style='padding: 0; display: block' src='cid:imagen' >";
+                        AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mail.Body, Encoding.UTF8, MediaTypeNames.Text.Html);
+                        stImagen = Server.MapPath("~") + @"\images\Logo_SRCR.png";
+                        LinkedResource img = new LinkedResource(stImagen, MediaTypeNames.Image.Jpeg); img.ContentId = "imagen";
+                        htmlView.LinkedResources.Add(img);
+                        mail.AlternateViews.Add(htmlView);
+
+                        smtp.Send(mail);
+
+
+
+
+
+                        //////////
+
+
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
                 }
                 else
                 {

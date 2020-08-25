@@ -210,6 +210,7 @@
     <Content Include="Formularios\frm_ClienteElimina.aspx" />
     <Content Include="Formularios\frm_ClienteLista.aspx" />
     <Content Include="Formularios\frm_ClienteModifica.aspx" />
+    <Content Include="Formularios\frm_ConfContrasena.aspx" />
     <Content Include="Formularios\frm_ContratoAgregar.aspx" />
     <Content Include="Formularios\frm_ContratoElimina.aspx" />
     <Content Include="Formularios\frm_contratoLista.aspx" />
@@ -911,6 +912,13 @@
     <Compile Include="Formularios\frm_ClienteModifica.aspx.designer.cs">
       <DependentUpon>frm_ClienteModifica.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_ConfContrasena.aspx.cs">
+      <DependentUpon>frm_ConfContrasena.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ConfContrasena.aspx.designer.cs">
+      <DependentUpon>frm_ConfContrasena.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_ContratoAgregar.aspx.cs">
       <DependentUpon>frm_ContratoAgregar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1115,6 +1123,7 @@
     <Compile Include="Metodos\C_Alquileres.cs" />
     <Compile Include="Metodos\C_Clientes.cs" />
     <Compile Include="Metodos\C_Contrato.cs" />
+    <Compile Include="Metodos\C_PasswordClass.cs" />
     <Compile Include="Metodos\C_Proveedor.cs" />
     <Compile Include="Metodos\C_ReportePago.cs" />
     <Compile Include="Metodos\C_SendGrid.cs" />

@@ -489,6 +489,12 @@
           <Parameter Name="tipo" Type="int" Mode="In" />
           <Parameter Name="id_principal" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_InsertarUsuario1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_usuario" Type="varchar" Mode="In" />
+          <Parameter Name="tipo" Type="int" Mode="In" />
+          <Parameter Name="id_principal" Type="int" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_ModificaAlquiler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id_Propiedad" Type="int" Mode="In" />
           <Parameter Name="v_UbicacionExacta" Type="varchar" Mode="In" />
@@ -542,6 +548,10 @@
           <Parameter Name="cli_TelefonoCelular" Type="varchar" Mode="In" />
           <Parameter Name="cli_Email" Type="varchar" Mode="In" />
           <Parameter Name="v_Activo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_ModificarContraseña" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_ModificarContrato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id_ctr_contrato" Type="int" Mode="In" />
@@ -1795,7 +1805,17 @@
           <Parameter Name="user" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaUsuarioID" ReturnType="Collection(SmartRentalsModel.sp_RetornaUsuarioID_Result)">
+          <Parameter Name="usuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertarUsuario1">
+            <Parameter Name="v_usuario" Mode="In" Type="String" />
+            <Parameter Name="tipo" Mode="In" Type="Int32" />
+            <Parameter Name="id_principal" Mode="In" Type="Int32" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificarContraseña">
             <Parameter Name="usuario" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
@@ -2966,6 +2986,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertarUsuario1" FunctionName="SmartRentalsModel.Store.sp_InsertarUsuario1" />
+          <FunctionImportMapping FunctionImportName="sp_ModificarContraseña" FunctionName="SmartRentalsModel.Store.sp_ModificarContraseña" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
