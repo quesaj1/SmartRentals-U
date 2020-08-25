@@ -84,7 +84,7 @@
 
 				<div class="log_reg d-flex flex-row align-items-center justify-content-start">
                     <ul class="d-flex flex-row align-items-start justify-content-start" runat="server" id="logout" >
-                        <li><a CausesValidation="false" onserverclick="LogOut_Link" runat="server"  href="LogOut_Link">Cerrar Sesión&nbsp&nbsp&nbsp<i class="fa fa-power-off" style="color: #adc867; font-size: 1.5em" onclick="LogOut"></i></a> </li>
+                        <li><a CausesValidation="false" onserverclick="LogOut_Link" runat="server"  href="LogOut_Link">Cerrar Sesión&nbsp&nbsp&nbsp<i class="fa fa-power-off" style="color: #adc867; font-size: 1.5em"></i></a> </li>
 
 
                     </ul>
@@ -138,7 +138,7 @@
 		<div class="menu_log_reg">
 			<div class="log_reg d-flex flex-row align-items-center justify-content-end">
 				<ul class="d-flex flex-row align-items-start justify-content-start" runat="server" id="logout_">
-					<li><a href="#">Cerrar Sesión</a></li>
+					<li><a href="LogOut_Link" CausesValidation="false" onserverclick="LogOut_Link" runat="server">Cerrar Sesión</a></li>
 					
 				</ul>
 			</div>
