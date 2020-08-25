@@ -249,7 +249,7 @@
                  <div style="text-align: center">
 
             <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_ContratoAgregar.aspx" Font-Size="Small">Restablecer contraseña &nbsp</asp:HyperLink>
+                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_RestablecerContrasena.aspx" Font-Size="Small">Restablecer contraseña &nbsp</asp:HyperLink>
             </strong>
         </div>
              

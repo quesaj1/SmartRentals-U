@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_ConfContrasena.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_ConfContrasena" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/MasterSmartRentals.Master" AutoEventWireup="true" CodeBehind="frm_RestablecerContrasena.aspx.cs" Inherits="ProyectoSmartRentals.Formularios.frm_RestablecerContrasena" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    
+        
     <%--/** ESTILOS DEL LOGIN **/--%>
 
 
@@ -242,8 +242,9 @@
 
         <div class="left-section">
             <div class="header1">
-               <br /><br />
-                <h4 class="animation a2">Ingrese su nueva contraseña</h4>
+                <h1 class="animation a1">¡Bienvenido!</h1>
+                <br /><br />
+               
                 <br />
             </div>
 
@@ -251,19 +252,24 @@
 
                 <br />
 
-                <label for="txtUsuario" style="font-weight: 500">Contraseña</label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*Debe ingresar su contraseña*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtUsuario" type="password" class="form1-field animation a3" runat="server" placeholder="Ingrese su contraseña"></asp:TextBox>
+                <label for="txtUsuario" style="font-weight: 500">Ingrese su correo electrónico</label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*Debe ingresar su correo*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="txtUsuario" type="text" class="form1-field animation a3" runat="server" placeholder="Ingrese su correo electrónico"></asp:TextBox>
                 <br />
-                <label for="txtContrasena" style="font-weight: 500">Ingrese nuevamente</label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorContrasena" runat="server" ControlToValidate="txtContrasena" ErrorMessage="*Debe ingresar su contraseña*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtContrasena" type="password" class="form1-field animation a4" runat="server" placeholder="Ingrese nuevamente"></asp:TextBox>
+            
 
-                <br />
+               
                 <br />
 
-                <asp:Button ID="btnLogin" runat="server" Style="letter-spacing: 1px;" CssClass="animation a6" Text="Configurar Nueva Contraseña" OnClick="btnAgregar_Click" Font-Bold="True" Font-Size="Medium" />
+                <asp:Button ID="btnLogin" runat="server" Style="letter-spacing: 1px;" CssClass="animation a6" Text="Restablecer Contraseña" OnClick="btnAgregar_Click" Font-Bold="True" Font-Size="Medium" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <div style="text-align: center">
+
+            <strong>
+                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_Login.aspx" Font-Size="Small">Volver a Inicio de Sesión&nbsp</asp:HyperLink>
+            </strong>
+        </div>
              
             </div>
         </div>
@@ -281,7 +287,7 @@
         function alertmeError(){
             swal({
                 title: "Error",
-                text: "Las contraseñas deben coincidir",
+                text: "El correo electrónico ingresado no está registrado",
                 type: "error",
                 confirmButtonText: "Ok",
                 confirmButtonColor: "#ADC867"
@@ -291,7 +297,7 @@
         function alertmeSuccess() {
             swal({
                 title: "Exito",
-                text: "Contraseña actualizada correctamente",
+                text: "Se envió una nueva contraseña al correo electrónico",
                 type: "success",
                 confirmButtonText: "Ok",
                 confirmButtonColor: "#55407D"

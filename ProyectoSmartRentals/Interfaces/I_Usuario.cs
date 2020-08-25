@@ -27,6 +27,11 @@ namespace ProyectoSmartRentals.Interfaces
              string password
             );
 
+        bool OlvidaPassword(
+             string usuario,
+             string password
+            );
+
         int obtiene_id_principal(string usuario, int tipo);
 
         #region Metodo Actualiza Ultimo Inicio de Sesion

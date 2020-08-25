@@ -232,6 +232,7 @@
     <Content Include="Formularios\frm_ReporteMantenimiento.aspx" />
     <Content Include="Formularios\frm_ReporteReportarPagos.aspx" />
     <Content Include="Formularios\frm_reportes.aspx" />
+    <Content Include="Formularios\frm_RestablecerContrasena.aspx" />
     <Content Include="Formularios\frm_SolicitudDesocuparCliente.aspx" />
     <Content Include="Formularios\frm_TiqueteAsigna.aspx" />
     <Content Include="Formularios\frm_tiqueteLista.aspx" />
@@ -1065,6 +1066,13 @@
     </Compile>
     <Compile Include="Formularios\frm_reportes.aspx.designer.cs">
       <DependentUpon>frm_reportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_RestablecerContrasena.aspx.cs">
+      <DependentUpon>frm_RestablecerContrasena.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_RestablecerContrasena.aspx.designer.cs">
+      <DependentUpon>frm_RestablecerContrasena.aspx</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_SolicitudDesocuparCliente.aspx.cs">
       <DependentUpon>frm_SolicitudDesocuparCliente.aspx</DependentUpon>

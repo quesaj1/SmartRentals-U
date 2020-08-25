@@ -137,5 +137,22 @@ namespace ProyectoSmartRentals.Metodos
             }
             return false;
         }
+
+        public bool OlvidaPassword(string usuario, string password)
+        {
+            try
+            {
+                int registroAfectados = 0;
+                registroAfectados = this.modeloDB.sp_OlvidaContraseña(usuario, password);
+                if (registroAfectados > 0)
+                    return true;
+            }
+            catch (Exception error)
+            {
+
+                throw error;
+            }
+            return false;
+        }
     }
 }

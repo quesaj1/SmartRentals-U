@@ -19,6 +19,10 @@ namespace ProyectoSmartRentals.Formularios
             this.Page.Master.FindControl("menu_admin_").Visible = false;
             this.Page.Master.FindControl("menu_cliente_").Visible = false;
             this.Page.Master.FindControl("menu_proveedor_").Visible = false;
+            this.Page.Master.FindControl("menu_horizontal").Visible = false;
+            this.Page.Master.FindControl("logout").Visible = false;
+            this.Page.Master.FindControl("logout_").Visible = false;
+            this.Page.Master.FindControl("info_user").Visible = false;
 
         }
 

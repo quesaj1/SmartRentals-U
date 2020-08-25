@@ -1740,5 +1740,18 @@ namespace ProyectoSmartRentals.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificarContraseña", usuarioParameter, passwordParameter);
         }
+    
+        public virtual int sp_OlvidaContraseña(string usuario, string password)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_OlvidaContraseña", usuarioParameter, passwordParameter);
+        }
     }
 }

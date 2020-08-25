@@ -627,6 +627,10 @@
           <Parameter Name="v_tqt_monto" Type="decimal" Mode="In" />
           <Parameter Name="v_tqt_estado" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_OlvidaContraseña" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -1817,6 +1821,10 @@
             <Parameter Name="usuario" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_OlvidaContraseña">
+            <Parameter Name="usuario" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
           <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
@@ -2988,6 +2996,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_InsertarUsuario1" FunctionName="SmartRentalsModel.Store.sp_InsertarUsuario1" />
           <FunctionImportMapping FunctionImportName="sp_ModificarContraseña" FunctionName="SmartRentalsModel.Store.sp_ModificarContraseña" />
+          <FunctionImportMapping FunctionImportName="sp_OlvidaContraseña" FunctionName="SmartRentalsModel.Store.sp_OlvidaContraseña" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
