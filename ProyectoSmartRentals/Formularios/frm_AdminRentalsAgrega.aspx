@@ -148,6 +148,32 @@ input[type="date"], focus {
 /*Finaliza el estilo del select2 dropdownlist */
     </style>
 
+     <!-- Modal Popup -->
+    <div id="MyPopup" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!-- Modal content-->
+
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #55407d">
+                    <h4 class="modal-title" style="color: white"></h4>
+                 <%--   <button type="button" class="close" aria-label="Cancelar" style="color: white" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>--%>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color:#ADC867;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Popup -->
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
     <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
          <h1 style="text-align: center">Agregar Administrador</h1>
         <div class="form-row" style="margin-top:5%; margin-bottom:5%">
@@ -241,7 +267,7 @@ input[type="date"], focus {
 
         function alertmeSuccess() {
             swal({
-                title: "Cliente agregado",
+                title: "Administrador agregado",
                 text: "El administrador ha sido guardado satisfactoriamente",
                 type: "success",
                 confirmButtonText: "Ok",

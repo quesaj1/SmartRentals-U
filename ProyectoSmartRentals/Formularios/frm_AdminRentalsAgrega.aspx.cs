@@ -53,7 +53,7 @@ namespace ProyectoSmartRentals.Formularios
 
                     if (AdminRentalsInsertar)
                     {
-                        this.lblResultado.Text = "Administrador agregado";
+                        
 
                         Metodos.C_Usuario oUsuario = new Metodos.C_Usuario();
                         int id = oUsuario.obtiene_id_principal(adr_Email, 1);
@@ -99,17 +99,18 @@ namespace ProyectoSmartRentals.Formularios
 
                         //////////
 
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
 
                     }
                     else
                     {
-                        this.lblResultado.Text = "No se pudo agregar el administrador";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                     }
 
                 }
                 else
                 {
-                    this.lblResultado.Text = "Ya hay un usuario registrador con este correo electrónico";
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                 }
             }
             catch (Exception error)

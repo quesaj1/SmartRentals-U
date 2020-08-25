@@ -278,7 +278,7 @@ input[type="date"], focus {
         function alertmeSuccess() {
             swal({
                 title: "Cliente agregado",
-                text: "El contrato ha sido guardado satisfactoriamente",
+                text: "El cliente ha sido guardado satisfactoriamente",
                 type: "success",
                 confirmButtonText: "Ok",
                 confirmButtonColor: "#55407D"
