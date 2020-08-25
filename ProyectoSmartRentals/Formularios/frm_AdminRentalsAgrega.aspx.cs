@@ -91,7 +91,9 @@ namespace ProyectoSmartRentals.Formularios
                         mail.Body = "Se ha creado un nuevo usuario y contraseña, inicie sesión por primera vez para configurar su contraseña:" + "<br/>" + "<br/>" +
                                     "NOMBRE DE USUARIO : " + adr_Email + "<br/>" + "<br/>" +
                                     "CONTRASEÑA TEMPORAL : " +randompass + "<br/>" + "<br/>" +
-                 
+                                    "ENLACE: http://smartrentalscr.com/"+
+
+
                                     "<img style='padding: 0; display: block' src='cid:imagen' >";
                         AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mail.Body, Encoding.UTF8, MediaTypeNames.Text.Html);
                         stImagen = Server.MapPath("~") + @"\images\Logo_SRCR.png";
