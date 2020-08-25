@@ -140,7 +140,7 @@ namespace ProyectoSmartRentals.Formularios
                 C_Tiquetes oTiquete = new C_Tiquetes();
                 bool TiqueteInsertar =
                     oTiquete.InsertaTiquete(contrato,tipoProblema,true, descripcionProblema,null,
-                    now, null, 1, tituloProblema, null, "Pendiente");
+                    now, null, 25, tituloProblema, null, "Pendiente");
 
 
                 if (TiqueteInsertar) { 
