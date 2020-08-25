@@ -61,18 +61,19 @@ namespace ProyectoSmartRentals.Formularios
         void CargaDatosGrid()
         {
 
-            string cedula = this.txtCedula.Text.ToString();
+         /*   string cedula = this.txtCedula.Text.ToString();
             string nombre = this.txtNombre.Text.ToString();
             string segundonombre = this.txtSegundoNombre.Text.ToString();
             string primerapellido = this.txtPrimerApellido.Text.ToString();
             string segundoapellido = this.txtSegundoApellido.Text.ToString();
-            string email = this.txtEmail.Text.ToString();
+            string email = this.txtEmail.Text.ToString();*/
 
 
             C_AdminRentals oAdminRentals = new C_AdminRentals();
             ///Asignarle la fuente de datos al grid
             this.grdListaAdminRentals.DataSource =
-                oAdminRentals.RetornaAdminRental(cedula, nombre, segundonombre, primerapellido, segundoapellido, email);
+                oAdminRentals.RetornaAdminRental("", "", "", "", "", "");
+            //oAdminRentals.RetornaAdminRental(cedula, nombre, segundonombre, primerapellido, segundoapellido, email);
             ///indicar al grid que se muestre
             this.grdListaAdminRentals.DataBind();
         }
@@ -85,9 +86,9 @@ namespace ProyectoSmartRentals.Formularios
             this.CargaDatosGrid();
         }
 
-        protected void btnFiltrar_Click(object sender, EventArgs e)
+        /*protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             this.CargaDatosGrid();
-        }
+        }*/
     }
 }
