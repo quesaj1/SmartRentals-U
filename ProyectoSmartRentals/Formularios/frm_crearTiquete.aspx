@@ -183,7 +183,9 @@ input[type="date"], focus {
                     <asp:ListItem Value="1">Eléctrico</asp:ListItem>
                     <asp:ListItem Value="2">Fontaneria</asp:ListItem>
                     <asp:ListItem Value="3">Cerrajeria</asp:ListItem>
-                    <asp:ListItem Value="4">Jardineria</asp:ListItem>
+                     <asp:ListItem Value="3">Cerrajeria</asp:ListItem>
+                    <asp:ListItem Value="4">Cable/Redes</asp:ListItem>
+                    <asp:ListItem Value="4">Telefonia</asp:ListItem>
                     <asp:ListItem Value="5">Otros</asp:ListItem>
 
                 </asp:DropDownList>
