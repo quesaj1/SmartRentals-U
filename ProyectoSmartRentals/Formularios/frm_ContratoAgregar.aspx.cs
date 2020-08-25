@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.WebPages;
+using System.Globalization;
 
 namespace ProyectoSmartRentals.Formularios
 {
@@ -161,23 +162,23 @@ namespace ProyectoSmartRentals.Formularios
                 string contrato = this.txtContratoNumero.Text.ToString();
                 //string fechainicio = this.txtFechaInicio.Text.ToString();
                 //string fechafinal = this.txtFechaFinaliacion.Text.ToString();
-                decimal monto = Convert.ToDecimal(txtMonto.Text.ToString());
+              
                 int Id_Ciente = Convert.ToInt16(this.DropDownListCliente.Text.ToString());
                 int Id_propiedades = Convert.ToInt16(this.DropDownPropiedad.Text.ToString());
                 string ctr_name = this.up_Contrato.FileName.ToString();
-                
-               
-               
+                                decimal monto1 = Convert.ToDecimal(retornaMonto());
 
-                //Hay que tomar la fecha con el datepicker
 
-                int admin_id = Convert.ToInt16(Session["ID"]); 
+
+                                //Hay que tomar la fecha con el datepicker
+
+                                int admin_id = Convert.ToInt16(Session["ID"]); 
                         C_Contrato oContrato = new C_Contrato();
 
                 
                 bool ContratoInsertar =
                     oContrato.InsertaContrato(Id_Ciente, contrato, fechainicio,
-                    fechaFinalizacion, monto, true, ctr_path, Id_propiedades, admin_id, fechapago);
+                    fechaFinalizacion, monto1, true, ctr_path, Id_propiedades, admin_id, fechapago);
 
 
                         
@@ -274,23 +275,26 @@ namespace ProyectoSmartRentals.Formularios
                                 string contrato = this.txtContratoNumero.Text.ToString();
                                 //string fechainicio = this.txtFechaInicio.Text.ToString();
                                 //string fechafinal = this.txtFechaFinaliacion.Text.ToString();
-                                decimal monto = Convert.ToDecimal(txtMonto.Text.ToString());
+                                //decimal monto = Convert.ToDecimal(txtMonto.Text.ToString());
                                 int Id_Ciente = Convert.ToInt16(this.DropDownListCliente.Text.ToString());
                                 int Id_propiedades = Convert.ToInt16(this.DropDownPropiedad.Text.ToString());
                                 string ctr_name = this.up_Contrato.FileName.ToString();
 
-
+                                decimal test = 0.2m;
+                                decimal monto1 = Convert.ToDecimal(retornaMonto());
+                                
 
 
                                 //Hay que tomar la fecha con el datepicker
 
                                 int admin_id = Convert.ToInt16(Session["ID"]);
                                 C_Contrato oContrato = new C_Contrato();
+                                
 
                              
                                     bool ContratoInsertar =
                                         oContrato.InsertaContrato(Id_Ciente, contrato, fechainicio,
-                                        null, monto, true, ctr_path, Id_propiedades, admin_id, fechapago);
+                                        null, monto1, true, ctr_path, Id_propiedades, admin_id, fechapago);
 
 
 
@@ -356,11 +360,33 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void txtMonto_TextChanged(object sender, EventArgs e)
         {
-            //string a = this.txtMonto.Text;
-            //decimal preciodecimal = Convert.ToDecimal(a);
+            string a = this.txtMonto.Text;
+            if (string.IsNullOrEmpty(a)) {
+                
+                decimal preciodecimal = Convert.ToDecimal(a);
 
-            //string precio = string.Format("{0:c}", preciodecimal);
-            //this.txtMonto.Text = precio;
+                string precio = string.Format("{0:c}", preciodecimal);
+                this.txtMonto.Text = precio;
+            }
+            else
+            {
+                a = a.Remove(0, 1);
+                decimal preciodecimal = Convert.ToDecimal(a);
+
+                string precio = string.Format("{0:c}", preciodecimal);
+                this.txtMonto.Text = precio;
+            }
+
+        }
+
+        public string retornaMonto()
+        {
+            string monto = "";
+
+            monto = txtMonto.Text.Remove(0, 1);
+            return monto;
+
+
         }
     }
 }
