@@ -211,7 +211,7 @@ namespace ProyectoSmartRentals.Formularios
                      "Detalles del Pago Adicionales : " + this.txtDetallesDePago.Value.ToString() + "<br/>" + "<br/>" +
                     "<img style='padding: 0; display: block' src='cid:imagen' >";
                 AlternateView htmlView = AlternateView.CreateAlternateViewFromString(html, Encoding.UTF8, MediaTypeNames.Text.Html);
-                stImagen = Server.MapPath("~") + @"\images\FIRMA.jpg";
+                stImagen = Server.MapPath("~") + @"\images\Logo_SRCR.png";
                 LinkedResource img = new LinkedResource(stImagen, MediaTypeNames.Image.Jpeg); img.ContentId = "imagen";
                 htmlView.LinkedResources.Add(img);
                 msg.AlternateViews.Add(htmlView);

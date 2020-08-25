@@ -77,7 +77,7 @@ namespace ProyectoSmartRentals.Formularios
                             "JUSTIFICACION : " + txtJustifica.Text + "<br/>" +
                             "<img style='padding: 0; display: block' src='cid:imagen' >";
                 AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mail.Body, Encoding.UTF8, MediaTypeNames.Text.Html);
-                stImagen = Server.MapPath("~") + @"\images\FIRMA.jpg";
+                stImagen = Server.MapPath("~") + @"\images\Logo_SRCR.png";
                 LinkedResource img = new LinkedResource(stImagen, MediaTypeNames.Image.Jpeg); img.ContentId = "imagen";
                 htmlView.LinkedResources.Add(img);
                 mail.AlternateViews.Add(htmlView);

@@ -289,6 +289,7 @@
     <Content Include="images\listing_8.jpg" />
     <Content Include="images\listing_9.jpg" />
     <Content Include="images\location.svg" />
+    <Content Include="images\Logo_SRCR.png" />
     <Content Include="images\phone-call-2.svg" />
     <Content Include="images\phone-call.svg" />
     <Content Include="images\placeholder.svg" />
