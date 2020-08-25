@@ -13,7 +13,19 @@ namespace ProyectoSmartRentals.Formularios
         {
             this.hdldAdmin.Value = this.Request.QueryString["adr_id_admin"];
             CargaDatosAdminRentals();
-            menu();
+
+
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
+            }
+            else
+            {
+
+                menu();
+            }
+
+          
         }
 
 

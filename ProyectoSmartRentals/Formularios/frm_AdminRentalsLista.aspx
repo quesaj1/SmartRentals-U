@@ -11,18 +11,21 @@
           <div  style="text-align:center; padding:1em ;float:left"  >
 
                 <!-- Id-->
-                 <label for="txt_Id">Buscar: &nbsp <i class="fa fa-search" style="font-size:17px"></i></label><br />
-               <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaAdminRentals')"  runat="server" Height="35px" Width="195px"></asp:TextBox>    
+                 <label style="margin-left: 50%" for="txt_Id">Buscar: &nbsp <i class="fa fa-search" style="font-size:20px"></i></label><br />
+               <asp:TextBox ID="txtSearch"   CssClass="form-control" onkeyup="Search_Gridview(this, 'ContentPlaceHolder1_grdListaAdminRentals')"  runat="server" Height="35px" Width="195px" style="margin-left: 40%"></asp:TextBox>    
             </div> &nbsp&nbsp&nbsp&nbsp&nbsp
         
-        <div style="text-align:center">
+       
+        </div>
+
+
+         <div style="text-align:center">
 
             <strong>
-                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_AdminRentalsLista.aspx" Font-Size="Medium">Agregar Nuevo Alquiler &nbsp <i class="fa fa-plus-circle" style="font-size:19px"></i></asp:HyperLink>
+                <asp:HyperLink ID="hplAgregar" runat="server" NavigateUrl="frm_AdminRentalsAgrega.aspx" Font-Size="Medium">Agregar Nuevo Administrador &nbsp <i class="fa fa-plus-circle" style="font-size:19px"></i></asp:HyperLink>
             </strong>
         </div>
-        </div>
-    <br />
+
     <div style= "margin-left: 10%">
         <p>
                 
