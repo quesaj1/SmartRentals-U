@@ -86,7 +86,7 @@ namespace ProyectoSmartRentals.Formularios
           
           
             this.grdListaContratos.DataSource =
-                oContratos.RetornarContratoDataGrid(true, _pk_admin);
+                oContratos.RetornarContratoDataGrid(true, 0);
             ///indicar al grid que se muestre
             this.grdListaContratos.DataBind();
           
@@ -121,7 +121,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.grdListaContratos.Columns[9].Visible = true;
                 this.grdListaContratos.Columns[10].Visible = true;
                 this.grdListaContratos.DataSource =
-                    oContratos.RetornarContratoDataGrid(true, test);
+                    oContratos.RetornarContratoDataGrid(true, 0);
                 ///indicar al grid que se muestre
                 this.grdListaContratos.DataBind();
             }
@@ -130,7 +130,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.grdListaContratos.Columns[9].Visible = false;
                 this.grdListaContratos.Columns[10].Visible = false;
                 this.grdListaContratos.DataSource =
-              oContratos.RetornarContratoDataGrid(false, test);
+              oContratos.RetornarContratoDataGrid(false, 0);
                 ///indicar al grid que se muestre
                 this.grdListaContratos.DataBind();
 

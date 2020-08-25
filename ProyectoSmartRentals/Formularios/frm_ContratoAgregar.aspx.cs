@@ -133,7 +133,7 @@ namespace ProyectoSmartRentals.Formularios
             //Verifica que haya un archivo
             if (this.up_Contrato.HasFile) {
 
-                if (extension == ".pdf" || extension == ".docx" || extension == ".docx") {
+                if (extension == ".pdf" || extension == ".docx" || extension == ".doc") {
                     if (!File.Exists(Server.MapPath("~/Contratos/" + up_Contrato.FileName)))
                     {
                         up_Contrato.SaveAs(Server.MapPath("~/Contratos/" + up_Contrato.FileName));
@@ -162,11 +162,11 @@ namespace ProyectoSmartRentals.Formularios
                 string contrato = this.txtContratoNumero.Text.ToString();
                                 //string fechainicio = this.txtFechaInicio.Text.ToString();
                                 //string fechafinal = this.txtFechaFinaliacion.Text.ToString();
-                                decimal monto = Convert.ToDecimal(txtMonto.Text.ToString());
+                                decimal monto = Convert.ToDecimal(txtMonto.Text);
                                 int Id_Ciente = Convert.ToInt16(this.DropDownListCliente.Text.ToString());
                 int Id_propiedades = Convert.ToInt16(this.DropDownPropiedad.Text.ToString());
                 string ctr_name = this.up_Contrato.FileName.ToString();
-                                decimal monto1 = Convert.ToDecimal(retornaMonto());
+                               
 
 
 
@@ -245,7 +245,7 @@ namespace ProyectoSmartRentals.Formularios
             if (this.up_Contrato.HasFile)
             {
 
-                if (extension == ".pdf" || extension == ".docx" || extension == ".docx")
+                if (extension == ".pdf" || extension == ".docx" || extension == ".doc")
                 {
                     if (!File.Exists(Server.MapPath("~/Contratos/" + up_Contrato.FileName)))
                     {
@@ -275,13 +275,12 @@ namespace ProyectoSmartRentals.Formularios
                                 string contrato = this.txtContratoNumero.Text.ToString();
                             //string fechainicio = this.txtFechaInicio.Text.ToString();
                             //string fechafinal = this.txtFechaFinaliacion.Text.ToString();
-                            decimal monto = Convert.ToDecimal(txtMonto.Text.ToString());
+                            decimal monto = Convert.ToDecimal(txtMonto.Text);
                             int Id_Ciente = Convert.ToInt16(this.DropDownListCliente.Text.ToString());
                                 int Id_propiedades = Convert.ToInt16(this.DropDownPropiedad.Text.ToString());
                                 string ctr_name = this.up_Contrato.FileName.ToString();
 
-                                decimal test = 0.2m;
-                                decimal monto1 = Convert.ToDecimal(retornaMonto());
+                       
                                 
 
 
@@ -379,14 +378,14 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
-        public string retornaMonto()
-        {
-            string monto = "";
+        //public string retornaMonto()
+        //{
+        //    string monto = "";
 
-            monto = txtMonto.Text.Remove(0, 1);
-            return monto;
+        //    monto = txtMonto.Text.Remove(0, 1);
+        //    return monto;
 
 
-        }
+        //}
     }
 }
