@@ -187,14 +187,14 @@ input[type="date"], focus {
             </div>
               <div class="form-group col-md-6">
                 <!-- Correo -->
-                <label for="txtNombre">Nombre de Cliente<span style="color:red;">*</span></label> <br />
+                <label for="txtNombre">Nombre de Administrador<span style="color:red;">*</span></label> <br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="*Debe ingresar un Nombre*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtNombre" type="text" ForeColor="Black" CssClass="form-control" placeholder="Ingrese un nombre" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
                 <!-- Correo -->
                 <label for="txtSegundoNombre">Segundo Nombre <span style="color:red;">*</span></label>
-                <asp:TextBox ID="txtSegundoNombre" type="text" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
+                <asp:TextBox ID="txtSegundoNombre"  ForeColor="Black" type="text" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
                 <!-- Correo -->

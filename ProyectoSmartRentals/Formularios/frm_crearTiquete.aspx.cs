@@ -30,7 +30,7 @@ namespace ProyectoSmartRentals.Formularios
                 string _rol = Convert.ToString(Session["Tipo"]);
                 if (_rol.Equals("Administrador"))
                 {
-                    DropDownContratoAdmin(0);
+                    DropDownContratoAdmin();
                 }
                 else
                 {
@@ -111,12 +111,12 @@ namespace ProyectoSmartRentals.Formularios
 
         }
 
-        private void DropDownContratoAdmin(int fk_cliente)
+        private void DropDownContratoAdmin()
         {
 
 
             DropDownContratos.DataSource = Consultar("select id_ctr_contrato, ctr_numeroContrato " +
-                 " from C_Contratos where ctr_activo = 1 and fk_adr_id_admin = " + fk_cliente);
+                 " from C_Contratos where ctr_activo = 1");
             DropDownContratos.DataTextField = "ctr_numeroContrato";
             DropDownContratos.DataValueField = "id_ctr_contrato";
             DropDownContratos.DataBind();

@@ -119,7 +119,7 @@
 
                             </h3>
                             <br />
-                            <asp:Button ID="btnDesalojar" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Solicitar" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_SolicitudDesocuparCliente.aspx/>
+                            <asp:Button ID="btnDesalojar" CssClass="boton_personalizado" runat="server" CausesValidation="false" Text="Solicitar" Font-Size="Medium" Height="49px" Width="111px" PostBackUrl="~/Formularios/frm_SolicitudDesocuparCliente.aspx"/>
                         </div>
                     </div>
                 </div>

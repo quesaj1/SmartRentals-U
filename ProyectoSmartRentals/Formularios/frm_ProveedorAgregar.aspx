@@ -182,6 +182,7 @@
                     <option style="font-size: small">Fontanero</option>
                     <option style="font-size: small">Cable/Redes</option>
                     <option style="font-size: small">Telefonia</option>
+                        <option style="font-size: small">Otros</option>
                 </select>
             </div>
 
