@@ -194,7 +194,7 @@ input[type="date"], focus {
               <div class="form-group col-md-6">
                 <!-- Correo -->
                 <label for="txtSegundoNombre">Segundo Nombre <span style="color:red;">*</span></label>
-                <asp:TextBox ID="txtSegundoNombre" type="text" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
+                <asp:TextBox ID="txtSegundoNombre"  ForeColor="Black" type="text" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
                 <!-- Correo -->
