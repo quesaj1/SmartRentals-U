@@ -113,7 +113,7 @@
             <div class="form-group col-md-12">
                 <!-- Correo -->
                 <label for="txtPrecio">Precio</label>
-                <asp:TextBox ID="txtPrecio" type="text" CssClass="form-control" ForeColor="Black" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPrecio" type="text" CssClass="form-control" ForeColor="Black" runat="server" AutoPostBack="True" OnTextChanged="txtPrecio_TextChanged"></asp:TextBox>
             </div>
 
 
