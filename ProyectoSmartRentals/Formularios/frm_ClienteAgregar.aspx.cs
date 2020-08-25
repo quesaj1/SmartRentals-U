@@ -132,7 +132,7 @@ namespace ProyectoSmartRentals.Formularios
                         smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                         smtp.EnableSsl = true;
                         smtp.UseDefaultCredentials = false;
-                        smtp.Credentials = new NetworkCredential("info.smartrentals@gmail.com", "Clover20*");
+                        smtp.Credentials = new NetworkCredential("info.smartrentals@gmail.com", "Clover2020*");
 
                         MailMessage mail = new MailMessage();
                         mail.From = new MailAddress("info.smartrentals@gmail.com", "Smart Rentals Clientes");
