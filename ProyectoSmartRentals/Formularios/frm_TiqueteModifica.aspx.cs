@@ -196,7 +196,7 @@ namespace ProyectoSmartRentals.Formularios
                     }
                     else
                     {
-                        monto = Convert.ToDecimal(this.retornaMonto());
+                        monto = Convert.ToDecimal(this.txtPrecio);
                     }
                     if (oTiquetes.ModificaTiqueteProveedor(id_tiquete,nota,now,monto, _estado))
                     {
@@ -220,23 +220,23 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void txtPrecio_TextChanged(object sender, EventArgs e)
         {
-            string a = this.txtPrecio.Text;
-            if (string.IsNullOrEmpty(a))
-            {
+            //string a = this.txtPrecio.Text;
+            //if (string.IsNullOrEmpty(a))
+            //{
 
-                decimal preciodecimal = Convert.ToDecimal(a);
+            //    decimal preciodecimal = Convert.ToDecimal(a);
 
-                string precio = string.Format("{0:c}", preciodecimal);
-                this.txtPrecio.Text = precio;
-            }
-            else
-            {
-                a = a.Remove(0, 1);
-                decimal preciodecimal = Convert.ToDecimal(a);
+            //    string precio = string.Format("{0:c}", preciodecimal);
+            //    this.txtPrecio.Text = precio;
+            //}
+            //else
+            //{
+            //    a = a.Remove(0, 1);
+            //    decimal preciodecimal = Convert.ToDecimal(a);
 
-                string precio = string.Format("{0:c}", preciodecimal);
-                this.txtPrecio.Text = precio;
-            }
+            //    string precio = string.Format("{0:c}", preciodecimal);
+            //    this.txtPrecio.Text = precio;
+            //}
         }
 
         public string retornaMonto()
