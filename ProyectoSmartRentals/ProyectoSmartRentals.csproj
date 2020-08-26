@@ -400,10 +400,6 @@
     <Content Include="plugins\parallax-js-master\parallax.min.js" />
     <Content Include="plugins\progressbar\progressbar.min.js" />
     <Content Include="plugins\scrollmagic\ScrollMagic.min.js" />
-    <Content Include="Propiedades\img_apartamento.jpg" />
-    <Content Include="Propiedades\img_Casa.jpg" />
-    <Content Include="Propiedades\img_Casa2.jpg" />
-    <Content Include="Propiedades\img_Casa3.jpg" />
     <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -1354,6 +1350,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Contratos\" />
     <Folder Include="Models\" />
+    <Folder Include="Propiedades\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SmartRentalsDataSet.xsc">
