@@ -492,10 +492,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Propiedades\img_apartamento.jpg" />
-    <Content Include="Propiedades\img_Casa.jpg" />
-    <Content Include="Propiedades\img_Casa2.jpg" />
-    <Content Include="Propiedades\img_Casa3.jpg" />
     <Content Include="Scripts\bootstrap-select.js" />
     <Content Include="Scripts\bootstrap-select.min.js" />
     <Content Include="Scripts\i18n\af.js" />
@@ -1354,6 +1350,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Contratos\" />
     <Folder Include="Models\" />
+    <Folder Include="Propiedades\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SmartRentalsDataSet.xsc">
