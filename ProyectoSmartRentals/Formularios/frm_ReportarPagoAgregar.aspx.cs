@@ -223,7 +223,7 @@ namespace ProyectoSmartRentals.Formularios
 
                 //Cliente Correo
                 System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
-                cliente.Credentials = new System.Net.NetworkCredential("info.smartrentals@gmail.com", "Clover20*");
+                cliente.Credentials = new System.Net.NetworkCredential("info.smartrentals@gmail.com", "Clover2020*");
                 cliente.Port = 587;
                 cliente.EnableSsl = true;
                 cliente.Host = "smtp.gmail.com";//Correo diferente mail.dominio.com
