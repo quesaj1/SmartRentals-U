@@ -30,15 +30,15 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            if (Session["UserName"] == null)
+            if (!IsPostBack)
+            {
+                if (Session["UserName"] == null)
             {
                 Response.Redirect("frm_Login.aspx?error=jwP46Q", true);
             }
             cargaDropDown();
-             
-                 //}
+
+            }
         }
 
         public void cargaDropDown()
@@ -89,7 +89,7 @@ namespace ProyectoSmartRentals.Formularios
                 this.ddcontratos.Visible = true;
                 this.ddproveedores.Visible = true;
                 this.ddadmin.Visible = false;
-                DropDownContratoAdmin(_pk_admin);
+                DropDownContratoAdmin(0);
                 DropDownProveedores();
                 DropDownClientes();
                 this.Page.Master.FindControl("menu_admin").Visible = true;
@@ -137,7 +137,7 @@ namespace ProyectoSmartRentals.Formularios
 
 
             DropDownContratos.DataSource = Consultar("select id_ctr_contrato, ctr_numeroContrato " +
-                 " from C_Contratos where ctr_activo = 1 and fk_adr_id_admin = " + fk_admin);
+                 " from C_Contratos where ctr_activo = 1");
             DropDownContratos.DataTextField = "ctr_numeroContrato";
             DropDownContratos.DataValueField = "id_ctr_contrato";
             DropDownContratos.DataBind();
