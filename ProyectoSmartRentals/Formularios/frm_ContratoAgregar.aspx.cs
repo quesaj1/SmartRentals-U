@@ -1,5 +1,6 @@
 ﻿using Microsoft.ReportingServices.ReportProcessing.ExprHostObjectModel;
 using ProyectoSmartRentals.Metodos;
+using ProyectoSmartRentals.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -95,7 +96,7 @@ namespace ProyectoSmartRentals.Formularios
         }
         private void DropDownClientes()
         {
-            DropDownListCliente.DataSource = Consultar("select cli_cliente, cli_PrimerApelido + ', '+cli_Nombre as nombre from C_Cliente");
+            DropDownListCliente.DataSource = Consultar("select cli_cliente, cli_PrimerApelido + ', '+cli_Nombre as nombre from C_Cliente where alq_activo= 1");
             DropDownListCliente.DataTextField = "nombre";
             DropDownListCliente.DataValueField = "cli_cliente";
             DropDownListCliente.DataBind();
@@ -105,7 +106,7 @@ namespace ProyectoSmartRentals.Formularios
 
         private void DropDownAlquileres()
         {
-            DropDownPropiedad.DataSource = Consultar("select a.alq_id_propiedad, a.alq_ubicacionexacta + ', ' + b.Nombre + ', ' + c.Nombre as ubicacion from C_alquiler a inner join C_Canton b on a.Id_Canton = b.Id_Canton inner join C_Provincia c on c.Id_Provincia = a.Id_Provincia");
+            DropDownPropiedad.DataSource = Consultar("select a.alq_id_propiedad, a.alq_ubicacionexacta + ', ' + b.Nombre + ', ' + c.Nombre as ubicacion from C_alquiler a inner join C_Canton b on a.Id_Canton = b.Id_Canton inner join C_Provincia c on c.Id_Provincia = a.Id_Provincia where a.alq_activo =1");
             DropDownPropiedad.DataTextField = "ubicacion";
             DropDownPropiedad.DataValueField = "alq_id_Propiedad";
             DropDownPropiedad.DataBind();
@@ -154,6 +155,7 @@ namespace ProyectoSmartRentals.Formularios
                     if (DateTime.Compare(fechainicio,fechaFinalizacion)<=0){
                         if (DateTime.Compare(fechainicio, fechapago) <= 0)
                         {
+                            
 
 
                 
@@ -350,13 +352,58 @@ namespace ProyectoSmartRentals.Formularios
             String  fechaFinalizacion =  this.txtFechaFinaliacion.Text;
             if (string.IsNullOrEmpty(fechaFinalizacion))
             {
+                if (!contratoexiste(this.txtContratoNumero.Text)) { 
                 this.agregarContratNull();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
+                }
             }
-            else { 
-            agregarContrato();
+            else {
+                if (!contratoexiste(this.txtContratoNumero.Text))
+                {
+                    agregarContrato();
+                 }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
+                }
             }
         }
 
+        
+
+        //Verifica si el contrato ya existe
+        bool contratoexiste(string user)
+        {
+
+            string llavePrimaria = this.txtContratoNumero.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Contrato oUsuario = new Metodos.C_Contrato();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaContratoName_Result resultadoSp = oUsuario.RetornaContratoName(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                    
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+        }
         protected void txtMonto_TextChanged(object sender, EventArgs e)
         {
             //string a = this.txtMonto.Text;

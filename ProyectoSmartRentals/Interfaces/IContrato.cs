@@ -67,6 +67,10 @@ namespace ProyectoSmartRentals.Interfaces
         sp_RetornaContratoID_Result RetornaContratoID(int id_contrato);
         #endregion
 
+        #region Metodo  Retornar contrato por nombre
+        sp_RetornaContratoName_Result RetornaContratoName(string nombre_contrato);
+        #endregion
+
         sp_BuscaMisContratos2_Result BuscaMisContratos2(int v_ctr_numeroContrato);
 
         sp_BuscaMisContratos3_Result BuscaMisContratos3(int v_ctr_numeroContrato);

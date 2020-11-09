@@ -164,5 +164,14 @@ namespace ProyectoSmartRentals.Metodos
 
             return resultado;
         }
+
+        public sp_RetornaContratoName_Result RetornaContratoName(string nombre_contrato)
+        {
+            sp_RetornaContratoName_Result resultado = new sp_RetornaContratoName_Result();
+
+            resultado = modeloDB.sp_RetornaContratoName(nombre_contrato).FirstOrDefault();
+
+            return resultado;
+        }
     }
 }

@@ -288,7 +288,15 @@ input[type="date"], focus {
                 confirmButtonColor: "#ADC867"
             });
         }
-
+        function alertmeDuplicate() {
+            swal({
+                title: "Contrato duplicado",
+                text: "El contrato ingresado ya se encuentra registrado",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+            });
+        }
         function alertmeSuccess() {
             swal({
                 title: "Contrato modificado",

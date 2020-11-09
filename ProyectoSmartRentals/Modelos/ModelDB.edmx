@@ -631,6 +631,7 @@
           <Parameter Name="usuario" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="Sp_Prueba1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -698,6 +699,9 @@
         </Function>
         <Function Name="sp_RetornaContratoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_id_contrato" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaContratoName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_ctr_numeroContrato" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_RetornaGananciasPerdidas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_contrato" Type="int" Mode="In" />
@@ -1825,6 +1829,10 @@
             <Parameter Name="usuario" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="Sp_Prueba1" />
+          <FunctionImport Name="sp_RetornaContratoName" ReturnType="Collection(SmartRentalsModel.sp_RetornaContratoName_Result)">
+            <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
           <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
@@ -2229,6 +2237,19 @@
           <Property Type="Int32" Name="id_principal" Nullable="false" />
           <Property Type="DateTime" Name="ult_inicio_sesion" Nullable="true" Precision="23" />
           <Property Type="Boolean" Name="sesion_activa" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaContratoName_Result">
+          <Property Type="Int32" Name="id_ctr_contrato" Nullable="false" />
+          <Property Type="Int32" Name="fk_cli_cliente" Nullable="false" />
+          <Property Type="String" Name="ctr_numeroContrato" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="ctr_fechainicio" Nullable="false" />
+          <Property Type="DateTime" Name="ctr_fechafinalizacion" Nullable="true" />
+          <Property Type="Decimal" Name="ctr_monto" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="ctr_activo" Nullable="true" />
+          <Property Type="String" Name="ctr_file" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="fk_alq_id_propiedad" Nullable="false" />
+          <Property Type="Int32" Name="fk_adr_id_admin" Nullable="true" />
+          <Property Type="DateTime" Name="ctr_fechapago" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2997,6 +3018,24 @@
           <FunctionImportMapping FunctionImportName="sp_InsertarUsuario1" FunctionName="SmartRentalsModel.Store.sp_InsertarUsuario1" />
           <FunctionImportMapping FunctionImportName="sp_ModificarContraseña" FunctionName="SmartRentalsModel.Store.sp_ModificarContraseña" />
           <FunctionImportMapping FunctionImportName="sp_OlvidaContraseña" FunctionName="SmartRentalsModel.Store.sp_OlvidaContraseña" />
+          <FunctionImportMapping FunctionImportName="Sp_Prueba1" FunctionName="SmartRentalsModel.Store.Sp_Prueba1" />
+          <FunctionImportMapping FunctionImportName="sp_RetornaContratoName" FunctionName="SmartRentalsModel.Store.sp_RetornaContratoName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaContratoName_Result">
+                <ScalarProperty Name="id_ctr_contrato" ColumnName="id_ctr_contrato" />
+                <ScalarProperty Name="fk_cli_cliente" ColumnName="fk_cli_cliente" />
+                <ScalarProperty Name="ctr_numeroContrato" ColumnName="ctr_numeroContrato" />
+                <ScalarProperty Name="ctr_fechainicio" ColumnName="ctr_fechainicio" />
+                <ScalarProperty Name="ctr_fechafinalizacion" ColumnName="ctr_fechafinalizacion" />
+                <ScalarProperty Name="ctr_monto" ColumnName="ctr_monto" />
+                <ScalarProperty Name="ctr_activo" ColumnName="ctr_activo" />
+                <ScalarProperty Name="ctr_file" ColumnName="ctr_file" />
+                <ScalarProperty Name="fk_alq_id_propiedad" ColumnName="fk_alq_id_propiedad" />
+                <ScalarProperty Name="fk_adr_id_admin" ColumnName="fk_adr_id_admin" />
+                <ScalarProperty Name="ctr_fechapago" ColumnName="ctr_fechapago" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

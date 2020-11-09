@@ -292,6 +292,35 @@ namespace ProyectoSmartRentals.Formularios
             }
         }
 
+        bool contratoexiste(string user)
+        {
+
+            string llavePrimaria = this.txtContratoNumero.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Contrato oUsuario = new Metodos.C_Contrato();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaContratoName_Result resultadoSp = oUsuario.RetornaContratoName(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+        }
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
             

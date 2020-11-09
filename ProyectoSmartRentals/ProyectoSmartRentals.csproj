@@ -1232,6 +1232,9 @@
     <Compile Include="Modelos\sp_RetornaContratoID_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\sp_RetornaContratoName_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\sp_RetornaContrato_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>

@@ -1753,5 +1753,19 @@ namespace ProyectoSmartRentals.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_OlvidaContraseña", usuarioParameter, passwordParameter);
         }
+    
+        public virtual int Sp_Prueba1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Sp_Prueba1");
+        }
+    
+        public virtual ObjectResult<sp_RetornaContratoName_Result> sp_RetornaContratoName(string v_ctr_numeroContrato)
+        {
+            var v_ctr_numeroContratoParameter = v_ctr_numeroContrato != null ?
+                new ObjectParameter("v_ctr_numeroContrato", v_ctr_numeroContrato) :
+                new ObjectParameter("v_ctr_numeroContrato", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaContratoName_Result>("sp_RetornaContratoName", v_ctr_numeroContratoParameter);
+        }
     }
 }
