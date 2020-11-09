@@ -216,7 +216,7 @@ input[type="date"], focus {
                 <asp:TextBox ID="txtMonto" type="text" ForeColor="Black" CssClass="form-control" placeholder="Monto" required="required" runat="server" MaxLength="50"></asp:TextBox>
             </div>
             <div class="form-group col-md-6">
-
+                <asp:TextBox runat="server" ID="lastcontract" Visible="False"></asp:TextBox>
                 <label for="txtFechaPago">Fecha de Pago </label>
                 <br />
                 <asp:Label ID="Label1" runat="server" Font-Bold="True"   CssClass="alert-light" Font-Size="Small" ForeColor="#FF0066"></asp:Label>

@@ -176,31 +176,58 @@ namespace ProyectoSmartRentals.Formularios
                 DateTime fechaFinalizacion = Convert.ToDateTime(this.fechafinalizacion.Value);
                 DateTime fechapago = Convert.ToDateTime(this.datepago.Value);
                 int id_admin = Convert.ToInt32(this.txtAdmin.Text);
-                try
-                {
+                    try
+                    {
+                        if (this.lastcontract.Text == this.txtContratoNumero.Text)
+                        {
+                            C_Contrato oContratos = new C_Contrato();
+                            DateTime now = DateTime.Now;
+                            if (oContratos.ModificarCliente(id_contrato, Convert.ToInt16(this.DropDownListCliente.Text), this.txtContratoNumero.Text,
+                               fechainicio, fechaFinalizacion, Convert.ToDecimal(this.txtMonto.Text), true, this.ruta_archivo.Text,
+                               Convert.ToInt16(this.DropDownPropiedad.Text), id_admin, fechapago)
+                                )
+                            {
+                                //this.lblResultado.Text = "Registro Modificado";
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                            }
+                            else
+                            {
+                                //this.lblResultado.Text = "No se pudo modificar";
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                            }
+                        }
+                        else { 
+                        if (!contratoexiste(this.txtContratoNumero.Text))
+                        {
+                            C_Contrato oContratos = new C_Contrato();
+                            DateTime now = DateTime.Now;
+                            if (oContratos.ModificarCliente(id_contrato, Convert.ToInt16(this.DropDownListCliente.Text), this.txtContratoNumero.Text,
+                               fechainicio, fechaFinalizacion, Convert.ToDecimal(this.txtMonto.Text), true, this.ruta_archivo.Text,
+                               Convert.ToInt16(this.DropDownPropiedad.Text), id_admin, fechapago)
+                                )
+                            {
+                                //this.lblResultado.Text = "Registro Modificado";
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                            }
+                            else
+                            {
+                                //this.lblResultado.Text = "No se pudo modificar";
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                            }
 
-                    C_Contrato oContratos = new C_Contrato();
-                    DateTime now = DateTime.Now;
-                    if (oContratos.ModificarCliente(id_contrato, Convert.ToInt16(this.DropDownListCliente.Text), this.txtContratoNumero.Text,
-                       fechainicio, fechaFinalizacion, Convert.ToDecimal(this.txtMonto.Text),true,this.ruta_archivo.Text,
-                       Convert.ToInt16(this.DropDownPropiedad.Text), id_admin, fechapago)
-                        )
-                    {
-                        //this.lblResultado.Text = "Registro Modificado";
-                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                        }
+                        else
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
+                        }
+                        }
                     }
-                    else
+
+                    catch (Exception error)
                     {
-                        //this.lblResultado.Text = "No se pudo modificar";
+                        //this.lblResultado.Text = "No se pudo modificar: " + error;
                         ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                     }
-
-                }
-                catch (Exception error)
-                {
-                    //this.lblResultado.Text = "No se pudo modificar: " + error;
-                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
-                }
             }
             }
         }
@@ -221,7 +248,7 @@ namespace ProyectoSmartRentals.Formularios
         }
         private void DropDownClientes()
         {
-            DropDownListCliente.DataSource = Consultar("select cli_cliente, cli_PrimerApelido + ', '+cli_Nombre as nombre from C_Cliente");
+            DropDownListCliente.DataSource = Consultar("select cli_cliente, cli_PrimerApelido + ', '+cli_Nombre as nombre from C_Cliente where alq_activo= 1");
             DropDownListCliente.DataTextField = "nombre";
             DropDownListCliente.DataValueField = "cli_cliente";
             DropDownListCliente.DataBind();
@@ -283,6 +310,7 @@ namespace ProyectoSmartRentals.Formularios
                     this.hypContrato.NavigateUrl = link;
                     this.ruta_file = link;
                     this.ruta_archivo.Text = link;
+                    this.lastcontract.Text = resultadoSp.ctr_numeroContrato;
 
 
 
