@@ -101,12 +101,21 @@ namespace ProyectoSmartRentals.Formularios
         {
             if (!proveedorexiste(this.txtCedulaRepresentante.Text))
             {
-                AgregarProveedor();
+                if (!proveedorCJexiste(this.txtCedulaJuridica.Text))
+                {
+                    AgregarProveedor();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicateCJ()", true);
+                }
             }
             else
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
             }
+
+
         }
 
         void AgregarProveedor()
@@ -266,6 +275,43 @@ namespace ProyectoSmartRentals.Formularios
             {
                 return false;
             }
+
+
+
+        }
+
+
+        bool proveedorCJexiste(string user)
+        {
+
+            string llavePrimaria = this.txtCedulaJuridica.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Proveedor oUsuario = new Metodos.C_Proveedor();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaProveedorCJName_Result resultadoSp = oUsuario.RetornaProveedorCJname(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+
+
+
         }
 
 

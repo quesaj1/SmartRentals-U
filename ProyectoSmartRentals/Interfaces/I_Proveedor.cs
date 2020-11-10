@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProyectoSmartRentals.Modelos;
+using ProyectoSmartRentals.SmartRentalsDataSetTableAdapters;
 
 namespace ProyectoSmartRentals.Interfaces
 {
@@ -87,10 +88,13 @@ namespace ProyectoSmartRentals.Interfaces
         #endregion
 
 
-        #region Metodo  Retornar proveedor por nombre
+        #region Metodo  Retornar proveedor por Cedula Representante
         sp_RetornaProveedorName_Result RetornaProveedorname(string nombre_proveedor);
         #endregion
 
+        #region Metodo  Retornar proveedor por Cedula Juridica
+        sp_RetornaProveedorCJName_Result RetornaProveedorCJname(string nombre_proveedorCJ);
+        #endregion
 
     }
 }

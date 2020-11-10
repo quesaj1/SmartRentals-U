@@ -1794,5 +1794,14 @@ namespace ProyectoSmartRentals.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaProveedorName_Result>("sp_RetornaProveedorName", v_prv_CedulaRepresentanteParameter);
         }
+    
+        public virtual ObjectResult<sp_RetornaProveedorCJName_Result> sp_RetornaProveedorCJName(string v_prv_CedulaJuridica)
+        {
+            var v_prv_CedulaJuridicaParameter = v_prv_CedulaJuridica != null ?
+                new ObjectParameter("v_prv_CedulaJuridica", v_prv_CedulaJuridica) :
+                new ObjectParameter("v_prv_CedulaJuridica", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaProveedorCJName_Result>("sp_RetornaProveedorCJName", v_prv_CedulaJuridicaParameter);
+        }
     }
 }

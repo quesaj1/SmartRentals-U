@@ -743,6 +743,9 @@
           <Parameter Name="v_rpp_estadoDePago" Type="bit" Mode="In" />
           <Parameter Name="v_fk_adr_id_admin" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_RetornaProveedorCJName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_prv_CedulaJuridica" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_RetornaProveedorDataGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="v_alq_activo" Type="bit" Mode="In" />
         </Function>
@@ -1843,13 +1846,16 @@
           <Parameter Name="v_ctr_numeroContrato" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaAdminRentalName" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRentalName_Result)">
-            <Parameter Name="v_adr_Cedula" Mode="In" Type="String" />
+          <Parameter Name="v_adr_Cedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaClienteName" ReturnType="Collection(SmartRentalsModel.sp_RetornaClienteName_Result)">
-            <Parameter Name="v_cli_Cedula" Mode="In" Type="String" />
+          <Parameter Name="v_cli_Cedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaProveedorName" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorName_Result)">
             <Parameter Name="v_prv_CedulaRepresentante" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaProveedorCJName" ReturnType="Collection(SmartRentalsModel.sp_RetornaProveedorCJName_Result)">
+            <Parameter Name="v_prv_CedulaJuridica" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_BuscaContratoDataGrid_Result">
@@ -2294,6 +2300,22 @@
           <Property Type="String" Name="cli_Email" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="sp_RetornaProveedorName_Result">
+          <Property Type="Int32" Name="prv_IDProveedor" Nullable="false" />
+          <Property Type="String" Name="prv_NombreVariable" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="prv_NombreRepresentante" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="prv_PrimerApellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="prv_SegundoApellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="prv_CedulaRepresentante" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="prv_CedulaJuridica" Nullable="true" MaxLength="12" />
+          <Property Type="String" Name="prv_Telefono" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="prv_Email" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="prv_TipoProveedor" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Id_Distrito" Nullable="false" />
+          <Property Type="Int32" Name="Id_Canton" Nullable="false" />
+          <Property Type="Int32" Name="Id_Provincia" Nullable="false" />
+          <Property Type="String" Name="prv_OtrasSenas" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaProveedorCJName_Result">
           <Property Type="Int32" Name="prv_IDProveedor" Nullable="false" />
           <Property Type="String" Name="prv_NombreVariable" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="prv_NombreRepresentante" Nullable="true" MaxLength="50" />
@@ -3129,6 +3151,26 @@
           <FunctionImportMapping FunctionImportName="sp_RetornaProveedorName" FunctionName="SmartRentalsModel.Store.sp_RetornaProveedorName">
             <ResultMapping>
               <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaProveedorName_Result">
+                <ScalarProperty Name="prv_IDProveedor" ColumnName="prv_IDProveedor" />
+                <ScalarProperty Name="prv_NombreVariable" ColumnName="prv_NombreVariable" />
+                <ScalarProperty Name="prv_NombreRepresentante" ColumnName="prv_NombreRepresentante" />
+                <ScalarProperty Name="prv_PrimerApellido" ColumnName="prv_PrimerApellido" />
+                <ScalarProperty Name="prv_SegundoApellido" ColumnName="prv_SegundoApellido" />
+                <ScalarProperty Name="prv_CedulaRepresentante" ColumnName="prv_CedulaRepresentante" />
+                <ScalarProperty Name="prv_CedulaJuridica" ColumnName="prv_CedulaJuridica" />
+                <ScalarProperty Name="prv_Telefono" ColumnName="prv_Telefono" />
+                <ScalarProperty Name="prv_Email" ColumnName="prv_Email" />
+                <ScalarProperty Name="prv_TipoProveedor" ColumnName="prv_TipoProveedor" />
+                <ScalarProperty Name="Id_Distrito" ColumnName="Id_Distrito" />
+                <ScalarProperty Name="Id_Canton" ColumnName="Id_Canton" />
+                <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
+                <ScalarProperty Name="prv_OtrasSenas" ColumnName="prv_OtrasSenas" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaProveedorCJName" FunctionName="SmartRentalsModel.Store.sp_RetornaProveedorCJName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaProveedorCJName_Result">
                 <ScalarProperty Name="prv_IDProveedor" ColumnName="prv_IDProveedor" />
                 <ScalarProperty Name="prv_NombreVariable" ColumnName="prv_NombreVariable" />
                 <ScalarProperty Name="prv_NombreRepresentante" ColumnName="prv_NombreRepresentante" />

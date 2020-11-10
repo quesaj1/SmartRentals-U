@@ -134,9 +134,15 @@ namespace ProyectoSmartRentals.Metodos
         }
 
 
+
+
+
         #endregion
 
         #region Metodo Retonar Proveedor Name
+
+
+
         public sp_RetornaProveedorName_Result RetornaProveedorname(string nombre_proveedor)
         {
             sp_RetornaProveedorName_Result resultado = new sp_RetornaProveedorName_Result();
@@ -145,6 +151,16 @@ namespace ProyectoSmartRentals.Metodos
 
             return resultado;
         }
+
+        public sp_RetornaProveedorCJName_Result RetornaProveedorCJname(string nombre_proveedorCJ)
+        {
+            sp_RetornaProveedorCJName_Result resultado = new sp_RetornaProveedorCJName_Result();
+
+            resultado = modeloDB.sp_RetornaProveedorCJName(nombre_proveedorCJ).FirstOrDefault();
+
+            return resultado;
+        }
+
         #endregion
 
 

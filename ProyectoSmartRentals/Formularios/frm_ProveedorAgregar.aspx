@@ -298,10 +298,22 @@
        });
          }
 
+
+
          function alertmeDuplicate() {
              swal({
-                 title: "Proveedor duplicado",
-                 text: "El Proveedor ingresado ya se encuentra registrado",
+                 title: "La Cédula Representante esta duplicado",
+                 text: "La Cédula Representante  ingresada ya se encuentra registrado",
+                 type: "error",
+                 confirmButtonText: "Ok",
+                 confirmButtonColor: "#ADC867"
+             });
+         }
+
+         function alertmeDuplicateCJ() {
+             swal({
+                 title: "La Cédula Jurídica esta duplicada",
+                 text: "La Cédula Jurídica  ingresada ya se encuentra registrado",
                  type: "error",
                  confirmButtonText: "Ok",
                  confirmButtonColor: "#ADC867"

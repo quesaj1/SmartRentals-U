@@ -1262,6 +1262,9 @@
     <Compile Include="Modelos\sp_RetornaPagosRealizadosDataGrid_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\sp_RetornaProveedorCJName_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\sp_RetornaProveedorDataGrid_Result.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
