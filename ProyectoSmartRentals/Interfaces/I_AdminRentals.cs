@@ -42,5 +42,11 @@ namespace ProyectoSmartRentals.Interfaces
 
         sp_RetornaAdminRentalID_Result RetornaAdminRentalID
                     (int adr_id_admin);
+
+
+        #region Metodo  Retornar Admin-Rentals por nombre
+        sp_RetornaAdminRentalName_Result RetornaAdminName(string nombre_admin);
+        #endregion
+
     }
 }

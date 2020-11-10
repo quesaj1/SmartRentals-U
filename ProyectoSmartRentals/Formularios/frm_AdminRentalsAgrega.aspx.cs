@@ -28,7 +28,15 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            AgregarAdminRentals();
+            if (!Adminexiste(this.txtCedula.Text))
+            {
+                AgregarAdminRentals();
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
+            }
+          
         }
 
         protected void btnAtras_Click(object sender, EventArgs e)
@@ -152,6 +160,37 @@ namespace ProyectoSmartRentals.Formularios
                 else
                 {
                     return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        bool Adminexiste(string user)
+        {
+
+            string llavePrimaria = this.txtCedula.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_AdminRentals oUsuario = new Metodos.C_AdminRentals();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaAdminRentalName_Result resultadoSp = oUsuario.RetornaAdminName(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
                 }
 
             }

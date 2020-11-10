@@ -88,18 +88,25 @@ namespace ProyectoSmartRentals.Formularios
                 try
                 {
 
-                    C_AdminRentals oAdminRentals = new C_AdminRentals();
-
-                    if (oAdminRentals.ModificaAdminRentals(id_AdminRentals, this.txtCedula.Text,
-                       this.txtNombre.Text, this.txtSegundoNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text,
-                       null, this.txtTelefonoCasa.Text, this.txtTelefonoCelular.Text, this.txtEmail.Text)
-                        )
+                    if (!Adminexiste(this.txtCedula.Text))
                     {
-                        this.lblResultado.Text = "Registro Modificado";
+
+                        C_AdminRentals oAdminRentals = new C_AdminRentals();
+                        if (oAdminRentals.ModificaAdminRentals(id_AdminRentals, this.txtCedula.Text,
+                           this.txtNombre.Text, this.txtSegundoNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text,
+                           null, this.txtTelefonoCasa.Text, this.txtTelefonoCelular.Text, this.txtEmail.Text)
+                            )
+                        {
+                            this.lblResultado.Text = "Registro Modificado";
+                        }
+                        else
+                        {
+                            this.lblResultado.Text = "No se pudo modificar";
+                        }
                     }
                     else
                     {
-                        this.lblResultado.Text = "No se pudo modificar";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
                     }
 
                 }
@@ -113,6 +120,36 @@ namespace ProyectoSmartRentals.Formularios
         protected void btnAtras_Click(object sender, EventArgs e)
         {
 
+        }
+
+        bool Adminexiste(string user)
+        {
+
+            string llavePrimaria = this.txtCedula.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_AdminRentals oUsuario = new Metodos.C_AdminRentals();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaAdminRentalName_Result resultadoSp = oUsuario.RetornaAdminName(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
         void CargaDatosAdminRentals()

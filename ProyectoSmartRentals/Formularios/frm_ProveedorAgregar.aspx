@@ -296,7 +296,17 @@
                 confirmButtonText: "Ok",
                 confirmButtonColor: "#ADC867"
        });
-        }
+         }
+
+         function alertmeDuplicate() {
+             swal({
+                 title: "Proveedor duplicado",
+                 text: "El Proveedor ingresado ya se encuentra registrado",
+                 type: "error",
+                 confirmButtonText: "Ok",
+                 confirmButtonColor: "#ADC867"
+             });
+         }
 
         function alertmeSuccess() {
             swal({
@@ -307,7 +317,7 @@
                 confirmButtonColor: "#55407D"
             });
         }
-    </script>
+     </script>
 
 
 

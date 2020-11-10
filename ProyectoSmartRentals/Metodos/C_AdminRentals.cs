@@ -79,6 +79,15 @@ namespace ProyectoSmartRentals.Metodos
             return false;
         }
 
+        public sp_RetornaAdminRentalName_Result RetornaAdminName(string nombre_admin)
+        {
+            sp_RetornaAdminRentalName_Result resultado = new sp_RetornaAdminRentalName_Result();
+
+            resultado = modeloDB.sp_RetornaAdminRentalName(nombre_admin).FirstOrDefault();
+
+            return resultado;
+        }
+
         public List<sp_RetornaAdminRental_Result> RetornaAdminRental(string adr_Cedula, string adr_Nombre, string adr_SegundoNombre, string adr_PrimerApellido, string adr_SegundoApellido, string adr_Email)
         {
             List<sp_RetornaAdminRental_Result> resultado =
@@ -101,5 +110,11 @@ namespace ProyectoSmartRentals.Metodos
 
             return resultado;
         }
+
+
+
+
+
+
     }
 }

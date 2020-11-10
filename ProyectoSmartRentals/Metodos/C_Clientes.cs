@@ -82,6 +82,8 @@ namespace ProyectoSmartRentals.Metodos
             resultado = modeloDB.sp_RetornaClienteID(cli_Cliente).FirstOrDefault();
             return resultado;
         }
+
+      
         #endregion
 
         #region Metodo Retornar Cliente
@@ -100,6 +102,18 @@ namespace ProyectoSmartRentals.Metodos
         {
             List<sp_RetornaClienteDataGrid_Result> resultado = new List<sp_RetornaClienteDataGrid_Result>();
             resultado = this.modeloDB.sp_RetornaClienteDataGrid(alq_activo).ToList();
+            return resultado;
+        }
+        #endregion
+
+
+        #region Metodo Retonar Cliente Name
+        public sp_RetornaClienteName_Result RetornaClientename(string nombre_cliente)
+        {
+            sp_RetornaClienteName_Result resultado = new sp_RetornaClienteName_Result();
+
+            resultado = modeloDB.sp_RetornaClienteName(nombre_cliente).FirstOrDefault();
+
             return resultado;
         }
         #endregion

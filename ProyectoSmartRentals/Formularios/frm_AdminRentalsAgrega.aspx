@@ -263,7 +263,18 @@ input[type="date"], focus {
                 confirmButtonText: "Ok",
                 confirmButtonColor: "#ADC867"
        });
-        }
+           }
+
+           function alertmeDuplicate() {
+               swal({
+                   title: "Administrador duplicado",
+                   text: "El Administrador ingresado ya se encuentra registrado",
+                   type: "error",
+                   confirmButtonText: "Ok",
+                   confirmButtonColor: "#ADC867"
+               });
+           }
+
 
         function alertmeSuccess() {
             swal({
@@ -274,6 +285,6 @@ input[type="date"], focus {
                 confirmButtonColor: "#55407D"
             });
         }
-    </script>
+       </script>
 
 </asp:Content>

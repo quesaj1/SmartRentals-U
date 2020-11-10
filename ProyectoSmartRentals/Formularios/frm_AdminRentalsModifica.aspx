@@ -231,4 +231,21 @@ input[type="date"], focus {
         </div>
         </div>
 
+
+     <script>
+        
+
+         function alertmeDuplicate() {
+             swal({
+                 title: "Administrador duplicado",
+                 text: "El Administrador ingresado ya se encuentra registrado",
+                 type: "error",
+                 confirmButtonText: "Ok",
+                 confirmButtonColor: "#ADC867"
+             });
+         }
+
+        
+     </script>
+
 </asp:Content>

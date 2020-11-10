@@ -404,6 +404,14 @@ namespace ProyectoSmartRentals.Formularios
                 return false;
             }
         }
+
+
+
+
+
+
+
+
         protected void txtMonto_TextChanged(object sender, EventArgs e)
         {
             //string a = this.txtMonto.Text;

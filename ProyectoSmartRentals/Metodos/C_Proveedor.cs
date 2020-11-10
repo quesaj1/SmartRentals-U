@@ -132,7 +132,21 @@ namespace ProyectoSmartRentals.Metodos
             }
             return false;
         }
+
+
         #endregion
+
+        #region Metodo Retonar Proveedor Name
+        public sp_RetornaProveedorName_Result RetornaProveedorname(string nombre_proveedor)
+        {
+            sp_RetornaProveedorName_Result resultado = new sp_RetornaProveedorName_Result();
+
+            resultado = modeloDB.sp_RetornaProveedorName(nombre_proveedor).FirstOrDefault();
+
+            return resultado;
+        }
+        #endregion
+
 
     }
 }

@@ -1767,5 +1767,32 @@ namespace ProyectoSmartRentals.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaContratoName_Result>("sp_RetornaContratoName", v_ctr_numeroContratoParameter);
         }
+    
+        public virtual ObjectResult<sp_RetornaAdminRentalName_Result> sp_RetornaAdminRentalName(string v_adr_Cedula)
+        {
+            var v_adr_CedulaParameter = v_adr_Cedula != null ?
+                new ObjectParameter("v_adr_Cedula", v_adr_Cedula) :
+                new ObjectParameter("v_adr_Cedula", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaAdminRentalName_Result>("sp_RetornaAdminRentalName", v_adr_CedulaParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaClienteName_Result> sp_RetornaClienteName(string v_cli_Cedula)
+        {
+            var v_cli_CedulaParameter = v_cli_Cedula != null ?
+                new ObjectParameter("v_cli_Cedula", v_cli_Cedula) :
+                new ObjectParameter("v_cli_Cedula", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaClienteName_Result>("sp_RetornaClienteName", v_cli_CedulaParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaProveedorName_Result> sp_RetornaProveedorName(string v_prv_CedulaRepresentante)
+        {
+            var v_prv_CedulaRepresentanteParameter = v_prv_CedulaRepresentante != null ?
+                new ObjectParameter("v_prv_CedulaRepresentante", v_prv_CedulaRepresentante) :
+                new ObjectParameter("v_prv_CedulaRepresentante", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaProveedorName_Result>("sp_RetornaProveedorName", v_prv_CedulaRepresentanteParameter);
+        }
     }
 }

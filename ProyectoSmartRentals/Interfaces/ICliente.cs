@@ -42,6 +42,12 @@ namespace ProyectoSmartRentals.Interfaces
         #endregion
 
 
+        #region Metodo  Retornar cliente por nombre
+        sp_RetornaClienteName_Result RetornaClientename(string nombre_cliente);
+        #endregion
+
+
+
 
         #region Metodo  Retornar Cliente
         List<sp_RetornaCliente_Result> RetornarCliente(string cli_Cedula,

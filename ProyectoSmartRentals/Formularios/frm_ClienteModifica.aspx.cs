@@ -142,21 +142,28 @@ namespace ProyectoSmartRentals.Formularios
 
                 try
                 {
-
-                    C_Clientes oCliente = new C_Clientes();
-                    DateTime fechanacimiento = Convert.ToDateTime(this.fechafinalizacion.Value);
-                    DateTime now = DateTime.Now;
-                    if (oCliente.ModificarCliente(id_cliente, txtIdCliente.Text, txtNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text,
-                        txtSegundoApellido.Text, fechanacimiento, txtTelefonoCasa.Text, txtTelefonoCelular.Text, txtEmail.Text, true)
-                        )
+                    if (!clienteexiste(this.txtCedula.Text))
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
-                        this.limpiardatos();
+                        C_Clientes oCliente = new C_Clientes();
+                        DateTime fechanacimiento = Convert.ToDateTime(this.fechafinalizacion.Value);
+                        DateTime now = DateTime.Now;
+                        if (oCliente.ModificarCliente(id_cliente, txtIdCliente.Text, txtNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text,
+                            txtSegundoApellido.Text, fechanacimiento, txtTelefonoCasa.Text, txtTelefonoCelular.Text, txtEmail.Text, true)
+                            )
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                            this.limpiardatos();
+                        }
+                        else
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                            this.limpiardatos();
+                        }
                     }
+
                     else
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
-                        this.limpiardatos();
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
                     }
 
                 }
@@ -178,6 +185,37 @@ namespace ProyectoSmartRentals.Formularios
             this.txtTelefonoCelular.Text = null;
             this.txtEmail.Text = null;
 
+        }
+
+
+        bool clienteexiste(string user)
+        {
+
+            string llavePrimaria = this.txtCedula.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Clientes oUsuario = new Metodos.C_Clientes();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaClienteName_Result resultadoSp = oUsuario.RetornaClientename(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
 

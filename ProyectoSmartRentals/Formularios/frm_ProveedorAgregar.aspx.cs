@@ -99,7 +99,14 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            AgregarProveedor();
+            if (!proveedorexiste(this.txtCedulaRepresentante.Text))
+            {
+                AgregarProveedor();
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
+            }
         }
 
         void AgregarProveedor()
@@ -222,6 +229,36 @@ namespace ProyectoSmartRentals.Formularios
                 else
                 {
                     return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        bool proveedorexiste(string user)
+        {
+
+            string llavePrimaria = this.txtCedulaRepresentante.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Proveedor oUsuario = new Metodos.C_Proveedor();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaProveedorName_Result resultadoSp = oUsuario.RetornaProveedorname(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
                 }
 
             }

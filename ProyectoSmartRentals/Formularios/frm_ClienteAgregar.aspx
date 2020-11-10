@@ -273,7 +273,17 @@ input[type="date"], focus {
                 confirmButtonText: "Ok",
                 confirmButtonColor: "#ADC867"
        });
-        }
+       }
+
+       function alertmeDuplicate() {
+           swal({
+               title: "Cliente duplicado",
+               text: "El Cliente ingresado ya se encuentra registrado",
+               type: "error",
+               confirmButtonText: "Ok",
+               confirmButtonColor: "#ADC867"
+           });
+       }
 
         function alertmeSuccess() {
             swal({
@@ -284,5 +294,5 @@ input[type="date"], focus {
                 confirmButtonColor: "#55407D"
             });
         }
-    </script>
+   </script>
 </asp:Content>

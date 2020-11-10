@@ -314,6 +314,16 @@
             });
         }
 
+        function alertmeDuplicate() {
+            swal({
+                title: "Proveedor duplicado",
+                text: "El Proveedor ingresado ya se encuentra registrado",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+            });
+        }
+
         function alertmeSuccess() {
             swal({
                 title: "Proveedor agregado",

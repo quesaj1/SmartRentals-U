@@ -40,7 +40,17 @@ namespace ProyectoSmartRentals.Formularios
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            AgregarCliente();
+
+            if (!clienteexiste(this.txtCedula.Text))
+            {
+                AgregarCliente();
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
+            }
+
+            //AgregarCliente();
         }
 
         void menu()
@@ -223,6 +233,37 @@ namespace ProyectoSmartRentals.Formularios
             this.txtTelefonoCelular.Text = null;
             this.txtEmail.Text = null;
            
+        }
+
+
+        bool clienteexiste(string user)
+        {
+
+            string llavePrimaria = this.txtCedula.Text;
+            if (!string.IsNullOrEmpty(llavePrimaria))
+            {
+                string userid = llavePrimaria;
+                Metodos.C_Clientes oUsuario = new Metodos.C_Clientes();
+                ///Crear la instancia del objeto de retorno
+                ///del procedimiento almacenado
+                sp_RetornaClienteName_Result resultadoSp = oUsuario.RetornaClientename(userid);
+
+                ///validar que el procedimiento retorne un valor
+                if (resultadoSp != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
         protected void btnAtras_Click(object sender, EventArgs e)

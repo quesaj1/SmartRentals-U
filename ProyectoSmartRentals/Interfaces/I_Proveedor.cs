@@ -86,5 +86,11 @@ namespace ProyectoSmartRentals.Interfaces
              );
         #endregion
 
+
+        #region Metodo  Retornar proveedor por nombre
+        sp_RetornaProveedorName_Result RetornaProveedorname(string nombre_proveedor);
+        #endregion
+
+
     }
 }

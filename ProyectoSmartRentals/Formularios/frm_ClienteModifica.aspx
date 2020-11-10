@@ -293,6 +293,16 @@ input[type="date"], focus {
        });
         }
 
+        function alertmeDuplicate() {
+            swal({
+                title: "Cliente duplicado",
+                text: "El Cliente ingresado ya se encuentra registrado",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+            });
+        }
+
         function alertmeSuccess() {
             swal({
                 title: "Cliente modificado",
