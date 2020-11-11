@@ -200,6 +200,7 @@ namespace ProyectoSmartRentals.Formularios
 
                 System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
                 msg.To.Add(this.DropDownListEmail.SelectedItem.ToString());
+                msg.CC.Add("info.smartrentals@gmail.com");
                 msg.Subject = "Notificacion de Pago del aquiler en la fecha de:" + " " + this.txtFechaPago.Text.ToString();
                 msg.SubjectEncoding = System.Text.Encoding.UTF8;
 
