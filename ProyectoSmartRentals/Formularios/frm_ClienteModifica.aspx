@@ -232,6 +232,7 @@ input[type="date"], focus {
                 <asp:TextBox ID="txtSegundoApellido" type="text" CssClass="form-control" ForeColor="Black" placeholder="Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
+                  <asp:TextBox runat="server" ID="lastcliente" Visible="False"></asp:TextBox>
                 <!-- txtFechaNacimiento -->
                 <label for="txtFechaNacimiento">Fecha Nacimiento<span style="color:red;">*</span></label><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="fechafinalizacion" ErrorMessage="*Debe seleccionar una Fecha de Nacimiento*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>

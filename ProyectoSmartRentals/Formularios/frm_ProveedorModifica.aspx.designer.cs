@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoSmartRentals.Formularios {
-    
-    
-    public partial class frm_ProveedorModifica {
-        
+namespace ProyectoSmartRentals.Formularios
+{
+
+
+    public partial class frm_ProveedorModifica
+    {
+
         /// <summary>
         /// Control hdldProveedor.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdldProveedor;
-        
+
         /// <summary>
         /// Control txtIDProveedor.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIDProveedor;
-        
+
         /// <summary>
         /// Control txtNombreVariable.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreVariable;
-        
+
         /// <summary>
         /// Control txtNombreRepresentante.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreRepresentante;
-        
+
         /// <summary>
         /// Control txtPrimerApellido.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrimerApellido;
-        
+
         /// <summary>
         /// Control txtSegundoApellido.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSegundoApellido;
-        
+
         /// <summary>
         /// Control txtCedulaRepresentante.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCedulaRepresentante;
-        
+
         /// <summary>
         /// Control txtCedulaJuridica.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCedulaJuridica;
-        
+
         /// <summary>
         /// Control txtTelefono.
         /// </summary>
@@ -92,7 +94,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
-        
+
         /// <summary>
         /// Control RegularExpressionValidator.
         /// </summary>
@@ -101,7 +103,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator;
-        
+
         /// <summary>
         /// Control txtEmail.
         /// </summary>
@@ -110,7 +112,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
+
         /// <summary>
         /// Control RequiredFieldValidatorTipo.
         /// </summary>
@@ -119,7 +121,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorTipo;
-        
+
         /// <summary>
         /// Control txtTipoProveedor.
         /// </summary>
@@ -128,7 +130,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect txtTipoProveedor;
-        
+
         /// <summary>
         /// Control RequiredFieldValidatorProv.
         /// </summary>
@@ -137,7 +139,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorProv;
-        
+
         /// <summary>
         /// Control DropDownListProvincia.
         /// </summary>
@@ -146,7 +148,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListProvincia;
-        
+
         /// <summary>
         /// Control RequiredFieldValidatorCant.
         /// </summary>
@@ -155,7 +157,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCant;
-        
+
         /// <summary>
         /// Control DropDownListCanton.
         /// </summary>
@@ -164,7 +166,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListCanton;
-        
+
         /// <summary>
         /// Control RequiredFieldValidatorDist.
         /// </summary>
@@ -173,7 +175,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorDist;
-        
+
         /// <summary>
         /// Control DropDownListDistrito.
         /// </summary>
@@ -182,7 +184,25 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListDistrito;
-        
+
+        /// <summary>
+        /// Control lastProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lastProveedor;
+
+        /// <summary>
+        /// Control lastProveedorCJ.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lastProveedorCJ;
+
         /// <summary>
         /// Control RequiredFieldValidatorSenas.
         /// </summary>
@@ -191,7 +211,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorSenas;
-        
+
         /// <summary>
         /// Control txtOtrasSenas.
         /// </summary>
@@ -200,7 +220,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOtrasSenas;
-        
+
         /// <summary>
         /// Control DropDownListProvincia1.
         /// </summary>
@@ -209,7 +229,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListProvincia1;
-        
+
         /// <summary>
         /// Control DropDownListCanton1.
         /// </summary>
@@ -218,7 +238,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListCanton1;
-        
+
         /// <summary>
         /// Control DropDownListDistrito1.
         /// </summary>
@@ -227,7 +247,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListDistrito1;
-        
+
         /// <summary>
         /// Control btnShowPopup.
         /// </summary>
@@ -236,7 +256,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnShowPopup;
-        
+
         /// <summary>
         /// Control btnAtras.
         /// </summary>
@@ -245,7 +265,7 @@ namespace ProyectoSmartRentals.Formularios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAtras;
-        
+
         /// <summary>
         /// Control lblResultado.
         /// </summary>

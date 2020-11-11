@@ -111,6 +111,7 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtTelefonoCasa.Text = resultadoSp.cli_TelefonoCasa;
                     this.txtTelefonoCelular.Text = resultadoSp.cli_TelefonoCelular;
                     this.txtEmail.Text = resultadoSp.cli_Email;
+                    this.lastcliente.Text = resultadoSp.cli_Cedula;
 
                     this.fechafinalizacion.Value = fecha.HasValue ? fecha.Value.ToString("yyyy-MM-dd") : "<not available>";
                 }
@@ -142,7 +143,9 @@ namespace ProyectoSmartRentals.Formularios
 
                 try
                 {
-                    if (!clienteexiste(this.txtCedula.Text))
+
+                    if (this.lastcliente.Text == this.txtCedula.Text)
+
                     {
                         C_Clientes oCliente = new C_Clientes();
                         DateTime fechanacimiento = Convert.ToDateTime(this.fechafinalizacion.Value);
@@ -152,18 +155,41 @@ namespace ProyectoSmartRentals.Formularios
                             )
                         {
                             ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
-                            this.limpiardatos();
+                          
                         }
                         else
                         {
                             ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
-                            this.limpiardatos();
+                            
                         }
                     }
-
-                    else
+                    else 
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
+
+                        if (!clienteexiste(this.txtCedula.Text))
+                        {
+                            C_Clientes oCliente = new C_Clientes();
+                            DateTime fechanacimiento = Convert.ToDateTime(this.fechafinalizacion.Value);
+                            DateTime now = DateTime.Now;
+                            if (oCliente.ModificarCliente(id_cliente, txtIdCliente.Text, txtNombre.Text, txtSegundoNombre.Text, txtPrimerApellido.Text,
+                                txtSegundoApellido.Text, fechanacimiento, txtTelefonoCasa.Text, txtTelefonoCelular.Text, txtEmail.Text, true)
+                                )
+                            {
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                                this.limpiardatos();
+                            }
+                            else
+                            {
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                                this.limpiardatos();
+                            }
+                        }
+
+                        else
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
+                        }
+
                     }
 
                 }

@@ -138,9 +138,10 @@ namespace ProyectoSmartRentals.Formularios
 
                 try
                 {
-                    if (!proveedorexiste(this.txtCedulaRepresentante.Text))
+                    if (this.lastProveedor.Text == this.txtCedulaRepresentante.Text)
                     {
-                        if (!proveedorCJexiste(this.txtCedulaJuridica.Text))
+
+                        if (this.lastProveedorCJ.Text == this.txtCedulaJuridica.Text)
                         {
 
                             C_Proveedor oProveedor = new C_Proveedor();
@@ -156,18 +157,42 @@ namespace ProyectoSmartRentals.Formularios
                             {
                                 ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                             }
+
+                        }
+
+                    }
+                    else {
+
+                        if (!proveedorexiste(this.txtCedulaRepresentante.Text))
+                        {
+                            if (!proveedorCJexiste(this.txtCedulaJuridica.Text))
+                            {
+
+                                C_Proveedor oProveedor = new C_Proveedor();
+                                string TipoProveedor = this.txtTipoProveedor.Value.ToString();
+                                if (oProveedor.ModificarProveedor(id_proveedor, txtNombreVariable.Text, txtNombreRepresentante.Text,
+                                   txtPrimerApellido.Text, txtSegundoApellido.Text, txtCedulaRepresentante.Text, txtCedulaJuridica.Text, txtTelefono.Text, txtEmail.Text, TipoProveedor, Convert.ToInt16(this.DropDownListDistrito.Text),
+                                      Convert.ToInt16(this.DropDownListCanton.Text), Convert.ToInt16(this.DropDownListProvincia.Text), txtOtrasSenas.Text, true)
+                                    )
+                                {
+                                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+                                }
+                                else
+                                {
+                                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
+                                }
+                            }
+                            else
+                            {
+                                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicateCJ()", true);
+                            }
                         }
                         else
                         {
-                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicateCJ()", true);
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
                         }
-                    }
-                    else
-                    {
-                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
-                    }
 
-
+                    }
 
                 }
                 catch (Exception error)
@@ -215,7 +240,8 @@ namespace ProyectoSmartRentals.Formularios
                     _canton = Convert.ToInt32(resultadoSp.Id_Canton.ToString());
                     _distrito = Convert.ToInt32(resultadoSp.Id_Distrito.ToString());
                     this.txtOtrasSenas.Text = resultadoSp.prv_OtrasSenas;
-
+                    this.lastProveedor.Text = resultadoSp.prv_CedulaRepresentante;
+                    this.lastProveedorCJ.Text = resultadoSp.prv_CedulaJuridica;
 
                 }
 

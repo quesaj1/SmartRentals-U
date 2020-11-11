@@ -148,6 +148,8 @@ input[type="date"], focus {
 
 /*Finaliza el estilo del select2 dropdownlist */
     </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
     <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
          <h1 style="text-align: center">Modificar Administrador</h1>
@@ -189,6 +191,7 @@ input[type="date"], focus {
                 <asp:TextBox ID="txtSegundoApellido" type="text" ForeColor="Black" CssClass="form-control" placeholder="Ingrese un Segundo Apellido" runat="server" MaxLength="50"></asp:TextBox>
             </div>
               <div class="form-group col-md-6">
+                   <asp:TextBox runat="server" ID="lastAdmin" Visible="False"></asp:TextBox>
                 <!-- Fecha Nacimiento -->
                 <label for="txtFechaNacimiento">Fecha Nacimiento <span style="color:red;">*</span></label><br />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaNacimiento" ErrorMessage="*Debe seleccionar una Fecha de Nacimiento*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
@@ -233,7 +236,16 @@ input[type="date"], focus {
 
 
      <script>
-        
+         function alertmeError() {
+             swal({
+                 title: "Error al modificar el Administrador",
+                 text: "Ha ocurrido un error al modificar el Administrador. Si el problema persiste contacte al administrador del sistema",
+                 type: "error",
+                 confirmButtonText: "Ok",
+                 confirmButtonColor: "#ADC867"
+             });
+         }
+
 
          function alertmeDuplicate() {
              swal({
@@ -242,6 +254,16 @@ input[type="date"], focus {
                  type: "error",
                  confirmButtonText: "Ok",
                  confirmButtonColor: "#ADC867"
+             });
+         }
+
+         function alertmeSuccess() {
+             swal({
+                 title: "Administrador modificado",
+                 text: "El Administrador ha sido modificado satisfactoriamente",
+                 type: "success",
+                 confirmButtonText: "Ok",
+                 confirmButtonColor: "#55407D"
              });
          }
 

@@ -229,6 +229,8 @@
 
                 <!--OtrasSenas-->
                 <div class="form-group col-md-6">
+                     <asp:TextBox runat="server" ID="lastProveedor" Visible="False"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="lastProveedorCJ" Visible="False"></asp:TextBox>
                     <label for="txtOtrasSenas">Comentarios<span style="color: red;">*</span></label>
                     <br />
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorSenas" runat="server" ControlToValidate="txtOtrasSenas" ErrorMessage="*Debe ingresar un comentario* " SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light"></asp:RequiredFieldValidator>

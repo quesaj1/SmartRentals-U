@@ -88,27 +88,49 @@ namespace ProyectoSmartRentals.Formularios
                 try
                 {
 
-                    if (!Adminexiste(this.txtCedula.Text))
-                    {
+                    if (this.lastAdmin.Text == this.txtCedula.Text)
 
+                    {
                         C_AdminRentals oAdminRentals = new C_AdminRentals();
                         if (oAdminRentals.ModificaAdminRentals(id_AdminRentals, this.txtCedula.Text,
                            this.txtNombre.Text, this.txtSegundoNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text,
                            null, this.txtTelefonoCasa.Text, this.txtTelefonoCelular.Text, this.txtEmail.Text)
                             )
                         {
-                            this.lblResultado.Text = "Registro Modificado";
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
+
                         }
                         else
                         {
-                            this.lblResultado.Text = "No se pudo modificar";
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
                         }
                     }
-                    else
-                    {
-                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
-                    }
 
+                    else
+
+                    {
+                        if (!Adminexiste(this.txtCedula.Text))
+                        {
+
+                            C_AdminRentals oAdminRentals = new C_AdminRentals();
+                            if (oAdminRentals.ModificaAdminRentals(id_AdminRentals, this.txtCedula.Text,
+                               this.txtNombre.Text, this.txtSegundoNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text,
+                               null, this.txtTelefonoCasa.Text, this.txtTelefonoCelular.Text, this.txtEmail.Text)
+                                )
+                            {
+                                this.lblResultado.Text = "Registro Modificado";
+                            }
+                            else
+                            {
+                                this.lblResultado.Text = "No se pudo modificar";
+                            }
+                        }
+                        else
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeDuplicate()", true);
+                        }
+
+                    }
                 }
                 catch (Exception error)
                 {
@@ -177,6 +199,7 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtTelefonoCasa.Text = resultadoSp.adr_TelefonoCasa;
                     this.txtTelefonoCelular.Text = resultadoSp.adr_TelefonoCelular;
                     this.txtEmail.Text = resultadoSp.adr_Email;
+                    this.lastAdmin.Text = resultadoSp.adr_Cedula;
                 }
 
             }
