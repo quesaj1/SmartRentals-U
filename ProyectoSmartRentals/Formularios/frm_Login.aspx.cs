@@ -88,17 +88,20 @@ namespace ProyectoSmartRentals.Formularios
                     }
                     else
                     {
-                        this.lblResultado.Text = "Usuario inactivo";
+                        // this.lblResultado.Text = "Usuario inactivo";
+                        ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeinactive()", true);
                     }
                 }
                 else
                 {
-                    this.lblResultado.Text = "Credenciales incorrectas";
+                    // this.lblResultado.Text = "Credenciales incorrectas";
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeIncorrecto()", true);
                 }
             }
             else
             {
-                this.lblResultado.Text = "Usuario ingresado no existe";
+                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmenotexisting()", true);
+                //this.lblResultado.Text = "Usuario ingresado no existe";
             }
         }
 

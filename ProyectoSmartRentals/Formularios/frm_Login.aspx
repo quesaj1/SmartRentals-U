@@ -207,6 +207,98 @@
             }
         }
     </style>
+
+
+        <style type="text/css">
+      .boton_personalizado{
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #adc867;
+    border-width:thin;
+    border-radius:8px;
+  }
+  .boton_personalizado:hover{
+    color: #ffffff;
+    background-color: #55407d;
+    
+    border-radius:8px;
+  }
+
+        input.error {
+            border: 1px dotted red;
+        }
+
+        label.error {
+            position: static;
+            background: url('images/unchecked.gif') no-repeat;
+            padding-left: 20px;
+            margin-left: .3em;
+            vertical-align: middle;
+            width: 250px;
+            float: right;
+        }
+
+        /*Agregar esto para el diseño del select2 de los dropdownlists*/
+.select2-selection__rendered {
+    line-height: 23px !important;
+    font-family: Montserrat, sans-serif; 
+    font-size: 16px;
+    color: #6c757d !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 35px !important;
+}
+
+.select2-selection { overflow: hidden; }
+.select2-selection__rendered { white-space: normal; word-break: break-all; }
+
+/*Finaliza el estilo del select2 dropdownlist */
+    </style>
+
+        <%--Agregar estas librerias para el select 2--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css" rel="stylesheet"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+    <link href="../Content/css/select2.min.css" rel="stylesheet" /> 
+    <script src="../Scripts/select2.min.js"></script>
+    <link href="../Content/select2-bootstrap.css" rel="stylesheet" />
+
+      <%--Finaliza las librerias--%>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+        <!-- Modal Popup -->
+
+    <div id="MyPopup" class="modal fade" data-keyboard="false" data-backdrop="static" role="dialog" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+
+            <!-- Modal content-->
+
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #55407d">
+                    <h4 class="modal-title" style="color: white"></h4>
+                 <%--   <button type="button" class="close" aria-label="Cancelar" style="color: white" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>--%>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color:#ADC867;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Popup -->
+
     <asp:HiddenField ID="hddError" runat="server" />
 
     <div class="error" style="margin-top: 10%; margin-right: 30%; margin-left: 30%" runat="server" id="banner_error" visible="false">
@@ -264,4 +356,52 @@
     <br>
     <br>
     <br>
+
+     <script>
+        function alertmeError(){
+            swal({
+                title: "Error al agregar",
+                text: "Ha ocurrido un error al agregar el proveedor. Si el problema persiste contacte al administrador del sistema",
+                type: "error",
+                confirmButtonText: "Ok",
+                confirmButtonColor: "#ADC867"
+       });
+         }
+
+
+
+         function alertmeIncorrecto(){
+             swal({
+                 title: "Credenciales incorrectas",
+                 text: "Usuario o contraseña incorrectas. Intente de nuevo.",
+                 type: "error",
+                 confirmButtonText: "Ok",
+                 confirmButtonColor: "#ADC867"
+             });
+         }
+
+         function alertmenotexisting() {
+             swal({
+                 title: "Usuario no existe",
+                 text: "El usuario ingresado no existe",
+                 type: "error",
+                 confirmButtonText: "Ok",
+                 confirmButtonColor: "#ADC867"
+             });
+         }
+
+
+          function alertmeinactive() {
+             swal({
+                 title: "Usuario inactivo",
+                 text: "El usuario ingresado no se encuentra activo. Contacte al administrador.",
+                 type: "error",
+                 confirmButtonText: "Ok",
+                 confirmButtonColor: "#ADC867"
+             });
+         }
+        
+     </script>
+
+
 </asp:Content>
