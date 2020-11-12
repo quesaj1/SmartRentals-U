@@ -29,7 +29,8 @@ namespace ProyectoSmartRentals.Formularios
             if (!Session["Tipo"].Equals("Proveedor"))
             {
                 DropDownList1.Items.FindByText("Sin Asignar").Enabled = false;
-              
+                
+
             }
                 
 
@@ -38,6 +39,7 @@ namespace ProyectoSmartRentals.Formularios
 
                 menu();
 
+                this.grdListaTiquetes.Columns[13].Visible = false;
                 cargardatosGrid(_pk_admin,_pk_cliente, _pk_proveedor,_estado,_rol);
              
             }
@@ -128,30 +130,32 @@ namespace ProyectoSmartRentals.Formularios
 
             if (texto.Equals("Todos"))
             {
-                this.grdListaTiquetes.Columns[14].Visible = false;
+                this.grdListaTiquetes.Columns[13].Visible = false;
                 _estado = null;
                 cargardatosGrid(_pk_admin, _pk_cliente, _pk_proveedor, null, _rol);
             }
             if (texto.Equals("Pendiente"))
             {
-                this.grdListaTiquetes.Columns[14].Visible = false;
+                this.grdListaTiquetes.Columns[13].Visible = false;
                 _estado = "Pendiente";
                 cargardatosGrid(_pk_admin, _pk_cliente, _pk_proveedor, "Pendiente", _rol);
             }
             if (texto.Equals("Completado"))
             {
-                this.grdListaTiquetes.Columns[14].Visible = false;
+                this.grdListaTiquetes.Columns[13].Visible = false;
                 _estado = "Completado";
                 cargardatosGrid(_pk_admin, _pk_cliente, _pk_proveedor, "Completado", _rol);
             }
             if (texto.Equals("En progreso"))
             {
-                this.grdListaTiquetes.Columns[14].Visible = false;
+                this.grdListaTiquetes.Columns[13].Visible = false;
                 _estado = "En progreso";
                 cargardatosGrid(_pk_admin, _pk_cliente, _pk_proveedor, "En progreso", _rol);
             }
             if (texto.Equals("Sin Asignar"))
             {
+
+                this.grdListaTiquetes.Columns[13].Visible = true;
                 _estado = "Pendiente";
                 cargardatosGrid(0, 0, 30, "Pendiente", _rol);
             }
