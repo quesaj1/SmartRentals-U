@@ -83,6 +83,7 @@ namespace ProyectoSmartRentals.Formularios
                 int id_AdminRentals = 0;
 
                 ///obtener del hiddenField el valor de la llave primaria
+                 DateTime fechaFinalizacion = Convert.ToDateTime(this.fechaNacimiento.Value);
                 id_AdminRentals = Convert.ToInt16(this.hdldAdmin.Value);
 
                 try
@@ -94,7 +95,7 @@ namespace ProyectoSmartRentals.Formularios
                         C_AdminRentals oAdminRentals = new C_AdminRentals();
                         if (oAdminRentals.ModificaAdminRentals(id_AdminRentals, this.txtCedula.Text,
                            this.txtNombre.Text, this.txtSegundoNombre.Text, this.txtPrimerApellido.Text, this.txtSegundoApellido.Text,
-                           null, this.txtTelefonoCasa.Text, this.txtTelefonoCelular.Text, this.txtEmail.Text)
+                           fechaFinalizacion, this.txtTelefonoCasa.Text, this.txtTelefonoCelular.Text, this.txtEmail.Text)
                             )
                         {
                             ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
@@ -195,11 +196,17 @@ namespace ProyectoSmartRentals.Formularios
                     this.txtSegundoNombre.Text = resultadoSp.adr_SegundoNombre;
                     this.txtPrimerApellido.Text = resultadoSp.adr_PrimerApellido;
                     this.txtSegundoApellido.Text = resultadoSp.adr_SegundoApellido;
-                    this.txtFechaNacimiento.Text = resultadoSp.adr_FechaNacimiento.ToString();
+                    //this.txtFechaNacimiento.Text = resultadoSp.adr_FechaNacimiento.ToString();
                     this.txtTelefonoCasa.Text = resultadoSp.adr_TelefonoCasa;
                     this.txtTelefonoCelular.Text = resultadoSp.adr_TelefonoCelular;
                     this.txtEmail.Text = resultadoSp.adr_Email;
                     this.lastAdmin.Text = resultadoSp.adr_Cedula;
+
+                    Nullable<DateTime> fecha = resultadoSp.adr_FechaNacimiento;
+
+                    this.fechaNacimiento.Value = fecha.HasValue ? fecha.Value.ToString("yyyy-MM-dd") : "<not available>";
+
+
                 }
 
             }

@@ -174,7 +174,7 @@ input[type="date"], focus {
               <div class="form-group col-md-6">
                 <!-- Correo -->
                 <label for="txtSegundoNombre">Segundo Nombre <span style="color:red;">*</span></label>
-                <asp:TextBox ID="txtSegundoNombre" type="text" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
+                <asp:TextBox ID="txtSegundoNombre" ForeColor="Black" type="text" CssClass="form-control" placeholder="Segundo Nombre" runat="server" MaxLength="50"></asp:TextBox>             
             </div>
               <div class="form-group col-md-6">
                 <!-- Correo -->
@@ -194,9 +194,9 @@ input[type="date"], focus {
                    <asp:TextBox runat="server" ID="lastAdmin" Visible="False"></asp:TextBox>
                 <!-- Fecha Nacimiento -->
                 <label for="txtFechaNacimiento">Fecha Nacimiento <span style="color:red;">*</span></label><br />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="txtFechaNacimiento" ErrorMessage="*Debe seleccionar una Fecha de Nacimiento*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
-
-                <asp:TextBox ID="txtFechaNacimiento" type="date" ForeColor="Black" CssClass="form-control" placeholder="Ingrese una Fecha Nacimiento" runat="server" MaxLength="50"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorFechaIni" runat="server" ControlToValidate="fechaNacimiento" ErrorMessage="*Debe seleccionar una Fecha de Nacimiento*" SetFocusOnError="True" Font-Size="Small" ForeColor="#FF0066" Display="Dynamic" CssClass="alert-light" ValidationGroup="Save"></asp:RequiredFieldValidator>
+                   <input type="date" class="form-control" forecolor="Black" id="fechaNacimiento" runat="server" style="color: black">
+                <%--<asp:TextBox ID="txtFechaNacimiento" type="date" ForeColor="Black" CssClass="form-control" placeholder="Ingrese una Fecha Nacimiento" runat="serve--%>
             </div>
               <div class="form-group col-md-6">
                 <!-- txtTelefonoCasa -->

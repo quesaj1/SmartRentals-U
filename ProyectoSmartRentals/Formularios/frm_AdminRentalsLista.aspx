@@ -42,7 +42,7 @@
                         <asp:BoundField DataField="adr_SegundoNombre" HeaderText="Segundo Nombre" />
                         <asp:BoundField DataField="adr_PrimerApellido" HeaderText="Primer Apellido" />
                         <asp:BoundField DataField="adr_SegundoApellido" HeaderText="Segundo Apellido" />
-                        <asp:BoundField DataField="adr_FechaNacimiento" HeaderText="Fecha Nacimiento" />
+                        <asp:BoundField DataField="adr_FechaNacimiento" HeaderText="Fecha Nacimiento" DataFormatString="{0:d}"/>
                         <asp:BoundField DataField="adr_TelefonoCasa" HeaderText="Telefono Casa" />
                         <asp:BoundField DataField="adr_TelefonoCelular" HeaderText="Telefono Celular" />
                         <asp:BoundField DataField="adr_Email" HeaderText="Email" />

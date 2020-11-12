@@ -21,6 +21,9 @@
 
     </style>
 
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
     <div id="divForm" style="margin-top:12%; margin-left:15%; margin-right:15%">
          <h1 style="text-align: center">Eliminar Administrador</h1>
 
@@ -86,5 +89,28 @@
             <asp:Label ID="lblResultado" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
         </div>
         </div>
+
+     <script>
+            function alertmeError() {
+                swal({
+                    title: "Error al eliminar",
+                    text: "Ha ocurrido un error al eliminar el alquiler. Si el problema persiste contacte al administrador del sistema",
+                    type: "error",
+                    confirmButtonText: "Ok",
+                    confirmButtonColor: "#ADC867"
+                });
+            }
+
+            function alertmeSuccess() {
+                swal({
+                    title: "Administrador eliminado",
+                    text: "El Administrador ha sido eliminado satisfactoriamente",
+                    type: "success",
+                    confirmButtonText: "Ok",
+                    confirmButtonColor: "#ADC867"
+                });
+            }
+     </script>
+
 
 </asp:Content>

@@ -82,13 +82,13 @@ namespace ProyectoSmartRentals.Formularios
                         Convert.ToInt16(this.hdldAdmin.Value));
 
                 if (registroModificado)
-                    this.lblResultado.Text = "Registro eliminado";
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeSuccess()", true);
                 else
-                    this.lblResultado.Text = "No fue posible eliminar";
+                    ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
             }
             catch (Exception error)
             {
-                this.lblResultado.Text = "Ocurrió un error:" + error.Message;
+                ClientScript.RegisterStartupScript(this.GetType(), "radomtext", "alertmeError()", true);
             }
         }
 
